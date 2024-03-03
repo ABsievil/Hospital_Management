@@ -1,0 +1,122 @@
+BASIC INSTRUCTION:
+
+* git init        tạo repository trong máy
+* git clone       lấy trên mạng về
+* git pull        đồng bộ trên mạng về  // là combine của git fetch và git merge
+
+* git add <name file> & git add .  add zô local repo
+* git commit     lưuu
+* git push       đồng bộ từ máy lên mạng
+
+* git log/git status        check trạng thái
+* git log —decorate —graph —oneline
+git log --oneline
+
+* git remote -v       // check repo trên máy liên kết với repo nào trên github
+* rmdir /s /q .git    // xóa repo trên máy
+-------------------------------------------------------------------
+ login
+B1: login to git server
+*ban đầu: git config --global user.name "your name"
+         git config --global user.email ..@..
+note:Only use for the first login
+-------------------------------------------------------------------
+add new members for project:
+B1:mở cmd của git lên vị trí cần lưu repo
+B2:git clone <link project> 
+B3: git remote add origin (thêm link project vào đây) 
+-------------------------------------------------------------------
+ push code
+git init                               -khởi tạo repo tại máy chủ
+git remote add origin (thêm link project vào đây)                      //Only use for the first login
+git status                             -check file chưa add
+git add <name file> or git add .
+git commit -m "your note"        -lưu
+git push -u origin <branch>              -add lên github
+!note: khi push file lên github nhưng file trên github chưa được pull xuống, git sẽ báo lỗi: hint: (e.g., 'git pull ...') before pushing again.
+khắc phục: ép buộc git push file từ local lên bằng lệnh : git push --force origin master
+-------------------------------------------------------------------
+pull code
+cách 1:git pull                               -kéo xuống đồng bộ với máy chủ
+cách 2:git fetch + git merge                  //cấu trúc lệnh ở ADVANCE INSTRUCTION:
+
+git pull origin branch_name                   //pull code từ branch_name về branch hiện tại
+===================================================================
+ADVANCE INSTRUCTION:
+git checkout -b <tên nhánh mới>                  //tạo nhánh mới bằng cấp với nhánh hiện tại
+git checkout -b <tên nhánh mới> <nhánh gốc>      //tạo nhánh mới là con của nhánh gốc
+git checkout <tên nhánh>                         //move to tên nhánh
+$ git branch                                     //xem nhánh con của nhánh đang ở hiện tại 
+-------------------------------------------------------------------
+Rebase code: giả sử có nhánh cha dev và nhánh con login, muốn add commits trong login vào dev
+B1:git pull                                      //pull new version for dev
+B2: git checkout login                           //move to login branch
+git rebase <dev>          //đem những commits bên trong nhánh login và áp dụng lại vào sau commit mới nhất trong dev
+-------------------------------------------------------------------
+Merge code:  //merge nhánh chính với nhánh gốc, giả sử có nhánh gốc là dev và nhánh con là login
+B1: git status                         //đảm bảo đang ở nhánh dev, nếu không thực hiện lệnh git checkout dev
+B2: git fetch                          //nạp code để đảm bảo version cả login và dev là version mới nhất
+B3:git pull                            //pull code từ github về 
+B4:git merge <branch name>             //branch name = login 
+
+Merge code from myBranch to dev:
+B1:git checkout dev
+B2:git fetch origin myBranch
+B3:git merge origin/myBranch
+B4: nếu có xung đột: pull code về và merge chúng rồi git add ->B5
+B5:git commit -m "Merge myBranch into dev"
+B6:git push origin dev
+B7:nếu có xung đột: quay về B4, sau khi làm lại B4 mà vẫn xung đột, quay lại B4 + git add . sau đó mới đến B5 B6
+Note: có thể không push được do chưa add
+
+note khi merge code từ dev -> master:
+B1->B3 + git pull + git push
+nếu xảy ra conflict: khi pull về git add + git commit + git push
+
+========================update on 29/10/2023=======================================
+Merge code from myBranch to dev:   // nếu muốn merge từ myBranch của server thì thêm origin  //   sẽ merge history theo thứ tự thời gian commit của cả 2 nhánh
+B1: git checkout dev
+B2: git merge Cuong or git merge origin/myBranch 
+B3: nếu có confict, fix nó -> git add -> git commit -> git push origin dev // dòng commit để note lại việc giải quyết xung đột
+B4: nếu không có confict -> git push origin dev 
+git log --oneline để kiểm tra history
+
+Rebase code from myBranch to dev:   // sẽ đẩy commit của myBranch lên trước commit của dev
+B1: git checkout myBranch
+B2: git rebase dev or git rebase origin/dev
+B3: nếu có confict, fix nó -> git add -> git rebase --continue    
+//lúc này history đã được arrange, có thể dùng git log --oneline để check
+B4: git push --force   // ép buộc đẩy lên myBranch, nếu không force thì không đẩy được
+B5:git checkout dev
+B6: git merge myBranch
+B7: git push origin dev
+
+ Status: detached HEAD: tình trạng current branch trên local không ở bất kì nhánh nào, nên khi commit và push thì các commit sẽ bị lạc lõng và có khả năng biến mất
++dấu hiệu : khi status or commit thì sẽ có dòng message cảnh báo: HEAD detached from 3128667
++để tìm kiếm commit đang ở trạng thái lạc lõng, chuyển nhánh : git checkout master 
+sẽ hiện ra dòng cảnh báo:
+==
+Warning: you are leaving 1 commit behind, not connected to
+any of your branches:
+
+  d36ba07 nearly completed, Heap class un-builded
+
+If you want to keep it by creating a new branch, this may be a good time
+to do so with:
+
+ git branch <new-branch-name> d36ba07
+
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+==
+=> commit d36ba07 đang ở trạng thái lạc lõng
++Solve:
+C1: checkout đến nhánh muốn move commit 3128667 vào, sau đó merge: git merge d36ba07
+C2: tạo new branch: git branch <new-branch-name> d36ba07
+==================================================================================
+
+Wawning 2: khi có repo trên github và repo ở local có những file khác biệt nhau, ta muốn kết nối chúng, cần làm:
+1. git pull origin master --allow-unrelated-histories    // kết hợp tất cả các file từ 2 repo với nhau
+2. git add -- git commit -- git push -> finished
+
+
