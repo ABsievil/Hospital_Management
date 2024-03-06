@@ -20,8 +20,8 @@ public class Database {
         return new CommandLineRunner() {
             @Override
             public void run(String... args) throws Exception {
-                Patient patient1 = new Patient("HIV", "Positive", "Operation Tomorrow");
-                Patient patient2 = new Patient("none", "Negative", "Get more vitamins");
+                Patient patient1 = new Patient("Nick" ,"HIV", "Positive", "Operation Tomorrow");
+                Patient patient2 = new Patient("John" ,"none", "Negative", "Get more vitamins");
                 logger.info("insert data: " + patientRepository.save(patient1));
                 logger.info("insert data: " + patientRepository.save(patient2));
             }
