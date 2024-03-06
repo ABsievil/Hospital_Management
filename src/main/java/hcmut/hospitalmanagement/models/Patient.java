@@ -1,0 +1,79 @@
+package hcmut.hospitalmanagement.models;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
+public class Patient {
+
+    // Let the database system generate id its self
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    // these are an OBJECT for Patient Management (string for now)
+    private String medicalHistory;
+    private String testResults;
+    private String treatmentSchedule;
+
+    
+    // Constructor
+    public Patient() {}
+
+    // We do not need ID in constructor because ID is automatically generated (See above)
+    public Patient(String medicalHistory, String testResults, String treatmentSchedule) {
+        this.medicalHistory = medicalHistory;
+        this.testResults = testResults;
+        this.treatmentSchedule = treatmentSchedule;
+    }
+
+
+    // Getters and Setters
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getMedicalHistory() {
+        return this.medicalHistory;
+    }
+
+    public void setMedicalHistory(String medicalHistory) {
+        this.medicalHistory = medicalHistory;
+    }
+
+    public String getTestResults() {
+        return this.testResults;
+    }
+
+    public void setTestResults(String testResults) {
+        this.testResults = testResults;
+    }
+
+    public String getTreatmentSchedule() {
+        return this.treatmentSchedule;
+    }
+
+    public void setTreatmentSchedule(String treatmentSchedule) {
+        this.treatmentSchedule = treatmentSchedule;
+    }
+    
+    // toString() Method to convert data to .JSON file
+
+    @Override
+    public String toString() {
+        return "{" +
+            " id='" + getId() + "'" +
+            ", medicalHistory='" + getMedicalHistory() + "'" +
+            ", testResults='" + getTestResults() + "'" +
+            ", treatmentSchedule='" + getTreatmentSchedule() + "'" +
+            "}";
+    }
+
+}
