@@ -12,6 +12,7 @@ public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String patientName;
 
     // these are an OBJECT for Patient Management (string for now)
     private String medicalHistory;
@@ -23,13 +24,14 @@ public class Patient {
     public Patient() {}
 
     // We do not need ID in constructor because ID is automatically generated (See above)
-    public Patient(String medicalHistory, String testResults, String treatmentSchedule) {
+
+    public Patient(String patientName, String medicalHistory, String testResults, String treatmentSchedule) {
+        this.patientName = patientName;
         this.medicalHistory = medicalHistory;
         this.testResults = testResults;
         this.treatmentSchedule = treatmentSchedule;
     }
-
-
+    
     // Getters and Setters
 
     public Long getId() {
@@ -38,6 +40,14 @@ public class Patient {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getPatientName() {
+        return this.patientName;
+    }
+
+    public void setPatientName(String patientName) {
+        this.patientName = patientName;
     }
 
     public String getMedicalHistory() {
@@ -64,16 +74,20 @@ public class Patient {
         this.treatmentSchedule = treatmentSchedule;
     }
     
+    
     // toString() Method to convert data to .JSON file
+
 
     @Override
     public String toString() {
         return "{" +
             " id='" + getId() + "'" +
+            ", patientName='" + getPatientName() + "'" +
             ", medicalHistory='" + getMedicalHistory() + "'" +
             ", testResults='" + getTestResults() + "'" +
             ", treatmentSchedule='" + getTreatmentSchedule() + "'" +
             "}";
     }
+    
 
 }
