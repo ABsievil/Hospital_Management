@@ -4,10 +4,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @Controller
@@ -17,14 +19,20 @@ public class TestController {
         return "index";
     }
 
-    @RequestMapping("/hello")
-    @ResponseBody
-    public String hello(){
-        return "hello World!";
+    @GetMapping("/about")
+    public String about(){
+        return "about";
     }
 
+    @GetMapping("/hello")
+    public String hello(@RequestParam(name = "username", required = false, defaultValue = "") String username, 
+                        @RequestParam(name = "password", required = false, defaultValue = "") String password, Model model){
+        model.addAttribute("username", username);
+        model.addAttribute("password", password);
+        return "hello";
+    }
     @RestController
-    class LoginController {
+    class LoginController {  //demo
 
         @PostMapping("/login")
         public Map<String, Object> login(@RequestBody Map<String, String> credentials) {
