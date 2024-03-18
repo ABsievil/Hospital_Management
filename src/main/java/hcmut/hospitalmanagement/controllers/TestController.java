@@ -19,12 +19,12 @@ public class TestController {
         return "index";
     }
 
-    @GetMapping("/about")
+    @RequestMapping("/about")
     public String about(){
         return "about";
     }
 
-    @GetMapping("/hello")
+    @RequestMapping("/hello")
     public String hello(@RequestParam(name = "username", required = false, defaultValue = "") String username, 
                         @RequestParam(name = "password", required = false, defaultValue = "") String password, Model model){
         model.addAttribute("username", username);
