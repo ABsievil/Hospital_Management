@@ -1,7 +1,9 @@
 package hcmut.hospitalmanagement.models;
 
+import java.time.LocalTime;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,18 +24,25 @@ public class Doctor {
     @OneToMany(mappedBy = "doctor")
     private List<Patient> patients;
 
+    @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Schedule> schedule;
+
     // Constructors
     public Doctor() {
     }
 
-    public Doctor(Long id, boolean isWorking, PersonalInformation information, List<Patient> patients) {
+
+    public Doctor(Long id, boolean isWorking, PersonalInformation information, List<Patient> patients, List<Schedule> schedule) {
         this.id = id;
         this.isWorking = isWorking;
         this.information = information;
         this.patients = patients;
+        this.schedule = schedule;
     }
+    
 
     // Getters and Setters
+
     public Long getId() {
         return this.id;
     }
@@ -70,6 +79,15 @@ public class Doctor {
         this.patients = patients;
     }
 
+    public List<Schedule> getSchedule() {
+        return this.schedule;
+    }
+
+    public void setSchedule(List<Schedule> schedule) {
+        this.schedule = schedule;
+    }
+    
+
     // toString() Method to convert to JSON
     @Override
     public String toString() {
@@ -78,6 +96,7 @@ public class Doctor {
             ", isWorking='" + isIsWorking() + "'" +
             ", information='" + getInformation() + "'" +
             ", patients='" + getPatients() + "'" +
+            ", schedule='" + getSchedule() + "'" +
             "}";
     }
 
