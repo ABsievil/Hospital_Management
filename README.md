@@ -12,6 +12,10 @@ instruction git and github: you can refer to git.txt
 
 #commit 1
 #commit 2
+<<<<<<< HEAD
 #commit 3
 #commit 4
 #commit 5 of 
+=======
+#commit 3
+>>>>>>> a491d596bf33b1a0661a2754459147cf5674dd2c
