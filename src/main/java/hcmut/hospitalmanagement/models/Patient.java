@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Patient {
@@ -19,6 +21,10 @@ public class Patient {
     private String testResults;
     private String treatmentSchedule;
 
+
+    @ManyToOne
+    @JoinColumn(name = "doctor_id")
+    private Doctor doctor;
     
     // Constructor
     public Patient() {}
@@ -76,8 +82,11 @@ public class Patient {
     
     
     // toString() Method to convert data to .JSON file
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> a491d596bf33b1a0661a2754459147cf5674dd2c
     @Override
     public String toString() {
         return "{" +
