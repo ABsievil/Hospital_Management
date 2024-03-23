@@ -26,6 +26,7 @@ public class Patient {
     @JoinColumn(name = "doctor_id")
     private Doctor doctor;
     
+
     // Constructor
     public Patient() {}
 

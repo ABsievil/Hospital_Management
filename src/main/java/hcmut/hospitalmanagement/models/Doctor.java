@@ -1,6 +1,6 @@
 package hcmut.hospitalmanagement.models;
 
-import java.time.LocalTime;
+
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
@@ -10,6 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Doctor {
@@ -18,10 +19,14 @@ public class Doctor {
     private Long id;
     private boolean isWorking;
 
+    @OneToOne(mappedBy = "doctor", cascade = CascadeType.ALL)
+    ImageData image;
+
+    
     @Embedded
     private PersonalInformation information;
 
-    @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL)
     private List<Patient> patients;
 
     @OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -32,13 +37,16 @@ public class Doctor {
     }
 
 
-    public Doctor(Long id, boolean isWorking, PersonalInformation information, List<Patient> patients, List<Schedule> schedule) {
+
+    public Doctor(Long id, boolean isWorking, ImageData image, PersonalInformation information, List<Patient> patients, List<Schedule> schedule) {
         this.id = id;
         this.isWorking = isWorking;
+        this.image = image;
         this.information = information;
         this.patients = patients;
         this.schedule = schedule;
     }
+    
     
 
     // Getters and Setters
@@ -61,6 +69,14 @@ public class Doctor {
 
     public void setIsWorking(boolean isWorking) {
         this.isWorking = isWorking;
+    }
+
+    public ImageData getImage() {
+        return this.image;
+    }
+
+    public void setImage(ImageData image) {
+        this.image = image;
     }
 
     public PersonalInformation getInformation() {
@@ -86,18 +102,21 @@ public class Doctor {
     public void setSchedule(List<Schedule> schedule) {
         this.schedule = schedule;
     }
-    
+
+   
 
     // toString() Method to convert to JSON
+
     @Override
     public String toString() {
         return "{" +
             " id='" + getId() + "'" +
             ", isWorking='" + isIsWorking() + "'" +
+            ", image='" + getImage() + "'" +
             ", information='" + getInformation() + "'" +
             ", patients='" + getPatients() + "'" +
             ", schedule='" + getSchedule() + "'" +
             "}";
     }
-
+    
 }

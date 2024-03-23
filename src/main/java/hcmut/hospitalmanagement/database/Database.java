@@ -15,16 +15,16 @@ public class Database {
     private static final Logger logger = LoggerFactory.getLogger(Database.class);
 
     // CommandLineRunner is used to initialize data for Database (For testing)
-    @Bean
-    CommandLineRunner initDatabase(PatientRepository patientRepository) {
-        return new CommandLineRunner() {
-            @Override
-            public void run(String... args) throws Exception {
-                Patient patient1 = new Patient("Nick" ,"HIV", "Positive", "Operation Tomorrow");
-                Patient patient2 = new Patient("John" ,"none", "Negative", "Get more vitamins");
-                logger.info("insert data: " + patientRepository.save(patient1));
-                logger.info("insert data: " + patientRepository.save(patient2));
-            }
-        };
-    }
+    // @Bean
+    // CommandLineRunner initDatabase(PatientRepository patientRepository) {
+    //     return new CommandLineRunner() {
+    //         @Override
+    //         public void run(String... args) throws Exception {
+    //             Patient patient1 = new Patient("Nick" ,"HIV", "Positive", "Operation Tomorrow");
+    //             Patient patient2 = new Patient("John" ,"none", "Negative", "Get more vitamins");
+    //             logger.info("insert data: " + patientRepository.save(patient1));
+    //             logger.info("insert data: " + patientRepository.save(patient2));
+    //         }
+    //     };
+    // }
 }
