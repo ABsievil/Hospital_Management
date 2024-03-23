@@ -34,6 +34,10 @@ public class DoctorService {
         return doctorRepository.findAll();
     }
 
+    public List<Doctor> getActiveDoctors() {
+        return doctorRepository.findByActiveTrue();
+    }
+
     public Optional<Doctor> getDoctorById(Long id) {
         return doctorRepository.findById(id);
     }

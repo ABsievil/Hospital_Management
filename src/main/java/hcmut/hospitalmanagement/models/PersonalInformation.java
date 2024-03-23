@@ -19,7 +19,7 @@ public class PersonalInformation {
     private String hiCode;
     private LocalDate hiStartDate;
     private LocalDate hiEndDate;
-
+    
     // Constructor 
     public PersonalInformation() {
     }

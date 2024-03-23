@@ -17,28 +17,39 @@ public class Schedule {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
     private LocalDateTime startTime;
     private LocalDateTime endTime;
+    private String title;
     private String description;
 
     @ManyToOne
     @JoinColumn(name = "doctor_id")
     private Doctor doctor;
 
+    @ManyToOne
+    @JoinColumn(name = "patient_id")
+    private Patient patient;
+
+
     // Constructors
     public Schedule() {
     }
 
-    public Schedule(Long id, LocalDateTime startTime, LocalDateTime endTime, String description, Doctor doctor) {
-        this.id = id;
+
+    public Schedule(LocalDateTime startTime, LocalDateTime endTime, String title, String description, Doctor doctor, Patient patient) {
         this.startTime = startTime;
         this.endTime = endTime;
+        this.title = title;
         this.description = description;
         this.doctor = doctor;
+        this.patient = patient;
     }
+    
     
 
     // Getters and Setters
+
     public Long getId() {
         return this.id;
     }
@@ -63,6 +74,14 @@ public class Schedule {
         this.endTime = endTime;
     }
 
+    public String getTitle() {
+        return this.title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public String getDescription() {
         return this.description;
     }
@@ -78,19 +97,32 @@ public class Schedule {
     public void setDoctor(Doctor doctor) {
         this.doctor = doctor;
     }
+
+    public Patient getPatient() {
+        return this.patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
+    
     
 
 
     // toString() Method to convert to JSON
+
     @Override
     public String toString() {
         return "{" +
             " id='" + getId() + "'" +
             ", startTime='" + getStartTime() + "'" +
             ", endTime='" + getEndTime() + "'" +
+            ", title='" + getTitle() + "'" +
             ", description='" + getDescription() + "'" +
             ", doctor='" + getDoctor() + "'" +
+            ", patient='" + getPatient() + "'" +
             "}";
     }
+    
 
 }
