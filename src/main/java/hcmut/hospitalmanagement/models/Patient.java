@@ -83,10 +83,13 @@ public class Patient {
     
     // toString() Method to convert data to .JSON file
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 =======
 >>>>>>> a491d596bf33b1a0661a2754459147cf5674dd2c
+=======
+>>>>>>> 66f2c27ec1606a90a7bbf0ae73c377c5acd60c88
     @Override
     public String toString() {
         return "{" +
