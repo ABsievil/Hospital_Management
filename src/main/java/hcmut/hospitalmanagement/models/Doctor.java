@@ -23,7 +23,7 @@ public class Doctor {
 
     @OneToOne(mappedBy = "doctor", cascade = CascadeType.ALL)
     ImageData image;
-
+    
     @Embedded
     private PersonalInformation information;
 

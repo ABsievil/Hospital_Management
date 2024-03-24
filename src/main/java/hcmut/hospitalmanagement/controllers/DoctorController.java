@@ -36,13 +36,13 @@ public class DoctorController {
     private ImageService imageService;
 
     // Get All Doctors
-    @GetMapping("/getAllDoctors")
+    @GetMapping("/getAll")
     public List<Doctor> getAllDoctors() {
         return doctorService.getAllDoctors();
     }
 
     // Get All Active Doctors (Is Working in Hospital)
-    @GetMapping("/getActiveDoctors")
+    @GetMapping("/getActive")
     public List<Doctor> getActiveDoctors() {
         return doctorService.getActiveDoctors();
     }
@@ -71,6 +71,18 @@ public class DoctorController {
         } else {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    // Get Doctors By Occupation ("Doctor", "Nurse",...)
+    @GetMapping("/getDoctorByOccupation/{occupation}")
+    public List<Doctor> getDoctorsByOccupation(@PathVariable String occupation) {
+        return doctorService.getDoctorsByOccupation(occupation);
+    }
+
+    // Get Other Occupation that is not Doctor or Nurse
+    @GetMapping("/getDoctorByOtherOccupation")
+    public List<Doctor> getDoctorsWithOtherOccupations() {
+        return doctorService.getDoctorsWithOtherOccupations();
     }
 
     // Insert New Doctor
@@ -127,13 +139,14 @@ public class DoctorController {
         doctor.setInformation(newDoctor.getInformation());
         doctor.setPatients(newDoctor.getPatients());
         return ResponseEntity.status(HttpStatus.OK)
-                .body(new ResponseObject("OK", "Update Successfully for Doctor with id: " + id
-                        , doctorService.saveDoctor(doctor)));
+                .body(new ResponseObject("OK", "Update Successfully for Doctor with id: " + id,
+                        doctorService.saveDoctor(doctor)));
     }
 
     // Update Doctor with new Information
     @PutMapping("/updateDoctorInformation/{id}")
-    ResponseEntity<ResponseObject> updateDoctorInformation(@PathVariable Long id, @RequestBody PersonalInformation newInfo) {
+    ResponseEntity<ResponseObject> updateDoctorInformation(@PathVariable Long id,
+            @RequestBody PersonalInformation newInfo) {
         Optional<Doctor> foundDoctor = doctorService.getDoctorById(id);
         if (!foundDoctor.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
@@ -142,10 +155,9 @@ public class DoctorController {
         Doctor doctor = foundDoctor.get();
         doctor.setInformation(newInfo);
         return ResponseEntity.status(HttpStatus.OK)
-                .body(new ResponseObject("OK", "Update Successfully for Doctor with id: " + id
-                        , doctorService.saveDoctor(doctor)));
+                .body(new ResponseObject("OK", "Update Successfully for Doctor with id: " + id,
+                        doctorService.saveDoctor(doctor)));
     }
-
 
     // Deactive Doctor because this doctor is no longer working for the hospital
     @PutMapping("/deactivateDoctor/{id}")
@@ -158,7 +170,7 @@ public class DoctorController {
         Doctor doctor = foundDoctor.get();
         doctor.setActive(false);
         return ResponseEntity.status(HttpStatus.OK)
-                .body(new ResponseObject("OK", "Update Successfully for Doctor with id: " + id
-                        , doctorService.saveDoctor(doctor)));
+                .body(new ResponseObject("OK", "Update Successfully for Doctor with id: " + id,
+                        doctorService.saveDoctor(doctor)));
     }
 }

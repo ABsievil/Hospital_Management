@@ -42,6 +42,14 @@ public class DoctorService {
         return doctorRepository.findById(id);
     }
 
+    public List<Doctor> getDoctorsByOccupation(String occupation) {
+        return doctorRepository.findByInformationOccupation(occupation);
+    }
+
+    public List<Doctor> getDoctorsWithOtherOccupations() {
+        return doctorRepository.findByInformationOccupationNotIn(List.of("Doctor", "Nurse"));
+    }
+
     public void deleteDoctor(Long id) {
         doctorRepository.deleteById(id);
     }

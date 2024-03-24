@@ -8,4 +8,8 @@ import hcmut.hospitalmanagement.models.Doctor;
 
 public interface DoctorRepository extends JpaRepository<Doctor, Long> {
     List<Doctor> findByActiveTrue();
+
+    List<Doctor> findByInformationOccupation(String occupation);
+
+    List<Doctor> findByInformationOccupationNotIn(List<String> occupations);
 }
