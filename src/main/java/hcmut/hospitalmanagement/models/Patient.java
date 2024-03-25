@@ -3,11 +3,15 @@ package hcmut.hospitalmanagement.models;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Embeddable;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Patient {
@@ -16,29 +20,35 @@ public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String patientName;
+    private boolean active;
+    // private String patientName;
 
-    // these are an OBJECT for Patient Management (string for now)
-    private String medicalHistory;
-    private String testResults;
-    private String treatmentSchedule;
+    @OneToOne(mappedBy = "patient", cascade = CascadeType.ALL)
+    ImageData image;
 
+    @Embedded
+    private PersonalInformation information;
 
     @ManyToMany(mappedBy = "patients", cascade = CascadeType.ALL)
     private List<Doctor> doctors;
     
+    @OneToMany
+    private List<TreatmentHistory> treatmentHistory;
 
     // Constructor
     public Patient() {}
 
     // We do not need ID in constructor because ID is automatically generated (See above)
 
-    public Patient(String patientName, String medicalHistory, String testResults, String treatmentSchedule) {
-        this.patientName = patientName;
-        this.medicalHistory = medicalHistory;
-        this.testResults = testResults;
-        this.treatmentSchedule = treatmentSchedule;
+    public Patient(boolean active, ImageData image, PersonalInformation information, List<Doctor> doctors, List<TreatmentHistory> treatmentHistory) {
+        this.active = active;
+        this.image = image;
+        this.information = information;
+        this.doctors = doctors;
+        this.treatmentHistory = treatmentHistory;
     }
+    
+    
     
     // Getters and Setters
 
@@ -50,48 +60,61 @@ public class Patient {
         this.id = id;
     }
 
-    public String getPatientName() {
-        return this.patientName;
+    public boolean isActive() {
+        return this.active;
     }
 
-    public void setPatientName(String patientName) {
-        this.patientName = patientName;
+    public boolean getActive() {
+        return this.active;
     }
 
-    public String getMedicalHistory() {
-        return this.medicalHistory;
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
-    public void setMedicalHistory(String medicalHistory) {
-        this.medicalHistory = medicalHistory;
+    public ImageData getImage() {
+        return this.image;
     }
 
-    public String getTestResults() {
-        return this.testResults;
+    public void setImage(ImageData image) {
+        this.image = image;
     }
 
-    public void setTestResults(String testResults) {
-        this.testResults = testResults;
+    public PersonalInformation getInformation() {
+        return this.information;
     }
 
-    public String getTreatmentSchedule() {
-        return this.treatmentSchedule;
+    public void setInformation(PersonalInformation information) {
+        this.information = information;
     }
 
-    public void setTreatmentSchedule(String treatmentSchedule) {
-        this.treatmentSchedule = treatmentSchedule;
+    public List<Doctor> getDoctors() {
+        return this.doctors;
     }
-    
-    
+
+    public void setDoctors(List<Doctor> doctors) {
+        this.doctors = doctors;
+    }
+
+    public List<TreatmentHistory> getTreatmentHistory() {
+        return this.treatmentHistory;
+    }
+
+    public void setTreatmentHistory(List<TreatmentHistory> treatmentHistory) {
+        this.treatmentHistory = treatmentHistory;
+    }
+
     // toString() Method to convert data to .JSON file
+
     @Override
     public String toString() {
         return "{" +
             " id='" + getId() + "'" +
-            ", patientName='" + getPatientName() + "'" +
-            ", medicalHistory='" + getMedicalHistory() + "'" +
-            ", testResults='" + getTestResults() + "'" +
-            ", treatmentSchedule='" + getTreatmentSchedule() + "'" +
+            ", active='" + isActive() + "'" +
+            ", image='" + getImage() + "'" +
+            ", information='" + getInformation() + "'" +
+            ", doctors='" + getDoctors() + "'" +
+            ", treatmentHistory='" + getTreatmentHistory() + "'" +
             "}";
     }
     

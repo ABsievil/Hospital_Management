@@ -38,10 +38,10 @@ public class Database {
                 logger.info("insert data: " + doctorRepository.save(doctor3));
                 logger.info("insert data: " + doctorRepository.save(doctor4));
 
-                Patient patient1 = new Patient("John", null, null, null);
-                Patient patient2 = new Patient("Nick", null, null, null);
-                Patient patient3 = new Patient("Tom", null, null, null);
-                Patient patient4 = new Patient("Ben", null, null, null);
+                Patient patient1 = new Patient(true, null, null, null, null);
+                Patient patient2 = new Patient(false, null, null, null, null);
+                Patient patient3 = new Patient(true, null, null, null, null);
+                Patient patient4 = new Patient(false, null, null, null, null);
                 logger.info("insert data: " + patientRepository.save(patient1));
                 logger.info("insert data: " + patientRepository.save(patient2));
                 logger.info("insert data: " + patientRepository.save(patient3));
