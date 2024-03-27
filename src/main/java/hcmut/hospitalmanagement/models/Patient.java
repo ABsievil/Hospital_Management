@@ -1,20 +1,31 @@
 package hcmut.hospitalmanagement.models;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "Patient")
 public class Patient {
 
     // Let the database system generate id its self
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @Column(name = "name")
     private String patientName;
+
+    @Column(name = "username")
+    private String username;
+
+    @Column(name = "password")
+    private String password;
 
     // these are an OBJECT for Patient Management (string for now)
     private String medicalHistory;
@@ -39,6 +50,14 @@ public class Patient {
     }
     
     // Getters and Setters
+
+    public String getUsername(){
+        return this.username;
+    }
+
+    public String getPassword(){
+        return this.password;
+    }
 
     public Long getId() {
         return this.id;

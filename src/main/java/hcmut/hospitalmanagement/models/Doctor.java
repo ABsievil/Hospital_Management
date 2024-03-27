@@ -4,6 +4,7 @@ import java.time.LocalTime;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,6 +18,12 @@ public class Doctor {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private boolean isWorking;
+
+    @Column(name = "username")
+    private String username;
+
+    @Column(name = "password")
+    private String password;
 
     @Embedded
     private PersonalInformation information;
@@ -42,6 +49,14 @@ public class Doctor {
     
 
     // Getters and Setters
+
+    public String getUsername(){
+        return this.username;
+    }
+
+    public String getPassword(){
+        return this.password;
+    }
 
     public Long getId() {
         return this.id;

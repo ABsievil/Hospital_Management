@@ -8,4 +8,6 @@ import hcmut.hospitalmanagement.models.Patient;
 
 public interface PatientRepository extends JpaRepository<Patient, Long> {
     List<Patient> findByPatientName(String patientName);
+
+    Patient findByUsername(String username);
 }
