@@ -52,22 +52,22 @@ public class PatientController {
     }
 
     // Update Patient by ID, If Patient does not exists then Insert New Patient
-    @PutMapping("/{id}")
-    ResponseEntity<ResponseObject> updateProduct(@RequestBody Patient newPatient, @PathVariable Long id) {
-        Patient updatedPatient = repository.findById(id).map(patient -> {
-            patient.setPatientName(newPatient.getPatientName());
-            patient.setMedicalHistory(newPatient.getMedicalHistory());
-            patient.setTestResults(newPatient.getTestResults());
-            patient.setTreatmentSchedule(newPatient.getTreatmentSchedule());
-            return repository.save(patient);
-        }).orElseGet(() -> {
-            newPatient.setId(id);
-            return repository.save(newPatient);
-        });
-        return ResponseEntity.status(HttpStatus.OK).body(
-                new ResponseObject("ok", "Update patient with id = " + updatedPatient.getId() + " successfully",
-                        updatedPatient));
-    }
+    // @PutMapping("/{id}")
+    // ResponseEntity<ResponseObject> updateProduct(@RequestBody Patient newPatient, @PathVariable Long id) {
+    //     Patient updatedPatient = repository.findById(id).map(patient -> {
+    //         patient.setPatientName(newPatient.getPatientName());
+    //         patient.setMedicalHistory(newPatient.getMedicalHistory());
+    //         patient.setTestResults(newPatient.getTestResults());
+    //         patient.setTreatmentSchedule(newPatient.getTreatmentSchedule());
+    //         return repository.save(patient);
+    //     }).orElseGet(() -> {
+    //         newPatient.setId(id);
+    //         return repository.save(newPatient);
+    //     });
+    //     return ResponseEntity.status(HttpStatus.OK).body(
+    //             new ResponseObject("ok", "Update patient with id = " + updatedPatient.getId() + " successfully",
+    //                     updatedPatient));
+    // }
 
     // Delete Patient if exists
     @DeleteMapping("/{id}")
