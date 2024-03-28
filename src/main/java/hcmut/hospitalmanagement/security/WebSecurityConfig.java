@@ -32,19 +32,19 @@ public class WebSecurityConfig {
     //     return new CustomAuthenticationFailureHandler();
     // }
     //demo in db
-    @Autowired
-    CustomUserDetailsService userService;
+    // @Autowired
+    // CustomUserDetailsService userService;
     
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        // encrypt password of user
-        return new BCryptPasswordEncoder();
-    }
+    // @Bean
+    // public PasswordEncoder passwordEncoder() {
+    //     // encrypt password of user
+    //     return new BCryptPasswordEncoder();
+    // }
 
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        // use method passwordEncoder
-        auth.userDetailsService(userService).passwordEncoder(passwordEncoder());
-    }
+    // protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+    //     // use method passwordEncoder
+    //     auth.userDetailsService(userService).passwordEncoder(passwordEncoder());
+    // }
 
     //demo in-memory
     @Bean

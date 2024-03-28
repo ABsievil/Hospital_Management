@@ -26,8 +26,8 @@ public class Patient {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "name")
-    private String patientName;
+    // @Column(name = "name")
+    // private String patientName;
 
     @Column(name = "username")
     private String username;
