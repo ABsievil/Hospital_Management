@@ -32,35 +32,35 @@ public class WebSecurityConfig {
     //     return new CustomAuthenticationFailureHandler();
     // }
     //demo in db
-    // @Autowired
-    // CustomUserDetailsService userService;
+    @Autowired
+    CustomUserDetailsService userService;
     
-    // @Bean
-    // public PasswordEncoder passwordEncoder() {
-    //     // encrypt password of user
-    //     return new BCryptPasswordEncoder();
-    // }
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        // encrypt password of user
+        return new BCryptPasswordEncoder();
+    }
 
-    // protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-    //     // use method passwordEncoder
-    //     auth.userDetailsService(userService).passwordEncoder(passwordEncoder());
-    // }
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        // use method passwordEncoder
+        auth.userDetailsService(userService).passwordEncoder(passwordEncoder());
+    }
 
     //demo in-memory
-    @Bean
-     public UserDetailsService userDetailsService() {
-         UserDetails user = User.withDefaultPasswordEncoder()
-             .username("user")
-             .password("1245")
-             .roles("USER")
-             .build();
-         UserDetails admin = User.withDefaultPasswordEncoder()
-             .username("admin")
-             .password("1245")
-             .roles("ADMIN", "USER")
-             .build();
-         return new InMemoryUserDetailsManager(user, admin);
-     }
+    // @Bean
+    //  public UserDetailsService userDetailsService() {
+    //      UserDetails user = User.builder()
+    //          .username("user")
+    //          .password(passwordEncoder().encode("1234"))
+    //          .roles("USER")
+    //          .build();
+    //      UserDetails admin = User.builder()
+    //          .username("admin")
+    //          .password(passwordEncoder().encode("1245"))
+    //          .roles("ADMIN", "USER")
+    //          .build();
+    //      return new InMemoryUserDetailsManager(user, admin);
+    //  }
      
      //note : role in db current is: PATIENT and DOCTOR
     @Bean
@@ -86,8 +86,8 @@ public class WebSecurityConfig {
                 .invalidateHttpSession(true)
                 .deleteCookies("JSESSIONID")
                 .permitAll()
-            )
-            .csrf(csrf -> csrf.disable());   // what is csrf, should disable it ?
+            );
+            //.csrf(csrf -> csrf.disable());   // what is csrf, should disable it ?
         
         return http.build();
     }

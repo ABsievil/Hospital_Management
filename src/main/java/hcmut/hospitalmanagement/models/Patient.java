@@ -29,10 +29,10 @@ public class Patient {
     // @Column(name = "name")
     // private String patientName;
 
-    @Column(name = "username")
+    @Column(name = "username", nullable = false, unique = true)
     private String username;
 
-    @Column(name = "password")
+    @Column(name = "password", nullable = false, unique = true)
     private String password;
 
     // these are an OBJECT for Patient Management (string for now)
@@ -59,12 +59,14 @@ public class Patient {
 
     // We do not need ID in constructor because ID is automatically generated (See above)
 
-    public Patient(boolean active, ImageData image, PersonalInformation information, List<Doctor> doctors, List<TreatmentHistory> treatmentHistory) {
+    public Patient(String uname, String pwd, boolean active, ImageData image, PersonalInformation information, List<Doctor> doctors, List<TreatmentHistory> treatmentHistory) {
         this.active = active;
         this.image = image;
         this.information = information;
         this.doctors = doctors;
         this.treatmentHistory = treatmentHistory;
+        this.username = uname;
+        this.password = pwd;
     }
     
     
@@ -93,6 +95,14 @@ public class Patient {
 
     public boolean getActive() {
         return this.active;
+    }
+
+    public void setUsername(String uname){
+        this.username = uname;
+    }
+
+    public void setPassword(String pwd){
+        this.password = pwd;
     }
 
     public void setActive(boolean active) {
@@ -137,6 +147,8 @@ public class Patient {
     public String toString() {
         return "{" +
             " id='" + getId() + "'" +
+            " uname='" + getUsername() + "'" +
+            " pwd='" + getPassword() + "'" +
             ", active='" + isActive() + "'" +
             ", image='" + getImage() + "'" +
             ", information='" + getInformation() + "'" +
