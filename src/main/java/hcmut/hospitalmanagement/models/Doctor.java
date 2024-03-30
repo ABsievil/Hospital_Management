@@ -14,13 +14,22 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToOne;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 public class Doctor {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private boolean active;
+
+    private boolean isActive;
 
     @Column(name = "username")
     private String username;
@@ -43,85 +52,20 @@ public class Doctor {
     )
     private List<Patient> patients;
 
-    // Constructors
-    public Doctor() {
-    }
 
-    public Doctor(boolean active, ImageData image, PersonalInformation information, List<Patient> patients) {
-        this.active = active;
+    public Doctor( boolean isWorking, String username, String password, ImageData image, PersonalInformation information, List<Patient> patients) {
+        this.isActive = isWorking;
+        this.username = username;
+        this.password = password;
         this.image = image;
         this.information = information;
         this.patients = patients;
     }
 
-    // Getters and Setters
-
-    public String getUsername(){
-        return this.username;
-    }
-
-    public String getPassword(){
-        return this.password;
-    }
-
-    public Long getId() {
-        return this.id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public boolean isActive() {
-        return this.active;
-    }
-
-    public boolean getActive() {
-        return this.active;
-    }
-
-    public void setActive(boolean active) {
-        this.active = active;
-    }
-
-    public ImageData getImage() {
-        return this.image;
-    }
-
-    public void setImage(ImageData image) {
-        this.image = image;
-    }
-
-    public PersonalInformation getInformation() {
-        return this.information;
-    }
-
-    public void setInformation(PersonalInformation information) {
-        this.information = information;
-    }
-
-    public List<Patient> getPatients() {
-        return this.patients;
-    }
-
-    public void setPatients(List<Patient> patients) {
-        this.patients = patients;
-    }
+    
 
 
-
-    // toString() Method to convert to JSON
-
-    @Override
-    public String toString() {
-        return "{" +
-            " id='" + getId() + "'" +
-            ", active='" + isActive() + "'" +
-            ", image='" + getImage() + "'" +
-            ", information='" + getInformation() + "'" +
-            ", patients='" + getPatients() + "'" +
-            "}";
-    }
     
     
+
 }

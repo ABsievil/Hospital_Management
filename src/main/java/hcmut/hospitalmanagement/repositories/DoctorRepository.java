@@ -8,7 +8,10 @@ import hcmut.hospitalmanagement.models.Doctor;
 
 public interface DoctorRepository extends JpaRepository<Doctor, Long> {
     Doctor findByUsername(String username);
-    List<Doctor> findByActiveTrue();
+    
+    List<Doctor> findByIsActive(boolean working);
+
+    List<Doctor> findByInformationNameContainingIgnoreCase(String name);
 
     List<Doctor> findByInformationOccupation(String occupation);
 

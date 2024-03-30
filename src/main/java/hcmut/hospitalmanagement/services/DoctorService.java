@@ -35,11 +35,15 @@ public class DoctorService {
     }
 
     public List<Doctor> getActiveDoctors() {
-        return doctorRepository.findByActiveTrue();
+        return doctorRepository.findByIsActive(true);
     }
 
     public Optional<Doctor> getDoctorById(Long id) {
         return doctorRepository.findById(id);
+    }
+
+    public List<Doctor> getDoctorsByNameContainingIgnoreCase(String name) {
+        return doctorRepository.findByInformationNameContainingIgnoreCase(name);
     }
 
     public List<Doctor> getDoctorsByOccupation(String occupation) {

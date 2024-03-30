@@ -62,7 +62,7 @@ public class ScheduleController {
     }
 
     // Get The Active Schedule (Schedule that still not expired)
-    @GetMapping("/getActiveSchedules")
+    @GetMapping("/getActiveSchedule")
     public List<Schedule> getActiveSchedule(
             @RequestParam("startTime") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime startTime) {
         return scheduleService.getActiveSchedule(startTime);

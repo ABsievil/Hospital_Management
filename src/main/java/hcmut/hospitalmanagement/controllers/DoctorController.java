@@ -73,6 +73,12 @@ public class DoctorController {
         }
     }
 
+    // Get Doctors By Name
+    @GetMapping("/getDoctorByName/{name}")
+    public List<Doctor> getDoctorsByNamePattern(@PathVariable String name) {
+        return doctorService.getDoctorsByNameContainingIgnoreCase(name);
+    }
+
     // Get Doctors By Occupation ("Doctor", "Nurse",...)
     @GetMapping("/getDoctorByOccupation/{occupation}")
     public List<Doctor> getDoctorsByOccupation(@PathVariable String occupation) {
@@ -134,7 +140,7 @@ public class DoctorController {
                     .body(new ResponseObject("Failed", "Cannot find Doctor with id: " + id, null));
         }
         Doctor doctor = foundDoctor.get();
-        doctor.setActive(newDoctor.getActive());
+        doctor.setActive(newDoctor.isActive());
         doctor.setImage(newDoctor.getImage());
         doctor.setInformation(newDoctor.getInformation());
         doctor.setPatients(newDoctor.getPatients());
