@@ -53,8 +53,8 @@ public class Doctor {
     private List<Patient> patients;
 
 
-    public Doctor( boolean isWorking, String username, String password, ImageData image, PersonalInformation information, List<Patient> patients) {
-        this.isActive = isWorking;
+    public Doctor( boolean isActive, String username, String password, ImageData image, PersonalInformation information, List<Patient> patients) {
+        this.isActive = isActive;
         this.username = username;
         this.password = password;
         this.image = image;
