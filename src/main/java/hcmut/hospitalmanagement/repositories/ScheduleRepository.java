@@ -16,4 +16,8 @@ public interface ScheduleRepository extends JpaRepository<Schedule, Long> {
 
     List<Schedule> findByStartTimeBetween(LocalDateTime startTime, LocalDateTime endTime);
 
+    List<Schedule> findByDoctorIdAndStartTimeAfter(Long doctorId, LocalDateTime startTime);
+
+    List<Schedule> findByPatientIdAndStartTimeAfter(Long patientId, LocalDateTime startTime);
+
 }

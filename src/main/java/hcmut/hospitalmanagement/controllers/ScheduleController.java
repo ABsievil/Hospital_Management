@@ -63,9 +63,20 @@ public class ScheduleController {
 
     // Get The Active Schedule (Schedule that still not expired)
     @GetMapping("/getActiveSchedule")
-    public List<Schedule> getActiveSchedule(
-            @RequestParam("startTime") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime startTime) {
-        return scheduleService.getActiveSchedule(startTime);
+    public List<Schedule> getActiveSchedule() {
+        return scheduleService.getActiveSchedule();
+    }
+
+    // Get the active schedules for doctor
+    @GetMapping("/getActiveScheduleForDoctor/{doctorId}")
+    public List<Schedule> getActiveScheduleForDoctor(@PathVariable Long doctorId) {
+        return scheduleService.getActiveScheduleForDoctor(doctorId);
+    }
+
+    // Get the active schedules for patient
+    @GetMapping("/getActiveScheduleForPatient/{patientId}")
+    public List<Schedule> getActiveScheduleForPatient(@PathVariable Long patientId) {
+        return scheduleService.getActiveScheduleForPatient(patientId);
     }
 
     // Get Schedule Between Time

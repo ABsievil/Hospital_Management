@@ -66,12 +66,4 @@ public class Patient {
     
 
     // We do not need ID in constructor because ID is automatically generated (See above)
-
-    
-    
-    
-    
-    
-    
-
 }

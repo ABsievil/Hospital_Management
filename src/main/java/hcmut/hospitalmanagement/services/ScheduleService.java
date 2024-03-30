@@ -32,8 +32,9 @@ public class ScheduleService {
         return scheduleRepository.save(schedule);
     }
 
-    public List<Schedule> getActiveSchedule(LocalDateTime startTime) {
-        return scheduleRepository.findByStartTimeAfter(startTime);
+    public List<Schedule> getActiveSchedule() {
+        LocalDateTime currentTime = LocalDateTime.now();
+        return scheduleRepository.findByStartTimeAfter(currentTime);
     }
 
     public List<Schedule> getSchedulesBetweenTimes(LocalDateTime time1, LocalDateTime time2) {
@@ -46,6 +47,16 @@ public class ScheduleService {
 
     public List<Schedule> getSchedulesByPatientId(Long patientId) {
         return scheduleRepository.findByPatientId(patientId);
+    }
+
+    public List<Schedule> getActiveScheduleForDoctor(Long doctorId) {
+        LocalDateTime currentTime = LocalDateTime.now();
+        return scheduleRepository.findByDoctorIdAndStartTimeAfter(doctorId, currentTime);
+    }
+
+    public List<Schedule> getActiveScheduleForPatient(Long patientId) {
+        LocalDateTime currentTime = LocalDateTime.now();
+        return scheduleRepository.findByPatientIdAndStartTimeAfter(patientId, currentTime);
     }
 
     public Schedule updateSchedule(Long id, Schedule schedule) throws NotFoundException {
