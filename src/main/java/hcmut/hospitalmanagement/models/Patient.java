@@ -37,10 +37,10 @@ public class Patient {
     // @Column(name = "name")
     // private String patientName;
 
-    @Column(name = "username")
+    @Column(name = "username", nullable = false, unique = true)
     private String username;
 
-    @Column(name = "password")
+    @Column(name = "password", nullable = false, unique = true)
     private String password;
 
     // these are an OBJECT for Patient Management (string for now)
