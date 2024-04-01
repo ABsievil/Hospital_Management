@@ -7,15 +7,14 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-
-import hcmut.hospitalmanagement.models.Patient;
+import hcmut.hospitalmanagement.models.Employee;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
 @AllArgsConstructor
 public class CustomUserDetails implements UserDetails {
-    private Patient patient;
+    private Employee employee;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -24,12 +23,12 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public String getPassword() {
-        return patient.getPassword();
+        return employee.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return patient.getUsername();
+        return employee.getUsername();
     }
 
     @Override
