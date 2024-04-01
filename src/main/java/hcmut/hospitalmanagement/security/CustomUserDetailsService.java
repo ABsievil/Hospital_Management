@@ -6,9 +6,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import hcmut.hospitalmanagement.models.Doctor;
+
 import hcmut.hospitalmanagement.models.Patient;
-import hcmut.hospitalmanagement.repositories.DoctorRepository;
+
 import hcmut.hospitalmanagement.repositories.PatientRepository;
 import hcmut.hospitalmanagement.security.CustomUserDetails;
 @Service

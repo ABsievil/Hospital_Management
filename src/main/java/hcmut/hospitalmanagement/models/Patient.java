@@ -56,8 +56,7 @@ public class Patient {
     @Embedded
     private PersonalInformation information;
 
-    @ManyToMany(mappedBy = "patients", cascade = CascadeType.ALL)
-    private List<Doctor> doctors;
+    
     
     // @OneToMany
     // private List<TreatmentHistory> treatmentHistory;

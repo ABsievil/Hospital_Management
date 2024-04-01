@@ -20,19 +20,17 @@ public class TreatmentHistory {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    private Doctor doctor;
+
 
     public TreatmentHistory() {
     }
 
-    public TreatmentHistory(String disease, Date admissionDate, Date dischargeDate, double cost, String medicationList, Doctor doctor) {
+    public TreatmentHistory(String disease, Date admissionDate, Date dischargeDate, double cost, String medicationList) {
         this.disease = disease;
         this.admissionDate = admissionDate;
         this.dischargeDate = dischargeDate;
         this.cost = cost;
         this.medicationList = medicationList;
-        this.doctor = doctor;
     }
 
     public String getDisease() {
@@ -75,13 +73,6 @@ public class TreatmentHistory {
         this.medicationList = medicationList;
     }
 
-    public Doctor getDoctor() {
-        return this.doctor;
-    }
-
-    public void setDoctor(Doctor doctor) {
-        this.doctor = doctor;
-    }
 
     @Override
     public String toString() {
@@ -91,7 +82,6 @@ public class TreatmentHistory {
             ", dischargeDate='" + getDischargeDate() + "'" +
             ", cost='" + getCost() + "'" +
             ", medicationList='" + getMedicationList() + "'" +
-            ", doctor='" + getDoctor() + "'" +
             "}";
     }
     

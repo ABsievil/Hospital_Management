@@ -1,0 +1,135 @@
+package hcmut.hospitalmanagement.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import hcmut.hospitalmanagement.models.Employee;
+import hcmut.hospitalmanagement.models.ResponseObject;
+import hcmut.hospitalmanagement.repositories.EmployeeRepository;
+
+@Service
+public class EmployeeService {
+    @Autowired
+    private EmployeeRepository employeeRepository;
+
+    // Tìm tất cả Nhân viên y tế
+    public ResponseEntity<ResponseObject> getAllEmployee() {
+        List<Employee> employeeList = employeeRepository.findAll();
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(new ResponseObject("OK", "Querry employee successfully", employeeList));
+    }
+
+    // Tìm tất cả nhân viên y tế vẫn đang công tác tại bệnh viện
+    public ResponseEntity<ResponseObject> getActiveEmployee() {
+        List<Employee> employeeList = employeeRepository.findByIsActive(true);
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(new ResponseObject("OK", "Querry employee successfully", employeeList));
+    }
+
+    // Tìm tất cả nhân viên y tế đã nghỉ việc
+    public ResponseEntity<ResponseObject> getNonActiveEmployee() {
+        List<Employee> employeeList = employeeRepository.findByIsActive(false);
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(new ResponseObject("OK", "Querry employee successfully", employeeList));
+    }
+
+    // Tìm nhân viên y tế theo id của họ
+    public ResponseEntity<ResponseObject> getEmployeeById(Long employeeId) {
+        Employee foundEmployee = employeeRepository.findById(employeeId).orElse(null);
+        return foundEmployee != null
+            ? ResponseEntity.status(HttpStatus.OK)
+            .body(new ResponseObject("OK", "Query employee successfully", foundEmployee))
+            : ResponseEntity.status(HttpStatus.NOT_FOUND)
+            .body(new ResponseObject("Failed", "Cannot find any employee with id: " + employeeId, null));
+    }
+
+    // Tìm employee theo username
+    public ResponseEntity<ResponseObject> getEmployeeByUsername(String username) {
+        Employee foundEmployee = employeeRepository.findByUsername(username);
+        return foundEmployee != null
+            ? ResponseEntity.status(HttpStatus.OK)
+            .body(new ResponseObject("OK", "Query employee successfully", foundEmployee))
+            : ResponseEntity.status(HttpStatus.NOT_FOUND)
+            .body(new ResponseObject("Failed", "Cannot find any employee with username: " + username, null));
+    }
+
+    // Tìm nhân viên y tế theo tên của họ
+    public ResponseEntity<ResponseObject> getEmployeeByName(String name) {
+        List<Employee> employeeList = employeeRepository.findByInformationNameContainingIgnoreCase(name);
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(new ResponseObject("OK", "Querry employee successfully", employeeList));
+    }
+
+    // Tìm nhân viên y tế theo nghề nghiệp cụ thể (ví dụ: Doctor, Nurse, ...)
+    public ResponseEntity<ResponseObject> getEmployeeByOccupation(String occupation) {
+        List<Employee> employeeList = employeeRepository.findByInformationOccupation(occupation);
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(new ResponseObject("OK", "Querry employee successfully", employeeList));
+    }
+
+    // Tìm nhân viên y tế còn lại (Không phải là Doctor, Nurse)
+    public ResponseEntity<ResponseObject> getEmployeeByOtherOccupation() {
+        List<Employee> employeeList = employeeRepository.findByInformationOccupationNotIn(List.of("Doctor", "Nurse"));
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(new ResponseObject("OK", "Querry employee successfully", employeeList));
+    }
+
+    // Thêm employee 
+    public ResponseEntity<ResponseObject> insertEmployee(Employee newEmployee) {
+        // Kiểm tra xem thông in có username chưa
+        if (newEmployee.getUsername() == null || newEmployee.getUsername() == "") {
+            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE)
+            .body(new ResponseObject("Failed", "Cannot insert employee without Username", null));
+        }
+        // Kiểm tra xem thông tin có password chưa
+        if (newEmployee.getPassword() == null || newEmployee.getPassword() == "") {
+            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE)
+            .body(new ResponseObject("Failed", "Cannot insert employee without Password", null));
+        }
+        // Kiểm tra xem username đã tồn tại chưa
+        Employee foundEmployee = employeeRepository.findByUsername(newEmployee.getUsername());
+        if (foundEmployee != null) {
+            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE)
+            .body(new ResponseObject("Failed", "Username already exists", null));
+        }
+
+        return ResponseEntity.status(HttpStatus.OK)
+        .body(new ResponseObject("OK", "Insert employee successfully", employeeRepository.save(newEmployee)));
+    }
+
+    // Chỉnh sửa thông tin Employee
+    public ResponseEntity<ResponseObject> updateEmployeeById(Long id, Employee updatedEmployee) {
+        Employee foundEmployee = employeeRepository.findById(id).orElse(null);
+        // Kiểm tra id của employee có tồn tại không
+        if (foundEmployee == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+            .body(new ResponseObject("Failed", "Cannot find any employee with id: " + id, null));
+        }
+        // Không được thay đổi username của employee
+        if (!foundEmployee.getUsername().equals(updatedEmployee.getUsername())) {
+            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE)
+            .body(new ResponseObject("Failed", "You cannot change the username" , null));
+        }
+
+        updatedEmployee.setId(id);
+        return ResponseEntity.status(HttpStatus.OK)
+        .body(new ResponseObject("OK", "Update employee successfully", employeeRepository.save(updatedEmployee)));
+    }
+
+    // Cho nhân viên nghỉ việc
+    public ResponseEntity<ResponseObject> deactivateEmployeeById(Long id) {
+        Employee foundEmployee = employeeRepository.findById(id).orElse(null);
+        // Kiểm tra xem id có tồn tại không
+        if (foundEmployee == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+            .body(new ResponseObject("Failed", "Cannot find any employee with id: " + id, null));
+        }
+        foundEmployee.setActive(false);
+        return ResponseEntity.status(HttpStatus.OK)
+        .body(new ResponseObject("OK", "Deactivate employee successfully", employeeRepository.save(foundEmployee)));
+    } 
+}

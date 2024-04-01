@@ -23,10 +23,7 @@ public class ImageData {
     @Column(name = "imagedata",length = 1000)
     private byte[] imageData;
 
-    @OneToOne
-    @JoinColumn(name = "doctor_id")
-    private Doctor doctor;
-
+    
 
     @OneToOne
     @JoinColumn(name = "patient_id")
