@@ -7,7 +7,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import hcmut.hospitalmanagement.models.Doctor;
+
 import hcmut.hospitalmanagement.models.Patient;
 import lombok.AllArgsConstructor;
 import lombok.Data;
