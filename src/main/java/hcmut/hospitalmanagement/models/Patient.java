@@ -34,35 +34,25 @@ public class Patient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // @Column(name = "name")
-    // private String patientName;
-
+    //Không dùng, bên secu chỉnh lại
     @Column(name = "username", nullable = false, unique = true)
     private String username;
-
     @Column(name = "password", nullable = false, unique = true)
     private String password;
 
-    // these are an OBJECT for Patient Management (string for now)
-    private String medicalHistory;
-    private String testResults;
-    private String treatmentSchedule;
-    private boolean isActive;
-    // private String patientName;
-
-    @OneToOne(mappedBy = "patient", cascade = CascadeType.ALL)
-    ImageData image;
+    // ImageData image;
 
     @Embedded
     private PersonalInformation information;
 
+    String room;
     
+    @OneToMany
+    private List<TreatmentHistory> treatmentHistory;
     
+    // List<Map(String,Enum<effective treatment>)> TreatmentHistory
+
     // @OneToMany
-    // private List<TreatmentHistory> treatmentHistory;
-
-    // Constructor
+    // List<PatientSchedule> 
     
-
-    // We do not need ID in constructor because ID is automatically generated (See above)
 }
