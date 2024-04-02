@@ -62,7 +62,7 @@ public class PageController {
     //     }
 
     // }
-    @RequestMapping("/homePage")
+    @RequestMapping("/home")
     public String homePage(){
         return "homePage";
     }
