@@ -68,8 +68,8 @@ public class WebSecurityConfig {
         http
             .authorizeHttpRequests((authorize) -> authorize
                 .requestMatchers("/", "/index").permitAll() 
-                .requestMatchers("/helloUser").hasAnyRole("USER", "ADMIN") 
-                .requestMatchers("/helloAdmin").hasRole("ADMIN") 
+                .requestMatchers("/helloUser").hasAnyAuthority("ADMIN", "DOCTOR", "NURSE", "OTHER") 
+                .requestMatchers("/helloAdmin").hasAuthority("ADMIN") 
                 .anyRequest().authenticated() 
             )
             .formLogin( formLogin -> formLogin

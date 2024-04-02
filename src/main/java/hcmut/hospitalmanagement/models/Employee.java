@@ -35,7 +35,7 @@ public class Employee {
     @Column(name = "username", nullable = false, unique = true)
     private String username;
 
-    @Column(name = "password", nullable = false, unique = true)
+    @Column(name = "password", nullable = false, unique = true) //please set unique = false after renew db
     private String password;
 
     @Enumerated(EnumType.STRING)
