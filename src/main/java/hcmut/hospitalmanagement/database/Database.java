@@ -10,13 +10,12 @@
 // import org.springframework.context.annotation.Configuration;
 // import org.springframework.security.crypto.password.PasswordEncoder;
 
-// import hcmut.hospitalmanagement.models.Doctor;
+// import hcmut.hospitalmanagement.models.Employee;
 // import hcmut.hospitalmanagement.models.Patient;
 // import hcmut.hospitalmanagement.models.PersonalInformation;
-// import hcmut.hospitalmanagement.models.Schedule;
-// import hcmut.hospitalmanagement.repositories.DoctorRepository;
+// import hcmut.hospitalmanagement.models.Role;
+// import hcmut.hospitalmanagement.repositories.EmployeeRepository;
 // import hcmut.hospitalmanagement.repositories.PatientRepository;
-// import hcmut.hospitalmanagement.repositories.ScheduleRepository;
 
 // @Configuration
 // public class Database {
@@ -28,42 +27,28 @@
 
 //     // CommandLineRunner is used to initialize data for Database (For testing)
 //     @Bean
-//     CommandLineRunner initDatabase(DoctorRepository doctorRepository, PatientRepository patientRepository,
-//             ScheduleRepository scheduleRepository) {
+//     CommandLineRunner initDatabase(EmployeeRepository employeeRepository, PatientRepository patientRepository) {
 //         return new CommandLineRunner() {
 //             @Override
 //             public void run(String... args) throws Exception {
 //                 // Doctor testing
-//                 Doctor doctor1 = new Doctor(true, null, null, null);
-//                 Doctor doctor2 = new Doctor(true, null, null, null);
-//                 Doctor doctor3 = new Doctor(false, null, null, null);
-//                 Doctor doctor4 = new Doctor(false, null, null, null);
-//                 logger.info("insert doctor: " + doctorRepository.save(doctor1));
-//                 logger.info("insert doctor: " + doctorRepository.save(doctor2));
-//                 logger.info("insert doctor: " + doctorRepository.save(doctor3));
-//                 logger.info("insert doctor: " + doctorRepository.save(doctor4));
+//                 Employee emp1 = new Employee(null, true, null, null, "user1", passwordEncoder.encode("1231"), Role.DOCTOR);
+//                 Employee emp2 = new Employee(null, false, null, null, "user2", passwordEncoder.encode("1232"), Role.NURSE);
+//                 Employee emp3 = new Employee(null, true, null, null, "user3", passwordEncoder.encode("1233"), Role.OTHER);
+//                 Employee emp4 = new Employee(null, false, null, null, "admin", passwordEncoder.encode("1245"), Role.ADMIN);
+//                 logger.info("insert employee: " + employeeRepository.save(emp1));
+//                 logger.info("insert employee: " + employeeRepository.save(emp2));
+//                 logger.info("insert employee: " + employeeRepository.save(emp3));
+//                 logger.info("insert employee: " + employeeRepository.save(emp4));
 
-//                 Patient patient1 = new Patient("user", passwordEncoder.encode("1234"),true, null, null, null, null);
-//                 Patient patient2 = new Patient("admin", passwordEncoder.encode("1245"),false, null, null, null, null);
-//                 Patient patient3 = new Patient("john", passwordEncoder.encode("nick"),true, null, null, null, null);
-//                 Patient patient4 = new Patient("username", passwordEncoder.encode("password"),false, null, null, null, null);
-//                 logger.info("insert patient: " + patientRepository.save(patient1));
-//                 logger.info("insert patient: " + patientRepository.save(patient2));
-//                 logger.info("insert patient: " + patientRepository.save(patient3));
-//                 logger.info("insert patient: " + patientRepository.save(patient4));
-//                 // Schedule testing
-//                 Schedule schedule1 = new Schedule(LocalDateTime.now(), LocalDateTime.now().plusMinutes(5), "Title",
-//                         "Description", doctor1, patient1);
-//                 Schedule schedule2 = new Schedule(LocalDateTime.now(), LocalDateTime.now().plusMinutes(5), "Title",
-//                         "Description", doctor1, patient2);
-//                 Schedule schedule3 = new Schedule(LocalDateTime.now(), LocalDateTime.now().plusMinutes(5), "Title",
-//                         "Description", doctor2, patient1);
-//                 Schedule schedule4 = new Schedule(LocalDateTime.now(), LocalDateTime.now().plusMinutes(5), "Title",
-//                         "Description", doctor2, patient2);
-//                 logger.info("insert schedule: " + scheduleRepository.save(schedule1));
-//                 logger.info("insert schedule: " + scheduleRepository.save(schedule2));
-//                 logger.info("insert schedule: " + scheduleRepository.save(schedule3));
-//                 logger.info("insert schedule: " + scheduleRepository.save(schedule4));
+//                 // Patient patient1 = new Patient("user", passwordEncoder.encode("1234"),true, null, null, null, null);
+//                 // Patient patient2 = new Patient("admin", passwordEncoder.encode("1245"),false, null, null, null, null);
+//                 // Patient patient3 = new Patient("john", passwordEncoder.encode("nick"),true, null, null, null, null);
+//                 // Patient patient4 = new Patient("username", passwordEncoder.encode("password"),false, null, null, null, null);
+//                 // logger.info("insert patient: " + patientRepository.save(patient1));
+//                 // logger.info("insert patient: " + patientRepository.save(patient2));
+//                 // logger.info("insert patient: " + patientRepository.save(patient3));
+//                 // logger.info("insert patient: " + patientRepository.save(patient4));
 //             }
 //         };
 //     }

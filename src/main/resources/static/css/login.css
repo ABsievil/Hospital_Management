@@ -19,7 +19,8 @@
 
 
 body {
-    background: url("/images/backGround.jpg");
+    background-color: #97E7E1;
+    /* background: url("/images/backGround.jpg"); */
     background-size: cover;
     background-position: center;
 }

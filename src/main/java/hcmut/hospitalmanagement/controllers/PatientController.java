@@ -15,70 +15,48 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import hcmut.hospitalmanagement.models.Employee;
 import hcmut.hospitalmanagement.models.Patient;
 import hcmut.hospitalmanagement.models.ResponseObject;
 import hcmut.hospitalmanagement.repositories.PatientRepository;
+// import hcmut.hospitalmanagement.services.EmployeeService;
+import hcmut.hospitalmanagement.services.PatientService;
 
 @RestController
-@RequestMapping(path = "api/v1/Patients")
+@RequestMapping(path = "api/v1/Patient")
 public class PatientController {
-
-    // @Autowired is used to connect to class PatientRepository
     @Autowired
-    private PatientRepository repository;
+    private PatientService patientService;
 
     // Get All Patients
-    @GetMapping("")
-    List<Patient> getAllPatients() {
-        return repository.findAll();
+    @GetMapping("/getAllPatient")
+    public ResponseEntity<ResponseObject> getAllPatient() {
+        return patientService.getAllPatient();
     }
 
     // Get Patient By ID
-    @GetMapping("/{id}")
-    ResponseEntity<ResponseObject> findByID(@PathVariable Long id) {
-        Optional<Patient> foundPatient = repository.findById(id);
-        return foundPatient.isPresent()
-                ? ResponseEntity.status(HttpStatus.OK)
-                        .body(new ResponseObject("ok", "Query Patient Successfully", foundPatient))
-                : ResponseEntity.status(HttpStatus.NOT_FOUND)
-                        .body(new ResponseObject("failed", "Cannot find Patient with id = " + id, ""));
+    @GetMapping("/getPatientById/{patientId}")
+    public ResponseEntity<ResponseObject> getPatientById(@PathVariable Long patientId) {
+        return patientService.getPatientById(patientId);
     }
 
-    // Insert New Patient
-    @PostMapping("/insert")
-    ResponseEntity<ResponseObject> insertProduct(@RequestBody Patient newPatient) {
-        return ResponseEntity.status(HttpStatus.OK).body(
-                new ResponseObject("ok", "Insert Product Successfully", repository.save(newPatient)));
+    // Tìm bệnh nhân theo tên của họ
+    @GetMapping("/getPatientByName/{name}")
+    public ResponseEntity<ResponseObject> getPatientByName(@PathVariable String name) {
+        return patientService.getPatientByName(name);
     }
 
-    // Update Patient by ID, If Patient does not exists then Insert New Patient
-    // @PutMapping("/{id}")
-    // ResponseEntity<ResponseObject> updateProduct(@RequestBody Patient newPatient, @PathVariable Long id) {
-    //     Patient updatedPatient = repository.findById(id).map(patient -> {
-    //         patient.setPatientName(newPatient.getPatientName());
-    //         patient.setMedicalHistory(newPatient.getMedicalHistory());
-    //         patient.setTestResults(newPatient.getTestResults());
-    //         patient.setTreatmentSchedule(newPatient.getTreatmentSchedule());
-    //         return repository.save(patient);
-    //     }).orElseGet(() -> {
-    //         newPatient.setId(id);
-    //         return repository.save(newPatient);
-    //     });
-    //     return ResponseEntity.status(HttpStatus.OK).body(
-    //             new ResponseObject("ok", "Update patient with id = " + updatedPatient.getId() + " successfully",
-    //                     updatedPatient));
-    // }
-
-    // Delete Patient if exists
-    @DeleteMapping("/{id}")
-    ResponseEntity<ResponseObject> deleteProduct(@PathVariable Long id) {
-        boolean exist = repository.existsById(id);
-        if (exist) {
-            repository.deleteById(id);
-            return ResponseEntity.status(HttpStatus.OK).body(
-                    new ResponseObject("ok", "Delete patient with id = " + id + " successfull", ""));
-        }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
-                new ResponseObject("failed", "Cannot find patient with id = " + id, ""));
+    // Thêm bệnh nhân
+    @PostMapping("/insertPatient")
+    public ResponseEntity<ResponseObject> insertPatient(@RequestBody Patient newPatient) {
+        return patientService.insertPatient(newPatient);
     }
+    
+    // Chỉnh sửa thông tin bệnh nhân
+    @PutMapping("/updateEmployee/{id}")
+    public ResponseEntity<ResponseObject> updatePatientById(@PathVariable Long id, @RequestBody Patient updatedPatient) {
+        return patientService.updatePatientById(id, updatedPatient);
+    }
+
+
 }
