@@ -57,6 +57,10 @@ public class PageController {
     //     }
 
     // }
+    @RequestMapping("/homePage")
+    public String homePage(){
+        return "homePage";
+    }
 
     @RequestMapping("/hello")
     public String hello(@RequestParam(name = "username", required = false, defaultValue = "") String username, 

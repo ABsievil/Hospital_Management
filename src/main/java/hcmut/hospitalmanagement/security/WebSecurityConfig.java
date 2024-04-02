@@ -75,7 +75,7 @@ public class WebSecurityConfig {
             .formLogin( formLogin -> formLogin
                 .loginPage("/login")           // you must custom file login.html, defaul is login page of spring
                 .loginProcessingUrl("/process-login")
-                .defaultSuccessUrl("/hello")
+                .defaultSuccessUrl("/homePage")
                 .failureUrl("/login?error=true")
                 // .successHandler(authenticationSuccessHandler())
                 // .failureHandler(authenticationFailureHandler())
