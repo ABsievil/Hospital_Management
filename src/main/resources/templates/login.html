@@ -10,7 +10,12 @@
 <body>
     <div class="container">
 
-        <div class="left-side">
+        <div class = "left-side ">
+            <img src = "\images\undraw_doctor_kw-5-l.svg" alt="img-doctor"></img>
+            <div> NGOC CHAU .Ltd </div>
+        </div>
+
+        <div class="right-side">
             <h1>PLEASE LOG IN</h1>
             <form method="post" th:action="@{/process-login}" id="loginForm">
                 <input name="username" type="text" placeholder="Enter Username" class="input-box" required />
@@ -28,15 +33,6 @@
 
                 <button type="submit" value="Log in" id="submit">Login</button>
             </form> 
-            
-            
-        </div>
-
-        <div class = "right-side">
-            <img src = "undraw_doctor_kw-5-l.svg" alt="img-doctor"></img>
-            
-            <div> NGOC CHAU .Ltd </div>
-
         </div>
         
     </div>

@@ -11,7 +11,7 @@
     width: 800px;
     border:1px solid black;
     margin: auto;
-    margin-top: 50px;
+    margin-top: 80px;
     font-family: Arial, sans-serif;
     box-shadow: 19px 19px 20px black;
     border-radius: 15px;
@@ -19,42 +19,39 @@
 
 
 body {
-    /* margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;    
-    height: 100vh; */
-    background-color: #97E7E1   
-
+    background-color: #97E7E1;
+    background: url("\images\backGround.jpg");
+    background-size: cover;
+    background-position: center;
 }
 
-.left-side {
+.right-side {
     width: 50%;
-    background-color: #fff;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    border-radius: 8px;
+    border-radius: 15px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     background-color: whitesmoke;
 }
-.left-side h1{
-    font-size: 2.7rem;
-    margin-top: 20px;
-    margin-bottom: 20px;
 
+.right-side h1{
+    font-size: 2.5rem;
+    margin-top: 50px;
+    margin-bottom: 50px;    
 }
+
 form {
-    display: flex;
+    display: flex;  
     flex-direction: column;
     align-items: center;
 }
 
 .input-box{ 
     padding: 12px;
-    width: 80%;
-    margin: 15px;
+    width: 100%;
+    margin-top: 5px;
     border: 1px solid black;
     outline: none;
     border-radius: 20px;
@@ -62,8 +59,8 @@ form {
 
 #submit{
     padding: 12px 30px;
-    width: 40%;
-    margin-top: 40px;
+    width: 50%;
+    margin-top: 30px;
     background-color: blue;
     color: white;
     font-weight: bold;
@@ -74,26 +71,25 @@ form {
 
 #submit:hover{
     cursor: pointer;
-    background-color: aqua;
+    background-color: lightskyblue;
     color: black;
 
 }
 
-
-/* right hand side */
-.right-side{
+/* left hand side */
+.left-side {
     color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 50%;
-    /* background-color:aqua   ; */
-    background-image: linear-gradient(90deg, #00AFB9, #0081A7);
-
+    background-color: whitesmoke;
+    background-image: linear-gradient(90deg, #0081A7, #00AFB9);
+    border-radius: 15px 0 0 15px;
 }
 
-.right-side img{
+.left-side img{
     width: 400px;
     height: 400px;
 }
