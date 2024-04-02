@@ -96,7 +96,7 @@ public class WebSecurityConfig {
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
         //HTTP requirements to the resources in these links do not have to undergo security filters provided by Spring Security
-        return (web) -> web.ignoring().requestMatchers("/resources/**", "/static/**", "/css/**", "/images/**");
+        return (web) -> web.ignoring().requestMatchers("/resources/**", "/static/**", "/css/**", "/images/**", "/js/**");
     }
 }
 
