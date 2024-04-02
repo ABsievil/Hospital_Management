@@ -82,7 +82,7 @@ public class WebSecurityConfig {
                 .permitAll()
             )
             .logout(logout -> logout
-                //.logoutUrl("")
+                //.logoutUrl("/logout")
                 .logoutSuccessUrl("/index")
                 .invalidateHttpSession(true)
                 .deleteCookies("JSESSIONID")

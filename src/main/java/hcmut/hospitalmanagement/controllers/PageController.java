@@ -32,6 +32,11 @@ public class PageController {
         }
     }
 
+    @GetMapping("/logout")
+    public String logout(){
+        return "redirect:/index";
+    }
+
     // @Controller
     // public class LoginController {
 

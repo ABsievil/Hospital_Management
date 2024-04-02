@@ -39,7 +39,7 @@
                             <span class="nav-item">Setting</span>
                         </a></li>
 
-                    <li><a href="#" class="logout">
+                    <li><a class="logout" th:href="@{/logout}">
                             <i class="fas fa-sign-out-alt"></i>
                             <span class="nav-item">Log out</span>
                         </a></li>
@@ -78,13 +78,13 @@
 
                 <section class="treatment-schedule">
                     <div class="treatment-list">
-                        <h1>Lịch khám hôm nay</h1>
+                        <h1>Lịch trực khám hôm nay</h1>
                         <table class="table">
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Tên</th>
-                                    <th>Khoa</th>
+                                    <th>Bác sĩ</th>
+                                    <th>Bệnh nhân</th>
                                     <th>Phòng</th>
                                     <th>Bắt đầu</th>
                                     <th>Kết thúc</th>
@@ -95,7 +95,7 @@
                                 <tr>
                                     <td>01</td>
                                     <td>Nguyễn Cao Cường</td>
-                                    <td>Thần kinh</td>
+                                    <td>Mã Trường Vũ</td>
                                     <td>608 h6</td>
                                     <td>8:00AM</td>
                                     <td>3:00PM</td>
@@ -104,7 +104,7 @@
                                 <tr class="active">
                                     <td>02</td>
                                     <td>Mã Trường Vũ</td>
-                                    <td>Phục hồi chức năng</td>
+                                    <td>Trương Thế Vinh</td>
                                     <td>103 h1</td>
                                     <td>9:00AM</td>
                                     <td>4:00PM</td>
@@ -122,7 +122,7 @@
                                 <tr>
                                     <td>04</td>
                                     <td>Lê Vinh</td>
-                                    <td>Răng hàm mặt</td>
+                                    <td>Trương Thế Vinh</td>
                                     <td>501 h3</td>
                                     <td>8:00AM</td>
                                     <td>3:00PM</td>
@@ -131,7 +131,7 @@
                                 <tr>
                                     <td>05</td>
                                     <td>Nguyễn Hữu Tuấn</td>
-                                    <td>Khoa Ngoại</td>
+                                    <td>Lê Vinh</td>
                                     <td>708 h6</td>
                                     <td>9:00AM</td>
                                     <td>4:00PM</td>
@@ -140,7 +140,7 @@
                                 <tr>
                                     <td>06</td>
                                     <td>Nguyễn Hoàng Tú</td>
-                                    <td>Tai Mũi Họng</td>
+                                    <td>Lê Vinh</td>
                                     <td>307 h1</td>
                                     <td>9:00AM</td>
                                     <td>4:00PM</td>
