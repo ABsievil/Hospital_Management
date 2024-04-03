@@ -1,9 +1,10 @@
 package hcmut.hospitalmanagement.services;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import hcmut.hospitalmanagement.models.Medicine;
@@ -15,58 +16,104 @@ public class MedicineService {
     @Autowired
     private MedicineRepository medicineRepository;
 
-    public Medicine saveMedicine(Medicine medicine) {
-        return medicineRepository.save(medicine);
+    
+    // Lấy tất cả thuốc
+    public ResponseEntity<ResponseObject> getAllMedicine() {
+        List<Medicine> medicineList = medicineRepository.findAll();
+        return ResponseEntity.status(HttpStatus.OK)
+        .body(new ResponseObject("OK", "Querry medicine successfully", medicineList));
     }
 
-    public List<Medicine> getAllMedicine() {
-        return medicineRepository.findAll();
-    }
-
-    public Optional<Medicine> getMedicineById(Long id) {
-        return medicineRepository.findById(id);
-    }
-
-    public Medicine getMedicineByName(String name) {
-        return medicineRepository.findByName(name);
-    }
-
-    public ResponseObject updateMedicineById(Long id, Medicine updatedMedicine) {
+    // Lấy thuốc theo id
+    public ResponseEntity<ResponseObject> getMedicineById(Long id) {
         Medicine foundMedicine = medicineRepository.findById(id).orElse(null);
+        return foundMedicine != null
+        ? ResponseEntity.status(HttpStatus.OK)
+        .body(new ResponseObject("OK", "Querry medicine successfully", foundMedicine))
+        : ResponseEntity.status(HttpStatus.NOT_FOUND)
+        .body(new ResponseObject("Failed", "Cannot find any medicine with id: " + id, null));
+    }
+
+    // Lấy thuốc theo tên
+    public ResponseEntity<ResponseObject> getMedicineByName(String name) {
+        Medicine foundMedicine = medicineRepository.findByName(name);
+        return foundMedicine != null
+        ? ResponseEntity.status(HttpStatus.OK)
+        .body(new ResponseObject("OK", "Querry medicine successfully", foundMedicine))
+        : ResponseEntity.status(HttpStatus.NOT_FOUND)
+        .body(new ResponseObject("Failed", "Cannot find any medicine with name: " + name, null));
+    }
+
+    // Thêm thuốc
+    public ResponseEntity<ResponseObject> insertMedicine(Medicine newMedicine) {
+        Medicine foundMedicine = medicineRepository.findByName(newMedicine.getName());
+        return foundMedicine == null
+        ? ResponseEntity.status(HttpStatus.OK)
+        .body(new ResponseObject("OK", "Querry medicine successfully", medicineRepository.save(newMedicine)))
+        : ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE)
+        .body(new ResponseObject("Failed", "Medicine name already exists", null));
+    }
+
+    // Chỉnh sửa thuốc theo id
+    public ResponseEntity<ResponseObject> updateMedicineById(Long id, Medicine updatedMedicine) {
+        Medicine foundMedicine = medicineRepository.findById(id).orElse(null);
+        // Kiểm tra thuốc có tồn tại không
         if (foundMedicine == null) {
-            return new ResponseObject("Failed", "Cannot find Medicine with id: " + id, null);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+            .body(new ResponseObject("Failed", "Cannot find any medicine with id: " + id, null));
         }
-        if (!foundMedicine.getName().equals(updatedMedicine.getName()) &&
-                medicineRepository.findByName(updatedMedicine.getName()) != null) {
-            return new ResponseObject("Failed", "Medicine name already exists", null);
+        // Kiểm tra nếu thuốc bị đổi tên thì có trùng với tên của các thuốc khác trong database không
+        if (foundMedicine.getName() != updatedMedicine.getName() && 
+        medicineRepository.findByName(updatedMedicine.getName()) != null) {
+            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE)
+            .body(new ResponseObject("Failed", "Medicine name already exists", null));
         }
         updatedMedicine.setId(id);
-        return new ResponseObject("OK", "Update Medicine Successfully with id: " + id,
-                medicineRepository.save(updatedMedicine));
+        return ResponseEntity.status(HttpStatus.OK)
+        .body(new ResponseObject("OK", "Update medicine successfully", updatedMedicine));
     }
 
-    public ResponseObject updateMedicineByName(String name, Medicine updatedMedicine) {
-        Medicine existingMedicine = medicineRepository.findByName(name);
-        if (existingMedicine == null) {
-            return new ResponseObject("Failed", "Cannot find Medicine with name: " + name, null);
+    // Chỉnh sửa thuốc theo tên
+    public ResponseEntity<ResponseObject> updateMedicineByName(String name, Medicine updatedMedicine) {
+        Medicine foundMedicine = medicineRepository.findByName(name);
+        // Kiểm tra thuốc có tồn tại không
+        if (foundMedicine == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+            .body(new ResponseObject("Failed", "Cannot find any medicine with name: " + name, null));
         }
-        if (!existingMedicine.getName().equals(updatedMedicine.getName()) && 
-        medicineRepository.findByName(updatedMedicine.getName()) != null) {
-            return new ResponseObject("Failed", "Medicine name already exists", null);
+        // Kiểm tra nếu thuốc bị đổi tên thì có trùng với tên của các thuốc khác trong database không
+        if (name != updatedMedicine.getName() && medicineRepository.findByName(updatedMedicine.getName()) != null) {
+            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE)
+            .body(new ResponseObject("Failed", "Medicine name already exists", null));
         }
-        updatedMedicine.setId(existingMedicine.getId());
-        return new ResponseObject("OK", "Update Medicine Successfully with name: " + name,
-                medicineRepository.save(updatedMedicine));
+        updatedMedicine.setId(foundMedicine.getId());
+        return ResponseEntity.status(HttpStatus.OK)
+        .body(new ResponseObject("OK", "Update medicine successfully", updatedMedicine));
     }
 
-    public void deleteMedicineById(Long id) {
+    // Xóa thuốc theo id
+    public ResponseEntity<ResponseObject> deleteMedicineById(Long id) {
+        Medicine foundMedicine = medicineRepository.findById(id).orElse(null);
+        // Kiểm tra thuốc có tồn tại không
+        if (foundMedicine == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+            .body(new ResponseObject("Failed", "Cannot find any medicine with id: " + id, null));
+        }
         medicineRepository.deleteById(id);
+        return ResponseEntity.status(HttpStatus.OK)
+        .body(new ResponseObject("OK", "Delete medicine successfully", null));
     }
 
-    public void deleteMedicineByName(String name) {
-        Medicine medicine = medicineRepository.findByName(name);
-        if (medicine != null) {
-            medicineRepository.delete(medicine);
+    // Xóa thuốc theo tên
+    public ResponseEntity<ResponseObject> deleteMedicineByName(String name) {
+        Medicine foundMedicine = medicineRepository.findByName(name);
+        // Kiểm tra thuốc có tồn tại không
+        if (foundMedicine == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+            .body(new ResponseObject("Failed", "Cannot find any medicine with name: " + name, null));
         }
+        medicineRepository.deleteById(foundMedicine.getId());
+        return ResponseEntity.status(HttpStatus.OK)
+        .body(new ResponseObject("OK", "Delete medicine successfully", null));
     }
 }

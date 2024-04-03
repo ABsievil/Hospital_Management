@@ -9,7 +9,5 @@ import hcmut.hospitalmanagement.models.Patient;
 public interface PatientRepository extends JpaRepository<Patient, Long> {
     List<Patient> findByInformationNameContainingIgnoreCase(String name);
 
-    //NOTE
-    Patient findByUsername(String username);
 }
 

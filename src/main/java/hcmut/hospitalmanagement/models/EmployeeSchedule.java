@@ -31,4 +31,7 @@ public class EmployeeSchedule {
     @ManyToOne
     @JoinColumn(name = "employee_id")
     private Employee employee;
+
+    private Long patientId;
+    private String room;
 }

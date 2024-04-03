@@ -19,9 +19,9 @@ public class PatientService {
 
     // Tìm tất cả bệnh nhân
     public ResponseEntity<ResponseObject> getAllPatient() {
-        List<Patient> employeeList = patientRepository.findAll();
+        List<Patient> patientList = patientRepository.findAll();
         return ResponseEntity.status(HttpStatus.OK)
-                .body(new ResponseObject("OK", "Querry patient successfully", employeeList));
+        .body(new ResponseObject("OK", "Querry patient successfully", patientList));
     }
 
     // Tìm bệnh nhân theo id
@@ -29,7 +29,7 @@ public class PatientService {
         Patient foundPatient = patientRepository.findById(patientId).orElse(null);
         return foundPatient != null
             ? ResponseEntity.status(HttpStatus.OK)
-            .body(new ResponseObject("OK", "Query patient successfully", foundPatient))
+            .body(new ResponseObject("OK", "Querry patient successfully", foundPatient))
             : ResponseEntity.status(HttpStatus.NOT_FOUND)
             .body(new ResponseObject("Failed", "Cannot find any patient with id: " + patientId, null));
     }
@@ -38,19 +38,13 @@ public class PatientService {
     public ResponseEntity<ResponseObject> getPatientByName(String name) {
         List<Patient> patientList = patientRepository.findByInformationNameContainingIgnoreCase(name);
         return ResponseEntity.status(HttpStatus.OK)
-                .body(new ResponseObject("OK", "Querry patient successfully", patientList));
+        .body(new ResponseObject("OK", "Querry patient successfully", patientList));
     }
 
     // Thêm bệnh nhân 
     public ResponseEntity<ResponseObject> insertPatient(Patient newPatient) {
-        if (newPatient == null) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                    .body(new ResponseObject("Failed", "New patient object is null", null));
-        }
-    
-        // Tiếp tục với quá trình thêm mới nếu newPatient không null
         return ResponseEntity.status(HttpStatus.OK)
-                .body(new ResponseObject("OK", "Insert patient successfully", patientRepository.save(newPatient)));
+        .body(new ResponseObject("OK", "Insert patient successfully", patientRepository.save(newPatient)));
     }
     
 
@@ -60,11 +54,11 @@ public class PatientService {
         // Kiểm tra id của bệnh nhân có tồn tại không
         if (foundPatient == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
-            .body(new ResponseObject("Failed", "Cannot find any employee with id: " + id, null));
+            .body(new ResponseObject("Failed", "Cannot find any patient with id: " + id, null));
         }
 
         updatedPatient.setId(id);
         return ResponseEntity.status(HttpStatus.OK)
-        .body(new ResponseObject("OK", "Update employee successfully", patientRepository.save(updatedPatient)));
+        .body(new ResponseObject("OK", "Update patient successfully", patientRepository.save(updatedPatient)));
     }
 }

@@ -13,6 +13,7 @@ import hcmut.hospitalmanagement.models.EmployeeSchedule;
 import hcmut.hospitalmanagement.models.ResponseObject;
 import hcmut.hospitalmanagement.repositories.EmployeeRepository;
 import hcmut.hospitalmanagement.repositories.EmployeeScheduleRepository;
+import hcmut.hospitalmanagement.repositories.PatientRepository;
 
 @Service
 public class EmployeeScheduleService {
@@ -21,6 +22,9 @@ public class EmployeeScheduleService {
 
     @Autowired
     private EmployeeRepository employeeRepository;
+
+    @Autowired
+    private PatientRepository patientRepository;
 
     public ResponseEntity<ResponseObject> getAllEmployeeSchedule() {
         List<EmployeeSchedule> scheduleList = employeeScheduleRepository.findAll();
@@ -70,10 +74,20 @@ public class EmployeeScheduleService {
             return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE)
             .body(new ResponseObject("Failed", "Title must not be null", null));
         }
+        // Nếu trong lịch có patient id thì kiểm tra xem bệnh nhân có tồn tại không
+        if (newEmployeeSchedule.getPatientId() != null && !patientRepository.existsById(newEmployeeSchedule.getPatientId())) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+            .body(new ResponseObject("Failed", "Patient id does not exists", null));
+        }
+        // Kiểm tra có phòng chưa
+        if (newEmployeeSchedule.getRoom() == null) {
+            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE)
+            .body(new ResponseObject("Failed", "Room must not be null", null));
+        }
         // Kiểm tra employee có tồn tại không
         Employee foundEmployee = employeeRepository.findById(employeeId).orElse(null);
         if (foundEmployee == null) {
-            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE)
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
             .body(new ResponseObject("Failed", "Cannot find any employee with id: " + employeeId, null));
         }
         newEmployeeSchedule.setEmployee(foundEmployee);
@@ -103,6 +117,16 @@ public class EmployeeScheduleService {
         if (updatedEmployeeSchedule.getTitle() == null) {
             return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE)
             .body(new ResponseObject("Failed", "Title must not be null", null));
+        }
+        // Kiểm tra xem có phòng chưa
+        if (updatedEmployeeSchedule.getRoom() == null) {
+            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE)
+            .body(new ResponseObject("Failed", "Room must not be null", null));
+        }
+        // Nếu trong lịch có patient id thì kiểm tra xem patient có tồn tại không
+        if (updatedEmployeeSchedule.getPatientId() != null && patientRepository.existsById(updatedEmployeeSchedule.getPatientId())) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+            .body(new ResponseObject("Failed", "Patient id does not exists", null));
         }
         // Kiểm tra employee có tồn tại không
         Employee foundEmployee = employeeRepository.findById(employeeId).orElse(null);

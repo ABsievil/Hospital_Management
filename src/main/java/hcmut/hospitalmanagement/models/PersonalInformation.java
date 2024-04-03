@@ -23,7 +23,10 @@ public class PersonalInformation {
     private String phoneNumber;
     private String address;
     private String occupation;
-
+    private String relative; // người thân
+    private String relativePhoneNumber; // sdt người thân
+    private String relativeAddress; // địa chỉ người thân
+    
     // Bảo hiểm y tế (Health Insurance or HI) 
     private String hiCode;
     private LocalDate hiStartDate;

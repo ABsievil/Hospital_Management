@@ -1,12 +1,11 @@
 package hcmut.hospitalmanagement.controllers;
 
-import java.util.List;
-import java.util.Optional;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
+
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,11 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import hcmut.hospitalmanagement.models.Employee;
+
 import hcmut.hospitalmanagement.models.Patient;
 import hcmut.hospitalmanagement.models.ResponseObject;
-import hcmut.hospitalmanagement.repositories.PatientRepository;
-// import hcmut.hospitalmanagement.services.EmployeeService;
 import hcmut.hospitalmanagement.services.PatientService;
 
 @RestController
@@ -53,7 +50,7 @@ public class PatientController {
     }
     
     // Chỉnh sửa thông tin bệnh nhân
-    @PutMapping("/updateEmployee/{id}")
+    @PutMapping("/updatePatient/{id}")
     public ResponseEntity<ResponseObject> updatePatientById(@PathVariable Long id, @RequestBody Patient updatedPatient) {
         return patientService.updatePatientById(id, updatedPatient);
     }
