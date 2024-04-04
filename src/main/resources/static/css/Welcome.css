@@ -140,9 +140,9 @@ button:hover {
     width: 97.35%;
     position: absolute;
     top: 93%;
-    text-align: left;
-    padding-left: 20px;
+    text-align: left;  
     color: #fff;
     background-color: rgb(85, 124, 132);
     padding: 20px;
+    padding-bottom: 30px;
 }
