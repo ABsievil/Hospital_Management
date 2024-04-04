@@ -22,15 +22,7 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig {
-    // @Bean
-    // AuthenticationSuccessHandler authenticationSuccessHandler() {
-    //     return new CustomAuthenticationSuccessHandler();
-    // }
 
-    // @Bean
-    // AuthenticationFailureHandler authenticationFailureHandler() {
-    //     return new CustomAuthenticationFailureHandler();
-    // }
     //demo in db
     @Autowired
     CustomUserDetailsService userService;
@@ -67,7 +59,7 @@ public class WebSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .authorizeHttpRequests((authorize) -> authorize
-                .requestMatchers("/", "/index").permitAll() 
+                .requestMatchers("/", "/index", "/about").permitAll() 
                 .requestMatchers("/helloUser").hasAnyAuthority("ADMIN", "DOCTOR", "NURSE", "OTHER") 
                 .requestMatchers("/helloAdmin").hasAuthority("ADMIN") 
                 .anyRequest().authenticated() 
