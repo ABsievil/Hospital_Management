@@ -17,12 +17,6 @@ public class PageController {
     public String index(){
         return "index";
     }
-
-    @RequestMapping("/about")
-    public String about(){
-        return "about";
-    }
-
     @Controller
     public class LoginController {
 
@@ -37,34 +31,85 @@ public class PageController {
         return "redirect:/index";
     }
 
-    // @Controller
-    // public class LoginController {
-
-    //     @Autowired
-    //     private PatientRepository patientRepository;
-
-    //     @GetMapping("/login")
-    //     public String showLoginForm() {
-    //         return "login";
-    //     }
-
-    //     @PostMapping("/login")
-    //     public String login(String username, String password) {
-    //         Patient patient = patientRepository.findByUsernameAndPassword(username, password);
-
-    //         if (patient != null) {
-    //             // Xác thực thành công, chuyển hướng đến trang chủ
-    //             return "hello";
-    //         } else {
-    //             // Xác thực thất bại, hiển thị thông báo lỗi
-    //             return "login false!";
-    //         }
-    //     }
-
-    // }
     @RequestMapping("/home")
     public String homePage(){
         return "homePage";
+    }
+
+    @RequestMapping("/about")
+    public String about(){
+        return "about";
+    }
+
+    @Controller
+    @RequestMapping("/profile")
+    public class ProfileController{
+
+        @RequestMapping("")
+        public String profile(){
+            return "profile";
+        }
+
+        @RequestMapping("/calendar")
+            public String calendar(){
+                return "calendar";
+            }
+    }
+    
+    @Controller
+    @RequestMapping("/storage")
+    public class StorageController{
+
+        @RequestMapping("/equipment")
+        public String equipment(){
+            return "equipment";
+        }    
+
+        @RequestMapping("/medicine")
+        public String medicine(){
+            return "medicine";  
+        }   
+    }
+
+    @RequestMapping("/report")
+    public String report(){
+        return "report";
+    }
+
+
+    @RequestMapping("/doctorlist")
+    public String doctorList(){
+        return "doctorList";
+    }
+
+    @RequestMapping("/patientlist")
+    public String patientList(){
+        return "patientList";
+    }
+
+    @RequestMapping("/patientlist/patientinfor")
+    public String patientInformation(){
+        return "patientInformation";
+    }
+
+    @RequestMapping("/patientlist/patientinfor/treatmenthistory")
+    public String treatmentHistory(){
+        return "treatmentHistory";
+    }
+
+    @RequestMapping("/patientlist/patientinfor/treatmenthistory/prescription")
+    public String prescription(){
+        return "prescription";
+    }
+
+    @RequestMapping("/help")
+    public String helpAndSupport(){
+        return "helpAndSupport";
+    }
+
+    @RequestMapping("/setting")
+    public String setting(){
+        return "setting";
     }
 
     @RequestMapping("/hello")
