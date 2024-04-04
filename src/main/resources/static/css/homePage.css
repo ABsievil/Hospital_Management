@@ -1,5 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700");
 
+:root {
+    --background-color: #dfe9f5;
+    --nav-item-hover-color: #34AF6D;
+    --card-color: #fff;
+    --card-button-color: #34AF6D;
+    --card-button-hover-color: #4AD489;
+    --table-color: #4AD489;
+    --table-field-color: #34AF6D;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -11,7 +21,7 @@
 }
 
 body {
-    background: #dfe9f5;
+    background: var(--background-color);
 }
 
 .container {
@@ -29,7 +39,8 @@ body {
     overflow: hidden;
     transition: 0.5s;
 }
-.invi{
+
+.invi {
     visibility: visible;
 }
 
@@ -48,7 +59,7 @@ nav:hover {
 .user-name {
     font-weight: bold;
     font-size: 18px;
-    text-transform: uppercase;  
+    text-transform: uppercase;
 }
 
 a {
@@ -80,7 +91,7 @@ a:hover {
 }
 
 a:hover i {
-    color: #34AF6D;
+    color: var(--nav-item-hover-color);
     transition: 0.5s;
 }
 
@@ -95,22 +106,24 @@ a:hover i {
     padding: 20px;
     width: 100vw;
     display: grid;
-    grid-template-areas: 
-    "t"
-    "w"
-    "s";
+    grid-template-areas:
+        "t"
+        "w"
+        "s";
 }
 
 .main-top {
     grid-area: t;
     display: grid;
     width: 100%;
-    grid-template-areas:"logo logo logo logo logo logo logo logo logo menu";
+    grid-template-areas: "logo logo logo logo logo logo logo logo logo menu";
 }
-#menu-bar{
+
+#menu-bar {
     grid-area: menu;
     visibility: hidden;
 }
+
 .main-top i {
     position: absolute;
     right: 0;
@@ -128,7 +141,7 @@ a:hover i {
 
 .main-widget .card {
     margin: 10px;
-    background: #fff;
+    background: var(--card-color);
     text-align: center;
     border-radius: 20px;
     padding: 10px;
@@ -145,7 +158,7 @@ a:hover i {
 }
 
 .main-widget .card button {
-    background:  #34AF6D;
+    background: var(--card-button-color);
     color: white;
     padding: 7px 15px;
     border-radius: 10px;
@@ -154,7 +167,7 @@ a:hover i {
 }
 
 .main-widget .card button:hover {
-    background: #4AD489;
+    background: var(--card-button-hover-color);
     color: black;
 }
 
@@ -190,7 +203,7 @@ a:hover i {
 
 table thead tr {
     color: #fff;
-    background: #34AF6D;
+    background: var(--table-field-color);
     text-align: left;
     font-weight: bold;
 }
@@ -210,11 +223,11 @@ table thead tr {
 
 .table tbody tr.active {
     font-weight: bold;
-    color: #4AD489;
+    color: var(--table-color);
 }
 
 .table tbody tr:last-of-type {
-    border-bottom: 2px solid #4AD489;
+    border-bottom: 2px solid var(--table-color);
 }
 
 .table button {
@@ -222,28 +235,32 @@ table thead tr {
     border-radius: 10px;
     cursor: pointer;
     background: transparent;
-    border: 1px solid #4AD489;
+    border: 1px solid var(--table-color);
 }
 
 .table button:hover {
-    background: #4AD489;
+    background: var(--table-color);
     color: #fff;
     transition: 0.5rem;
 }
-@media (max-width: 780px){
-    .main-widget{
+
+@media (max-width: 780px) {
+    .main-widget {
         grid-template-areas:
-        "a b"
-        "c d";
+            "a b"
+            "c d";
     }
-    .vi{
+
+    .vi {
         visibility: visible;
         overflow: visible;
     }
-    #menu-bar{
+
+    #menu-bar {
         visibility: visible;
     }
-    .invi{
+
+    .invi {
         visibility: hidden;
     }
 }

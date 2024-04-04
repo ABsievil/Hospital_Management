@@ -1,3 +1,9 @@
+:root {
+    --nav-bar-color: rgb(85, 124, 132);
+    --nav-item-color: #6AD4DD;
+    --card-color: #B3C8CF;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -17,7 +23,7 @@
 .navbar {
     position: sticky;
     top: 0;
-    background-color: rgb(85, 124, 132);
+    background-color: var(--nav-bar-color);
     width: 100%;
     margin: auto;
     padding: 7px 0;
@@ -48,7 +54,7 @@
     cursor: pointer;
     font-weight: bold;
     font-size: 20px;
-    color: #6AD4DD;
+    color: var(--nav-item-color);
     text-decoration: none;
 }
 
@@ -61,7 +67,7 @@
 }
 .navbar ul li a {
     text-decoration: none;
-    color: #6AD4DD;
+    color: var(--nav-item-color);
     text-transform: uppercase;
     font-weight: bold;
 }
@@ -128,7 +134,7 @@ form {
     padding: 12px 30px;
     width: 80%;
     margin-top: 30px;
-    background-color: rgb(85, 124, 132);
+    background-color: var(--nav-bar-color);
     color: white;
     font-weight: bold;
     border: none;
@@ -138,7 +144,7 @@ form {
 
 #submit:hover{
     cursor: pointer;
-    background-color: #B3C8CF;
+    background-color: var(--card-color);
     color: black;
 
 }
@@ -167,7 +173,7 @@ form {
     top: 93%;
     text-align: left;  
     color: #fff;
-    background-color: rgb(85, 124, 132);
+    background-color: var(--nav-bar-color);
     padding: 20px;
     padding-bottom: 30px;
 }
