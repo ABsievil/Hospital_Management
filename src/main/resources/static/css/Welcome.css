@@ -10,9 +10,13 @@
     font-family: sans-serif;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 .banner {
     width: 100%;
-    height: 110%;
+    height: 120%;
     background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url(/images/backgr.jpg);
     background-size: cover;
     background-position: center;
@@ -145,7 +149,7 @@ button:hover {
 .more-info {
     width: 97.35%;
     position: absolute;
-    top: 93%;
+    top: 103%;
     text-align: left;  
     color: #fff;
     background-color: var(--nav-bar-color);
