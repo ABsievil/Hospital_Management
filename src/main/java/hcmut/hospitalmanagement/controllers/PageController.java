@@ -1,6 +1,13 @@
 package hcmut.hospitalmanagement.controllers;
 
+import java.security.Principal;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,11 +15,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import hcmut.hospitalmanagement.models.Employee;
 import hcmut.hospitalmanagement.models.Patient;
+import hcmut.hospitalmanagement.repositories.EmployeeRepository;
 import hcmut.hospitalmanagement.repositories.PatientRepository;
 
 @Controller
 public class PageController {
+
+    @Autowired
+    EmployeeRepository employeeRepository;
+
+
     @RequestMapping(value = {"/", "index"})
     public String index(){
         return "index";
@@ -32,7 +46,15 @@ public class PageController {
     }
 
     @RequestMapping("/home")
-    public String homePage(){
+    public String homePage(Model model){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if(authentication != null){
+            UserDetails principal = (UserDetails) authentication.getPrincipal();
+            String username = principal.getUsername();
+            Employee employee = employeeRepository.findByUsername(username);
+            model.addAttribute("employee", employee);
+            return "homePage";
+        }
         return "homePage";
     }
 
