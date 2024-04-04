@@ -19,12 +19,12 @@ body {
 }
 
 .option-bar {
-    position: relative;
+    position: sticky;
     top: 0;
     bottom: 0;
     height: 100vh;
     left: 0;
-    width: 120px;
+    width: 90px;
     background: #fff;
     overflow: hidden;
     transition: 0.5s;
@@ -45,12 +45,10 @@ nav:hover {
     padding-bottom: 3rem;
 }
 
-.logo span {
+.user-name {
     font-weight: bold;
-    padding-left: 15px;
     font-size: 18px;
     text-transform: uppercase;  
-    margin-top: 10px;
 }
 
 a {
@@ -68,7 +66,7 @@ nav .fas {
     height: 40px;
     top: 20px;
     font-size: 20px;
-    text-align: left;
+    text-align: center;
 }
 
 .nav-item {
@@ -88,7 +86,7 @@ a:hover i {
 
 .logout {
     position: absolute;
-    bottom: 0;
+    bottom: 20px;
 }
 
 /* Main Section */
