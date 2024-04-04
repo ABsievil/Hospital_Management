@@ -18,16 +18,19 @@ body {
     display: flex;
 }
 
-nav {
-    position: sticky;
+.option-bar {
+    position: relative;
     top: 0;
     bottom: 0;
     height: 100vh;
     left: 0;
-    width: 90px;
+    width: 120px;
     background: #fff;
     overflow: hidden;
     transition: 0.5s;
+}
+.invi{
+    visibility: visible;
 }
 
 nav:hover {
@@ -65,7 +68,7 @@ nav .fas {
     height: 40px;
     top: 20px;
     font-size: 20px;
-    text-align: center;
+    text-align: left;
 }
 
 .nav-item {
@@ -92,14 +95,24 @@ a:hover i {
 .main {
     position: relative;
     padding: 20px;
-    width: 100%;
+    width: 100vw;
+    display: grid;
+    grid-template-areas: 
+    "t"
+    "w"
+    "s";
 }
 
 .main-top {
-    display: flex;
+    grid-area: t;
+    display: grid;
     width: 100%;
+    grid-template-areas:"logo logo logo logo logo logo logo logo logo menu";
 }
-
+#menu-bar{
+    grid-area: menu;
+    visibility: hidden;
+}
 .main-top i {
     position: absolute;
     right: 0;
@@ -109,12 +122,13 @@ a:hover i {
 }
 
 .main-widget {
-    display: flex;
+    grid-area: w;
+    display: grid;
+    grid-template-areas: "a b c d";
     margin-top: 20px;
 }
 
 .main-widget .card {
-    width: 25%;
     margin: 10px;
     background: #fff;
     text-align: center;
@@ -153,6 +167,7 @@ a:hover i {
 
 /* Schedule */
 .treatment-schedule {
+    grid-area: s;
     margin-top: 20px;
     text-transform: capitalize;
 }
@@ -216,4 +231,21 @@ table thead tr {
     background: #4AD489;
     color: #fff;
     transition: 0.5rem;
+}
+@media (max-width: 780px){
+    .main-widget{
+        grid-template-areas:
+        "a b"
+        "c d";
+    }
+    .vi{
+        visibility: visible;
+        overflow: visible;
+    }
+    #menu-bar{
+        visibility: visible;
+    }
+    .invi{
+        visibility: hidden;
+    }
 }
