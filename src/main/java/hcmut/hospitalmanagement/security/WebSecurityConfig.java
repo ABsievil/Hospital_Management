@@ -22,15 +22,7 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig {
-    // @Bean
-    // AuthenticationSuccessHandler authenticationSuccessHandler() {
-    //     return new CustomAuthenticationSuccessHandler();
-    // }
 
-    // @Bean
-    // AuthenticationFailureHandler authenticationFailureHandler() {
-    //     return new CustomAuthenticationFailureHandler();
-    // }
     //demo in db
     @Autowired
     CustomUserDetailsService userService;
