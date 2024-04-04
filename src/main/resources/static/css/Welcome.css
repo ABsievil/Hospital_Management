@@ -26,6 +26,7 @@
 
 .logo {
     margin-left: 40px;
+    margin-right: 15px;
     width: 50px;
     height: 50px;
     cursor: pointer;
@@ -33,17 +34,34 @@
     border-radius: 50px;
 }
 
+
+.logo-name {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+
+.name {
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 20px;
+    color: #6AD4DD;
+    text-decoration: none;
+}
+
 .navbar ul li {
     list-style: none;
     display: inline-block;
     margin: 0 20px;
     position: relative;
+    
 }
-
 .navbar ul li a {
     text-decoration: none;
-    color: black;
+    color: #6AD4DD;
     text-transform: uppercase;
+    font-weight: bold;
 }
 
 .navbar ul li::after {
@@ -71,14 +89,16 @@
 }
 
 .content h1 {
-    font-size: 60px;
+    font-size: 45px;
     margin-top: 80px;
 }
 
 .content p {
     margin: 20px auto;
+    font-size: 20px;
     font-weight: 100;
     line-height: 25px;
+    color: rgb(202, 192, 192);
 }
 
 button {
@@ -108,7 +128,7 @@ span {
     transition: 0.5s;
 }
 
-button:hover span{
+button:hover span {
     width: 100%;
 }
 
