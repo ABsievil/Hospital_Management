@@ -20,7 +20,7 @@
     font-family: "Poppins", sans-serif;
 }
 
-html{
+html {
     scroll-behavior: smooth;
 }
 
@@ -75,14 +75,14 @@ nav .fas {
     position: relative;
     width: 70px;
     height: 40px;
-    top: 20px;
+    top: 15px;
     font-size: 20px;
     text-align: center;
 }
 
 .nav-item {
     position: relative;
-    top: 12px;
+    top: 16px;
     margin-left: 10px;
 }
 
@@ -141,7 +141,6 @@ a:hover i {
     display: flex;
     flex-direction: row;
     align-items: center;
-    
 }
 
 .name {
@@ -168,7 +167,7 @@ a:hover i {
     transition: 0.3s;
 }
 
-.main-widget .card:hover{
+.main-widget .card:hover {
     cursor: pointer;
     transform: scale(1.1);
     z-index: 2;
