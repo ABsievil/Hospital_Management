@@ -41,10 +41,10 @@ public class Database {
                 // logger.info("insert employee: " + employeeRepository.save(emp3));
                 // logger.info("insert employee: " + employeeRepository.save(emp4));
 
-                PersonalInformation Pemp1 = new PersonalInformation("ABsievil", "VN", true, null, "Phong nha Ke Bang, QB", "0911336607", "Q9, TP.HCM", "developer", "Hung Nguyen", "0984734456", "Phong Nha Ke Bang, QB", "9999999999", null, null);
+                // PersonalInformation Pemp1 = new PersonalInformation("ABsievil", "VN", true, null, "Phong nha Ke Bang, QB", "0911336607", "Q9, TP.HCM", "developer", "Hung Nguyen", "0984734456", "Phong Nha Ke Bang, QB", "9999999999", null, null);
 
-                Employee emp1 = new Employee(null, true, null, Pemp1, "admin", passwordEncoder.encode("1245"), Role.DOCTOR);
-                logger.info("insert employee: " + employeeRepository.save(emp1));
+                // Employee emp1 = new Employee(null, true, null, Pemp1, "admin", passwordEncoder.encode("1245"), Role.DOCTOR);
+                // logger.info("insert employee: " + employeeRepository.save(emp1));
 
                 // Patient patient1 = new Patient("user", passwordEncoder.encode("1234"),true, null, null, null, null);
                 // Patient patient2 = new Patient("admin", passwordEncoder.encode("1245"),false, null, null, null, null);
