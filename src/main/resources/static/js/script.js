@@ -1,25 +1,9 @@
-function login() {
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
+// import Cookies from 'js-cookie';
 
-    // Gửi dữ liệu đến backend
-    fetch('http://localhost:8080/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username, password }),
-    })
-    .then(response => response.json())
-    .then(data => {
-        // Xử lý phản hồi từ backend
-        if (data.success) {
-            alert('Login finished!');
-        } else {
-            alert('Login failed. Please check your login information again!');
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
-}
+// document.getElementById('clickLogout').addEventListener('click', function() {
+//   // Xóa cookie JSESSIONID
+//   document.cookie = 'JSESSIONID=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
+//   Cookies.JSESSION
+// });
+
+// note: code not active

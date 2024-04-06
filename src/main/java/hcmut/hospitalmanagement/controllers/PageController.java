@@ -19,6 +19,10 @@ import hcmut.hospitalmanagement.models.Employee;
 import hcmut.hospitalmanagement.models.Patient;
 import hcmut.hospitalmanagement.repositories.EmployeeRepository;
 import hcmut.hospitalmanagement.repositories.PatientRepository;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class PageController {
@@ -41,7 +45,13 @@ public class PageController {
     }
 
     @GetMapping("/logout")
-    public String logout(){
+    public String logout(HttpServletRequest request, HttpServletResponse response){
+        HttpSession session = request.getSession(false);
+        if(session != null) session.invalidate();
+        Cookie cookie = new Cookie("JSESSIONID", null);
+        cookie.setPath("/");
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
         return "redirect:/index";
     }
 
