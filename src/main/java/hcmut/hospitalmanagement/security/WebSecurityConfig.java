@@ -79,7 +79,12 @@ public class WebSecurityConfig {
                 .invalidateHttpSession(true)
                 .deleteCookies("JSESSIONID")
                 .permitAll()
-            );
+            )
+            .rememberMe(remember -> remember
+                .key("4Bsi3vil")
+                .tokenValiditySeconds(10))  //current is not working
+            .exceptionHandling(exeption -> exeption.accessDeniedPage("/403"))
+            ;
             //.csrf(csrf -> csrf.disable());   // what is csrf, should disable it ?
         
         return http.build();

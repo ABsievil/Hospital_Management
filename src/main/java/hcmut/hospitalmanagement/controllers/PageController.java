@@ -13,7 +13,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.util.WebUtils;
 
 import hcmut.hospitalmanagement.models.Employee;
 import hcmut.hospitalmanagement.models.Patient;
@@ -53,6 +55,20 @@ public class PageController {
         cookie.setMaxAge(0);
         response.addCookie(cookie);
         return "redirect:/index";
+    }
+
+    @RequestMapping(value = "/403", method = RequestMethod.GET)
+    public String accessDenied(Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if(authentication != null){
+            UserDetails principal = (UserDetails) authentication.getPrincipal();
+            String username = principal.getUsername();
+            Employee employee = employeeRepository.findByUsername(username);
+            String message = "Hi " + employee.getInformation().getName() //
+                    + ", You do not have permission to access this page!";
+            model.addAttribute("message", message);
+        }
+        return "403Page";
     }
 
     @RequestMapping("/home")
