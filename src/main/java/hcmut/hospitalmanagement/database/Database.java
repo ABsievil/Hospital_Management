@@ -32,10 +32,10 @@ public class Database {
             @Override
             public void run(String... args) throws Exception {
                 // Doctor testing
-                Employee emp1 = new Employee(null, true, null, null, "user1", passwordEncoder.encode("1231"), Role.DOCTOR);
-                Employee emp2 = new Employee(null, false, null, null, "user2", passwordEncoder.encode("1232"), Role.NURSE);
-                Employee emp3 = new Employee(null, true, null, null, "user3", passwordEncoder.encode("1233"), Role.OTHER);
-                Employee emp4 = new Employee(null, false, null, null, "admin", passwordEncoder.encode("1245"), Role.ADMIN);
+                // Employee emp1 = new Employee(null, true, null, null, "user1", passwordEncoder.encode("1231"), Role.DOCTOR);
+                // Employee emp2 = new Employee(null, false, null, null, "user2", passwordEncoder.encode("1232"), Role.NURSE);
+                // Employee emp3 = new Employee(null, true, null, null, "user3", passwordEncoder.encode("1233"), Role.OTHER);
+                // Employee emp4 = new Employee(null, false, null, null, "admin", passwordEncoder.encode("1245"), Role.ADMIN);
                 // logger.info("insert employee: " + employeeRepository.save(emp1));
                 // logger.info("insert employee: " + employeeRepository.save(emp2));
                 // logger.info("insert employee: " + employeeRepository.save(emp3));

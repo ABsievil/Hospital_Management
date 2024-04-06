@@ -16,7 +16,9 @@ public class Equipment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    String name;
-    String description;
-    boolean available;
+    private String name;
+    private String description;
+    private boolean available;
+
+    
 }
