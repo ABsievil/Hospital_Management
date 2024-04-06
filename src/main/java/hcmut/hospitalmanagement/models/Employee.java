@@ -25,10 +25,12 @@ public class Employee {
     private Long id;
 
     private boolean isActive;
-
-    // private ImageData image;
-    private String specialty;
-
+    private String specialty; // chuyên ngành
+    private String position; // chức vụ
+    private String degree; // học vị
+    private String academicRank; // học hàm
+    private String trainingPlace; // nơi đào tạo
+    
     @Embedded
     private PersonalInformation information;
 
@@ -41,5 +43,11 @@ public class Employee {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    // Custom Constructor
+    public Employee(String username, String password, Role role) {
+        this.username = username;
+        this.password = password;
+        this.role = role;
+    }
     
 }

@@ -23,5 +23,5 @@ public class Medicine {
     private String components; // Thành phần
     private String uses; // Công dụng
     private String note; // Chú ý
-    private Integer quantity; // Số lượng
+    private boolean available;
 }

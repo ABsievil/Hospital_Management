@@ -2,6 +2,7 @@ package hcmut.hospitalmanagement.models;
 
 import java.time.LocalDateTime;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -28,7 +29,7 @@ public class EmployeeSchedule {
     private LocalDateTime startTime;
     private LocalDateTime endTime;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "employee_id")
     private Employee employee;
 
