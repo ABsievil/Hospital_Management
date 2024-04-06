@@ -32,10 +32,10 @@ public class Database {
             @Override
             public void run(String... args) throws Exception {
                 // Doctor testing
-                // Employee emp1 = new Employee(null, true, null, null, "user1", passwordEncoder.encode("1231"), Role.DOCTOR);
-                // Employee emp2 = new Employee(null, false, null, null, "user2", passwordEncoder.encode("1232"), Role.NURSE);
-                // Employee emp3 = new Employee(null, true, null, null, "user3", passwordEncoder.encode("1233"), Role.OTHER);
-                // Employee emp4 = new Employee(null, false, null, null, "admin", passwordEncoder.encode("1245"), Role.ADMIN);
+                // Employee emp1 = new Employee("user1", passwordEncoder.encode("1231"), Role.DOCTOR);
+                // Employee emp2 = new Employee("user2", passwordEncoder.encode("1232"), Role.NURSE);
+                // Employee emp3 = new Employee("user3", passwordEncoder.encode("1233"), Role.STAFF);
+                // Employee emp4 = new Employee("admin", passwordEncoder.encode("1245"), Role.ADMIN);
                 // logger.info("insert employee: " + employeeRepository.save(emp1));
                 // logger.info("insert employee: " + employeeRepository.save(emp2));
                 // logger.info("insert employee: " + employeeRepository.save(emp3));
@@ -43,17 +43,10 @@ public class Database {
 
                 PersonalInformation Pemp1 = new PersonalInformation("ABsievil", "VN", true, null, "Phong nha Ke Bang, QB", "0911336607", "Q9, TP.HCM", "developer", "Hung Nguyen", "0984734456", "Phong Nha Ke Bang, QB", "9999999999", null, null);
 
-                Employee emp1 = new Employee(null, true, null, Pemp1, "admin", passwordEncoder.encode("1245"), Role.DOCTOR);
+                Employee emp1 = new Employee(null, true, null, null, null, null, null, Pemp1, "admin", passwordEncoder.encode("1245"), Role.DOCTOR);
                 logger.info("insert employee: " + employeeRepository.save(emp1));
 
-                // Patient patient1 = new Patient("user", passwordEncoder.encode("1234"),true, null, null, null, null);
-                // Patient patient2 = new Patient("admin", passwordEncoder.encode("1245"),false, null, null, null, null);
-                // Patient patient3 = new Patient("john", passwordEncoder.encode("nick"),true, null, null, null, null);
-                // Patient patient4 = new Patient("username", passwordEncoder.encode("password"),false, null, null, null, null);
-                // logger.info("insert patient: " + patientRepository.save(patient1));
-                // logger.info("insert patient: " + patientRepository.save(patient2));
-                // logger.info("insert patient: " + patientRepository.save(patient3));
-                // logger.info("insert patient: " + patientRepository.save(patient4));
+                
             }
         };
     }

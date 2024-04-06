@@ -1,7 +1,7 @@
 :root {
-    --nav-bar-color: rgb(85, 124, 132);
-    --nav-item-color: #6AD4DD;
-    --button-color: #009688;
+    --nav-bar-color: #34AF6D;
+    --nav-item-color: white;
+    --button-color: #4AD489;
 }
 
 * {
