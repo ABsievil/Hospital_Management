@@ -20,6 +20,10 @@
     font-family: "Poppins", sans-serif;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 body {
     background: var(--background-color);
 }
@@ -40,16 +44,12 @@ body {
     transition: 0.5s;
 }
 
-.invi {
-    visibility: visible;
-}
-
 nav:hover {
     width: 280px;
     transition: 0.5s;
 }
 
-.logo {
+.user {
     text-align: center;
     display: flex;
     margin: 10px 0 0 10px;
@@ -104,24 +104,18 @@ a:hover i {
 .main {
     position: relative;
     padding: 20px;
-    width: 100vw;
-    display: grid;
-    grid-template-areas:
-        "t"
-        "w"
-        "s";
+    width: 100%;
 }
 
 .main-top {
-    grid-area: t;
-    display: grid;
-    width: 100%;
-    grid-template-areas: "logo logo logo logo logo logo logo logo logo menu";
-}
-
-#menu-bar {
-    grid-area: menu;
-    visibility: hidden;
+    position: sticky;
+    top: 0;
+    display: flex;
+    width: 35%;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    padding: 10px;
+    background: #fff;
 }
 
 .main-top i {
@@ -132,20 +126,52 @@ a:hover i {
     cursor: pointer;
 }
 
+.logo {
+    margin-left: 40px;
+    margin-right: 15px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 50px;
+}
+
+
+.logo-name {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+
+.name {
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 20px;
+    color: var(--nav-item-color);
+    text-decoration: none;
+}
+
 .main-widget {
-    grid-area: w;
-    display: grid;
-    grid-template-areas: "a b c d";
+    display: flex;
     margin-top: 20px;
 }
 
 .main-widget .card {
+    width: 20%;
     margin: 10px;
     background: var(--card-color);
     text-align: center;
     border-radius: 20px;
     padding: 10px;
     box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+.main-widget .card:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    z-index: 2;
 }
 
 .main-widget .card h3 {
@@ -155,20 +181,6 @@ a:hover i {
 
 .main-widget .card p {
     font-size: 12px;
-}
-
-.main-widget .card button {
-    background: var(--card-button-color);
-    color: white;
-    padding: 7px 15px;
-    border-radius: 10px;
-    margin-top: 15px;
-    cursor: pointer;
-}
-
-.main-widget .card button:hover {
-    background: var(--card-button-hover-color);
-    color: black;
 }
 
 .main-widget .card i {
@@ -242,25 +254,4 @@ table thead tr {
     background: var(--table-color);
     color: #fff;
     transition: 0.5rem;
-}
-
-@media (max-width: 780px) {
-    .main-widget {
-        grid-template-areas:
-            "a b"
-            "c d";
-    }
-
-    .vi {
-        visibility: visible;
-        overflow: visible;
-    }
-
-    #menu-bar {
-        visibility: visible;
-    }
-
-    .invi {
-        visibility: hidden;
-    }
 }
