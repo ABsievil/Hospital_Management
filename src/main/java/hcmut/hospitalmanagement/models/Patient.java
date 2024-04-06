@@ -34,7 +34,7 @@ public class Patient {
 
     @Embedded
     private PersonalInformation information;
-
+    
     String room;
     
     List<String> treatmentHistory;
