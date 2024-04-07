@@ -15,7 +15,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @Embeddable
 public class PersonalInformation {
-    private String name;
+    private String name;    // include first name and middle name
+    private String Lname;  // last name of user
     private String nationalID;
     private boolean gender;
     private String ethnic; // dân tộc
@@ -27,7 +28,7 @@ public class PersonalInformation {
     private String email;
     private String occupation;
     private String personelCode;
-    
+
     private String relative; // người thân
     private String relationWithRelative; // quan hệ với người thân
     private String relativeOccupation; // nghề nghiệp người thân

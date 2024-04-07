@@ -46,7 +46,7 @@ public class Database {
                 // logger.info("insert employee: " + employeeRepository.save(emp3));
                 // logger.info("insert employee: " + employeeRepository.save(emp4));
 
-                PersonalInformation Pemp1 = new PersonalInformation("ABsievil", "VN", true, null, null, null,
+                PersonalInformation Pemp1 = new PersonalInformation("ABsievil", "John", "VN", true, null, null, null,
                         "Phong nha Ke Bang, QB", "0911336607", "Q9, TP.HCM", "developer", "Hung Nguyen",
                         "0984734456", "Phong Nha Ke Bang, QB", "CEO", null, null, null, null, null, null, null);
 
@@ -54,7 +54,7 @@ public class Database {
                         passwordEncoder.encode("1245"), Role.DOCTOR);
                 logger.info("insert employee: " + employeeRepository.save(emp1));
 
-                PersonalInformation Pemp2 = new PersonalInformation("Nguyễn Mạnh Hùng", "123456", false, "Kinh", "Không",
+                PersonalInformation Pemp2 = new PersonalInformation("Mạnh Hùng", "Nguyễn", "123456", false, "Kinh", "Không",
                         LocalDate.of(2004, 07, 04), "Nghệ An", "0123456789",
                         "KTX Khu A", "Hungdb@hcmut.edu.vn", "Doctor", "2211337", "Nguyễn Cao Cường",
                         "Friend", "Doctor", "0911336607", "0339242722", "Q9, TP.HCM", "123456",
