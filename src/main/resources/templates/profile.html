@@ -21,8 +21,8 @@
                                 <span class="nav-item">
                                     <!-- <div class="user-name" th:text="${employee.information.name}"></div>
                             <div class="user-role" th:text="${employee.role}"></div> -->
-                                    <div class="user-name">User name</div>
-                                    <div class="user-role">User role</div>
+                                    <div class="user-name" th:text="${employee.information.name}"></div>
+                                    <div class="user-role" th:text="${employee.role}"></div>
                                 </span>
                             </a></li>
                         <li><a href="/home">
@@ -72,28 +72,29 @@
 
                                 <div class="field">
                                     <label for="">Tên</label>
-                                    <div class="infor-text">Nguyen Manh Hung</div>
+                                    <div class="infor-text" th:text="${employee.information.name}"></div>
                                 </div>
 
                                 <div class="field">
                                     <label for="">Giới tính</label>
-                                    <div class="infor-text">Nam</div>
+                                    <div class="infor-text" th:if="${employee.information.gender}">Nam</div>
+                                    <div class="infor-text" th:unless="${employee.information.gender}">Nữ</div>
 
                                 </div>
 
                                 <div class="field">
                                     <label for="">ngày sinh</label>
-                                    <div class="infor-text">01/01/2000</div>
-                                </div>
+                                    <div class="infor-text" th:text="${#dates.format(employee.information.dateOfBirth, 'yyyy-MM-dd')}"></div>
+                                </div> <!--chưa có data trong backend of Admin account-->
 
                                 <div class="field">
                                     <label for="">CCCD</label>
-                                    <div class="infor-text">040 204 021 200</div>
+                                    <div class="infor-text" th:text="${employee.information.nationalID}"></div>
                                 </div>
 
                                 <div class="field">
                                     <label for="">Dân tộc</label>
-                                    <div class="infor-text">Kinh</div>
+                                    <div class="infor-text">Kinh</div>  <!-- thiếu thuộc tính BE-->
                                 </div>
 
                                 <div class="field">
