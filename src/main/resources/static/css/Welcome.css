@@ -147,6 +147,8 @@ button:hover {
 }
 
 .more-info {
+    display: grid;
+    grid-template-columns: 800px 600px;
     width: 97.35%;
     position: absolute;
     top: 103%;
