@@ -1,11 +1,114 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Welcome to equipment</h1>
-</body>
-</html>
+<span style="font-family: verdana, geneva, sans-serif;">
+    <!DOCTYPE html>
+    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+
+    </html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>Home Page</title>
+        <link rel="stylesheet" th:href="@{/css/equipment.css}" />
+        <link rel="stylesheet" href="/css/navBarTemplate.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    </head>
+
+    <body>
+        <div class="container">
+            <nav class="option-bar invi">
+                <ul>
+                    <li><a href="/profile" class="user">
+                        <i class="fas fa-user" aria-hidden="true"></i></i>
+                        <span class="nav-item">
+                            <div class="user-name" th:text="${employee.username}"></div>
+                            <div class="user-role" th:text="${employee.role}"></div>
+                         </span>
+                    </a></li>
+                    <li><a href="/home">
+                        <i class="fas fa-home" aria-hidden="true"></i>
+                        <span class="nav-item">Trang Chủ</span>
+                    </a></li>
+                    <li><a href="/profile">
+                        <i class="fas fa-info" aria-hidden="true"></i>
+                        <span class="nav-item">Thông Tin Cá Nhân</span>
+                    </a></li>
+                    <li><a href="/profile/calendar">
+                        <i class="fas fa-calendar" aria-hidden="true"></i>
+                        <span class="nav-item">Lịch Cá Nhân</span>
+                    </a></li>
+                    <li><a href="/help">
+                        <i class="fas fa-question" aria-hidden="true"></i>
+                        <span class="nav-item">Trợ Giúp</span>
+                    </a></li>
+                    <li><a href="/setting">
+                        <i class="fas fa-cog" aria-hidden="true"></i></i>
+                        <span class="nav-item">Cài Đặt</span>
+                    </a></li>
+
+                    <li><a class="logout" th:href="@{/logout}">
+                            <i class="fas fa-sign-out-alt"></i>
+                          <span class="nav-item">Đăng xuất</span>
+                    </a></li>
+                </ul>
+            </nav>
+            <section class="main">
+                <div id ="scroll-to-top"></div>
+                <div class="main-top">
+                    <div class = "logo-name" onclick="location.href='#scroll-to-top'">
+                        <img src="image/Logo.png" class="logo"> <a href="#scroll-to-top" class="name">BỆNH VIỆN NGỌC CHÂU</a>
+                    </div>
+                </div>
+                <div class="equipment">
+                    <div class="small-equip">
+                        <h1>Thiết bị nhỏ</h1>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Loại thiết bị</th>
+                                    <th>Số lượng</th>
+                                    <th>Phòng chứa</th>
+                                    <th>Chi tiết</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>01</td>
+                                    <td>Kim tiêm</td>
+                                    <td>Hết</td>
+                                    <td>608 h6</td>
+                                    <td><button>Xem thêm</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="big-equip">
+                        <h1>Thiết bị lớn</h1>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Loại thiết bị</th>
+                                    <th>Phòng chứa</th>
+                                    <th>Tình trạng thiết bị</th>
+                                    <th>Chi tiết</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>01</td>
+                                    <td>Máy chụp X-quang</td>
+                                    <td>506 h6</td>
+                                    <td>Không có hư hỏng</td>
+                                    <td><button>Xem thêm</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </body>
+    <script src="/js/script.js"></script>
+    </html>
+</span>
