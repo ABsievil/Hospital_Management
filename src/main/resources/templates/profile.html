@@ -48,7 +48,7 @@
                             </a></li>
 
                         <!-- <li><a class="logout" th:href="@{/logout}"> -->
-                        <li><a class="logout">
+                        <li><a class="logout" th:href="@{/logout}">
                                 <i class="fas fa-sign-out-alt"></i>
                                 <span class="nav-item">Đăng xuất</span>
                             </a></li>
@@ -79,12 +79,11 @@
                                     <label for="">Giới tính</label>
                                     <div class="infor-text" th:if="${employee.information.gender}">Nam</div>
                                     <div class="infor-text" th:unless="${employee.information.gender}">Nữ</div>
-
                                 </div>
 
                                 <div class="field">
-                                    <label for="">ngày sinh</label>
-                                    <div class="infor-text" th:text="${#dates.format(employee.information.dateOfBirth, 'yyyy-MM-dd')}"></div>
+                                    <label for="">Ngày sinh</label>
+                                    <div class="infor-text" th:text="${employee.information.dateOfBirth}"></div>
                                 </div> <!--chưa có data trong backend of Admin account-->
 
                                 <div class="field">
@@ -94,51 +93,14 @@
 
                                 <div class="field">
                                     <label for="">Dân tộc</label>
-                                    <div class="infor-text">Kinh</div>  <!-- thiếu thuộc tính BE-->
+                                    <div class="infor-text" th:text="${employee.information.ethnic}"></div>
                                 </div>
 
                                 <div class="field">
                                     <label for="">Tôn giáo</label>
-                                    <div class="infor-text">không</div>
+                                    <div class="infor-text" th:text="${employee.information.religion}"></div>
                                 </div>
 
-
-                            </div>
-                        </div>
-
-                        <div class="infor-content">
-                            <div class="title">Thông tin nhân sự</div>
-                            <div class="field-wrapper">
-
-                                <div class="field">
-                                    <label for="">Mã số</label>
-                                    <div class="infor-text">2211337</div>
-                                </div>
-
-                                <div class="field">
-                                    <label for="">Chuyên khoa</label>
-                                    <div class="infor-text">Thần kinh</div>
-                                </div>
-
-                                <div class="field">
-                                    <label for="">Chức vụ</label>
-                                    <div class="infor-text">Trưởng khoa</div>
-                                </div>
-
-                                <div class="field">
-                                    <label for="">Học hàm</label>
-                                    <div class="infor-text">Giáo sư</div>
-                                </div>
-
-                                <div class="field">
-                                    <label for="">Học vị</label>
-                                    <div class="infor-text">Bác sĩ chuyên khoa I</div>
-                                </div>
-
-                                <div class="field">
-                                    <label for="">Nơi đào tạo</label>
-                                    <div class="infor-text">Havard chùa Láng</div>
-                                </div>
 
                             </div>
                         </div>
@@ -149,20 +111,77 @@
 
                                 <div class="field">
                                     <label for="">Địa chỉ</label>
-                                    <div class="infor-text">số 165, đường Phạm Hồng Thái, thành phố Vinh, tỉnh Nghệ An
-                                    </div>
+                                    <div class="infor-text" th:text="${employee.information.address}"></div>
                                 </div>
 
                                 <div class="field">
                                     <label for="">Email</label>
-                                    <div class="infor-text">ngochau123@gmail.com</div>
+                                    <div class="infor-text" th:text="${employee.information.email}"></div>
                                 </div>
 
                                 <div class="field">
                                     <label for="">Số điện thoại</label>
-                                    <div class="infor-text">0947 263 237</div>
+                                    <div class="infor-text" th:text="${employee.information.phoneNumber}"></div>
                                 </div>
 
+                            </div>
+                        </div>
+
+                        <div class="infor-content">
+                            <div class="title">Thông tin nhân sự</div>
+                            <div class="field-wrapper">
+
+                                <div class="field">
+                                    <label for="">Mã nhân sự</label>
+                                    <div class="infor-text" th:text="${employee.information.personelCode}"></div>
+                                </div>
+
+                                <div class="field">
+                                    <label for="">Chuyên khoa</label>
+                                    <div class="infor-text" th:text="${employee.specialty}"></div>
+                                </div>
+
+                                <div class="field">
+                                    <label for="">Chức vụ</label>
+                                    <div class="infor-text" th:text="${employee.position}"></div>
+                                </div>
+
+                                <div class="field">
+                                    <label for="">Học hàm</label>
+                                    <div class="infor-text" th:text="${employee.academicRank}"></div>
+                                </div>
+
+                                <div class="field">
+                                    <label for="">Học vị</label>
+                                    <div class="infor-text" th:text="${employee.degree}"></div>
+                                </div>
+
+                                <div class="field">
+                                    <label for="">Nơi đào tạo</label>
+                                    <div class="infor-text" th:text="${employee.trainingPlace}"></div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="infor-content">
+                            <div class="title">Thông tin bảo hiểm</div>
+                            <div class="field-wrapper">
+    
+                                <div class="field">
+                                    <label for="">mã bảo hiểm y tế</label>
+                                    <div class="infor-text" th:text="${employee.information.hiCode}"></div>
+                                </div>
+    
+                                <div class="field">
+                                    <label for="">ngày bắt đầu</label>
+                                    <div class="infor-text" th:text="${employee.information.hiStartDate}"></div>
+                                </div>
+    
+                                <div class="field">
+                                    <label for="">ngày kết thúc</label>
+                                    <div class="infor-text" th:text="${employee.information.hiEndDate}"></div>
+                                </div>
                             </div>
                         </div>
 
@@ -172,33 +191,32 @@
 
                                 <div class="field">
                                     <label for="">Tên</label>
-                                    <div class="infor-text">TTKO</div>
+                                    <div class="infor-text" th:text="${employee.information.relative}"></div>
                                 </div>
 
                                 <div class="field">
-                                    <label for="">quan hệ với người thân</label>
-                                    <div class="infor-text">chồng</div>
+                                    <label for="">Quan hệ với người thân</label>
+                                    <div class="infor-text" th:text="${employee.information.relationWithRelative}"></div>
                                 </div>
 
                                 <div class="field">
                                     <label for="">Số điện thoại</label>
-                                    <div class="infor-text">0946 855 825</div>
+                                    <div class="infor-text" th:text="${employee.information.relativePhoneNumber1}"></div>
                                 </div>
 
                                 <div class="field">
-                                    <label for="">nơi ở</label>
-                                    <div class="infor-text">số 165, đường Phạm Hồng Thái, thành phố Vinh, tỉnh Nghệ An
-                                    </div>
+                                    <label for="">Nơi ở</label>
+                                    <div class="infor-text" th:text="${employee.information.relativeAddress}"></div>
                                 </div>
 
                                 <div class="field">
                                     <label for="">Nghề nghiệp</label>
-                                    <div class="infor-text">Nội trợ</div>
+                                    <div class="infor-text" th:text="${employee.information.relativeOccupation}"></div>
                                 </div>
 
                                 <div class="field">
-                                    <label for="">Số điện thoại của người thân khác</label>
-                                    <div class="infor-text">0915 000 443</div>
+                                    <label for="">Số điện thoại khác của người thân</label>
+                                    <div class="infor-text" th:text="${employee.information.relativePhoneNumber2}"></div>
                                 </div>
 
                             </div>
