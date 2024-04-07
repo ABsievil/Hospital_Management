@@ -8,6 +8,7 @@
     --card-button-hover-color: #4AD489;
     --table-color: #4AD489;
     --table-field-color: #34AF6D;
+    --logo-bar-color: #34AF6D;
 }
 
 * {
@@ -38,23 +39,23 @@ body {
     bottom: 0;
     height: 100vh;
     left: 0;
-    width: 90px;
+    width: 60px;
     background: #fff;
     overflow: hidden;
     transition: 0.5s;
 }
 
 nav:hover {
-    width: 280px;
+    width: 250px;
     transition: 0.5s;
 }
 
 .user {
     text-align: center;
     display: flex;
-    margin: 10px 0 0 10px;
+    margin: 10px 0 0 0px;
     padding-bottom: 3rem;
-}
+}   
 
 .user-name {
     font-weight: bold;
@@ -73,16 +74,16 @@ a {
 
 nav .fas {
     position: relative;
-    width: 70px;
+    width: 40px;
     height: 40px;
-    top: 15px;
+    top: 16px;
     font-size: 20px;
     text-align: center;
 }
 
 .nav-item {
     position: relative;
-    top: 16px;
+    top: 15px;
     margin-left: 10px;
 }
 
@@ -103,7 +104,8 @@ a:hover i {
 /* Main Section */
 .main {
     position: relative;
-    padding: 20px;
+    padding: 15px;
+    padding-top: 0;
     width: 100%;
 }
 
@@ -111,11 +113,15 @@ a:hover i {
     position: sticky;
     top: 0;
     display: flex;
-    width: 35%;
+    width: 100%;
     box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
-    border-radius: 15px;
+    border-radius: 0 0 15px 15px;
     padding: 10px;
-    background: #fff;
+    /* background: #fff; */
+    background: var(--logo-bar-color);
+    color: white;
+    cursor: pointer;
+
 }
 
 .main-top i {
@@ -124,18 +130,7 @@ a:hover i {
     margin: 10px 30px;
     color: rgb(110, 109, 109);
     cursor: pointer;
-}
-
-.logo {
-    margin-left: 40px;
-    margin-right: 15px;
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    background-color: white;
-    border-radius: 50px;
-}
-
+}   
 
 .logo-name {
     display: flex;
@@ -143,12 +138,19 @@ a:hover i {
     align-items: center;
 }
 
+.logo {
+    margin-left: 40px;
+    margin-right: 15px;
+    width: 30px;
+    height: 30px;   
+    background-color: white;
+    border-radius: 50px;
+}
+
 .name {
-    cursor: pointer;
     font-weight: bold;
-    font-size: 20px;
-    color: var(--nav-item-color);
-    text-decoration: none;
+    font-size: 15px;
+    color: var(--nav-item-color);   
 }
 
 .main-widget {
@@ -190,8 +192,8 @@ a:hover i {
 /* Schedule */
 .treatment-schedule {
     grid-area: s;
-    margin-top: 20px;
-    text-transform: capitalize;
+    margin: 20px 10px 0 10px;
+    text-transform: capitalize; 
 }
 
 .treatment-list {
@@ -232,8 +234,7 @@ table thead tr {
     background: #f3f3f3;
 }
 
-.table tbody tr.active {
-    font-weight: bold;
+.table tbody tr:hover {
     color: var(--table-color);
 }
 
