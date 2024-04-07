@@ -1,11 +1,213 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Welcome to profile</h1>
-</body>
-</html>
+<span style="font-family: verdana, geneva, sans-serif;">
+
+    <!DOCTYPE html>
+    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>Profile</title>
+        <link rel="stylesheet" href="/css/profile.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    </head>
+
+    <body>
+
+        <body>
+            <div class="container">
+                <nav class="option-bar">
+                    <ul>
+                        <li><a href="/profile" class="user">
+                                <i class="fas fa-user" aria-hidden="true"></i></i>
+                                <span class="nav-item">
+                                    <!-- <div class="user-name" th:text="${employee.information.name}"></div>
+                            <div class="user-role" th:text="${employee.role}"></div> -->
+                                    <div class="user-name">User name</div>
+                                    <div class="user-role">User role</div>
+                                </span>
+                            </a></li>
+                        <li><a href="/home">
+                                <i class="fas fa-home" aria-hidden="true"></i>
+                                <span class="nav-item">Trang Chủ</span>
+                            </a></li>
+                        <li><a href="/profile">
+                                <i class="fas fa-info" aria-hidden="true"></i>
+                                <span class="nav-item">Thông Tin Cá Nhân</span>
+                            </a></li>
+                        <li><a href="/profile/calendar">
+                                <i class="fas fa-calendar" aria-hidden="true"></i>
+                                <span class="nav-item">Lịch Cá Nhân</span>
+                            </a></li>
+                        <li><a href="/help">
+                                <i class="fas fa-question" aria-hidden="true"></i>
+                                <span class="nav-item">Trợ Giúp</span>
+                            </a></li>
+                        <li><a href="/setting">
+                                <i class="fas fa-cog" aria-hidden="true"></i></i>
+                                <span class="nav-item">Cài Đặt</span>
+                            </a></li>
+
+                        <!-- <li><a class="logout" th:href="@{/logout}"> -->
+                        <li><a class="logout">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <span class="nav-item">Đăng xuất</span>
+                            </a></li>
+                    </ul>
+                </nav>
+
+                <section class="main">
+                    <div id="scroll-to-top"></div>
+                    <div class="main-top" onclick="location.href='#scroll-to-top'">
+                        <div class="logo-name" >
+                            <img src="/images/Logo.png" class="logo"> 
+                            <!-- <a href="#scroll-to-top" class="name">BỆNH VIỆN NGỌC CHÂU</a> -->
+                            <span class="name">BỆNH VIỆN NGỌC CHÂU</span>
+                        </div>
+                    </div>
+
+                    <div class="infor-card">
+                        <header>Thông Tin Cá Nhân</header>
+                        <div class="infor-content">
+                            <div class="title">Thông tin chung</div>
+                            <div class="field-wrapper">
+
+                                <div class="field">
+                                    <label for="">Tên</label>
+                                    <div class="infor-text">Nguyen Manh Hung</div>
+                                </div>
+
+                                <div class="field">
+                                    <label for="">Giới tính</label>
+                                    <div class="infor-text">Nam</div>
+
+                                </div>
+
+                                <div class="field">
+                                    <label for="">ngày sinh</label>
+                                    <div class="infor-text">01/01/2000</div>
+                                </div>
+
+                                <div class="field">
+                                    <label for="">CCCD</label>
+                                    <div class="infor-text">040 204 021 200</div>
+                                </div>
+
+                                <div class="field">
+                                    <label for="">Dân tộc</label>
+                                    <div class="infor-text">Kinh</div>
+                                </div>
+
+                                <div class="field">
+                                    <label for="">Tôn giáo</label>
+                                    <div class="infor-text">không</div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                        <div class="infor-content">
+                            <div class="title">Thông tin nhân sự</div>
+                            <div class="field-wrapper">
+
+                                <div class="field">
+                                    <label for="">Mã số</label>
+                                    <div class="infor-text">2211337</div>
+                                </div>
+
+                                <div class="field">
+                                    <label for="">Chuyên khoa</label>
+                                    <div class="infor-text">Thần kinh</div>
+                                </div>
+
+                                <div class="field">
+                                    <label for="">Chức vụ</label>
+                                    <div class="infor-text">Trưởng khoa</div>
+                                </div>
+
+                                <div class="field">
+                                    <label for="">Học hàm</label>
+                                    <div class="infor-text">Giáo sư</div>
+                                </div>
+
+                                <div class="field">
+                                    <label for="">Học vị</label>
+                                    <div class="infor-text">Bác sĩ chuyên khoa I</div>
+                                </div>
+
+                                <div class="field">
+                                    <label for="">Nơi đào tạo</label>
+                                    <div class="infor-text">Havard chùa Láng</div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="infor-content">
+                            <div class="title">Thông tin liên hệ</div>
+                            <div class="field-wrapper">
+
+                                <div class="field">
+                                    <label for="">Địa chỉ</label>
+                                    <div class="infor-text">số 165, đường Phạm Hồng Thái, thành phố Vinh, tỉnh Nghệ An
+                                    </div>
+                                </div>
+
+                                <div class="field">
+                                    <label for="">Email</label>
+                                    <div class="infor-text">ngochau123@gmail.com</div>
+                                </div>
+
+                                <div class="field">
+                                    <label for="">Số điện thoại</label>
+                                    <div class="infor-text">0947 263 237</div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="infor-content">
+                            <div class="title">Thông tin người thân</div>
+                            <div class="field-wrapper">
+
+                                <div class="field">
+                                    <label for="">Tên</label>
+                                    <div class="infor-text">TTKO</div>
+                                </div>
+
+                                <div class="field">
+                                    <label for="">quan hệ với người thân</label>
+                                    <div class="infor-text">chồng</div>
+                                </div>
+
+                                <div class="field">
+                                    <label for="">Số điện thoại</label>
+                                    <div class="infor-text">0946 855 825</div>
+                                </div>
+
+                                <div class="field">
+                                    <label for="">nơi ở</label>
+                                    <div class="infor-text">số 165, đường Phạm Hồng Thái, thành phố Vinh, tỉnh Nghệ An
+                                    </div>
+                                </div>
+
+                                <div class="field">
+                                    <label for="">Nghề nghiệp</label>
+                                    <div class="infor-text">Nội trợ</div>
+                                </div>
+
+                                <div class="field">
+                                    <label for="">Số điện thoại của người thân khác</label>
+                                    <div class="infor-text">0915 000 443</div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </body>
+    </body>
+
+    </html>
+</span>
