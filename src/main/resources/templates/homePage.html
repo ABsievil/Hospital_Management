@@ -9,6 +9,7 @@
         <meta charset="UTF-8" />
         <title>Home Page</title>
         <link rel="stylesheet" th:href="@{/css/homePage.css}" />
+        <link rel="stylesheet" href="/css/navBarTemplate.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     </head>
 
@@ -52,9 +53,10 @@
             </nav>
             <section class="main">
                 <div id ="scroll-to-top"></div>
-                <div class="main-top">
-                    <div class = "logo-name" onclick="location.href='#scroll-to-top'">
-                        <img src="/images/Logo.png" class="logo"> <a href="#scroll-to-top" class="name">BỆNH VIỆN NGỌC CHÂU</a>
+                <div class="main-top" onclick="location.href='#scroll-to-top'">
+                    <div class = "logo-name">
+                        <img src="/images/Logo.png" class="logo"> 
+                        <span class="name">BỆNH VIỆN NGỌC CHÂU</span>
                     </div>
                 </div>
  
