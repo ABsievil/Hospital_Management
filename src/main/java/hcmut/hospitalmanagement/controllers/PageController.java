@@ -97,7 +97,15 @@ public class PageController {
 
         @RequestMapping("")
         public String profile(Model model){
-            addEmployeeToModel(model);
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            if(authentication != null){
+                UserDetails principal = (UserDetails) authentication.getPrincipal();
+                String username = principal.getUsername();
+                Employee employee = employeeRepository.findByUsername(username);
+                model.addAttribute("employee", employee);
+                String nameuser = employee.getInformation().getLname() + " " + employee.getInformation().getName();
+                model.addAttribute("nameuser", nameuser);
+            }
             return "profile";
         }
 
