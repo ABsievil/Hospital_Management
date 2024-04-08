@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import hcmut.hospitalmanagement.models.Employee;
 import hcmut.hospitalmanagement.models.EmployeeSchedule;
+import hcmut.hospitalmanagement.models.Patient;
 import hcmut.hospitalmanagement.models.ResponseObject;
 import hcmut.hospitalmanagement.repositories.EmployeeRepository;
 import hcmut.hospitalmanagement.repositories.EmployeeScheduleRepository;
@@ -75,9 +76,13 @@ public class EmployeeScheduleService {
             .body(new ResponseObject("Failed", "Title must not be null", null));
         }
         // Nếu trong lịch có patient id thì kiểm tra xem bệnh nhân có tồn tại không
-        if (newEmployeeSchedule.getPatientId() != null && !patientRepository.existsById(newEmployeeSchedule.getPatientId())) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND)
-            .body(new ResponseObject("Failed", "Patient id does not exists", null));
+        if (newEmployeeSchedule.getPatientId() != null ) {
+            Patient foundPatient = patientRepository.findById(newEmployeeSchedule.getPatientId()).orElse(null);
+            if (foundPatient == null) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(new ResponseObject("Failed", "Patient id does not exists", null));
+            }
+            newEmployeeSchedule.setPatientName(foundPatient.getInformation().getName());
         }
         // Kiểm tra có phòng chưa
         if (newEmployeeSchedule.getRoom() == null) {
@@ -124,9 +129,13 @@ public class EmployeeScheduleService {
             .body(new ResponseObject("Failed", "Room must not be null", null));
         }
         // Nếu trong lịch có patient id thì kiểm tra xem patient có tồn tại không
-        if (updatedEmployeeSchedule.getPatientId() != null && patientRepository.existsById(updatedEmployeeSchedule.getPatientId())) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+        if (updatedEmployeeSchedule.getPatientId() != null) {
+            Patient foundPatient = patientRepository.findById(updatedEmployeeSchedule.getPatientId()).orElse(null);
+            if (foundPatient == null) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND)
             .body(new ResponseObject("Failed", "Patient id does not exists", null));
+            }
+            updatedEmployeeSchedule.setPatientName(foundPatient.getInformation().getName());
         }
         // Kiểm tra employee có tồn tại không
         Employee foundEmployee = employeeRepository.findById(employeeId).orElse(null);

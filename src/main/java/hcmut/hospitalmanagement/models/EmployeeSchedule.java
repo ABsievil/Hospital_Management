@@ -34,5 +34,7 @@ public class EmployeeSchedule {
     private Employee employee;
 
     private Long patientId;
+    private String patientName;
+    
     private String room;
 }
