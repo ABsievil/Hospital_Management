@@ -46,12 +46,12 @@ public class Database {
                 // logger.info("insert employee: " + employeeRepository.save(emp3));
                 // logger.info("insert employee: " + employeeRepository.save(emp4));
 
-                PersonalInformation Pemp1 = new PersonalInformation("ABsievil", "John", "VN", true, null, null, null,
-                        "Phong nha Ke Bang, QB", "0911336607", "Q9, TP.HCM", "developer", "Hung Nguyen",
-                        "0984734456", "Phong Nha Ke Bang, QB", "CEO", null, null, null, null, null, null, null);
+                PersonalInformation Pemp1 = new PersonalInformation("ABsievil", "", "123456", true, null, null, null,
+                        "Phong nha Ke Bang, QB", "0911336607", "Q9, TP.HCM", "admin@hcmut.edu.vn", "Manager",
+                        "31005230", "", "", null, null, null, null, null, null, null);
 
                 Employee emp1 = new Employee(null, true, null, null, null, null, null, Pemp1, "admin",
-                        passwordEncoder.encode("1245"), Role.DOCTOR);
+                        passwordEncoder.encode("1245"), Role.ADMIN);
                 logger.info("insert employee: " + employeeRepository.save(emp1));
 
                 PersonalInformation Pemp2 = new PersonalInformation("Mạnh Hùng", "Nguyễn", "123456", false, "Kinh", "Không",
