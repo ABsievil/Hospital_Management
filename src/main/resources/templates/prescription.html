@@ -1,12 +1,116 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Welcome to prescription</h1>
-    <!-- prescription = đơn thuốc -->
-</body>
-</html>
+<span style="font-family: verdana, geneva, sans-serif;">
+    <!DOCTYPE html>
+    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+
+    </html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>Prescription</title>
+        <link rel="stylesheet" th:href="@{/css/prescription.css}"/>
+        <link rel="stylesheet" href="/css/navBarTemplate.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    </head>
+
+    <body>
+        <div class="container">
+            <nav class="option-bar">
+                <ul>
+                    <li><a href="/profile" class="user">
+                        <i class="fas fa-user" aria-hidden="true"></i></i>
+                        <span class="nav-item">
+                            <div class="user-name" th:text="${employee.information.name}"></div>
+                            <div class="user-role" th:text="${employee.role}"></div>
+                         </span>
+                    </a></li>
+                    <li><a href="/home">
+                        <i class="fas fa-home" aria-hidden="true"></i>
+                        <span class="nav-item">Trang Chủ</span>
+                    </a></li>
+                    <li><a href="/profile">
+                        <i class="fas fa-info" aria-hidden="true"></i>
+                        <span class="nav-item">Thông Tin Cá Nhân</span>
+                    </a></li>
+                    <li><a href="/profile/calendar">
+                        <i class="fas fa-calendar" aria-hidden="true"></i>
+                        <span class="nav-item">Lịch Cá Nhân</span>
+                    </a></li>
+                    <li><a href="/help">
+                        <i class="fas fa-question" aria-hidden="true"></i>
+                        <span class="nav-item">Trợ Giúp</span>
+                    </a></li>
+                    <li><a href="/setting">
+                        <i class="fas fa-cog" aria-hidden="true"></i></i>
+                        <span class="nav-item">Cài Đặt</span>
+                    </a></li>
+
+                    <li><a class="logout" th:href="@{/logout}">
+                            <i class="fas fa-sign-out-alt"></i>
+                          <span class="nav-item">Đăng xuất</span>
+                    </a></li>
+                </ul>
+            </nav>
+            <section class="main">
+                <div id ="scroll-to-top"></div>
+                <div class="main-top" onclick="location.href='#scroll-to-top'">
+                    <div class = "logo-name">
+                        <img src="/images/Logo.png" class="logo"> 
+                        <span class="name">BỆNH VIỆN NGỌC CHÂU</span>
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="describe-content">
+                        <p>Người lấy : Mã Trường Vũ</p>
+                        <p>Ngày lấy : 14/04/2024</p>
+                        <p>Cho bệnh nhân : Nguyễn Hoàng Tú</p>
+                    </div>
+                    <div class="numerous-content">
+                        <h1>Đơn thuốc</h1>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Tên thuốc</th>
+                                    <th>Số lượng</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>01</td>
+                                    <td></td>
+                                    <td>30</td>
+                                </tr>
+                                <tr>
+                                    <td>01</td>
+                                    <td></td>
+                                    <td>30</td>
+                                </tr>
+                                <tr>
+                                    <td>01</td>
+                                    <td></td>
+                                    <td>30</td>
+                                </tr>
+                                <tr>
+                                    <td>01</td>
+                                    <td></td>
+                                    <td>30</td>
+                                </tr>
+                                <tr>
+                                    <td>01</td>
+                                    <td></td>
+                                    <td>30</td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>        
+            </section>
+            </div>
+    </body>
+                
+    <script src="/js/script.js"></script>
+
+    </html>
+</span>
