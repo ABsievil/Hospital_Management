@@ -35,11 +35,11 @@ fetch(
                 row.appendChild(index);
                 // Tên bác sĩ
                 const doctor = document.createElement('td');
-                doctor.textContent = schedule.employee.information.name;
+                doctor.textContent = schedule.employee.information.lastName + " " + schedule.employee.information.firstName;
                 row.appendChild(doctor);
                 // Tên bệnh nhân
                 const patient = document.createElement('td');
-                patient.textContent = schedule.patientName;
+                patient.textContent = schedule.patientLastName + " " + schedule.patientFirstName;
                 row.appendChild(patient);
                 // Số phòng
                 const room = document.createElement('td');

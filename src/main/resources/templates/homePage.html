@@ -8,6 +8,7 @@
     <head>
         <meta charset="UTF-8" />
         <title>Home Page</title>
+        <link rel="shortcut icon" type="image/png" href="/images/Logo.png"/>
         <link rel="stylesheet" th:href="@{/css/homePage.css}" />
         <link rel="stylesheet" href="/css/navBarTemplate.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
@@ -20,7 +21,7 @@
                     <li><a href="/profile" class="user">
                         <i class="fas fa-user" aria-hidden="true"></i></i>
                         <span class="nav-item">
-                            <div class="user-name" th:text="${employee.information.name}"></div>
+                            <div class="user-name" th:text="${employee.information.firstName}"></div>
                             <div class="user-role" th:text="${employee.role}"></div>
                          </span>
                     </a></li>

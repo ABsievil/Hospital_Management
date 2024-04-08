@@ -11,6 +11,7 @@
         <link rel="stylesheet" th:href="@{/css/equipment.css}" />
         <link rel="stylesheet" href="/css/navBarTemplate.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+        <link rel="shortcut icon" type="image/png" href="/images/Logo.png"/>
     </head>
 
     <body>
@@ -20,8 +21,10 @@
                     <li><a href="/profile" class="user">
                         <i class="fas fa-user" aria-hidden="true"></i></i>
                         <span class="nav-item">
-                            <div class="user-name" th:text="${employee.username}"></div>
-                            <div class="user-role" th:text="${employee.role}"></div>
+                            <!-- <div class="user-name" th:text="${employee.username}"></div>
+                            <div class="user-role" th:text="${employee.role}"></div> -->
+                            <div class="user-name">User name</div>
+                            <div class="user-role">User role</div>
                          </span>
                     </a></li>
                     <li><a href="/home">

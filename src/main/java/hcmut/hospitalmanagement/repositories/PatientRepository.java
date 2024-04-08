@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import hcmut.hospitalmanagement.models.Patient;
 
 public interface PatientRepository extends JpaRepository<Patient, Long> {
-    List<Patient> findByInformationNameContainingIgnoreCase(String name);
+    List<Patient> findByInformationFirstNameContainingIgnoreCase(String name);
 
 }
 

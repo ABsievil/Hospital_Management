@@ -82,7 +82,8 @@ public class EmployeeScheduleService {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND)
                 .body(new ResponseObject("Failed", "Patient id does not exists", null));
             }
-            newEmployeeSchedule.setPatientName(foundPatient.getInformation().getName());
+            newEmployeeSchedule.setPatientFirstName(foundPatient.getInformation().getFirstName());
+            newEmployeeSchedule.setPatientLastName(foundPatient.getInformation().getLastName());
         }
         // Kiểm tra có phòng chưa
         if (newEmployeeSchedule.getRoom() == null) {
@@ -135,7 +136,8 @@ public class EmployeeScheduleService {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND)
             .body(new ResponseObject("Failed", "Patient id does not exists", null));
             }
-            updatedEmployeeSchedule.setPatientName(foundPatient.getInformation().getName());
+            updatedEmployeeSchedule.setPatientFirstName(foundPatient.getInformation().getFirstName());
+            updatedEmployeeSchedule.setPatientLastName(foundPatient.getInformation().getLastName());
         }
         // Kiểm tra employee có tồn tại không
         Employee foundEmployee = employeeRepository.findById(employeeId).orElse(null);

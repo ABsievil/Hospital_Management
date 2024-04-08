@@ -11,7 +11,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long>{
     
     List<Employee> findByIsActive(boolean isActive);
 
-    List<Employee> findByInformationNameContainingIgnoreCase(String name);
+    List<Employee> findByInformationFirstNameContainingIgnoreCase(String name);
 
     List<Employee> findByInformationOccupation(String occupation);
 
