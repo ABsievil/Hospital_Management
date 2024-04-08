@@ -23,21 +23,6 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 @EnableWebSecurity
 public class WebSecurityConfig {
 
-    //demo in db
-    @Autowired
-    CustomUserDetailsService userService;
-    
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        // encrypt password of user
-        return new BCryptPasswordEncoder();
-    }
-
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        // use method passwordEncoder
-        auth.userDetailsService(userService).passwordEncoder(passwordEncoder());
-    }
-
     //demo in-memory
     // @Bean
     //  public UserDetailsService userDetailsService() {
@@ -53,6 +38,22 @@ public class WebSecurityConfig {
     //          .build();
     //      return new InMemoryUserDetailsManager(user, admin);
     //  }
+
+
+    //demo in db
+    @Autowired
+    CustomUserDetailsService userService;
+    
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        // encrypt password of user
+        return new BCryptPasswordEncoder();
+    }
+
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        // use method passwordEncoder
+        auth.userDetailsService(userService).passwordEncoder(passwordEncoder());
+    }
      
      //note : role in db current is: PATIENT and DOCTOR
     @Bean
@@ -82,7 +83,7 @@ public class WebSecurityConfig {
             )
             .rememberMe(remember -> remember
                 .key("4Bsi3vil")
-                .tokenValiditySeconds(10))  //current is not working
+                .tokenValiditySeconds(10)) // 1 * 24 * 60 * 60 (s) = 24h  //current is not working
             .exceptionHandling(exeption -> exeption.accessDeniedPage("/403"))
             ;
             //.csrf(csrf -> csrf.disable());   // what is csrf, should disable it ?

@@ -1,11 +1,208 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Welcome to doctorList</h1>
-</body>
-</html>
+<span style="font-family: verdana, geneva, sans-serif;">
+    <!DOCTYPE html>
+    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+
+    <head>
+        <title>Doctot List</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" type="image/png" href="/images/Logo.png"/>
+        <link rel="stylesheet" href="/css/doctorList.css" />
+        <link rel="stylesheet" href="/css/navBarTemplate.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    </head>
+
+    <body>
+        <div class="container">
+            <nav class="option-bar">
+                <ul>
+                    <li><a href="/profile" class="user">
+                            <i class="fas fa-user" aria-hidden="true"></i></i>
+                            <span class="nav-item">
+                                <div class="user-name" th:text="${employee.username}"></div>
+                                <div class="user-role" th:text="${employee.role}"></div>
+                            </span>
+                        </a></li>
+                    <li><a href="/home">
+                            <i class="fas fa-home" aria-hidden="true"></i>
+                            <span class="nav-item">Trang Chủ</span>
+                        </a></li>
+                    <li><a href="/profile">
+                            <i class="fas fa-info" aria-hidden="true"></i>
+                            <span class="nav-item">Thông Tin Cá Nhân</span>
+                        </a></li>
+                    <li><a href="/profile/calendar">
+                            <i class="fas fa-calendar" aria-hidden="true"></i>
+                            <span class="nav-item">Lịch Cá Nhân</span>
+                        </a></li>
+                    <li><a href="/help">
+                            <i class="fas fa-question" aria-hidden="true"></i>
+                            <span class="nav-item">Trợ Giúp</span>
+                        </a></li>
+                    <li><a href="/setting">
+                            <i class="fas fa-cog" aria-hidden="true"></i></i>
+                            <span class="nav-item">Cài Đặt</span>
+                        </a></li>
+
+                    <li><a class="logout" th:href="@{/logout}">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span class="nav-item">Đăng xuất</span>
+                        </a></li>
+                </ul>
+            </nav>
+
+            <section class="main">
+                <div id="scroll-to-top"></div>
+                <div class="main-top" onclick="location.href='#scroll-to-top'">
+                    <div class="logo-name">
+                        <img src="/images/Logo.png" class="logo">
+                        <span class="name">BỆNH VIỆN NGỌC CHÂU</span>
+                    </div>
+                </div>
+
+
+                <div class="staff-list">
+                    <header>Danh sách bác sĩ</header>
+                    <div class="card-container">
+
+                        <div class="card">
+                            <img src="/images/avatar.jpg" alt="avt" class="avatar">
+                            <span class="staff-infor">
+                                <div class="staff-name">Nguyen Manh Hung</div>
+                                <div class="position">Giam doc khoi ngoai</div>
+                                <div class="education-infor">
+                                    <div class="academic-rank">
+                                        <i class="fas fa-user" aria-hidden="true"></i>
+                                        <span>Giao su</span>
+                                    </div>
+                                    <div class="degree">
+                                        <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+                                        <span>Tien si</span>
+                                    </div>
+                                    <div class="institute">
+                                        <i class="fas fa-university" aria-hidden="true"></i>
+                                        <span>Trung tam tim mach</span>
+                                    </div>
+                                </div>
+                            </span>
+                        </div>
+
+                        <div class="card">
+                            <img src="/images/avatar.jpg" alt="avt" class="avatar">
+                            <span class="staff-infor">
+                                <div class="staff-name">Nguyen Manh Hung</div>
+                                <div class="position">Giam doc khoi ngoai</div>
+                                <div class="education-infor">
+                                    <div class="academic-rank">
+                                        <i class="fas fa-user" aria-hidden="true"></i>
+                                        <span>Giao su</span>
+                                    </div>
+                                    <div class="degree">
+                                        <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+                                        <span>Tien si</span>
+                                    </div>
+                                    <div class="institute">
+                                        <i class="fas fa-university" aria-hidden="true"></i>
+                                        <span>Trung tam tim mach</span>
+                                    </div>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="card">
+                            <img src="/images/avatar.jpg" alt="avt" class="avatar">
+                            <span class="staff-infor">
+                                <div class="staff-name">Nguyen Manh Hung</div>
+                                <div class="position">Giam doc khoi ngoai</div>
+                                <div class="education-infor">
+                                    <div class="academic-rank">
+                                        <i class="fas fa-user" aria-hidden="true"></i>
+                                        <span>Giao su</span>
+                                    </div>
+                                    <div class="degree">
+                                        <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+                                        <span>Tien si</span>
+                                    </div>
+                                    <div class="institute">
+                                        <i class="fas fa-university" aria-hidden="true"></i>
+                                        <span>Trung tam tim mach</span>
+                                    </div>
+                                </div>
+                            </span>
+                        </div>
+
+                        <div class="card">
+                            <img src="/images/avatar.jpg" alt="avt" class="avatar">
+                            <span class="staff-infor">
+                                <div class="staff-name">Nguyen Manh Hung</div>
+                                <div class="position">Giam doc khoi ngoai</div>
+                                <div class="education-infor">
+                                    <div class="academic-rank">
+                                        <i class="fas fa-user" aria-hidden="true"></i>
+                                        <span>Giao su</span>
+                                    </div>
+                                    <div class="degree">
+                                        <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+                                        <span>Tien si</span>
+                                    </div>
+                                    <div class="institute">
+                                        <i class="fas fa-university" aria-hidden="true"></i>
+                                        <span>Trung tam tim mach</span>
+                                    </div>
+                                </div>
+                            </span>
+                        </div>
+
+                        <div class="card">
+                            <img src="/images/avatar.jpg" alt="avt" class="avatar">
+                            <span class="staff-infor">
+                                <div class="staff-name">Nguyen Manh Hung</div>
+                                <div class="position">Giam doc khoi ngoai</div>
+                                <div class="education-infor">
+                                    <div class="academic-rank">
+                                        <i class="fas fa-user" aria-hidden="true"></i>
+                                        <span>Giao su</span>
+                                    </div>
+                                    <div class="degree">
+                                        <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+                                        <span>Tien si</span>
+                                    </div>
+                                    <div class="institute">
+                                        <i class="fas fa-university" aria-hidden="true"></i>
+                                        <span>Trung tam tim mach</span>
+                                    </div>
+                                </div>
+                            </span>
+                        </div>
+
+                        <div class="card">
+                            <img src="/images/avatar.jpg" alt="avt" class="avatar">
+                            <span class="staff-infor">
+                                <div class="staff-name">Nguyen Manh Hung</div>
+                                <div class="position">Giam doc khoi ngoai</div>
+                                <div class="education-infor">
+                                    <div class="academic-rank">
+                                        <i class="fas fa-user" aria-hidden="true"></i>
+                                        <span>Giao su</span>
+                                    </div>
+                                    <div class="degree">
+                                        <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+                                        <span>Tien si</span>
+                                    </div>
+                                    <div class="institute">
+                                        <i class="fas fa-university" aria-hidden="true"></i>
+                                        <span>Trung tam tim mach</span>
+                                    </div>
+                                </div>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+    </body>
+
+    </html>
+</span>

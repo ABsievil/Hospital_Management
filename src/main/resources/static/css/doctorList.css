@@ -1,0 +1,66 @@
+:root {
+    --table-color: #4AD489;
+    --table-field-color: #34AF6D;
+}
+
+.staff-list {
+    padding: 20px;
+    margin: 20px 20px 0 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+
+}
+
+.staff-list header {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+}
+
+.card-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.card {
+    align-items: center;
+    align-content: center;
+    display: flex;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 16px;
+    background: #f2f2f2;
+    width: calc(100% /3 - 15px);
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.staff-name {
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.education-infor {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card .fas {
+    width: 20px;
+    height: 20px;
+}
+
+.position {
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--logo-bar-color);
+}

@@ -32,6 +32,17 @@ public class PageController {
     @Autowired
     EmployeeRepository employeeRepository;
 
+    Employee addEmployeeToModel(Model model){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if(authentication != null){
+            UserDetails principal = (UserDetails) authentication.getPrincipal();
+            String username = principal.getUsername();
+            Employee employee = employeeRepository.findByUsername(username);
+            model.addAttribute("employee", employee);
+            return employee;
+        }
+        return null;
+    }
 
     @RequestMapping(value = {"/", "index"})
     public String index(){
@@ -73,14 +84,7 @@ public class PageController {
 
     @RequestMapping("/home")
     public String homePage(Model model){
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if(authentication != null){
-            UserDetails principal = (UserDetails) authentication.getPrincipal();
-            String username = principal.getUsername();
-            Employee employee = employeeRepository.findByUsername(username);
-            model.addAttribute("employee", employee);
-            return "homePage";
-        }
+        addEmployeeToModel(model);
         return "homePage";
     }
 
@@ -94,7 +98,10 @@ public class PageController {
     public class ProfileController{
 
         @RequestMapping("")
-        public String profile(){
+        public String profile(Model model){
+            Employee emp = addEmployeeToModel(model);
+            String nameuser = emp.getInformation().getLname() + " " + emp.getInformation().getName();
+            model.addAttribute("nameuser", nameuser);
             return "profile";
         }
 
