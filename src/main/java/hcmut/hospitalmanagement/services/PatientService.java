@@ -36,7 +36,7 @@ public class PatientService {
 
     // Tìm bệnh nhân theo tên
     public ResponseEntity<ResponseObject> getPatientByName(String name) {
-        List<Patient> patientList = patientRepository.findByInformationNameContainingIgnoreCase(name);
+        List<Patient> patientList = patientRepository.findByInformationFirstNameContainingIgnoreCase(name);
         return ResponseEntity.status(HttpStatus.OK)
         .body(new ResponseObject("OK", "Querry patient successfully", patientList));
     }

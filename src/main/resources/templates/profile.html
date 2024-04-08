@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="/css/profile.css" />
         <link rel="stylesheet" href="/css/navBarTemplate.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+        <link rel="shortcut icon" type="image/png" href="/images/Logo.png"/>
     </head>
 
     <body>
@@ -22,7 +23,7 @@
                                 <span class="nav-item">
                                     <!-- <div class="user-name" th:text="${employee.information.name}"></div>
                             <div class="user-role" th:text="${employee.role}"></div> -->
-                                    <div class="user-name" th:text="${employee.information.name}"></div>
+                                    <div class="user-name" th:text="${employee.information.firstName}"></div>
                                     <div class="user-role" th:text="${employee.role}"></div>
                                 </span>
                             </a></li>
@@ -83,8 +84,9 @@
 
                                 <div class="field">
                                     <label for="">Ngày sinh</label>
-                                    <div class="infor-text" th:text="${employee.information.dateOfBirth}"></div>
-                                </div> <!--chưa có data trong backend of Admin account-->
+                                    <div class="infor-text" 
+                                    th:text="${#temporals.format(employee.information.dateOfBirth,'dd-MM-yyyy')}"></div>
+                                </div>
 
                                 <div class="field">
                                     <label for="">CCCD</label>

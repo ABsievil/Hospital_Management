@@ -59,7 +59,7 @@ public class EmployeeService {
 
     // Tìm nhân viên y tế theo tên của họ
     public ResponseEntity<ResponseObject> getEmployeeByName(String name) {
-        List<Employee> employeeList = employeeRepository.findByInformationNameContainingIgnoreCase(name);
+        List<Employee> employeeList = employeeRepository.findByInformationFirstNameContainingIgnoreCase(name);
         return ResponseEntity.status(HttpStatus.OK)
                 .body(new ResponseObject("OK", "Querry employee successfully", employeeList));
     }
