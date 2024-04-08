@@ -3,11 +3,6 @@
 :root {
     --background-color: #dfe9f5;
     --nav-item-hover-color: #34AF6D;
-    --card-color: #fff;
-    --card-button-color: #34AF6D;
-    --card-button-hover-color: #4AD489;
-    --table-color: #4AD489;
-    --table-field-color: #34AF6D;
 }
 
 * {
@@ -75,14 +70,15 @@ nav .fas {
     position: relative;
     width: 70px;
     height: 40px;
-    top: 20px;
+    top: 16px;
     font-size: 20px;
     text-align: center;
 }
 
 .nav-item {
+    justify-content: center;
     position: relative;
-    top: 12px;
+    top: 15px;
     margin-left: 10px;
 }
 
@@ -152,66 +148,86 @@ a:hover i {
     text-decoration: none;
 }
 
-/* Schedule */
-.treatment-schedule {
-    grid-area: s;
-    margin-top: 20px;
-    text-transform: capitalize;
+.calendar {
+    display: grid;
+    grid-template-columns: 50% 50%;
 }
 
-.treatment-list {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+table {
+    background-color:white;
+    color: gray;
+    position: absolute;
+    z-index: 2;
+    width: 50%;
+    top: 20%;
+    height: 400px;
+    text-align: center;
+    border-radius: 5px;
 }
 
-.table {
-    border-collapse: collapse;
-    margin: 25px 0;
+.note {
+    color: blue;
+    font-size: 12px;
+    margin-top: 30px;
+}
+
+.tab {
+    color: #27e47f;
     font-size: 15px;
-    min-width: 100%;
-    overflow: hidden;
-    border-radius: 5px 5px 0 0;
+    font-family: ar;
+    font-weight: 100;
 }
 
-table thead tr {
-    color: #fff;
-    background: var(--table-field-color);
-    text-align: left;
-    font-weight: bold;
+.timeline {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 9%;
 }
 
-.table th,
-.table td {
-    padding: 12px 15px;
-    padding-left: 20px;
+.timeline .timeline-row {
+    display: flex;
+    column-gap: 20px;
 }
 
-.table tbody tr {
-    border-bottom: 1px solid #ddd;
+.timeline-column .title {
+    font-size: 20px;
+    margin: 32px 0 16px 30px;
 }
 
-.table tbody tr:nth-of-type(odd) {
-    background: #f3f3f3;
+.timeline-column .timeline-box {
+    border-left: 2px solid #27e47f;
 }
 
-.table tbody tr:last-of-type {
-    border-bottom: 2px solid var(--table-color);
+.timeline-box .timeline-content {
+    position: relative;
+    padding-left: 27px;
 }
 
-.table button {
-    padding: 6px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    background: transparent;
-    border: 1px solid var(--table-color);
+.timeline-box .timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -10.5px;
+    width: 20px;
+    height: 20px;
+    background: #27e47f;
+    border-radius: 50%;
 }
 
-.table button:hover {
-    background: var(--table-color);
-    color: #fff;
-    transition: 0.5rem;
+.timeline-content .content {
+    padding: 24px;
+    border: 2px solid #27e47f;
+    border-radius: 8px;
+    margin-bottom: 5px;
+}
+
+.timeline-content .content .year {
+    font-size: 16px;
+    color: #27e47f;
+}
+
+.timeline-content .content p {
+    font-size: 16px;
 }
