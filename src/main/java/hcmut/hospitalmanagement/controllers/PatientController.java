@@ -18,12 +18,16 @@ import org.springframework.web.bind.annotation.RestController;
 import hcmut.hospitalmanagement.models.Patient;
 import hcmut.hospitalmanagement.models.ResponseObject;
 import hcmut.hospitalmanagement.services.PatientService;
+import hcmut.hospitalmanagement.services.TreatmentHistoryService;
 
 @RestController
 @RequestMapping(path = "api/v1/Patient")
 public class PatientController {
     @Autowired
     private PatientService patientService;
+
+    @Autowired
+    private TreatmentHistoryService treatmentHistoryService;
 
     // Get All Patients
     @GetMapping("/getAllPatient")
@@ -41,6 +45,12 @@ public class PatientController {
     @GetMapping("/getPatientByName/{name}")
     public ResponseEntity<ResponseObject> getPatientByName(@PathVariable String name) {
         return patientService.getPatientByName(name);
+    }
+
+    // Tìm hồ sơ bệnh án của bệnh nhân
+    @GetMapping("/getTreatmentHistory/{patientId}")
+    public ResponseEntity<ResponseObject> getTreatmentHistory(@PathVariable Long patientId) {
+        return treatmentHistoryService.getTreatmentHistoryByPatientId(patientId);
     }
 
     // Thêm bệnh nhân

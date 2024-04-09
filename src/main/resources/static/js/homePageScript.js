@@ -17,7 +17,8 @@ const endOfDay = new Date(
     todayInGMTPlus7.getDate()
 );
 endOfDay.setUTCHours(23,59,59,999);
-
+console.log(startOfDay.toISOString());
+console.log(endOfDay.toISOString());
 fetch(
     `${baseUrl}/getScheduleBetweenTime?startTime=${startOfDay.toISOString()}&endTime=${endOfDay.toISOString()}`
     // `${baseUrl}/getAllSchedule`
