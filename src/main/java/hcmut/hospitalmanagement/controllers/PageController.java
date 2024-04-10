@@ -106,7 +106,8 @@ public class PageController {
         }
 
         @RequestMapping("/calendar")
-            public String calendar(){
+            public String calendar(Model model){
+                addEmployeeToModel(model);
                 return "calendar";
             }
     }
