@@ -58,6 +58,16 @@ public class EmployeeScheduleController {
         return employeeScheduleService.getActiveScheduleByEmployeeId(employeeId);
     }
 
+    //
+    @GetMapping("/getScheduleByEmployeeIdBetweenTime/{employeeId}")
+    public ResponseEntity<ResponseObject> getScheduleByEmployeeIdBetweenTime (
+        @PathVariable Long employeeId,
+        @RequestParam("startTime") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime startTime,
+        @RequestParam("endTime") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime endTime
+    ) {
+        return employeeScheduleService.getScheduleByEmployeeIdBetweenTime(employeeId, startTime, endTime);
+    }
+
     // Thêm lịch cho nhân viên 
     @PostMapping("/insertSchedule/{employeeId}")
     public ResponseEntity<ResponseObject> insertScheduleByEmployeeId(@PathVariable Long employeeId, 

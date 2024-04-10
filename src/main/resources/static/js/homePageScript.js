@@ -1,27 +1,20 @@
 // Lấy lịch từ Database theo ngày
-const baseUrl = 'http://localhost:8080/api/v1/EmployeeSchedule'; // replace with your API base URL
+const baseUrl = 'http://localhost:8080/api/v1/EmployeeSchedule';
 const today = new Date();
 const timeZoneOffset = 7 * 60 * 60 * 1000; // 7 hours offset for GMT+7
 const todayInGMTPlus7 = new Date(today.getTime() + timeZoneOffset);
+// console.log(today.toISOString());
+// console.log(todayInGMTPlus7.toISOString());
+const startOfDay = new Date(todayInGMTPlus7.getTime());
+startOfDay.setUTCHours(0, 0, 0, 0);
 
-const startOfDay = new Date(
-    todayInGMTPlus7.getFullYear(),
-    todayInGMTPlus7.getMonth(),
-    todayInGMTPlus7.getDate()
-);
-startOfDay.setUTCHours(0,0,0,0);
+const endOfDay = new Date(todayInGMTPlus7.getTime());
+endOfDay.setUTCHours(23, 59, 59, 999);
+// console.log(startOfDay.toISOString());
+// console.log(endOfDay.toISOString());
 
-const endOfDay = new Date(
-    todayInGMTPlus7.getFullYear(),
-    todayInGMTPlus7.getMonth(),
-    todayInGMTPlus7.getDate()
-);
-endOfDay.setUTCHours(23,59,59,999);
-console.log(startOfDay.toISOString());
-console.log(endOfDay.toISOString());
 fetch(
     `${baseUrl}/getScheduleBetweenTime?startTime=${startOfDay.toISOString()}&endTime=${endOfDay.toISOString()}`
-    // `${baseUrl}/getAllSchedule`
 )
     .then((response) => response.json())
     .then((fetchedData) => {

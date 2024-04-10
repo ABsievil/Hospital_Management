@@ -74,45 +74,62 @@ public class Database {
                 logger.info("insert patient: " + patientRepository.save(patient1));
 
                 // Schedule
-                EmployeeSchedule schedule1 = new EmployeeSchedule(null, "Title", "Description",
+                EmployeeSchedule schedule1 = new EmployeeSchedule(null, "Khám bệnh", "Anh Nguyễn Văn A đến tái khám",
                         LocalDateTime.of(2024, 4, LocalDateTime.now().getDayOfMonth(), 0, 0, 0),
                         LocalDateTime.of(2024, 4, LocalDateTime.now().getDayOfMonth(), 8, 0, 0), emp1, 1L,
                         patient1.getInformation().getFirstName(), patient1.getInformation().getLastName(), "201");
-                EmployeeSchedule schedule2 = new EmployeeSchedule(null, "Title", "Description",
+                EmployeeSchedule schedule2 = new EmployeeSchedule(null, "Khám bệnh", "Anh Nguyễn Văn A đến tái khám",
                         LocalDateTime.of(2024, 4, LocalDateTime.now().getDayOfMonth(), 8, 0, 0),
                         LocalDateTime.of(2024, 4, LocalDateTime.now().getDayOfMonth(), 9, 0, 0), emp2, 1L,
                         patient1.getInformation().getFirstName(), patient1.getInformation().getLastName(), "202");
-                EmployeeSchedule schedule3 = new EmployeeSchedule(null, "Title", "Description",
+                EmployeeSchedule schedule3 = new EmployeeSchedule(null, "Khám bệnh", "Anh Nguyễn Văn A đến tái khám",
                         LocalDateTime.of(2024, 4, LocalDateTime.now().getDayOfMonth(), 12, 0, 0),
                         LocalDateTime.of(2024, 4, LocalDateTime.now().getDayOfMonth(), 14, 0, 0), emp1, 1L,
                         patient1.getInformation().getFirstName(), patient1.getInformation().getLastName(), "203");
-                EmployeeSchedule schedule4 = new EmployeeSchedule(null, "Title", "Description",
+                EmployeeSchedule schedule4 = new EmployeeSchedule(null, "Khám bệnh", "Anh Nguyễn Văn A đến tái khám",
                         LocalDateTime.of(2024, 4, LocalDateTime.now().getDayOfMonth(), 15, 0, 0),
                         LocalDateTime.of(2024, 4, LocalDateTime.now().getDayOfMonth(), 16, 0, 0), emp2, 1L,
                         patient1.getInformation().getFirstName(), patient1.getInformation().getLastName(), "204");
-                EmployeeSchedule schedule5 = new EmployeeSchedule(null, "Title", "Description",
+                EmployeeSchedule schedule5 = new EmployeeSchedule(null, "Khám bệnh", "Anh Nguyễn Văn A đến tái khám",
                         LocalDateTime.of(2024, 4, LocalDateTime.now().getDayOfMonth(), 17, 0, 0),
                         LocalDateTime.of(2024, 4, LocalDateTime.now().getDayOfMonth(), 18, 0, 0), emp1, 1L,
                         patient1.getInformation().getFirstName(), patient1.getInformation().getLastName(), "205");
-                EmployeeSchedule schedule6 = new EmployeeSchedule(null, "Title", "Description",
+                EmployeeSchedule schedule6 = new EmployeeSchedule(null, "Khám bệnh", "Anh Nguyễn Văn A đến tái khám",
                         LocalDateTime.of(2024, 4, LocalDateTime.now().getDayOfMonth(), 18, 0, 0),
                         LocalDateTime.of(2024, 4, LocalDateTime.now().getDayOfMonth(), 19, 0, 0), emp2, 1L,
                         patient1.getInformation().getFirstName(), patient1.getInformation().getLastName(), "205");
-                EmployeeSchedule schedule7 = new EmployeeSchedule(null, "Title", "Description",
+                EmployeeSchedule schedule7 = new EmployeeSchedule(null, "Khám bệnh", "Anh Nguyễn Văn A đến tái khám",
                         LocalDateTime.of(2024, 4, LocalDateTime.now().getDayOfMonth(), 19, 0, 0),
                         LocalDateTime.of(2024, 4, LocalDateTime.now().getDayOfMonth(), 20, 0, 0), emp1, 1L,
                         patient1.getInformation().getFirstName(), patient1.getInformation().getLastName(), "205");
-                EmployeeSchedule schedule8 = new EmployeeSchedule(null, "Title", "Description",
+                EmployeeSchedule schedule8 = new EmployeeSchedule(null, "Khám bệnh", "Anh Nguyễn Văn A đến tái khám",
                         LocalDateTime.of(2024, 4, LocalDateTime.now().getDayOfMonth(), 20, 0, 0),
                         LocalDateTime.of(2024, 4, LocalDateTime.now().getDayOfMonth(), 21, 0, 0), emp1, 1L,
                         patient1.getInformation().getFirstName(), patient1.getInformation().getLastName(), "205");
-                EmployeeSchedule schedule9 = new EmployeeSchedule(null, "Title", "Description",
+                EmployeeSchedule schedule9 = new EmployeeSchedule(null, "Khám bệnh", "Anh Nguyễn Văn A đến tái khám",
                         LocalDateTime.of(2024, 4, LocalDateTime.now().getDayOfMonth(), 21, 0, 0),
                         LocalDateTime.of(2024, 4, LocalDateTime.now().getDayOfMonth(), 22, 0, 0), emp1, 1L,
                         patient1.getInformation().getFirstName(), patient1.getInformation().getLastName(), "205");
-                EmployeeSchedule schedule10 = new EmployeeSchedule(null, "Title", "Description",
+                EmployeeSchedule schedule10 = new EmployeeSchedule(null, "Khám bệnh", "Anh Nguyễn Văn A đến tái khám",
                         LocalDateTime.of(2024, 4, LocalDateTime.now().getDayOfMonth(), 22, 0, 0),
                         LocalDateTime.of(2024, 4, LocalDateTime.now().getDayOfMonth(), 23, 0, 0), emp1, 1L,
+                        patient1.getInformation().getFirstName(), patient1.getInformation().getLastName(), "205");
+                
+                EmployeeSchedule schedule11 = new EmployeeSchedule(null, "Khám bệnh", "Anh Nguyễn Văn A đến tái khám",
+                        LocalDateTime.of(2024, 4, LocalDateTime.now().plusDays(1).getDayOfMonth(), 7, 0, 0),
+                        LocalDateTime.of(2024, 4, LocalDateTime.now().plusDays(1).getDayOfMonth(), 9, 0, 0), emp1, 1L,
+                        patient1.getInformation().getFirstName(), patient1.getInformation().getLastName(), "205");
+                EmployeeSchedule schedule12 = new EmployeeSchedule(null, "Khám bệnh", "Anh Nguyễn Văn A đến tái khám",
+                        LocalDateTime.of(2024, 4, LocalDateTime.now().plusDays(2).getDayOfMonth(), 7, 0, 0),
+                        LocalDateTime.of(2024, 4, LocalDateTime.now().plusDays(2).getDayOfMonth(), 9, 0, 0), emp1, 1L,
+                        patient1.getInformation().getFirstName(), patient1.getInformation().getLastName(), "205");
+                EmployeeSchedule schedule13 = new EmployeeSchedule(null, "Khám bệnh", "Anh Nguyễn Văn A đến tái khám",
+                        LocalDateTime.of(2024, 4, LocalDateTime.now().plusDays(3).getDayOfMonth(), 7, 0, 0),
+                        LocalDateTime.of(2024, 4, LocalDateTime.now().plusDays(3).getDayOfMonth(), 9, 0, 0), emp1, 1L,
+                        patient1.getInformation().getFirstName(), patient1.getInformation().getLastName(), "205");
+                EmployeeSchedule schedule14 = new EmployeeSchedule(null, "Khám bệnh", "Anh Nguyễn Văn A đến tái khám",
+                        LocalDateTime.of(2024, 4, LocalDateTime.now().plusDays(4).getDayOfMonth(), 7, 0, 0),
+                        LocalDateTime.of(2024, 4, LocalDateTime.now().plusDays(4).getDayOfMonth(), 9, 0, 0), emp1, 1L,
                         patient1.getInformation().getFirstName(), patient1.getInformation().getLastName(), "205");
                 logger.info("insert schedule: " + scheduleRepository.save(schedule1));
                 logger.info("insert schedule: " + scheduleRepository.save(schedule2));
@@ -124,6 +141,10 @@ public class Database {
                 logger.info("insert schedule: " + scheduleRepository.save(schedule8));
                 logger.info("insert schedule: " + scheduleRepository.save(schedule9));
                 logger.info("insert schedule: " + scheduleRepository.save(schedule10));
+                logger.info("insert schedule: " + scheduleRepository.save(schedule11));
+                logger.info("insert schedule: " + scheduleRepository.save(schedule12));
+                logger.info("insert schedule: " + scheduleRepository.save(schedule13));
+                logger.info("insert schedule: " + scheduleRepository.save(schedule14));
             }
         };
     }
