@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700");
+
+:root {
+    --card-color: #fff;
+    --card-button-color: #34AF6D;
+    --card-button-hover-color: #4AD489;
+    --table-color: #4AD489;
+    --table-field-color: #34AF6D;
+}
+
+/* personal infor starts here */
+.infor-card {
+    padding: 20px;
+    margin: 20px 50px 0 50px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+
+.infor-card header {
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+}
+
+.infor-content {
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 16px;
+    background: #f2f2f2;
+}
+
+.infor-content .title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.infor-content .field-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.infor-content .field {
+    margin-top: 10px;
+    width: calc(100% /3 - 15px);
+}
+
+.infor-content .field label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #2e2e2e;
+}
+
+.infor-content .infor-text {
+    background-color: white;
+    height: 42px;
+    overflow: auto;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    margin: 5px 0;
+    padding: 5 15px;
+    align-content: center;
+}
+
+#other-infor .field{
+    margin-top: 10px;
+    width: 100%;
+    max-height: fit-content;
+}
+
+.patient-his p{
+    font-size: 15px;
+    text-decoration: underline;
+}
+
+.patient-his label{
+    font-size: 12px;
+}
