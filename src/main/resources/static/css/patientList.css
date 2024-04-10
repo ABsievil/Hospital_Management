@@ -53,6 +53,13 @@ table thead tr {
     color: #fff;
     transition: 0.5rem;
 }
+.patient-list{
+    background-color: var(--card-color);
+    margin: 30px 50px 0 50px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
 #accord-table{
     max-height: 220px;
     overflow: hidden;
@@ -60,4 +67,5 @@ table thead tr {
 #accord-button{
     overflow: visible;
     visibility: visible;
+    margin: 20px;
 }
