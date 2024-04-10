@@ -1,12 +1,101 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/png" href="/images/Logo.png"/>
-    <title>Treatment History</title>
-</head>
-<body>
-    <h1>Welcome to treatment history</h1>
-</body>
-</html>
+<span style="font-family: verdana, geneva, sans-serif;">
+    <!DOCTYPE html>
+    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+
+    </html>
+    <html lang="en">
+
+        <head>
+            <meta charset="UTF-8" />
+            <title>Home Page</title>
+            <link rel="shortcut icon" type="image/png" href="/images/Logo.png"/>
+            <link rel="stylesheet" th:href="@{/css/treatmentHistory.css}" />
+            <link rel="stylesheet" href="/css/navBarTemplate.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+        </head>
+            
+        <body>
+            <div class="container">
+                <nav class="option-bar invi">
+                    <ul>
+                        <li><a href="/profile" class="user">
+                            <i class="fas fa-user" aria-hidden="true"></i></i>
+                            <span class="nav-item">
+                                <div class="user-name" th:text="${employee.username}"></div>
+                                <div class="user-role" th:text="${employee.role}"></div>
+                             </span>
+                        </a></li>
+                        <li><a href="/home">
+                            <i class="fas fa-home" aria-hidden="true"></i>
+                            <span class="nav-item">Trang Chủ</span>
+                        </a></li>
+                        <li><a href="/profile">
+                            <i class="fas fa-info" aria-hidden="true"></i>
+                            <span class="nav-item">Thông Tin Cá Nhân</span>
+                        </a></li>
+                        <li><a href="/profile/calendar">
+                            <i class="fas fa-calendar" aria-hidden="true"></i>
+                            <span class="nav-item">Lịch Cá Nhân</span>
+                        </a></li>
+                        <li><a href="/help">
+                            <i class="fas fa-question" aria-hidden="true"></i>
+                            <span class="nav-item">Trợ Giúp</span>
+                        </a></li>
+                        <li><a href="/setting">
+                            <i class="fas fa-cog" aria-hidden="true"></i></i>
+                            <span class="nav-item">Cài Đặt</span>
+                        </a></li>
+    
+                        <li><a class="logout" th:href="@{/logout}">
+                                <i class="fas fa-sign-out-alt"></i>
+                              <span class="nav-item">Đăng xuất</span>
+                        </a></li>
+                    </ul>
+                </nav>
+                <section class="main">
+                    <div id ="scroll-to-top"></div>
+                    <div class="main-top">
+                        <div class = "logo-name" onclick="location.href='#scroll-to-top'">
+                            <img src="image/Logo.png" class="logo"> <a href="#scroll-to-top" class="name">BỆNH VIỆN NGỌC CHÂU</a>
+                        </div>
+                    </div>
+                    <div class="patient-history">
+                        <h1>Lịch sử khám bệnh</h1>
+                        <div class="his-item">
+                            <h3>Lần 1 : Ngày 14/04/2024, khám bệnh Z do bác sĩ H phụ trách. </h3>
+                            <button class="but">Chi tiết đơn thuốc đã kê</button>
+                            <p class="spec-cont">Bao gồm : ...</p>
+                        </div>
+                        <div class="his-item">
+                            <h3>Lần 1 : Ngày 14/04/2024, khám bệnh Z do bác sĩ H phụ trách. </h3>
+                            <button class="but">Chi tiết đơn thuốc đã kê</button>
+                            <p class="spec-cont">Bao gồm : ...</p>
+                        </div>
+                        <div class="his-item">
+                            <h3>Lần 1 : Ngày 14/04/2024, khám bệnh Z do bác sĩ H phụ trách. </h3>
+                            <button class="but">Chi tiết đơn thuốc đã kê</button>
+                            <p class="spec-cont">Bao gồm : ...</p>
+                        </div>
+                        <div class="his-item">
+                            <h3>Lần 1 : Ngày 14/04/2024, khám bệnh Z do bác sĩ H phụ trách. </h3>
+                            <button class="but">Chi tiết đơn thuốc đã kê</button>
+                            <p class="spec-cont">Bao gồm : ...</p>
+                        </div>
+                        <div class="his-item">
+                            <h3>Lần 1 : Ngày 14/04/2024, khám bệnh Z do bác sĩ H phụ trách. </h3>
+                            <button class="but">Chi tiết đơn thuốc đã kê</button>
+                            <p class="spec-cont">Bao gồm : ...</p>
+                        </div>
+                        <div class="his-item">
+                            <h3>Lần 1 : Ngày 14/04/2024, khám bệnh Z do bác sĩ H phụ trách. </h3>
+                            <button class="but">Chi tiết đơn thuốc đã kê</button>
+                            <p class="spec-cont">Bao gồm : ...</p>
+                        </div>
+                    </div>
+    
+                    
+                </section>
+            </div>
+        </body>
+    </html>
+</span>
