@@ -66,12 +66,16 @@ table thead tr {
     border-radius: 10px;
     box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
 }
-#accord-table{
-    max-height: 220px;
-    overflow: hidden;
+td a{
+    width: 120px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid var(--table-color);
+    border-collapse: collapse;
 }
-#accord-button{
-    overflow: visible;
-    visibility: visible;
-    margin: 20px;
+td a:hover{
+    background: var(--table-color);
+    color: #fff;
+    transition: 0.5rem;
 }
