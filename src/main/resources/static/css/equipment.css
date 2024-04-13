@@ -64,8 +64,8 @@ table thead tr {
 }
 .equipment div{
     padding: 20px;
-    margin: 30px 20px;
+    margin: 30px auto;
     background-color: var(--card-color);
     border-radius: 30px;
-    width: calc(50%-40px);
+    width: 45%;
 }
