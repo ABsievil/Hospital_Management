@@ -60,7 +60,7 @@ public class EmployeeScheduleService {
     }
 
     public ResponseEntity<ResponseObject> getScheduleByEmployeeIdBetweenTime(Long employeeId, LocalDateTime time1, LocalDateTime time2) {
-        List<EmployeeSchedule> scheduleList = employeeScheduleRepository.findByEmployeeIdAndStartTimeBetween(employeeId, time1, time2);
+        List<EmployeeSchedule> scheduleList = employeeScheduleRepository.findByEmployeeIdAndStartTimeBetweenOrderByStartTime(employeeId, time1, time2);
         return ResponseEntity.status(HttpStatus.OK)
         .body(new ResponseObject("OK", "Querry employee schedule successfully", scheduleList)); 
     }

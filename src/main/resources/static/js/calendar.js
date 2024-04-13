@@ -1,3 +1,5 @@
+
+
 const baseUrl = `http://localhost:8080`;
 
 const employeeId = document.getElementById('employeeId').textContent;
@@ -14,6 +16,13 @@ startOfDay.setUTCHours(0, 0, 0, 0);
 const endOfDay = new Date(todayInGMTPlus7.getTime());
 endOfDay.setUTCHours(23, 59, 59, 999);
 
+const startOfWeek = new Date(startOfDay.getTime() - 1000 * 60 * 60 * 24 * startOfDay.getDay());
+const endOfWeek = new Date(startOfWeek.getTime() + 1000 * 60 * 60 * 24 * 7);
+endOfWeek.setUTCHours(23, 59, 59, 999);
+
+console.log(startOfWeek.toISOString());
+console.log(endOfWeek.toISOString());
+
 const noteContent = document.getElementById('noteContent');
 noteContent.textContent += `Hôm nay là Thứ ${daysOfWeek[todayInGMTPlus7.getUTCDay()]}, 
     ngày ${todayInGMTPlus7.toISOString().split('T')[0].split('-').reverse().join('/')}`;
@@ -25,7 +34,7 @@ noteContent.prepend(calendarIcon);
 
 
 fetch(
-    `${baseUrl}/api/v1/EmployeeSchedule/getActiveScheduleByEmployeeId/${employeeId}`
+    `${baseUrl}/api/v1/EmployeeSchedule/getScheduleByEmployeeIdBetweenTime/${employeeId}?startTime=${startOfWeek.toISOString()}&endTime=${endOfWeek.toISOString()}`
 )
     .then((response) => response.json())
     .then((fetchedData) => {
