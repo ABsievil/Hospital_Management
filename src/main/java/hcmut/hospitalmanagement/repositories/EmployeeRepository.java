@@ -16,4 +16,6 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long>{
     List<Employee> findByInformationOccupation(String occupation);
 
     List<Employee> findByInformationOccupationNotIn(List<String> occupations);
+
+    Employee findByPersonalCode(String personalCode);
 }

@@ -96,7 +96,11 @@ public class EmployeeService {
             return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE)
             .body(new ResponseObject("Failed", "Username already exists", null));
         }
-
+        // Kiểm tra personalCode
+        if (employeeRepository.findByPersonalCode(newEmployee.getPersonalCode()) != null) {
+            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE)
+            .body(new ResponseObject("Failed", "Personal already exists", null));
+        } 
         return ResponseEntity.status(HttpStatus.OK)
         .body(new ResponseObject("OK", "Insert employee successfully", employeeRepository.save(newEmployee)));
     }
@@ -114,7 +118,11 @@ public class EmployeeService {
             return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE)
             .body(new ResponseObject("Failed", "You cannot change the username" , null));
         }
-
+        // Không được thay đổi personal code của employee
+        if (!foundEmployee.getPersonalCode().equals(updatedEmployee.getPersonalCode())) {
+            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE)
+            .body(new ResponseObject("Failed", "You cannot change the personal code" , null));
+        }
         updatedEmployee.setId(id);
         return ResponseEntity.status(HttpStatus.OK)
         .body(new ResponseObject("OK", "Update employee successfully", employeeRepository.save(updatedEmployee)));

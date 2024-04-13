@@ -31,6 +31,9 @@ public class Employee {
     private String academicRank; // học hàm
     private String trainingPlace; // nơi đào tạo
     
+    @Column(unique = true)
+    private String personalCode;
+    
     @Embedded
     private PersonalInformation information;
 
