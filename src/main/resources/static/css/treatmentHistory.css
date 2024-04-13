@@ -166,9 +166,19 @@ a:hover i {
     margin: 30px 0px 0px 0px;
     padding: 10px;
     border-radius: 10px;
-    background-color: #eaeaea;
+    background-color: var(--card-color);
+    border: solid 2px var(--card-button-color);
 }
 .his-item-hidden{
     max-height: 90px;
     overflow: hidden;
+}
+.his-item a{
+    background-color: #fff;
+    width: fit-content;
+}
+.his-item:hover{
+    margin: 24px 0 0 0;
+    border: solid 5px var(--card-button-color);
+    color: var(--card-button-hover-color);
 }
