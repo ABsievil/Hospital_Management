@@ -33,56 +33,56 @@ calendarIcon.className = 'bx bxs-calendar';
 noteContent.prepend(calendarIcon);
 
 
-fetch(
-    `${baseUrl}/api/v1/EmployeeSchedule/getScheduleByEmployeeIdBetweenTime/${employeeId}?startTime=${startOfWeek.toISOString()}&endTime=${endOfWeek.toISOString()}`
-)
-    .then((response) => response.json())
-    .then((fetchedData) => {
-        const scheduleBody = document.getElementById('scheduleBody');
-        if (fetchedData && fetchedData.data) {
-            fetchedData.data.forEach((schedule) => {
-                const row = document.createElement('tr');
-                // thứ
-                const weekDay = document.createElement('td');
-                const dayOfWeek = new Date(schedule.startTime.split('T')[0]);
-                weekDay.textContent = daysOfWeek[dayOfWeek.getDay()];
-                row.appendChild(weekDay);
-                // ngày
-                const date = document.createElement('td');
-                date.textContent = schedule.startTime.split('T')[0].split('-').reverse().join('/');
-                if (date.textContent == todayInGMTPlus7.toISOString().split('T')[0].split('-').reverse().join('/')) {
-                    row.style = "color: black; background-color: rgb(219, 213, 213);";
-                }
-                row.appendChild(date);
-                // title
-                const title = document.createElement('td');
-                title.textContent = schedule.title;
-                row.appendChild(title);
-                // start time
-                const startTime = document.createElement('td');
-                startTime.textContent = schedule.startTime
-                    .split('T')[1]
-                    .slice(0, 5);
-                row.appendChild(startTime);
-                // end time
-                const endTime = document.createElement('td');
-                endTime.textContent = schedule.endTime
-                    .split('T')[1]
-                    .slice(0, 5);
-                row.appendChild(endTime);
-                // room
-                const room = document.createElement('td');
-                room.textContent = schedule.room;
-                row.appendChild(room);
-                // add row to schedule
-                scheduleBody.appendChild(row);
-
-            });
-        }    
-    })
-    .catch((error) => {
-        console.error('Error fetching schedules:', error);
-    });
+// fetch(
+//     `${baseUrl}/api/v1/EmployeeSchedule/getScheduleByEmployeeIdBetweenTime/${employeeId}?startTime=${startOfWeek.toISOString()}&endTime=${endOfWeek.toISOString()}`
+// )
+//     .then((response) => response.json())
+//     .then((fetchedData) => {
+//         const scheduleBody = document.getElementById('scheduleBody');
+//         if (fetchedData && fetchedData.data) {
+//             fetchedData.data.forEach((schedule) => {
+//                 const row = document.createElement('tr');
+//                 row.style = "height: 40px";
+//                 // thứ
+//                 const weekDay = document.createElement('td');
+//                 const dayOfWeek = new Date(schedule.startTime.split('T')[0]);
+//                 weekDay.textContent = daysOfWeek[dayOfWeek.getDay()];
+//                 row.appendChild(weekDay);
+//                 // ngày
+//                 const date = document.createElement('td');
+//                 date.textContent = schedule.startTime.split('T')[0].split('-').reverse().join('/');
+//                 if (date.textContent == todayInGMTPlus7.toISOString().split('T')[0].split('-').reverse().join('/')) {
+//                     row.style = "color: black; background-color: rgb(219, 213, 213); ";
+//                 }
+//                 row.appendChild(date);
+//                 // title
+//                 const title = document.createElement('td');
+//                 title.textContent = schedule.title;
+//                 row.appendChild(title);
+//                 // start time
+//                 const startTime = document.createElement('td');
+//                 startTime.textContent = schedule.startTime
+//                     .split('T')[1]
+//                     .slice(0, 5);
+//                 row.appendChild(startTime);
+//                 // end time
+//                 const endTime = document.createElement('td');
+//                 endTime.textContent = schedule.endTime
+//                     .split('T')[1]
+//                     .slice(0, 5);
+//                 row.appendChild(endTime);
+//                 // room
+//                 const room = document.createElement('td');
+//                 room.textContent = schedule.room;
+//                 row.appendChild(room);
+//                 // add row to schedule
+//                 scheduleBody.appendChild(row);
+//             });
+//         }    
+//     })
+//     .catch((error) => {
+//         console.error('Error fetching schedules:', error);
+//     });
 
 
 fetch(

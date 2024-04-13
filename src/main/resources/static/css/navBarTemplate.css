@@ -114,7 +114,7 @@ a:hover i {
     background: var(--logo-bar-color);
     color: white;
     cursor: pointer;
-
+    z-index: 3;
 }
 
 .main-top i {
