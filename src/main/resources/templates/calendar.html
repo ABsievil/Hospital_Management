@@ -77,48 +77,71 @@
                             <tbody id="scheduleBody">
                                 <tr>
                                     <td>2</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td id="monday"></td>
+                                    <td>Khám bệnh</td>
                                     <td><button class="myButton" onclick="mondaySchedule()">View</button></td>
                                 </tr>
                                 <tr>
                                     <td>3</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td id="tuesday"></td>
+                                    <td>Khám bệnh</td>
                                     <td><button class="myButton" onclick="tuesdaySchedule()">View</button></td>
                                 </tr>
                                 <tr>
                                     <td>4</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td id="wednesday"></td>
+                                    <td>Khám bệnh</td>
                                     <td><button class="myButton" onclick="wednesdaySchedule()">View</button></td>
                                 </tr>
                                 <tr>
                                     <td>5</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td id="thursday"></td>
+                                    <td>Khám bệnh</td>
                                     <td><button class="myButton" onclick="thursdaySchedule()">View</button></td>
                                 </tr>
                                 <tr>
                                     <td>6</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td id="friday"></td>
+                                    <td>Khám bệnh</td>
                                     <td><button class="myButton" onclick="fridaySchedule()">View</button></td>
                                 </tr>
                                 <tr>
                                     <td>7</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td id="saturday"></td>
+                                    <td>Khám bệnh</td>
                                     <td><button class="myButton" onclick="saturdaySchedule()">View</button></td>
                                 </tr>
                                 <tr>
                                     <td>CN</td>
-                                    <td></td>
-                                    <td></td>
+                                    <td id="sunday"></td>
+                                    <td>Khám bệnh</td>
                                     <td><button class="myButton" onclick="sundaySchedule()">View</button></td>
                                 </tr>
                             </tbody>
                         </table>
+
+                        <a href="#myModal" class="openForm">Thêm lịch trình</a>
+
+                        <div id="myModal" class="modal">
+                            <div class="modal-content">
+                                <a href="#" class="close">&times;</a>
+                                <form id="infoForm">
+                                    <label for="date">Ngày(*): </label>
+                                    <input type="text" id="date" name="date" style="border: 1px solid #888;" required><br><br>
+                                    <label for="start">Giờ bắt đầu(*): </label>
+                                    <input type="start" id="start" name="start" style="border: 1px solid #888;" required><br><br>
+                                    <label for="end">Giờ kết thúc(*): </label>
+                                    <input type="end" id="end" name="end" style="border: 1px solid #888;" required><br><br>
+                                    <label for="name">Tên bệnh nhân (nếu có): </label>
+                                    <input type="name" id="name" name="name" style="border: 1px solid #888;"><br><br>
+                                    <label for="content">Nội dung(*): </label>
+                                    <input type="content" id="content" name="content" style="border: 1px solid #888;" required><br><br>
+                                    <input type="submit" value="Submit" style="background-color: rgb(209, 201, 201); height: 25px;">
+                                    <p class="error">Mời bạn nhập lại. </p><p class="error">Do thiếu nội dung (*).</p>
+                                </form>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="timeline">
                         <div class="timeline-row">

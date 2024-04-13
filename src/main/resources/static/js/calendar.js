@@ -23,7 +23,7 @@ const dates = [];
 for (let i = 1; i <= 7; i++) {
     const date = new Date(startOfWeek.getTime() + 1000 * 60 * 60 * 24 * i);
     dates.push(date);
-    console.log(date.toISOString());
+    // console.log(date.toISOString());
 }
 
 const noteContent = document.getElementById('noteContent');
@@ -39,8 +39,23 @@ noteContent.textContent += `Hôm nay là Thứ ${
 
 const calendarIcon = document.createElement('i');
 calendarIcon.className = 'bx bxs-calendar';
-
 noteContent.prepend(calendarIcon);
+
+const monday = document.getElementById('monday');
+monday.textContent = dates[0].toISOString().split('T')[0].split('-').reverse().join('/');
+const tuesday = document.getElementById('tuesday');
+tuesday.textContent = dates[1].toISOString().split('T')[0].split('-').reverse().join('/');
+const wednesday = document.getElementById('wednesday');
+wednesday.textContent = dates[2].toISOString().split('T')[0].split('-').reverse().join('/');
+const thursday = document.getElementById('thursday');
+thursday.textContent = dates[3].toISOString().split('T')[0].split('-').reverse().join('/');
+const friday = document.getElementById('friday');
+friday.textContent = dates[4].toISOString().split('T')[0].split('-').reverse().join('/');
+const saturday = document.getElementById('saturday');
+saturday.textContent = dates[5].toISOString().split('T')[0].split('-').reverse().join('/');
+const sunday = document.getElementById('sunday');
+sunday.textContent = dates[6].toISOString().split('T')[0].split('-').reverse().join('/');
+
 
 fetch(
     `${baseUrl}/api/v1/EmployeeSchedule/getScheduleByEmployeeIdBetweenTime/${employeeId}?startTime=${startOfDay.toISOString()}&endTime=${endOfDay.toISOString()}`
@@ -91,8 +106,8 @@ function mondaySchedule() {
     const end = new Date(dates[0].getTime());
     start.setUTCHours(0, 0, 0, 0);
     end.setUTCHours(23, 59, 59, 999);
-    console.log(start.toISOString());
-    console.log(end.toISOString());
+    // console.log(start.toISOString());
+    // console.log(end.toISOString());
     fetch(
         `${baseUrl}/api/v1/EmployeeSchedule/getScheduleByEmployeeIdBetweenTime/${employeeId}?startTime=${start.toISOString()}&endTime=${end.toISOString()}`
     )
@@ -144,8 +159,8 @@ function tuesdaySchedule() {
     const end = new Date(dates[1].getTime());
     start.setUTCHours(0, 0, 0, 0);
     end.setUTCHours(23, 59, 59, 999);
-    console.log(start.toISOString());
-    console.log(end.toISOString());
+    // console.log(start.toISOString());
+    // console.log(end.toISOString());
     fetch(
         `${baseUrl}/api/v1/EmployeeSchedule/getScheduleByEmployeeIdBetweenTime/${employeeId}?startTime=${start.toISOString()}&endTime=${end.toISOString()}`
     )
@@ -197,8 +212,8 @@ function wednesdaySchedule() {
     const end = new Date(dates[2].getTime());
     start.setUTCHours(0, 0, 0, 0);
     end.setUTCHours(23, 59, 59, 999);
-    console.log(start.toISOString());
-    console.log(end.toISOString());
+    // console.log(start.toISOString());
+    // console.log(end.toISOString());
     fetch(
         `${baseUrl}/api/v1/EmployeeSchedule/getScheduleByEmployeeIdBetweenTime/${employeeId}?startTime=${start.toISOString()}&endTime=${end.toISOString()}`
     )
@@ -250,8 +265,8 @@ function thursdaySchedule() {
     const end = new Date(dates[3].getTime());
     start.setUTCHours(0, 0, 0, 0);
     end.setUTCHours(23, 59, 59, 999);
-    console.log(start.toISOString());
-    console.log(end.toISOString());
+    // console.log(start.toISOString());
+    // console.log(end.toISOString());
     fetch(
         `${baseUrl}/api/v1/EmployeeSchedule/getScheduleByEmployeeIdBetweenTime/${employeeId}?startTime=${start.toISOString()}&endTime=${end.toISOString()}`
     )
@@ -303,8 +318,8 @@ function fridaySchedule() {
     const end = new Date(dates[4].getTime());
     start.setUTCHours(0, 0, 0, 0);
     end.setUTCHours(23, 59, 59, 999);
-    console.log(start.toISOString());
-    console.log(end.toISOString());
+    // console.log(start.toISOString());
+    // console.log(end.toISOString());
     fetch(
         `${baseUrl}/api/v1/EmployeeSchedule/getScheduleByEmployeeIdBetweenTime/${employeeId}?startTime=${start.toISOString()}&endTime=${end.toISOString()}`
     )
@@ -356,8 +371,8 @@ function saturdaySchedule() {
     const end = new Date(dates[5].getTime());
     start.setUTCHours(0, 0, 0, 0);
     end.setUTCHours(23, 59, 59, 999);
-    console.log(start.toISOString());
-    console.log(end.toISOString());
+    // console.log(start.toISOString());
+    // console.log(end.toISOString());
     fetch(
         `${baseUrl}/api/v1/EmployeeSchedule/getScheduleByEmployeeIdBetweenTime/${employeeId}?startTime=${start.toISOString()}&endTime=${end.toISOString()}`
     )
@@ -409,8 +424,8 @@ function sundaySchedule() {
     const end = new Date(dates[6].getTime());
     start.setUTCHours(0, 0, 0, 0);
     end.setUTCHours(23, 59, 59, 999);
-    console.log(start.toISOString());
-    console.log(end.toISOString());
+    // console.log(start.toISOString());
+    // console.log(end.toISOString());
     fetch(
         `${baseUrl}/api/v1/EmployeeSchedule/getScheduleByEmployeeIdBetweenTime/${employeeId}?startTime=${start.toISOString()}&endTime=${end.toISOString()}`
     )
