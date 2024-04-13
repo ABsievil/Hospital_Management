@@ -11,6 +11,7 @@
         <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
         <link rel="stylesheet" th:href="@{/css/homePage.css}" />
         <link rel="stylesheet" href="/css/navBarTemplate.css">
+        <link rel="stylesheet" href="/css/modal.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     </head>
 
@@ -87,7 +88,40 @@
                         <h3>Báo cáo</h3>
                         <p>Báo cáo, thống kê hàng tháng</p>
                     </div>
+                    <div class="card">
+                        <i class="fas fa-plus" aria-hidden="true"></i>
+                        <h3>Thêm Mới</h3>
+                        <button id="myBtn">Thêm Tài Khoản</button>
+                    </div>
                 </div>
+
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
+                        <div class="card" onclick="location.href='/doctorlist'">
+                            <i class="fa fa-user-md" aria-hidden="true"></i>
+                            <h3>Thêm Nhân Viên</h3>
+                            <p>Danh sách, thông tin</p>
+                        </div>
+                        <div class="card" onclick="location.href='/patientlist'">
+                            <i class="fa fa-bed" aria-hidden="true"></i>
+                            <h3>Thêm Bệnh nhân</h3>
+                            <p>Danh sách, thông tin</p>
+                        </div>
+                    </div>
+                </div>
+        
+                <script>
+                    var modal = document.getElementById("myModal");
+                    var btn = document.getElementById("myBtn");
+                    btn.onclick = function () {
+                        modal.style.display = "block";
+                    }
+                    window.onclick = function (event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
+                        }
+                    }
+                </script>
 
                 <section class="treatment-schedule">
                     <div class="treatment-list">
