@@ -73,7 +73,7 @@ public class Database {
                 PersonalInformation patientInfo1 = new PersonalInformation("A", "Nguyễn Văn", null, true, null,
                         null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null
                 );
-                Patient patient1 = new Patient(null, patientInfo1, null, null);
+                Patient patient1 = new Patient(null, patientInfo1, null);
 
                 logger.info("insert patient: " + patientRepository.save(patient1));
 
@@ -135,6 +135,14 @@ public class Database {
                         LocalDateTime.of(2024, 4, LocalDateTime.now().plusDays(4).getDayOfMonth(), 7, 0, 0),
                         LocalDateTime.of(2024, 4, LocalDateTime.now().plusDays(4).getDayOfMonth(), 9, 0, 0), emp1, 1L,
                         patient1.getInformation().getFirstName(), patient1.getInformation().getLastName(), "205");
+                EmployeeSchedule schedule15 = new EmployeeSchedule(null, "Khám bệnh", "Anh Nguyễn Văn A đến tái khám",
+                        LocalDateTime.of(2024, 4, LocalDateTime.now().minusDays(1).getDayOfMonth(), 7, 0, 0),
+                        LocalDateTime.of(2024, 4, LocalDateTime.now().minusDays(1).getDayOfMonth(), 9, 0, 0), emp1, 1L,
+                        patient1.getInformation().getFirstName(), patient1.getInformation().getLastName(), "205");
+                EmployeeSchedule schedule16 = new EmployeeSchedule(null, "Khám bệnh", "Anh Nguyễn Văn A đến tái khám",
+                        LocalDateTime.of(2024, 4, LocalDateTime.now().minusDays(2).getDayOfMonth(), 7, 0, 0),
+                        LocalDateTime.of(2024, 4, LocalDateTime.now().minusDays(2).getDayOfMonth(), 9, 0, 0), emp1, 1L,
+                        patient1.getInformation().getFirstName(), patient1.getInformation().getLastName(), "205");
                 logger.info("insert schedule: " + scheduleRepository.save(schedule5));
                 logger.info("insert schedule: " + scheduleRepository.save(schedule4));
                 logger.info("insert schedule: " + scheduleRepository.save(schedule3));
@@ -149,6 +157,8 @@ public class Database {
                 logger.info("insert schedule: " + scheduleRepository.save(schedule12));
                 logger.info("insert schedule: " + scheduleRepository.save(schedule13));
                 logger.info("insert schedule: " + scheduleRepository.save(schedule14));
+                logger.info("insert schedule: " + scheduleRepository.save(schedule15));
+                logger.info("insert schedule: " + scheduleRepository.save(schedule16));
 
                 // medicine
                 Medicine medicine1 = new Medicine(null, "Paracetamol", "Thành phần của Paracetamol",

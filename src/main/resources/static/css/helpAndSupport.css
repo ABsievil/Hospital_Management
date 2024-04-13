@@ -1,1 +1,38 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700");
+
+
+.infor-card {
+    padding: 20px;
+    margin: 20px 50px 0 50px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+
+.help-and-support h2,
+.help-and-support p,
+.help-and-support a {
+    font-family: Arial, Helvetica, sans-serif; 
+}
+
+.help-and-support h2 {
+    color: #044725; 
+    margin-bottom: 10px; 
+}
+
+.help-and-support p,
+.help-and-support a {
+    font-size: 16px; 
+    line-height: 1.6; 
+    margin-bottom: 20px; 
+}
+
+.help-and-support p {
+    color: #102a9b; 
+    text-decoration: none; 
+}
+
+.help-and-support a {
+    color: #56b0e4; 
+    text-decoration: none; 
+}
