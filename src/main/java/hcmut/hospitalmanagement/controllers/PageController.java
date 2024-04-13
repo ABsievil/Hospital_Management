@@ -133,10 +133,20 @@ public class PageController {
         }
 
         @RequestMapping("/calendar")
-            public String calendar(Model model){
-                addEmployeeToModel(model);
-                return "calendar";
-            }
+        public String calendar(Model model){
+            addEmployeeToModel(model);
+            return "calendar";
+        }
+
+        @RequestMapping(value = "/edit", method = RequestMethod.GET)
+        public String editInfor(){
+            return "editInfor";
+        }
+
+        @RequestMapping(value = "/edit", method =  RequestMethod.POST)
+        public void postInfor(){
+            
+        }
     }
     
     @Controller
@@ -163,6 +173,21 @@ public class PageController {
     @RequestMapping("/doctorlist")
     public String doctorList(){
         return "doctorList";
+    }
+
+    @Controller
+    @RequestMapping("/user/infor")
+    public class userInfor{
+        @RequestMapping(value = "", method = RequestMethod.GET)
+        public String renderPage(Model model){
+            addEmployeeToModel(model);
+            return "employeeInfor";
+        }
+
+        @RequestMapping(value = "", method = RequestMethod.POST)
+        public void getInfor(){
+            
+        }
     }
 
     @RequestMapping("/patientlist")
