@@ -12,9 +12,7 @@
 }
 
 .modal-content {
-    display: flex;
-    justify-content: space-around;
-    padding: 0 100px;
+    padding-left: 420px;
 }
 
 .modal-content .card {
