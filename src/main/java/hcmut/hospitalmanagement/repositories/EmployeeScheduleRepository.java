@@ -14,6 +14,8 @@ public interface EmployeeScheduleRepository extends JpaRepository<EmployeeSchedu
 
     List<EmployeeSchedule> findByStartTimeBetween(LocalDateTime startTime, LocalDateTime endTime);
 
+    List<EmployeeSchedule> findByStartTimeBetweenOrderByStartTime(LocalDateTime startTime, LocalDateTime endTime);
+
     List<EmployeeSchedule> findByEmployeeIdAndStartTimeAfter(Long employeeId, LocalDateTime startTime);
 
     List<EmployeeSchedule> findByEmployeeIdAndStartTimeBetween(Long employeeId, LocalDateTime startTime, LocalDateTime endTime);

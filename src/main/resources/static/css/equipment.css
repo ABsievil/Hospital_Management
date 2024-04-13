@@ -1,5 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700");
 
+:root {
+    --card-color: #fff;
+    --card-button-color: #34AF6D;
+    --card-button-hover-color: #4AD489;
+    --table-color: #4AD489;
+    --table-field-color: #34AF6D;
+}
 .table {
     border-collapse: collapse;
     margin: 25px 0;

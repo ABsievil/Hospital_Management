@@ -27,7 +27,6 @@ public class PersonalInformation {
     private String address;
     private String email;
     private String occupation;
-    private String personelCode;
 
     private String relative; // người thân
     private String relationWithRelative; // quan hệ với người thân

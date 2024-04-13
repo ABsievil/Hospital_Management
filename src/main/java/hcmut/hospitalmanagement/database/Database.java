@@ -54,9 +54,9 @@ public class Database {
 
                 PersonalInformation Pemp1 = new PersonalInformation("ABsievil", "", "123456", true, null, null, null,
                         "Phong nha Ke Bang, QB", "0911336607", "Q9, TP.HCM", "admin@hcmut.edu.vn", "Manager",
-                        "31005230", "", "", null, null, null, null, null, null, null);
+                        "31005230", "", "", null, null, null, null, null, null);
 
-                Employee emp1 = new Employee(null, true, null, null, null, null, null, Pemp1, "admin",
+                Employee emp1 = new Employee(null, true, null, null, null, null, null, null, Pemp1, "admin",
                         passwordEncoder.encode("1245"), Role.ADMIN);
                 logger.info("insert employee: " + employeeRepository.save(emp1));
 
@@ -64,16 +64,15 @@ public class Database {
                         "Không",
                         LocalDate.of(2004, 07, 04), "Nghệ An", "0123456789",
                         "KTX Khu A", "Hungdb@hcmut.edu.vn", "Doctor", "2211337", "Nguyễn Cao Cường",
-                        "Friend", "Doctor", "0911336607", "0339242722", "Q9, TP.HCM", "123456",
-                        LocalDate.of(2020, 01, 01), LocalDate.of(2025, 01, 01));
+                        "Friend", "Doctor", "0911336607", "0339242722", "Q9, TP.HCM", LocalDate.of(2020, 01, 01), LocalDate.of(2025, 01, 01));
                 Employee emp2 = new Employee(null, true, "Tim mạch", "Trưởng khoa Hóa", "Ko có", "F(n) = x^2",
-                        "Đại học BK HCM", Pemp2, "nmhung", passwordEncoder.encode("hungdb"), Role.DOCTOR);
+                        "Đại học BK HCM", "2210000", Pemp2, "nmhung", passwordEncoder.encode("hungdb"), Role.DOCTOR);
                 logger.info("insert employee: " + employeeRepository.save(emp2));
 
                 // Patient
                 PersonalInformation patientInfo1 = new PersonalInformation("A", "Nguyễn Văn", null, true, null,
-                        null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,
-                        null);
+                        null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null
+                );
                 Patient patient1 = new Patient(null, patientInfo1, null, null);
 
                 logger.info("insert patient: " + patientRepository.save(patient1));
@@ -136,11 +135,11 @@ public class Database {
                         LocalDateTime.of(2024, 4, LocalDateTime.now().plusDays(4).getDayOfMonth(), 7, 0, 0),
                         LocalDateTime.of(2024, 4, LocalDateTime.now().plusDays(4).getDayOfMonth(), 9, 0, 0), emp1, 1L,
                         patient1.getInformation().getFirstName(), patient1.getInformation().getLastName(), "205");
-                logger.info("insert schedule: " + scheduleRepository.save(schedule1));
-                logger.info("insert schedule: " + scheduleRepository.save(schedule2));
-                logger.info("insert schedule: " + scheduleRepository.save(schedule3));
-                logger.info("insert schedule: " + scheduleRepository.save(schedule4));
                 logger.info("insert schedule: " + scheduleRepository.save(schedule5));
+                logger.info("insert schedule: " + scheduleRepository.save(schedule4));
+                logger.info("insert schedule: " + scheduleRepository.save(schedule3));
+                logger.info("insert schedule: " + scheduleRepository.save(schedule2));
+                logger.info("insert schedule: " + scheduleRepository.save(schedule1));
                 logger.info("insert schedule: " + scheduleRepository.save(schedule6));
                 logger.info("insert schedule: " + scheduleRepository.save(schedule7));
                 logger.info("insert schedule: " + scheduleRepository.save(schedule8));
