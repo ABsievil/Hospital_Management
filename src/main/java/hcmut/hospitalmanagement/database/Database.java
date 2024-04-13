@@ -135,11 +135,11 @@ public class Database {
                         LocalDateTime.of(2024, 4, LocalDateTime.now().plusDays(4).getDayOfMonth(), 7, 0, 0),
                         LocalDateTime.of(2024, 4, LocalDateTime.now().plusDays(4).getDayOfMonth(), 9, 0, 0), emp1, 1L,
                         patient1.getInformation().getFirstName(), patient1.getInformation().getLastName(), "205");
-                logger.info("insert schedule: " + scheduleRepository.save(schedule1));
-                logger.info("insert schedule: " + scheduleRepository.save(schedule2));
-                logger.info("insert schedule: " + scheduleRepository.save(schedule3));
-                logger.info("insert schedule: " + scheduleRepository.save(schedule4));
                 logger.info("insert schedule: " + scheduleRepository.save(schedule5));
+                logger.info("insert schedule: " + scheduleRepository.save(schedule4));
+                logger.info("insert schedule: " + scheduleRepository.save(schedule3));
+                logger.info("insert schedule: " + scheduleRepository.save(schedule2));
+                logger.info("insert schedule: " + scheduleRepository.save(schedule1));
                 logger.info("insert schedule: " + scheduleRepository.save(schedule6));
                 logger.info("insert schedule: " + scheduleRepository.save(schedule7));
                 logger.info("insert schedule: " + scheduleRepository.save(schedule8));

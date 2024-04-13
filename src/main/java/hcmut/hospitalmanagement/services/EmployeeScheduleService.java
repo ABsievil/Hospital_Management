@@ -41,7 +41,7 @@ public class EmployeeScheduleService {
     }
 
     public ResponseEntity<ResponseObject> getScheduleBetweenTime(LocalDateTime time1, LocalDateTime time2) {
-        List<EmployeeSchedule> scheduleList = employeeScheduleRepository.findByStartTimeBetween(time1, time2);
+        List<EmployeeSchedule> scheduleList = employeeScheduleRepository.findByStartTimeBetweenOrderByStartTime(time1, time2);
         return ResponseEntity.status(HttpStatus.OK)
         .body(new ResponseObject("OK", "Querry employee schedule successfully", scheduleList));
     }
