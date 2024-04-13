@@ -23,7 +23,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "Patient")
 public class Patient {
 
     // Let the database system generate id its self
@@ -37,5 +36,4 @@ public class Patient {
     
     String room;
     
-    List<String> treatmentHistory;
 }
