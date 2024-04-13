@@ -50,6 +50,9 @@ fetch(
                 // ngày
                 const date = document.createElement('td');
                 date.textContent = schedule.startTime.split('T')[0].split('-').reverse().join('/');
+                if (date.textContent == todayInGMTPlus7.toISOString().split('T')[0].split('-').reverse().join('/')) {
+                    row.style = "color: black; background-color: rgb(219, 213, 213);";
+                }
                 row.appendChild(date);
                 // title
                 const title = document.createElement('td');
