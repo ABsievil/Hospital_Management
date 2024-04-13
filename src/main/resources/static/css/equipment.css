@@ -67,4 +67,5 @@ table thead tr {
     margin: 30px 20px;
     background-color: var(--card-color);
     border-radius: 30px;
+    width: calc(50%-40px);
 }
