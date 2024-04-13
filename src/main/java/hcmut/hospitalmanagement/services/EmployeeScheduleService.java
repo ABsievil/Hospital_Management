@@ -59,6 +59,12 @@ public class EmployeeScheduleService {
         .body(new ResponseObject("OK", "Querry employee schedule successfully", scheduleList));
     }
 
+    public ResponseEntity<ResponseObject> getScheduleByEmployeeIdBetweenTime(Long employeeId, LocalDateTime time1, LocalDateTime time2) {
+        List<EmployeeSchedule> scheduleList = employeeScheduleRepository.findByEmployeeIdAndStartTimeBetween(employeeId, time1, time2);
+        return ResponseEntity.status(HttpStatus.OK)
+        .body(new ResponseObject("OK", "Querry employee schedule successfully", scheduleList)); 
+    }
+
     public ResponseEntity<ResponseObject> insertScheduleByEmployeeId(Long employeeId, EmployeeSchedule newEmployeeSchedule) {
         // Kiểm tra có start time chưa
         if (newEmployeeSchedule.getStartTime() == null) {

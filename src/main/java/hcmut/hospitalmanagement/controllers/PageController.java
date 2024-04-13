@@ -19,6 +19,7 @@ import org.springframework.web.util.WebUtils;
 
 import hcmut.hospitalmanagement.models.Employee;
 import hcmut.hospitalmanagement.models.Patient;
+import hcmut.hospitalmanagement.models.Role;
 import hcmut.hospitalmanagement.repositories.EmployeeRepository;
 import hcmut.hospitalmanagement.repositories.PatientRepository;
 import jakarta.servlet.http.Cookie;
@@ -84,13 +85,39 @@ public class PageController {
 
     @RequestMapping("/home")
     public String homePage(Model model){
-        addEmployeeToModel(model);
+        Employee emp = addEmployeeToModel(model);
+        if(emp.getRole() == Role.ADMIN) return "homeAdmin"; 
         return "homePage";
     }
 
     @RequestMapping("/about")
     public String about(){
         return "about";
+    }
+
+    @Controller
+    @RequestMapping("/add")
+    public class addUser{
+
+        @GetMapping("/patient")
+        public String renderPatientPage(){
+            return "addPatient";
+        }
+
+        @GetMapping("/employee")
+        public String renderEmployeePage(){
+            return "addEmployee";
+        }
+
+        @PostMapping("/patient")
+        public void postPatient(){
+
+        }
+
+        @PostMapping("/employee")
+        public void postEmployee(){
+            
+        }
     }
 
     @Controller
