@@ -1,12 +1,190 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/png" href="/images/Logo.png"/>
-    <title>Report</title>
-</head>
-<body>
-    <h1>Welcome to report</h1>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/css/report.css" />
+        <link rel="stylesheet" href="/css/navBarTemplate.css" />
+        <link rel="shortcut icon" type="image/png" href="/images/Logo.png"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <title>Report</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <nav class="option-bar invi">
+                <ul>
+                    <li><a href="/profile" class="user">
+                        <i class="fas fa-user" aria-hidden="true"></i></i>
+                        <span class="nav-item">
+                        <!-- <div class="user-name" th:text="${employee.information.firstName}"></div>
+                        <div class="user-role" th:text="${employee.role}"></div>
+                        <div style="display: none" id="employeeId" th:text="${employee.id}"></div> -->
+                        <div class="user-name">User name</div>
+                        <div class="user-role">User role</div>
+                        </span>
+                    </a></li>
+                    <li><a href="/home">
+                        <i class="fas fa-home" aria-hidden="true"></i>
+                        <span class="nav-item">Trang Chủ</span>
+                    </a></li>
+                    <li><a href="/profile">
+                        <i class="fas fa-info" aria-hidden="true"></i>
+                        <span class="nav-item">Thông Tin Cá Nhân</span>
+                    </a></li>
+                    <li><a href="/profile/calendar">
+                        <i class="fas fa-calendar" aria-hidden="true"></i>
+                        <span class="nav-item">Lịch Cá Nhân</span>
+                    </a></li>
+                    <li><a href="/help">
+                        <i class="fas fa-question" aria-hidden="true"></i>
+                        <span class="nav-item">Trợ Giúp</span>
+                    </a></li>
+                    <li><a href="/setting">
+                        <i class="fas fa-cog" aria-hidden="true"></i></i>
+                        <span class="nav-item">Cài Đặt</span>
+                    </a></li>
+
+                    <li><a class="logout" th:href="@{/logout}">
+                            <i class="fas fa-sign-out-alt"></i>
+                        <span class="nav-item">Đăng xuất</span>
+                    </a></li>
+                </ul>
+            </nav>
+
+            <section class="main">
+                <div id ="scroll-to-top"></div>
+                <div class="main-top"  onclick="location.href='#scroll-to-top'">
+                    <div class = "logo-name">
+                        <img src="/images/Logo.png" class="logo">
+                        <span class="name">BỆNH VIỆN NGỌC CHÂU</span>
+                    </div>
+                </div>
+
+                <div class="main-content">
+                    <div class="total">Tổng quan</div>
+                
+                    <div class="card-container">
+                        <h3 class="main-title"></h3>
+                        <div class="card-wrapper">
+                            <div class="card1 light-blue">
+                                <div class="card-header">
+                                    <div class="c1">
+                                        <span class="title">
+                                            Tổng bệnh nhân</span>
+                                        <span class="numPatient">
+                                            158</span>
+                                    </div>
+                                    <i class='bx bx-user'></i>
+                                </div>
+                                <span class="card-detail">
+                                    <i class='bx bx-up-arrow-alt'></i> 2%
+                                </span>
+                            </div>
+                
+                            <div class="card1 light-green">
+                                <div class="card-header">
+                                    <div class="c1">
+                                        <span class="title">
+                                            Doanh thu</span>
+                                        <span class="numPatient">
+                                            150.2 Triệu</span>
+                                    </div>
+                                    <i class='bx bx-money'></i>
+                                </div>
+                                <span class="card-detail">
+                                    <i class='bx bx-up-arrow-alt'></i> 10%
+                                </span>
+                            </div>
+                
+                            <div class="card1 light-purple">
+                                <div class="card-header">
+                                    <div class="c1">
+                                        <span class="title">
+                                            Tỉ lệ tái khám</span>
+                                        <span class="numPatient">
+                                            47%</span>
+                                    </div>
+                                    <i class='bx bx-repost'></i>
+                                </div>
+                                <span class="card-detail">
+                                    <i class='bx bx-down-arrow-alt' ></i> 2.6%
+                                </span>
+                            </div>
+                
+                            <div class="card1 light-red">
+                                <div class="card-header">
+                                    <div class="c1">
+                                        <span class="title">
+                                            Đánh giá</span>
+                                        <span class="numPatient">
+                                            4.6<i class='bx bxs-star' ></i></span>
+                                    </div>
+                                    <i class='bx bx-happy-alt'></i>
+                                </div>
+                                <span class="card-detail">
+                                    <i class='bx bx-down-arrow-alt' ></i> 0%
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="table-wrapper"></div>
+                        <div class="table-container">
+                           <table>
+                            <thead>
+                                <tr>
+                                    <th>Ngày</th>
+                                    <th>Tên bệnh nhân</th>
+                                    <th>Tổng hóa đơn(Triệu đồng)</th>
+                                    <th>Đánh giá của bệnh nhân</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>15/04/2024</td>
+                                    <td>Nguyễn Thanh Lam</td>
+                                    <td>12</td>
+                                    <td>5<i class='bx bxs-star' ></i></td>
+                                </tr>
+                                <tr>
+                                    <td>15/04/2024</td>
+                                    <td>Nguyễn Thanh Lam</td>
+                                    <td>12</td>
+                                    <td>5<i class='bx bxs-star' ></i></td>
+                                </tr>
+                                <tr>
+                                    <td>15/04/2024</td>
+                                    <td>Nguyễn Thanh Lam</td>
+                                    <td>12</td>
+                                    <td>5<i class='bx bxs-star' ></i></td>
+                                </tr>
+                                <tr>
+                                    <td>15/04/2024</td>
+                                    <td>Nguyễn Thanh Lam</td>
+                                    <td>12</td>
+                                    <td>5<i class='bx bxs-star' ></i></td>
+                                </tr>
+                                <tr>
+                                    <td>15/04/2024</td>
+                                    <td>Nguyễn Thanh Lam</td>
+                                    <td>12</td>
+                                    <td>5<i class='bx bxs-star' ></i></td>
+                                </tr>
+                                <tr>
+                                    <td>15/04/2024</td>
+                                    <td>Nguyễn Thanh Lam</td>
+                                    <td>12</td>
+                                    <td>5<i class='bx bxs-star' ></i></td>
+                                </tr>
+                            </tbody>
+                           </table> 
+                        </div>
+                </div>
+            </section>
+
+            
+
+        </div>
+    </body>
 </html>
