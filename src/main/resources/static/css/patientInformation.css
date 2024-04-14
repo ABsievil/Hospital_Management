@@ -75,12 +75,10 @@
     width: 100%;
     max-height: fit-content;
 }
-
-.patient-his p{
-    font-size: 15px;
-    text-decoration: underline;
-}
-
 .patient-his label{
     font-size: 12px;
+}
+.patient-his .link:hover{
+    color: var(--card-button-hover-color);
+    cursor: pointer;
 }

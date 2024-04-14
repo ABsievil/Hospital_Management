@@ -181,4 +181,5 @@ a:hover i {
     margin: 24px 0 0 0;
     border: solid 5px var(--card-button-color);
     color: var(--card-button-hover-color);
+    cursor: pointer;
 }
