@@ -36,8 +36,7 @@ table thead tr {
     background: #f3f3f3;
 }
 
-.table tbody tr.active {
-    font-weight: bold;
+.table tbody tr:hover {
     color: var(--table-color);
 }
 
