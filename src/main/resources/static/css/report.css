@@ -1,0 +1,179 @@
+.total {
+    height: 30px;
+    width: 100px;
+    font-size: 20px;
+}
+
+.card-container {
+    background: #ffff;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.card-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.main-title {
+    color: rgba(113, 99, 186, 255);
+    padding-bottom: 10px;
+    font-size: 15px;
+}
+
+.card1 {
+    background: rgb(229, 223, 223);
+    border-radius: 10px;
+    padding: 1.2rem;
+    width: 290px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.c1 {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: 200;
+}
+
+.numPatient {
+    font-size: 19px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.bx {
+    color: #fff;
+    padding: 1rem;
+    height: 60px;
+    width: 60px;
+    text-align: center;
+    border-radius: 50%;
+    font-size: 1.5rem;
+}
+.bx-user {
+    background: blue;
+}
+.bx-money {
+    background: green;
+}
+.bx-repost {
+    background: pink;
+}
+.bx-happy-alt {
+    background: red;
+}
+.bx-up-arrow-alt {
+    color: green;
+    padding: 0;
+}
+.bx-down-arrow-alt {
+    color: red;
+    padding: 0;
+}
+.bxs-star {
+    padding: 0;
+    height: 10px;
+    width: 10px;
+    color: rgb(196, 196, 17);
+    font-size: 12px;
+}
+
+.card-detail {
+    font-size: 18px;
+    color: #000000;
+    letter-spacing: 2px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/*color*/
+.light-blue {
+    background: rgb(236, 236, 254);
+}
+
+.light-red {
+    background: rgb(251, 233, 233);
+}
+
+.light-green {
+    background: rgb(235, 254, 235);
+}
+
+.light-purple {
+    background: rgb(254, 226, 254);
+}
+
+/* .table-wrapper {
+    background: #fff;
+    margin-top: 1rem;
+    border-radius: 10px;
+    padding: 2rem;
+} */
+
+.table-container {
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+
+}
+
+thead {
+    background: rgba(113, 99, 186, 255);
+    color: #fff;
+}
+
+th {
+    padding: 15px;
+    text-align: center;
+    background: rgb(81, 185, 81);
+}
+
+tbody {
+    background: #f2f2f2;
+}
+
+td {
+    padding: 15px;
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background: #fff;
+}
+
+tfoot {
+    background: rgba(113, 99, 186, 255);
+    font-weight: bold;
+    color: #fff;
+}
+
+tfoot td {
+    padding: 15px;
+}
+
+.table-container button {
+    color: green;
+    background: none;
+    cursor: pointer;
+}
