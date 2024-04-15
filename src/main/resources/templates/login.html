@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link th:href="@{/css/login.css}" rel="stylesheet">
-    <link rel="shortcut icon" type="image/png" href="/images/Logo.png"/>
+    <link rel="shortcut icon" type="image/png" href="/images/Logo.png" />
     <title>Login Page</title>
 </head>
 
 <body>
-    <div class="banner">    
+    <div class="banner">
         <div class="navbar">
-            <div class = "logo-name" onclick="location.href='/index'">
+            <div class="logo-name" onclick="location.href='/index'">
                 <img src="/images/Logo.png" class="logo"> <a href="/index" class="name">BỆNH VIỆN NGỌC CHÂU</a>
             </div>
             <ul>
@@ -23,11 +24,11 @@
         </div>
 
         <div class="card">
-            <div class = "left-side ">
-                <img src = "/images/undraw_doctor_kw-5-l.svg" alt="img-doctor"></img>
+            <div class="left-side ">
+                <img src="/images/undraw_doctor_kw-5-l.svg" alt="img-doctor"></img>
                 <div> NGỌC CHÂU </div>
             </div>
-    
+
             <div class="right-side">
                 <h1>XIN CHÀO</h1>
                 <form method="post" th:action="@{/process-login}" id="loginForm">
@@ -36,24 +37,29 @@
                     <br>
                     <input name="password" type="password" placeholder="Mật khẩu" class="input-box" required />
                     <br> <br>
-                    
+
                     <div th:if="${param.error}">
                         Sai tài khoản hoặc mật khẩu
                     </div>
-                    
+
                     <div th:if="${param.logout}">
                         Bạn đã đăng xuất
                     </div>
-    
+
                     <button type="submit" value="Log in" id="submit">Đăng Nhập</button>
-                </form> 
-            </div>        
+                </form>
+            </div>
         </div>
 
-        <div class="more-info" id = "end-of-page">
-            <p>Thư điện tử : ngocchau.hospital@gmail.com. <br> <br> Đường dây nóng : (+84) 975 801 426.
-                <br> <br> Địa chỉ : 82A Nguyễn Trọng Tuyển, Phường 15, Quận Phú Nhuận, Tp.HCM.
-            </p>
+        <div class="more-info" id="end-of-page">
+            <div>
+                <p>Thư điện tử : ngocchau.hospital@gmail.com. <br> <br> Đường dây nóng : (+84) 975 801 426.
+                    <br> <br> Địa chỉ : 82A Nguyễn Trọng Tuyển, Phường 15, Quận Phú Nhuận, Tp.HCM.
+                </p>
+            </div>
+            <div style="text-align: right; font-family: sans-serif;">
+                <p> <i class="bx bxs-copyright"></i> Bản quyền thuộc về : Gia đình CHTV</p>
+            </div>
         </div>
     </div>
 </body>

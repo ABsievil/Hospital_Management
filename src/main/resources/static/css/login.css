@@ -171,10 +171,13 @@ form {
     width: 400px;
     height: 400px;
 }
+
 .more-info {
+    display: grid;
+    grid-template-columns: 800px 600px;
     width: 97.35%;
     position: absolute;
-    top: 93%;
+    top: 100%;
     text-align: left;  
     color: #fff;
     background-color: var(--nav-bar-color);
