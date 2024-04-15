@@ -72,12 +72,12 @@
                                     <div class="c1">
                                         <span class="title">
                                             Tổng bệnh nhân</span>
-                                        <span class="numPatient">
+                                        <span class="numPatient" id="numPatient">
                                             158</span>
                                     </div>
                                     <i class='bx bx-user'></i>
                                 </div>
-                                <span class="card-detail">
+                                <span class="card-detail" id="numPatientStat">
                                     <i class='bx bx-up-arrow-alt'></i> 2%
                                 </span>
                             </div>
@@ -87,12 +87,12 @@
                                     <div class="c1">
                                         <span class="title">
                                             Doanh thu</span>
-                                        <span class="numPatient">
+                                        <span class="numPatient" id="revenue">
                                             150.2 Triệu</span>
                                     </div>
                                     <i class='bx bx-money'></i>
                                 </div>
-                                <span class="card-detail">
+                                <span class="card-detail" id="revenueStat">
                                     <i class='bx bx-up-arrow-alt'></i> 10%
                                 </span>
                             </div>
@@ -102,12 +102,12 @@
                                     <div class="c1">
                                         <span class="title">
                                             Tỉ lệ tái khám</span>
-                                        <span class="numPatient">
+                                        <span class="numPatient" id="reExam">
                                             47%</span>
                                     </div>
                                     <i class='bx bx-repost'></i>
                                 </div>
-                                <span class="card-detail">
+                                <span class="card-detail" id="reExamStat">
                                     <i class='bx bx-down-arrow-alt' ></i> 2.6%
                                 </span>
                             </div>
@@ -117,12 +117,12 @@
                                     <div class="c1">
                                         <span class="title">
                                             Đánh giá</span>
-                                        <span class="numPatient">
+                                        <span class="numPatient" id="rating">
                                             4.6<i class='bx bxs-star' ></i></span>
                                     </div>
                                     <i class='bx bx-happy-alt'></i>
                                 </div>
-                                <span class="card-detail">
+                                <span class="card-detail" id="ratingStat">
                                     <i class='bx bx-down-arrow-alt' ></i> 0%
                                 </span>
                             </div>
@@ -140,43 +140,8 @@
                                     <th>Đánh giá của bệnh nhân</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>15/04/2024</td>
-                                    <td>Nguyễn Thanh Lam</td>
-                                    <td>12</td>
-                                    <td>5<i class='bx bxs-star' ></i></td>
-                                </tr>
-                                <tr>
-                                    <td>15/04/2024</td>
-                                    <td>Nguyễn Thanh Lam</td>
-                                    <td>12</td>
-                                    <td>5<i class='bx bxs-star' ></i></td>
-                                </tr>
-                                <tr>
-                                    <td>15/04/2024</td>
-                                    <td>Nguyễn Thanh Lam</td>
-                                    <td>12</td>
-                                    <td>5<i class='bx bxs-star' ></i></td>
-                                </tr>
-                                <tr>
-                                    <td>15/04/2024</td>
-                                    <td>Nguyễn Thanh Lam</td>
-                                    <td>12</td>
-                                    <td>5<i class='bx bxs-star' ></i></td>
-                                </tr>
-                                <tr>
-                                    <td>15/04/2024</td>
-                                    <td>Nguyễn Thanh Lam</td>
-                                    <td>12</td>
-                                    <td>5<i class='bx bxs-star' ></i></td>
-                                </tr>
-                                <tr>
-                                    <td>15/04/2024</td>
-                                    <td>Nguyễn Thanh Lam</td>
-                                    <td>12</td>
-                                    <td>5<i class='bx bxs-star' ></i></td>
-                                </tr>
+                            <tbody id="tableBody">
+                                
                             </tbody>
                            </table> 
                         </div>
@@ -186,5 +151,6 @@
             
 
         </div>
+        <script src="/js/report.js"></script>
     </body>
 </html>

@@ -1,11 +1,15 @@
 package hcmut.hospitalmanagement.controllers;
 
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import hcmut.hospitalmanagement.models.ResponseObject;
@@ -37,6 +41,15 @@ public class TreatmentHistoryController {
     public ResponseEntity<ResponseObject> getTreatmentHistoryByEmployeeId(@PathVariable Long employeeId) {
         return treatmentHistoryService.getTreatmentHistoryByEmployeeId(employeeId);
     }
+
+    @GetMapping("/getTreatmentHistoryBetweenDate")
+    public ResponseEntity<ResponseObject> getTreatmentHistoryBetweenDate(
+        @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
+        @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate
+    ) {
+        return treatmentHistoryService.getTreatmentHistoryBetweenDate(startDate, endDate);
+    }
+
     // Thêm hồ sơ bệnh án
     @PostMapping("/insert")
     public ResponseEntity<ResponseObject> insertTreatmentHistory(@RequestBody TreatmentHistory newTreatmentHistory) {

@@ -18,6 +18,8 @@ const startOfWeek = new Date(
     startOfDay.getTime() - 1000 * 60 * 60 * 24 * startOfDay.getDay()
 );
 
+
+
 const dates = [];
 
 for (let i = 1; i <= 7; i++) {

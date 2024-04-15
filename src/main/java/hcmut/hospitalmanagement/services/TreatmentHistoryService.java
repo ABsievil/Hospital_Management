@@ -1,5 +1,6 @@
 package hcmut.hospitalmanagement.services;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +45,12 @@ public class TreatmentHistoryService {
     // Tìm hồ sơ bệnh án theo id bác sĩ
     public ResponseEntity<ResponseObject> getTreatmentHistoryByEmployeeId(Long employeeId) {
         List<TreatmentHistory> treatmentHistoryList = treatmentHistoryRepository.findByEmployeeId(employeeId);
+        return ResponseEntity.status(HttpStatus.OK)
+        .body(new ResponseObject("OK", "Query treatment history successfully", treatmentHistoryList));
+    }
+
+    public ResponseEntity<ResponseObject> getTreatmentHistoryBetweenDate(LocalDate date1, LocalDate date2) {
+        List<TreatmentHistory> treatmentHistoryList = treatmentHistoryRepository.findByAdmissionDateBetween(date1, date2);
         return ResponseEntity.status(HttpStatus.OK)
         .body(new ResponseObject("OK", "Query treatment history successfully", treatmentHistoryList));
     }
@@ -183,4 +190,6 @@ public class TreatmentHistoryService {
         return ResponseEntity.status(HttpStatus.OK)
         .body(new ResponseObject("OK", "Delete treatment history successfully", null));
     }
+
+    
 }

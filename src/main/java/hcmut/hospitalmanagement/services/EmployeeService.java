@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import hcmut.hospitalmanagement.models.Employee;
@@ -15,6 +16,9 @@ import hcmut.hospitalmanagement.repositories.EmployeeRepository;
 public class EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     // Tìm tất cả Nhân viên y tế
     public ResponseEntity<ResponseObject> getAllEmployee() {
@@ -100,7 +104,8 @@ public class EmployeeService {
         if (employeeRepository.findByPersonalCode(newEmployee.getPersonalCode()) != null) {
             return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE)
             .body(new ResponseObject("Failed", "Personal already exists", null));
-        } 
+        }
+        newEmployee.setPassword(passwordEncoder.encode(newEmployee.getPassword()));
         return ResponseEntity.status(HttpStatus.OK)
         .body(new ResponseObject("OK", "Insert employee successfully", employeeRepository.save(newEmployee)));
     }
