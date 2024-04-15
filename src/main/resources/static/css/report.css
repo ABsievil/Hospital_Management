@@ -1,13 +1,25 @@
+.bound {
+    background-color: #fff;
+    height: 60px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
 .total {
-    height: 30px;
-    width: 100px;
-    font-size: 20px;
+    background: aquamarine;
+    color: black;
+    margin: 20px 20px 20px 0;
+    border: 1px solid;
+    height: 40px;
+    width: 170px;
+    font-size: 30px;
+    text-align: center;
+    border-radius: 20px;
 }
 
 .card-container {
     background: #ffff;
     padding: 2rem;
-    border-radius: 10px;
 }
 
 .card-wrapper {
@@ -82,10 +94,14 @@
 .bx-up-arrow-alt {
     color: green;
     padding: 0;
+    font-size: 18px;
+    max-width: 10px;
 }
 .bx-down-arrow-alt {
     color: red;
     padding: 0;
+    font-size: 18px;
+    max-width: 10px;
 }
 .bxs-star {
     padding: 0;
@@ -98,7 +114,6 @@
 .card-detail {
     font-size: 18px;
     color: #000000;
-    letter-spacing: 2px;
     font-family: 'Courier New', Courier, monospace;
 }
 
@@ -144,7 +159,7 @@ thead {
 th {
     padding: 15px;
     text-align: center;
-    background: rgb(81, 185, 81);
+    background: #34af6d;
 }
 
 tbody {
