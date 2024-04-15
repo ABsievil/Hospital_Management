@@ -86,8 +86,7 @@ public class WebSecurityConfig {
                 .key("4Bsi3vil")
                 .tokenValiditySeconds(10)) // 1 * 24 * 60 * 60 (s) = 24h  //current is not working
             .exceptionHandling(exeption -> exeption.accessDeniedPage("/403"))
-            ;
-            //.csrf(csrf -> csrf.disable());   // what is csrf, should disable it ?
+            .csrf(csrf -> csrf.disable());   // what is csrf, should disable it ?
         
         return http.build();
     }
