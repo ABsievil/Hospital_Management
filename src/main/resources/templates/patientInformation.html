@@ -5,8 +5,9 @@
 
     <head>
         <meta charset="UTF-8" />
-        <title>Profile</title>
-        <link rel="stylesheet" th:href="@{/css/patientInformation.css}" />
+        <title>Patient Profile</title>
+        <!-- <link rel="stylesheet" th:href="@{/css/patientInformation.css}" /> -->
+        <link rel="stylesheet" href="/css/patientInformation.css" />
         <link rel="stylesheet" href="/css/navBarTemplate.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
         <link rel="shortcut icon" type="image/png" href="/images/Logo.png"/>
@@ -19,10 +20,10 @@
                     <li><a href="/profile" class="user">
                             <i class="fas fa-user" aria-hidden="true"></i></i>
                             <span class="nav-item">
-                                <!-- <div class="user-name" th:text="${patient.information.name}"></div>
+                                <!-- <div class="user-name" th:text="${patient-information-name}"></div>
                         <div class="user-role" th:text="${patient.role}"></div> -->
-                                <div class="user-name" th:text="${patient.information.firstName}"></div>
-                                <div class="user-role" th:text="${patient.role}"></div>
+                                <div class="user-name">User name</div>
+                                <div class="user-role">User role</div>
                             </span>
                         </a></li>
                     <li><a href="/home">
@@ -33,7 +34,7 @@
                             <i class="fas fa-info" aria-hidden="true"></i>
                             <span class="nav-item">Thông Tin Cá Nhân</span>
                         </a></li>
-                    <li><a href="/calendar">
+                    <li><a href="/profile/calendar">
                             <i class="fas fa-calendar" aria-hidden="true"></i>
                             <span class="nav-item">Lịch Cá Nhân</span>
                         </a></li>
@@ -46,7 +47,6 @@
                             <span class="nav-item">Cài Đặt</span>
                         </a></li>
 
-                    <!-- <li><a class="logout" th:href="@{/logout}"> -->
                     <li><a class="logout" th:href="@{/logout}">
                             <i class="fas fa-sign-out-alt"></i>
                             <span class="nav-item">Đăng xuất</span>
@@ -71,34 +71,34 @@
 
                             <div class="field">
                                 <label for="">Họ và tên</label>
-                                <div class="infor-text" th:text="${nameuser}"></div>
+                                <div class="infor-text" class="patient-name"></div>
                             </div>
 
                             <div class="field">
                                 <label for="">Giới tính</label>
-                                <div class="infor-text" th:if="${patient.information.gender}">Nam</div>
-                                <div class="infor-text" th:unless="${patient.information.gender}">Nữ</div>
+                                <div class="infor-text" class="patient-information-gender">Nam</div>
+                                <div class="infor-text" class="patient-information-gender">Nữ</div>
                             </div>
 
                             <div class="field">
                                 <label for="">Ngày sinh</label>
                                 <div class="infor-text" 
-                                th:text="${#temporals.format(patient.information.dateOfBirth,'dd-MM-yyyy')}"></div>
+                                class="patient-information-dateOfBirth"></div>
                             </div>
 
                             <div class="field">
                                 <label for="">CCCD</label>
-                                <div class="infor-text" th:text="${patient.information.nationalID}"></div>
+                                <div class="infor-text" class="patient-information-nationalID"></div>
                             </div>
 
                             <div class="field">
                                 <label for="">Dân tộc</label>
-                                <div class="infor-text" th:text="${patient.information.ethnic}"></div>
+                                <div class="infor-text"  class="patient-information-ethnic"></div>
                             </div>
 
                             <div class="field">
                                 <label for="">Tôn giáo</label>
-                                <div class="infor-text" th:text="${patient.information.religion}"></div>
+                                <div class="infor-text"  class="patient-information-religion"></div>
                             </div>
 
 
@@ -111,17 +111,17 @@
 
                             <div class="field">
                                 <label for="">Địa chỉ</label>
-                                <div class="infor-text" th:text="${patient.information.address}"></div>
+                                <div class="infor-text" class="patient-information-address"></div>
                             </div>
 
                             <div class="field">
                                 <label for="">Email</label>
-                                <div class="infor-text" th:text="${patient.information.email}"></div>
+                                <div class="infor-text" class="patient-information-email"></div>
                             </div>
 
                             <div class="field">
                                 <label for="">Số điện thoại</label>
-                                <div class="infor-text" th:text="${patient.information.phoneNumber}"></div>
+                                <div class="infor-text" class="patient-information-phoneNumber"></div>
                             </div>
 
                         </div>
@@ -133,17 +133,17 @@
 
                             <div class="field">
                                 <label for="">Mã bảo hiểm y tế</label>
-                                <div class="infor-text" th:text="${patient.information.hiCode}"></div>
+                                <div class="infor-text" class="patient-information-hiCode"></div>
                             </div>
 
                             <div class="field">
                                 <label for="">Ngày bắt đầu</label>
-                                <div class="infor-text" th:text="${patient.information.hiStartDate}"></div>
+                                <div class="infor-text" class="patient-information-hiStartDate"></div>
                             </div>
 
                             <div class="field">
                                 <label for="">Ngày kết thúc</label>
-                                <div class="infor-text" th:text="${patient.information.hiEndDate}"></div>
+                                <div class="infor-text" class="patient-information-hiEndDate"></div>
                             </div>
                         </div>
                     </div>
@@ -154,32 +154,32 @@
 
                             <div class="field">
                                 <label for="">Họ và tên</label>
-                                <div class="infor-text" th:text="${patient.information.relative}"></div>
+                                <div class="infor-text" class="patient-information-relative"></div>
                             </div>
 
                             <div class="field">
                                 <label for="">Quan hệ với người thân</label>
-                                <div class="infor-text" th:text="${patient.information.relationWithRelative}"></div>
+                                <div class="infor-text" class="patient-information-relationWithRelative"></div>
                             </div>
 
                             <div class="field">
                                 <label for="">Số điện thoại</label>
-                                <div class="infor-text" th:text="${patient.information.relativePhoneNumber1}"></div>
+                                <div class="infor-text" class="patient-information-relativePhoneNumber1"></div>
                             </div>
 
                             <div class="field">
                                 <label for="">Nơi ở</label>
-                                <div class="infor-text" th:text="${patient.information.relativeAddress}"></div>
+                                <div class="infor-text" class="patient-information-relativeAddress"></div>
                             </div>
 
                             <div class="field">
                                 <label for="">Nghề nghiệp</label>
-                                <div class="infor-text" th:text="${patient.information.relativeOccupation}"></div>
+                                <div class="infor-text" class="patient-information-relativeOccupation"></div>
                             </div>
 
                             <div class="field">
                                 <label for="">Số điện thoại khác của người thân</label>
-                                <div class="infor-text" th:text="${patient.information.relativePhoneNumber2}"></div>
+                                <div class="infor-text" class="patient-information-relativePhoneNumber2"></div>
                             </div>
 
                         </div>
@@ -191,22 +191,22 @@
 
                             <div class="field">
                                 <label for="">Thời gian đăng ký</label>
-                                <div class="infor-text" th:text="${patient.information.registerTime}"></div>
+                                <div class="infor-text" class="patient-information-registerTime"></div>
                             </div>
 
                             <div class="field">
                                 <label for="">Phòng khám</label>
-                                <div class="infor-text" th:text="${patient.information.scheduleRoom}"></div>
+                                <div class="infor-text" class="patient-information-scheduleRoom"></div>
                             </div>
 
                             <div class="field">
                                 <label for="">Dịch vụ</label>
-                                <div class="infor-text" th:text="${patient.information.registerService}"></div>
+                                <div class="infor-text" class="patient-information-registerService"></div>
                             </div>
 
                             <div class="field" style="margin-top: 10px; width: 100%;">
                                 <label for="">Ghi chú</label>
-                                <div class="infor-text" th:text="${patient.information.note}"></div>
+                                <div class="infor-text" class="patient-information-note"></div>
                             </div>
 
                         </div>
@@ -218,7 +218,7 @@
                             
                             <div class="field">
                                 <label for="">Tiền sử bệnh án</label>
-                                <div class="infor-text" th:text="${patient.information.medicalHistory}"></div>
+                                <div class="infor-text" class="patient-information-medicalHistory"></div>
                             </div>
 
                             <div class="patient-his">
