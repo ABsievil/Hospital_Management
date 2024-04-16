@@ -1,8 +1,10 @@
 const baseUrl = `http://localhost:8080`;
 
-function md5(string) {
-    return CryptoJS.MD5(string).toString();
-}
+// function md5(string) {
+//     return CryptoJS.MD5(string).toString();
+// }
+
+
 
 fetch(`${baseUrl}/api/v1/Patient/getAllPatient`)
     .then((response) => response.json())
@@ -43,8 +45,7 @@ fetch(`${baseUrl}/api/v1/Patient/getAllPatient`)
         function myfunc(item) {
             item.addEventListener('click', function () {
                 const patientId = this.getAttribute('data-patient-id');
-                const hashedPatientId = md5(patientId);
-                window.location.href = `/patientlist/patientinfor/${hashedPatientId}`;
+                window.location.href = `/patientlist/patientinfor/${patientId}`;
             });
         }
     })
