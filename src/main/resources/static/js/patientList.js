@@ -1,14 +1,20 @@
 const baseUrl = `http://localhost:8080`;
 
+function md5(string) {
+    return CryptoJS.MD5(string).toString();
+}
+
 fetch(`${baseUrl}/api/v1/Patient/getAllPatient`)
     .then((response) => response.json())
     .then((fetchedData) => {
         const tableBody = document.getElementById('tableBody');
+        let stt = 1;
         if (fetchedData && fetchedData.data) {
             fetchedData.data.forEach((patient) => {
                 const tr = document.createElement('tr');
                 const trContent = `
-                    <td>${patient.id}</td>
+                    <td>${stt++}</td>
+                    <td style="display: none">${patient.id}</td>
                     <td>${
                         patient.information.lastName +
                         ' ' +
@@ -21,7 +27,9 @@ fetch(`${baseUrl}/api/v1/Patient/getAllPatient`)
                             ? 'Đang chữa bệnh'
                             : 'Đã chết'
                     }</td>
-                    <td><button class="link-button">Xem thông tin</button></td>
+                    <td><button class="link-button" data-patient-id="${
+                        patient.id
+                    }">Xem thông tin</button></td>
                 `;
                 tr.innerHTML = trContent;
                 tableBody.appendChild(tr);
@@ -34,7 +42,9 @@ fetch(`${baseUrl}/api/v1/Patient/getAllPatient`)
 
         function myfunc(item) {
             item.addEventListener('click', function () {
-                window.location.href = '/patientlist/patientinfor';
+                const patientId = this.getAttribute('data-patient-id');
+                const hashedPatientId = md5(patientId);
+                window.location.href = `/patientlist/patientinfor/${hashedPatientId}`;
             });
         }
     })
