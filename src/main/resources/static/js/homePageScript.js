@@ -51,10 +51,7 @@ fetch(
                 row.appendChild(endTime);
                 // Chi tiết
                 const detail = document.createElement('td');
-                const viewBtn = document.createElement('button');
-                viewBtn.textContent = 'View';
-                viewBtn.classList.add('btn', 'btn-primary');
-                detail.appendChild(viewBtn);
+                detail.textContent = schedule.description;
                 row.appendChild(detail);
 
                 // Thêm hàng vào bảng
@@ -65,5 +62,5 @@ fetch(
         }
     })
     .catch((error) => {
-        console.error('Error fetching schedules:', error);
+        console.error('Error:', error);
     });

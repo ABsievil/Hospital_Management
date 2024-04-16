@@ -155,7 +155,7 @@ form {
 
 /* left hand side */
 .left-side {
-    color: white;
+    color: black;
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -1,5 +1,7 @@
 package hcmut.hospitalmanagement.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import hcmut.hospitalmanagement.models.Employee;
 import hcmut.hospitalmanagement.models.EmployeeSchedule;
 import hcmut.hospitalmanagement.models.ResponseObject;
+import hcmut.hospitalmanagement.models.Role;
 import hcmut.hospitalmanagement.services.EmployeeScheduleService;
 import hcmut.hospitalmanagement.services.EmployeeService;
 
@@ -62,16 +65,22 @@ public class EmployeeController {
         return employeeService.getEmployeeByName(name);
     }
 
-    // Tìm nhân viên y tế theo nghề nghiệp cụ thể (ví dụ: Doctor, Nurse, ...)
-    @GetMapping("/getEmployeeByOccupataion/{occupation}")
-    public ResponseEntity<ResponseObject> getEmployeeByOccupation(@PathVariable String occupation) {
-        return employeeService.getEmployeeByOccupation(occupation);
+    // Tìm bác sĩ
+    @GetMapping("/getDoctor")
+    public ResponseEntity<ResponseObject> getDoctor() {
+        return employeeService.getEmployeeByRole(List.of(Role.ADMIN, Role.DOCTOR));
+    }
+
+    // Tìm y tá
+    @GetMapping("/getNurse")
+    public ResponseEntity<ResponseObject> getNurse() {
+        return employeeService.getEmployeeByRole(List.of(Role.NURSE));
     }
 
     // Tìm nhân viên y tế còn lại (Không phải là Doctor, Nurse)
-    @GetMapping("/getEmployeeByOtherOccupataion")
-    public ResponseEntity<ResponseObject> getEmployeeByOtherOccupation() {
-        return employeeService.getEmployeeByOtherOccupation();
+    @GetMapping("/getStaff")
+    public ResponseEntity<ResponseObject> getStaff() {
+        return employeeService.getEmployeeByRole(List.of(Role.STAFF));
     }
 
     // Thêm employee

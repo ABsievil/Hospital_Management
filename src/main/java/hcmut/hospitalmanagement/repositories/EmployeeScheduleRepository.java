@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import hcmut.hospitalmanagement.models.EmployeeSchedule;
 
-public interface EmployeeScheduleRepository extends JpaRepository<EmployeeSchedule, Long>{
+public interface EmployeeScheduleRepository extends JpaRepository<EmployeeSchedule, Long> {
     List<EmployeeSchedule> findByEmployeeId(Long employeeId);
 
     List<EmployeeSchedule> findByStartTimeAfter(LocalDateTime startTime);

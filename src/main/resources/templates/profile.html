@@ -21,8 +21,6 @@
                         <li><a href="/profile" class="user">
                                 <i class="fas fa-user" aria-hidden="true"></i></i>
                                 <span class="nav-item">
-                                    <!-- <div class="user-name" th:text="${employee.information.name}"></div>
-                            <div class="user-role" th:text="${employee.role}"></div> -->
                                     <div class="user-name" th:text="${employee.information.firstName}"></div>
                                     <div class="user-role" th:text="${employee.role}"></div>
                                 </span>
@@ -47,8 +45,6 @@
                                 <i class="fas fa-cog" aria-hidden="true"></i></i>
                                 <span class="nav-item">Cài Đặt</span>
                             </a></li>
-
-                        <!-- <li><a class="logout" th:href="@{/logout}"> -->
                         <li><a class="logout" th:href="@{/logout}">
                                 <i class="fas fa-sign-out-alt"></i>
                                 <span class="nav-item">Đăng xuất</span>
@@ -66,7 +62,10 @@
                     </div>
 
                     <div class="infor-card">
-                        <header>Thông Tin Cá Nhân</header>
+                        <header>
+                            <h1>Thông Tin Cá Nhân</h1>
+                            <span onclick="location.href='/profile/edit'">Chỉnh Sửa</span>
+                        </header>
                         <div class="infor-content">
                             <div class="title">Thông tin chung</div>
                             <div class="field-wrapper">
@@ -102,8 +101,6 @@
                                     <label for="">Tôn giáo</label>
                                     <div class="infor-text" th:text="${employee.information.religion}"></div>
                                 </div>
-
-
                             </div>
                         </div>
 
