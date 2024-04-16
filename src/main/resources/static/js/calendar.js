@@ -522,7 +522,7 @@ document
             description: formData.get('content'),
             room: formData.get('room')
         };
-
+        
         // console.log(newSchedule);
 
         fetch(
