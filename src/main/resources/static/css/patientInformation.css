@@ -78,6 +78,13 @@
 .patient-his label{
     font-size: 12px;
 }
+#other-infor #patient-information-medicalHistory{
+    height: 100px;
+}
+.patient-his .link{
+    font-size: 12px;
+    text-decoration: underline;
+}
 .patient-his .link:hover{
     color: var(--card-button-hover-color);
     cursor: pointer;
