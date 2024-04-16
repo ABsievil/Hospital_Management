@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import hcmut.hospitalmanagement.models.Employee;
+import hcmut.hospitalmanagement.models.Role;
 
 public interface EmployeeRepository extends JpaRepository<Employee, Long>{
     Employee findByUsername(String username);
@@ -19,5 +20,6 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long>{
 
     Employee findByPersonalCode(String personalCode);
 
+    List<Employee> findByRoleIn(List<Role> roles);
     
 }

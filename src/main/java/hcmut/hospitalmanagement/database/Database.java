@@ -63,13 +63,13 @@ public class Database {
                 PersonalInformation Pemp1 = new PersonalInformation("ABsievil", "", "123456", true,
                         null, null, null,
                         "Phong nha Ke Bang, QB", "0911336607", "Q9, TP.HCM",
-                        "admin@hcmut.edu.vn", "Manager",
+                        "admin@hcmut.edu.vn", "Doctor",
                         "31005230", "", "", null, null, null, null, null, null);
 
-                Employee emp1 = new Employee(null, true, null, null, null, null, null, null, Pemp1,
+                Employee emp1 = new Employee(null, true, null, "Giám đốc bệnh viện", "Tiến sĩ", "Giáo sư",
+                        "ĐH Bách Khoa", null, Pemp1,
                         "admin",
                         passwordEncoder.encode("1245"), Role.ADMIN);
-                logger.info("insert employee: " + employeeRepository.save(emp1));
 
                 PersonalInformation Pemp2 = new PersonalInformation("Mạnh Hùng", "Nguyễn", "123456",
                         false, "Kinh",
@@ -79,11 +79,25 @@ public class Database {
                         "Nguyễn Cao Cường",
                         "Friend", "Doctor", "0911336607", "0339242722", "Q9, TP.HCM",
                         LocalDate.of(2020, 01, 01), LocalDate.of(2025, 01, 01));
-                Employee emp2 = new Employee(null, true, "Tim mạch", "Trưởng khoa Hóa", "Ko có",
-                        "F(n) = x^2",
+                Employee emp2 = new Employee(null, true, "Tim mạch", "Trưởng khoa Hóa", "Tiến sĩ",
+                        "Giáo sư",
                         "Đại học BK HCM", "2210000", Pemp2, "nmhung",
                         passwordEncoder.encode("hungdb"), Role.DOCTOR);
+                PersonalInformation Pemp3 = new PersonalInformation("Strange", "Steven", "123456",
+                        false, "Kinh",
+                        "Không",
+                        LocalDate.of(2004, 07, 04), "Nghệ An", "0123456789",
+                        "KTX Khu A", "Hungdb@hcmut.edu.vn", "Doctor", "2211337",
+                        "Nguyễn Cao Cường",
+                        "Friend", "Doctor", "0911336607", "0339242722", "Q9, TP.HCM",
+                        LocalDate.of(2020, 01, 01), LocalDate.of(2025, 01, 01));
+                Employee emp3 = new Employee(null, true, "Tim mạch", "Trưởng khoa Tim mạch", "Tiến sĩ",
+                        "Giáo sư",
+                        "Đại học BK HCM", "2211234", Pemp3, "doctor",
+                        passwordEncoder.encode("1234"), Role.DOCTOR);
+                logger.info("insert employee: " + employeeRepository.save(emp1));
                 logger.info("insert employee: " + employeeRepository.save(emp2));
+                logger.info("insert employee: " + employeeRepository.save(emp3));
 
                 // Patient
                 PersonalInformation patientInfo1 = new PersonalInformation("Văn A", "Nguyễn", null,
@@ -331,7 +345,7 @@ public class Database {
                 logger.info("insert treatment history: " + treatmentHistoryRepository.save(th9));
                 logger.info("insert treatment history: " + treatmentHistoryRepository.save(th10));
 
-                // Equipment 
+                // Equipment
                 Equipment equip1 = new Equipment(null, "Kim tiêm", "101", "Lưu ý", true, EquipmentType.SMALL);
                 Equipment equip2 = new Equipment(null, "Kéo", "101", "Lưu ý", false, EquipmentType.SMALL);
                 Equipment equip3 = new Equipment(null, "Máy chụp X-quang", "101", "Lưu ý", true, EquipmentType.BIG);
