@@ -69,32 +69,34 @@
 
                             <div class="field">
                                 <label for="">Họ và tên</label>
-                                <div class="infor-text patient-name"></div>
+                                <div class="infor-text" th:text="${namepatient}"></div>
                             </div>
 
                             <div class="field">
                                 <label for="">Giới tính</label>
-                                <div class="infor-text patient-information-gender"></div>
+                                <div class="infor-text" th:if="${patient.information.gender}">Nam</div>
+                                <div class="infor-text" th:unless="${patient.information.gender}">Nữ</div>
                             </div>
 
                             <div class="field">
                                 <label for="">Ngày sinh</label>
-                                <div class="infor-text patient-information-dateOfBirth"></div>
+                                <div class="infor-text" 
+                                th:text="${#temporals.format(patient.information.dateOfBirth,'dd-MM-yyyy')}"></div>
                             </div>
 
                             <div class="field">
                                 <label for="">CCCD</label>
-                                <div class="infor-text patient-information-nationalID"></div>
+                                <div class="infor-text" th:text="${patient.information.nationalID}"></div>
                             </div>
 
                             <div class="field">
                                 <label for="">Dân tộc</label>
-                                <div class="infor-text patient-information-ethnic"></div>
+                                <div class="infor-text" th:text="${patient.information.ethnic}"></div>
                             </div>
 
                             <div class="field">
                                 <label for="">Tôn giáo</label>
-                                <div class="infor-text patient-information-religion"></div>
+                                <div class="infor-text" th:text="${patient.information.religion}"></div>
                             </div>
 
 
@@ -107,17 +109,17 @@
 
                             <div class="field">
                                 <label for="">Địa chỉ</label>
-                                <div class="infor-text patient-information-address"></div>
+                                <div class="infor-text" th:text="${patient.information.address}"></div>
                             </div>
 
                             <div class="field">
                                 <label for="">Email</label>
-                                <div class="infor-text patient-information-email"></div>
+                                <div class="infor-text" th:text="${patient.information.email}"></div>
                             </div>
 
                             <div class="field">
                                 <label for="">Số điện thoại</label>
-                                <div class="infor-text patient-information-phoneNumber"></div>
+                                <div class="infor-text" th:text="${patient.information.phoneNumber}"></div>
                             </div>
 
                         </div>
@@ -129,17 +131,17 @@
 
                             <div class="field">
                                 <label for="">Mã bảo hiểm y tế</label>
-                                <div class="infor-text patient-information-hiCode"></div>
+                                <div class="infor-text" th:text="${patient.information.hiCode}"></div>
                             </div>
 
                             <div class="field">
                                 <label for="">Ngày bắt đầu</label>
-                                <div class="infor-text patient-information-hiStartDate"></div>
+                                <div class="infor-text" th:text="${patient.information.hiStartDate}"></div>
                             </div>
 
                             <div class="field">
                                 <label for="">Ngày kết thúc</label>
-                                <div class="infor-text patient-information-hiEndDate"></div>
+                                <div class="infor-text" th:text="${patient.information.hiEndDate}"></div>
                             </div>
                         </div>
                     </div>
@@ -150,32 +152,32 @@
 
                             <div class="field">
                                 <label for="">Họ và tên</label>
-                                <div class="infor-text patient-information-relative"></div>
+                                <div class="infor-text" th:text="${patient.information.relative}"></div>
                             </div>
 
                             <div class="field">
                                 <label for="">Quan hệ với người thân</label>
-                                <div class="infor-text patient-information-relationWithRelative"></div>
+                                <div class="infor-text" th:text="${patient.information.relationWithRelative}"></div>
                             </div>
 
                             <div class="field">
                                 <label for="">Số điện thoại</label>
-                                <div class="infor-text patient-information-relativePhoneNumber1"></div>
+                                <div class="infor-text" th:text="${patient.information.relativePhoneNumber1}"></div>
                             </div>
 
                             <div class="field">
                                 <label for="">Nơi ở</label>
-                                <div class="infor-text patient-information-relativeAddress"></div>
+                                <div class="infor-text" th:text="${patient.information.relativeAddress}"></div>
                             </div>
 
                             <div class="field">
                                 <label for="">Nghề nghiệp</label>
-                                <div class="infor-text patient-information-relativeOccupation"></div>
+                                <div class="infor-text" th:text="${patient.information.relativeOccupation}"></div>
                             </div>
 
                             <div class="field">
                                 <label for="">Số điện thoại khác của người thân</label>
-                                <div class="infor-text patient-information-relativePhoneNumber2"></div>
+                                <div class="infor-text" th:text="${patient.information.relativePhoneNumber2}"></div>
                             </div>
 
                         </div>

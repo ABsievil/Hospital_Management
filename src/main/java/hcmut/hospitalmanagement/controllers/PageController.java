@@ -28,12 +28,14 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import org.apache.commons.codec.digest.DigestUtils;
 @Controller
 public class PageController {
 
     @Autowired
     EmployeeRepository employeeRepository;
+
+    @Autowired
+    PatientRepository patientRepository;
 
     Employee addEmployeeToModel(Model model){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -208,7 +210,10 @@ public class PageController {
 
     @RequestMapping("/patientlist/patientinfor/{patientID}")
     public String patientInformation(Model model, @PathVariable Long patientID){
-        String decodedString = DigestUtils.md5Hex(patientID.toString());
+        Patient patient = patientRepository.findById(patientID).orElse(null);
+        String namepatient = patient.getInformation().getLastName() + " " + patient.getInformation().getFirstName();
+        model.addAttribute("namepatient", namepatient);
+        model.addAttribute("patient", patient);
         addEmployeeToModel(model);
         return "patientInformation";
     }
