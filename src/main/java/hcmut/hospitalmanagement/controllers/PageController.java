@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,7 +28,7 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-
+import org.apache.commons.codec.digest.DigestUtils;
 @Controller
 public class PageController {
 
@@ -205,8 +206,9 @@ public class PageController {
         return "patientList";
     }
 
-    @RequestMapping("/patientlist/patientinfor")
-    public String patientInformation(Model model){
+    @RequestMapping("/patientlist/patientinfor/{patientID}")
+    public String patientInformation(Model model, @PathVariable Long patientID){
+        String decodedString = DigestUtils.md5Hex(patientID.toString());
         addEmployeeToModel(model);
         return "patientInformation";
     }
