@@ -18,10 +18,18 @@
 }
 
 .infor-card header {
-    display: block;
-    font-size: 20px;
-    font-weight: 600;
     color: #333;
+    display: flex;
+    justify-content: space-between;
+}
+
+.infor-card span {
+    border-bottom: 2px solid black;
+}
+
+.infor-card span:hover {
+    background: #f2f2f2;
+    cursor: pointer;
 }
 
 .infor-content {
