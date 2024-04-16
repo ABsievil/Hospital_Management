@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import hcmut.hospitalmanagement.models.Equipment;
+import hcmut.hospitalmanagement.models.EquipmentType;
 import hcmut.hospitalmanagement.models.ResponseObject;
 import hcmut.hospitalmanagement.services.EquipmentService;
 
@@ -37,6 +38,18 @@ public class EquipmentController {
     @GetMapping("/getEquipmentByName/{name}")
     public ResponseEntity<ResponseObject> getEquipmentByName(@PathVariable String name) {
         return equipmentService.getEquipmentByName(name);
+    }
+
+    // Get equipment by type == BIG
+    @GetMapping("/getBigEquipment")
+    public ResponseEntity<ResponseObject> getBigEquipment() {
+        return equipmentService.getEquipmentByType(EquipmentType.BIG);
+    }
+
+    // Get equipment by ype == SMALL
+    @GetMapping("/getSmallEquipment")
+    public ResponseEntity<ResponseObject> getSmallEquipment() {
+        return equipmentService.getEquipmentByType(EquipmentType.SMALL);
     }
 
     // Insert new Equipment

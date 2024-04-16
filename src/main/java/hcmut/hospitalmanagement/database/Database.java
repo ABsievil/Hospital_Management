@@ -13,6 +13,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import hcmut.hospitalmanagement.models.Employee;
 import hcmut.hospitalmanagement.models.EmployeeSchedule;
+import hcmut.hospitalmanagement.models.Equipment;
+import hcmut.hospitalmanagement.models.EquipmentType;
 import hcmut.hospitalmanagement.models.Medicine;
 import hcmut.hospitalmanagement.models.Patient;
 import hcmut.hospitalmanagement.models.PersonalInformation;
@@ -21,6 +23,7 @@ import hcmut.hospitalmanagement.models.Role;
 import hcmut.hospitalmanagement.models.TreatmentHistory;
 import hcmut.hospitalmanagement.repositories.EmployeeRepository;
 import hcmut.hospitalmanagement.repositories.EmployeeScheduleRepository;
+import hcmut.hospitalmanagement.repositories.EquipmentRepository;
 import hcmut.hospitalmanagement.repositories.MedicineRepository;
 import hcmut.hospitalmanagement.repositories.PatientRepository;
 import hcmut.hospitalmanagement.repositories.TreatmentHistoryRepository;
@@ -38,7 +41,8 @@ public class Database {
     CommandLineRunner initDatabase(EmployeeRepository employeeRepository, PatientRepository patientRepository,
             EmployeeScheduleRepository scheduleRepository,
             MedicineRepository medicineRepository,
-            TreatmentHistoryRepository treatmentHistoryRepository) {
+            TreatmentHistoryRepository treatmentHistoryRepository,
+            EquipmentRepository equipmentRepository) {
         return new CommandLineRunner() {
             @Override
             public void run(String... args) throws Exception {
@@ -326,6 +330,16 @@ public class Database {
                 logger.info("insert treatment history: " + treatmentHistoryRepository.save(th8));
                 logger.info("insert treatment history: " + treatmentHistoryRepository.save(th9));
                 logger.info("insert treatment history: " + treatmentHistoryRepository.save(th10));
+
+                // Equipment 
+                Equipment equip1 = new Equipment(null, "Kim tiêm", "101", "Lưu ý", true, EquipmentType.SMALL);
+                Equipment equip2 = new Equipment(null, "Kéo", "101", "Lưu ý", false, EquipmentType.SMALL);
+                Equipment equip3 = new Equipment(null, "Máy chụp X-quang", "101", "Lưu ý", true, EquipmentType.BIG);
+                Equipment equip4 = new Equipment(null, "Máy thở y tế", "101", "Lưu ý", false, EquipmentType.BIG);
+                logger.info("insert equipment: " + equipmentRepository.save(equip1));
+                logger.info("insert equipment: " + equipmentRepository.save(equip2));
+                logger.info("insert equipment: " + equipmentRepository.save(equip3));
+                logger.info("insert equipment: " + equipmentRepository.save(equip4));
             }
         };
     }
