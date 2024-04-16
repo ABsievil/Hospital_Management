@@ -17,6 +17,7 @@ import hcmut.hospitalmanagement.models.Equipment;
 import hcmut.hospitalmanagement.models.EquipmentType;
 import hcmut.hospitalmanagement.models.Medicine;
 import hcmut.hospitalmanagement.models.Patient;
+import hcmut.hospitalmanagement.models.PatientStatus;
 import hcmut.hospitalmanagement.models.PersonalInformation;
 import hcmut.hospitalmanagement.models.Rate;
 import hcmut.hospitalmanagement.models.Role;
@@ -104,19 +105,19 @@ public class Database {
                         true, null,
                         null, null, null, null, null, null, null, null, null, null, null, null,
                         null, null, null, null);
-                Patient patient1 = new Patient(null, patientInfo1, null);
+                Patient patient1 = new Patient(null, PatientStatus.ACTIVE, patientInfo1, null);
                 PersonalInformation patientInfo2 = new PersonalInformation("Kimmich", "Joshua", null,
                         false, null, null, null, null, null, null, null, null, null, null, null,
                         null, null, null, null, null, null);
-                Patient patient2 = new Patient(null, patientInfo2, null);
+                Patient patient2 = new Patient(null, PatientStatus.OK, patientInfo2, null);
                 PersonalInformation patientInfo3 = new PersonalInformation("Reus", "Marco", null,
                         false, null, null, null, null, null, null, null, null, null, null, null,
                         null, null, null, null, null, null);
-                Patient patient3 = new Patient(null, patientInfo3, null);
+                Patient patient3 = new Patient(null, PatientStatus.OK, patientInfo3, null);
                 PersonalInformation patientInfo4 = new PersonalInformation("Ozil", "Mesut", null,
                         false, null, null, null, null, null, null, null, null, null, null, null,
                         null, null, null, null, null, null);
-                Patient patient4 = new Patient(null, patientInfo4, null);
+                Patient patient4 = new Patient(null, PatientStatus.OK, patientInfo4, null);
                 logger.info("insert patient: " + patientRepository.save(patient1));
                 logger.info("insert patient: " + patientRepository.save(patient2));
                 logger.info("insert patient: " + patientRepository.save(patient3));
