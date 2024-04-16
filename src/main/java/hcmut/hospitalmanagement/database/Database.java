@@ -101,10 +101,10 @@ public class Database {
                 logger.info("insert employee: " + employeeRepository.save(emp3));
 
                 // Patient
-                PersonalInformation patientInfo1 = new PersonalInformation("Văn A", "Nguyễn", null,
-                        true, null,
-                        null, null, null, null, null, null, null, null, null, null, null, null,
-                        null, null, null, null);
+                PersonalInformation patientInfo1 = new PersonalInformation("Trường Vũ", "Mã", "2210001",
+                        false, "Ả Rập Mix ASIAN",
+                        "ko có Phật giáo", LocalDate.of(2004, 01, 20), "Sóc Trăng", "0982282345", "Q.Phú Nhuận", "mail.email@gmail.com", "sell thân", "Nguyễn Mạnh Hùng", "Bố", "Làm mình làm mẩy", "0987 00 ko có", "0987123457",
+                        "Nghệ An", "31005226", LocalDate.of(2004, 01, 20), LocalDate.of(2024, 01, 20));
                 Patient patient1 = new Patient(null, PatientStatus.ACTIVE, patientInfo1, null);
                 PersonalInformation patientInfo2 = new PersonalInformation("Kimmich", "Joshua", null,
                         false, null, null, null, null, null, null, null, null, null, null, null,
