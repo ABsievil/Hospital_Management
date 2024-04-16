@@ -3,6 +3,7 @@ package hcmut.hospitalmanagement.controllers;
 import java.security.Principal;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -96,16 +97,19 @@ public class PageController {
     }
 
     @Controller
+    @PreAuthorize("ADMIN")
     @RequestMapping("/add")
     public class addUser{
 
         @GetMapping("/patient")
-        public String renderPatientPage(){
+        public String renderPatientPage(Model model){
+            addEmployeeToModel(model);
             return "addPatient";
         }
 
         @GetMapping("/employee")
-        public String renderEmployeePage(){
+        public String renderEmployeePage(Model model){
+            addEmployeeToModel(model);
             return "addEmployee";
         }
 
@@ -139,7 +143,8 @@ public class PageController {
         }
 
         @RequestMapping(value = "/edit", method = RequestMethod.GET)
-        public String editInfor(){
+        public String editInfor(Model model){
+            addEmployeeToModel(model);
             return "editInfor";
         }
 
@@ -154,24 +159,28 @@ public class PageController {
     public class StorageController{
 
         @RequestMapping("/equipment")
-        public String equipment(){
+        public String equipment(Model model){
+            addEmployeeToModel(model);
             return "equipment";
         }    
 
         @RequestMapping("/medicine")
-        public String medicine(){
+        public String medicine(Model model){
+            addEmployeeToModel(model);
             return "medicine";  
         }   
     }
 
     @RequestMapping("/report")
-    public String report(){
+    public String report(Model model){
+        addEmployeeToModel(model);
         return "report";
     }
 
 
     @RequestMapping("/doctorlist")
-    public String doctorList(){
+    public String doctorList(Model model){
+        addEmployeeToModel(model);
         return "doctorList";
     }
 
@@ -191,32 +200,38 @@ public class PageController {
     }
 
     @RequestMapping("/patientlist")
-    public String patientList(){
+    public String patientList(Model model){
+        addEmployeeToModel(model);
         return "patientList";
     }
 
     @RequestMapping("/patientlist/patientinfor")
-    public String patientInformation(){
+    public String patientInformation(Model model){
+        addEmployeeToModel(model);
         return "patientInformation";
     }
 
     @RequestMapping("/patientlist/patientinfor/treatmenthistory")
-    public String treatmentHistory(){
+    public String treatmentHistory(Model model){
+        addEmployeeToModel(model);
         return "treatmentHistory";
     }
 
     @RequestMapping("/patientlist/patientinfor/treatmenthistory/prescription")
-    public String prescription(){
+    public String prescription(Model model){
+        addEmployeeToModel(model);
         return "prescription";
     }
 
     @RequestMapping("/help")
-    public String helpAndSupport(){
+    public String helpAndSupport(Model model){
+        addEmployeeToModel(model);
         return "helpAndSupport";
     }
 
     @RequestMapping("/setting")
-    public String setting(){
+    public String setting(Model model){
+        addEmployeeToModel(model);
         return "setting";
     }
 
