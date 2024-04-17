@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import hcmut.hospitalmanagement.models.Employee;
 import hcmut.hospitalmanagement.models.ResponseObject;
+import hcmut.hospitalmanagement.models.Role;
 import hcmut.hospitalmanagement.repositories.EmployeeRepository;
 
 @Service
@@ -69,18 +70,12 @@ public class EmployeeService {
     }
 
     // Tìm nhân viên y tế theo nghề nghiệp cụ thể (ví dụ: Doctor, Nurse, ...)
-    public ResponseEntity<ResponseObject> getEmployeeByOccupation(String occupation) {
-        List<Employee> employeeList = employeeRepository.findByInformationOccupation(occupation);
+    public ResponseEntity<ResponseObject> getEmployeeByRole(List<Role> roles) {
+        List<Employee> employeeList = employeeRepository.findByRoleIn(roles);
         return ResponseEntity.status(HttpStatus.OK)
                 .body(new ResponseObject("OK", "Querry employee successfully", employeeList));
     }
 
-    // Tìm nhân viên y tế còn lại (Không phải là Doctor, Nurse)
-    public ResponseEntity<ResponseObject> getEmployeeByOtherOccupation() {
-        List<Employee> employeeList = employeeRepository.findByInformationOccupationNotIn(List.of("Doctor", "Nurse"));
-        return ResponseEntity.status(HttpStatus.OK)
-                .body(new ResponseObject("OK", "Querry employee successfully", employeeList));
-    }
 
     // Thêm employee 
     public ResponseEntity<ResponseObject> insertEmployee(Employee newEmployee) {

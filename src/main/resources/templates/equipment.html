@@ -21,10 +21,8 @@
                     <li><a href="/profile" class="user">
                         <i class="fas fa-user" aria-hidden="true"></i></i>
                         <span class="nav-item">
-                            <!-- <div class="user-name" th:text="${employee.username}"></div>
-                            <div class="user-role" th:text="${employee.role}"></div> -->
-                            <div class="user-name">User name</div>
-                            <div class="user-role">User role</div>
+                            <div class="user-name" th:text="${employee.information.firstName}"></div>
+                            <div class="user-role" th:text="${employee.role}"></div>
                          </span>
                     </a></li>
                     <li><a href="/home">
@@ -74,63 +72,7 @@
                                     <th>Phòng chứa</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>01</td>
-                                    <td>Kim tiêm</td>
-                                    <td>Hết</td>
-                                    <td>608 h6</td>
-                                    
-                                </tr>
-                                <tr>
-                                    <td>02</td>
-                                    <td>Kéo</td>
-                                    <td>Còn</td>
-                                    <td>608 h6</td>
-                                    
-                                </tr>
-                                <tr>
-                                    <td>01</td>
-                                    <td>Kim tiêm</td>
-                                    <td>Hết</td>
-                                    <td>608 h6</td>
-                                    
-                                </tr>
-                                <tr>
-                                    <td>02</td>
-                                    <td>Kéo</td>
-                                    <td>Còn</td>
-                                    <td>608 h6</td>
-                                    
-                                </tr>
-                                <tr>
-                                    <td>01</td>
-                                    <td>Kim tiêm</td>
-                                    <td>Hết</td>
-                                    <td>608 h6</td>
-                                    
-                                </tr>
-                                <tr>
-                                    <td>02</td>
-                                    <td>Kéo</td>
-                                    <td>Còn</td>
-                                    <td>608 h6</td>
-                                    
-                                </tr>
-                                <tr>
-                                    <td>01</td>
-                                    <td>Kim tiêm</td>
-                                    <td>Hết</td>
-                                    <td>608 h6</td>
-                                    
-                                </tr>
-                                <tr>
-                                    <td>02</td>
-                                    <td>Kéo</td>
-                                    <td>Còn</td>
-                                    <td>608 h6</td>
-                                    
-                                </tr>
+                            <tbody id="smallTable">
                             </tbody>
                         </table>
                     </div>
@@ -145,49 +87,7 @@
                                     <th>Tình trạng thiết bị</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>01</td>
-                                    <td>Máy chụp X-quang</td>
-                                    <td>506 h6</td>
-                                    <td>Không có hư hỏng</td>
-                                    
-                                </tr>
-                                <tr>
-                                    <td>02</td>
-                                    <td>Máy thở y tế</td>
-                                    <td>h6</td>
-                                    <td>Không có hư hỏng</td>
-                                    
-                                </tr>
-                                <tr>
-                                    <td>01</td>
-                                    <td>Máy chụp X-quang</td>
-                                    <td>506 h6</td>
-                                    <td>Không có hư hỏng</td>
-                                    
-                                </tr>
-                                <tr>
-                                    <td>02</td>
-                                    <td>Máy thở y tế</td>
-                                    <td>h6</td>
-                                    <td>Không có hư hỏng</td>
-                                    
-                                </tr>
-                                <tr>
-                                    <td>01</td>
-                                    <td>Máy chụp X-quang</td>
-                                    <td>506 h6</td>
-                                    <td>Không có hư hỏng</td>
-                                    
-                                </tr>
-                                <tr>
-                                    <td>02</td>
-                                    <td>Máy thở y tế</td>
-                                    <td>h6</td>
-                                    <td>Không có hư hỏng</td>
-                                    
-                                </tr>
+                            <tbody id="bigTable">
                             </tbody>
                         </table>
                     </div>
@@ -195,6 +95,6 @@
             </section>
         </div>
     </body>
-    <script src="/js/script.js"></script>
+    <script src="/js/equipment.js"></script>
     </html>
 </span>

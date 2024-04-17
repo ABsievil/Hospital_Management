@@ -21,8 +21,8 @@
                     <li><a href="/profile" class="user">
                         <i class="fas fa-user" aria-hidden="true"></i></i>
                         <span class="nav-item">
-                            <div class="user-name">NAME</div>
-                            <div class="user-role">ROLE</div>
+                            <div class="user-name" th:text="${employee.information.firstName}"></div>
+                            <div class="user-role" th:text="${employee.role}"></div>
                          </span>
                     </a></li>
                     <li><a href="/home">
@@ -60,105 +60,25 @@
                         <span class="name">BỆNH VIỆN NGỌC CHÂU</span>
                     </div>
                 </div>
-                <div class="patient-list"id="accord-table">
+                <div class="patient-list" id="accord-table">
                     <h1>Danh sách bệnh nhân</h1>
                     <table class="table">
                         <thead>
                             <tr>
+                                <th>STT</th>
                                 <th>Tên bệnh nhân</th>
                                 <th>Tình trạng bệnh nhân</th>
-                                <th>Bác sĩ phụ trách</th>
                                 <th>Thông tin bệnh nhân</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>Nguyễn Hoàng Tú</td>
-                                <td>Đã xuất viện</td>
-                                <td>Mã Trường Vũ</td>
-                                <td><button class="link-button">Xem thông tin</button></td>
-                            </tr>
-                            <tr>
-                                <td>Nguyễn Hoàng Tú</td>
-                                <td>Đã xuất viện</td>
-                                <td>Mã Trường Vũ</td>
-                                <td><button class="link-button">Xem thông tin</button></td>
-                            </tr>
-                            <tr>
-                                <td>Nguyễn Hoàng Tú</td>
-                                <td>Đã xuất viện</td>
-                                <td>Mã Trường Vũ</td>
-                                <td><button class="link-button">Xem thông tin</button></td>
-                            </tr>
-                            <tr>
-                                <td>Nguyễn Hoàng Tú</td>
-                                <td>Đã xuất viện</td>
-                                <td>Mã Trường Vũ</td>
-                                <td><button class="link-button">Xem thông tin</button></td>
-                            </tr>
-                            <tr>
-                                <td>Nguyễn Hoàng Tú</td>
-                                <td>Đã xuất viện</td>
-                                <td>Mã Trường Vũ</td>
-                                <td><button class="link-button">Xem thông tin</button></td>
-                            </tr>
-                            <tr>
-                                <td>Nguyễn Hoàng Tú</td>
-                                <td>Đã xuất viện</td>
-                                <td>Mã Trường Vũ</td>
-                                <td><button class="link-button">Xem thông tin</button></td>
-                            </tr>
-                            <tr>
-                                <td>Nguyễn Hoàng Tú</td>
-                                <td>Đã xuất viện</td>
-                                <td>Mã Trường Vũ</td>
-                                <td><button class="link-button">Xem thông tin</button></td>
-                            </tr>
-                            <tr>
-                                <td>Nguyễn Hoàng Tú</td>
-                                <td>Đã xuất viện</td>
-                                <td>Mã Trường Vũ</td>
-                                <td><button class="link-button">Xem thông tin</button></td>
-                            </tr>
-                            <tr>
-                                <td>Nguyễn Hoàng Tú</td>
-                                <td>Đã xuất viện</td>
-                                <td>Mã Trường Vũ</td>
-                                <td><button class="link-button">Xem thông tin</button></td>
-                            </tr>
-                            <tr>
-                                <td>Nguyễn Hoàng Tú</td>
-                                <td>Đã xuất viện</td>
-                                <td>Mã Trường Vũ</td>
-                                <td><button class="link-button">Xem thông tin</button></td>
-                            </tr>
-                            <tr>
-                                <td>Nguyễn Hoàng Tú</td>
-                                <td>Đã xuất viện</td>
-                                <td>Mã Trường Vũ</td>
-                                <td><button class="link-button">Xem thông tin</button></td>
-                            </tr>
-                            <tr>
-                                <td>Nguyễn Hoàng Tú</td>
-                                <td>Đã xuất viện</td>
-                                <td>Mã Trường Vũ</td>
-                                <td><button class="link-button">Xem thông tin</button></td>
-                            </tr>
+                        <tbody id="tableBody">
                         </tbody>
                     </table>
                 </div>
             </section>
         </div>
     </body>
-    <script>
-        buttons=document.querySelectorAll('.link-button');
-        [...buttons].forEach(myfunc);
-
-        function myfunc(item){
-            item.addEventListener('click',function(){
-                window.location.href = "/patientlist/patientinfor";
-            });
-        };
-    </script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script> -->
+    <script src="/js/patientList.js"></script>
     </html>
 </span>

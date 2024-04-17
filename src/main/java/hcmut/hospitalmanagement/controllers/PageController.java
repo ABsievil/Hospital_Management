@@ -3,6 +3,7 @@ package hcmut.hospitalmanagement.controllers;
 import java.security.Principal;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -11,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,12 +28,14 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-
 @Controller
 public class PageController {
 
     @Autowired
     EmployeeRepository employeeRepository;
+
+    @Autowired
+    PatientRepository patientRepository;
 
     Employee addEmployeeToModel(Model model){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -100,12 +104,14 @@ public class PageController {
     public class addUser{
 
         @GetMapping("/patient")
-        public String renderPatientPage(){
+        public String renderPatientPage(Model model){
+            addEmployeeToModel(model);
             return "addPatient";
         }
 
         @GetMapping("/employee")
-        public String renderEmployeePage(){
+        public String renderEmployeePage(Model model){
+            addEmployeeToModel(model);
             return "addEmployee";
         }
 
@@ -139,7 +145,8 @@ public class PageController {
         }
 
         @RequestMapping(value = "/edit", method = RequestMethod.GET)
-        public String editInfor(){
+        public String editInfor(Model model){
+            addEmployeeToModel(model);
             return "editInfor";
         }
 
@@ -154,25 +161,41 @@ public class PageController {
     public class StorageController{
 
         @RequestMapping("/equipment")
-        public String equipment(){
+        public String equipment(Model model){
+            addEmployeeToModel(model);
             return "equipment";
         }    
 
         @RequestMapping("/medicine")
-        public String medicine(){
+        public String medicine(Model model){
+            addEmployeeToModel(model);
             return "medicine";  
         }   
     }
 
     @RequestMapping("/report")
-    public String report(){
+    public String report(Model model){
+        addEmployeeToModel(model);
         return "report";
     }
 
 
     @RequestMapping("/doctorlist")
-    public String doctorList(){
+    public String doctorList(Model model){
+        addEmployeeToModel(model);
         return "doctorList";
+    }
+
+    @RequestMapping("/nurselist")
+    public String nurseList(Model model){
+        addEmployeeToModel(model);
+        return "nurseList";
+    }
+
+    @RequestMapping("/stafflist")
+    public String staffList(Model model){
+        addEmployeeToModel(model);
+        return "staffList";
     }
 
     @Controller
@@ -191,56 +214,47 @@ public class PageController {
     }
 
     @RequestMapping("/patientlist")
-    public String patientList(){
+    public String patientList(Model model){
+        addEmployeeToModel(model);
         return "patientList";
     }
 
+    @Controller
     @RequestMapping("/patientlist/patientinfor")
-    public String patientInformation(){
-        return "patientInformation";
-    }
+    public class patientInfor{
 
-    @RequestMapping("/patientlist/patientinfor/treatmenthistory")
-    public String treatmentHistory(){
-        return "treatmentHistory";
-    }
-
-    @RequestMapping("/patientlist/patientinfor/treatmenthistory/prescription")
-    public String prescription(){
-        return "prescription";
+        @RequestMapping("/{patientID}")
+        public String patientInformation(Model model, @PathVariable Long patientID){
+            Patient patient = patientRepository.findById(patientID).orElse(null);
+            String namepatient = patient.getInformation().getLastName() + " " + patient.getInformation().getFirstName();
+            model.addAttribute("namepatient", namepatient);
+            model.addAttribute("patient", patient);
+            addEmployeeToModel(model);
+            return "patientInformation";
+        }
+    
+        @RequestMapping("/treatmenthistory")
+        public String treatmentHistory(Model model){
+            addEmployeeToModel(model);
+            return "treatmentHistory";
+        }
+    
+        @RequestMapping("/treatmenthistory/prescription")
+        public String prescription(Model model){
+            addEmployeeToModel(model);
+            return "prescription";
+        }
     }
 
     @RequestMapping("/help")
-    public String helpAndSupport(){
+    public String helpAndSupport(Model model){
+        addEmployeeToModel(model);
         return "helpAndSupport";
     }
 
     @RequestMapping("/setting")
-    public String setting(){
+    public String setting(Model model){
+        addEmployeeToModel(model);
         return "setting";
-    }
-
-    @RequestMapping("/hello")
-    public String hello(@RequestParam(name = "username", required = false, defaultValue = "") String username, 
-                        @RequestParam(name = "password", required = false, defaultValue = "") String password, Model model){
-        model.addAttribute("username", username);
-        model.addAttribute("password", password);
-        return "hello";
-    }
-
-    @RequestMapping("/helloUser")
-    public String helloUser(@RequestParam(name = "username", required = false, defaultValue = "") String username, 
-                        @RequestParam(name = "password", required = false, defaultValue = "") String password, Model model){
-        model.addAttribute("username", username);
-        model.addAttribute("password", password);
-        return "helloUser";
-    }
-
-    @RequestMapping("/helloAdmin")
-    public String helloAdmin(@RequestParam(name = "username", required = false, defaultValue = "") String username, 
-                        @RequestParam(name = "password", required = false, defaultValue = "") String password, Model model){
-        model.addAttribute("username", username);
-        model.addAttribute("password", password);
-        return "helloAdmin";
     }
 }

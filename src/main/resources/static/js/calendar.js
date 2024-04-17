@@ -453,6 +453,7 @@ function saturdaySchedule() {
         });
 }
 
+
 function sundaySchedule() {
     const start = new Date(dates[6].getTime());
     const end = new Date(dates[6].getTime());
@@ -522,7 +523,7 @@ document
             description: formData.get('content'),
             room: formData.get('room')
         };
-
+        
         // console.log(newSchedule);
 
         fetch(

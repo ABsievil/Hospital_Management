@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import hcmut.hospitalmanagement.models.Equipment;
+import hcmut.hospitalmanagement.models.EquipmentType;
 import hcmut.hospitalmanagement.models.ResponseObject;
 import hcmut.hospitalmanagement.repositories.EquipmentRepository;
 
@@ -41,6 +42,13 @@ public class EquipmentService {
                         .body(new ResponseObject("OK", "Querry equipment successfully", foundEquipment))
                 : ResponseEntity.status(HttpStatus.NOT_FOUND)
                         .body(new ResponseObject("Failed", "Cannot find any equipment with name: " + name, null));
+    }
+
+    // Lấy thiết bị theo loại
+    public ResponseEntity<ResponseObject> getEquipmentByType(EquipmentType type) {
+        List<Equipment> equipmentList = equipmentRepository.findByType(type);
+        return ResponseEntity.status(HttpStatus.OK)
+        .body(new ResponseObject("OK", "Query equipment successfully", equipmentList));
     }
 
     // Thêm thiết bị

@@ -13,14 +13,18 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import hcmut.hospitalmanagement.models.Employee;
 import hcmut.hospitalmanagement.models.EmployeeSchedule;
+import hcmut.hospitalmanagement.models.Equipment;
+import hcmut.hospitalmanagement.models.EquipmentType;
 import hcmut.hospitalmanagement.models.Medicine;
 import hcmut.hospitalmanagement.models.Patient;
+import hcmut.hospitalmanagement.models.PatientStatus;
 import hcmut.hospitalmanagement.models.PersonalInformation;
 import hcmut.hospitalmanagement.models.Rate;
 import hcmut.hospitalmanagement.models.Role;
 import hcmut.hospitalmanagement.models.TreatmentHistory;
 import hcmut.hospitalmanagement.repositories.EmployeeRepository;
 import hcmut.hospitalmanagement.repositories.EmployeeScheduleRepository;
+import hcmut.hospitalmanagement.repositories.EquipmentRepository;
 import hcmut.hospitalmanagement.repositories.MedicineRepository;
 import hcmut.hospitalmanagement.repositories.PatientRepository;
 import hcmut.hospitalmanagement.repositories.TreatmentHistoryRepository;
@@ -38,7 +42,8 @@ public class Database {
     CommandLineRunner initDatabase(EmployeeRepository employeeRepository, PatientRepository patientRepository,
             EmployeeScheduleRepository scheduleRepository,
             MedicineRepository medicineRepository,
-            TreatmentHistoryRepository treatmentHistoryRepository) {
+            TreatmentHistoryRepository treatmentHistoryRepository,
+            EquipmentRepository equipmentRepository) {
         return new CommandLineRunner() {
             @Override
             public void run(String... args) throws Exception {
@@ -59,13 +64,13 @@ public class Database {
                 PersonalInformation Pemp1 = new PersonalInformation("ABsievil", "", "123456", true,
                         null, null, null,
                         "Phong nha Ke Bang, QB", "0911336607", "Q9, TP.HCM",
-                        "admin@hcmut.edu.vn", "Manager",
+                        "admin@hcmut.edu.vn", "Doctor",
                         "31005230", "", "", null, null, null, null, null, null);
 
-                Employee emp1 = new Employee(null, true, null, null, null, null, null, null, Pemp1,
+                Employee emp1 = new Employee(null, true, null, "Giám đốc bệnh viện", "Tiến sĩ", "Giáo sư",
+                        "ĐH Bách Khoa", null, Pemp1,
                         "admin",
                         passwordEncoder.encode("1245"), Role.ADMIN);
-                logger.info("insert employee: " + employeeRepository.save(emp1));
 
                 PersonalInformation Pemp2 = new PersonalInformation("Mạnh Hùng", "Nguyễn", "123456",
                         false, "Kinh",
@@ -75,30 +80,44 @@ public class Database {
                         "Nguyễn Cao Cường",
                         "Friend", "Doctor", "0911336607", "0339242722", "Q9, TP.HCM",
                         LocalDate.of(2020, 01, 01), LocalDate.of(2025, 01, 01));
-                Employee emp2 = new Employee(null, true, "Tim mạch", "Trưởng khoa Hóa", "Ko có",
-                        "F(n) = x^2",
+                Employee emp2 = new Employee(null, true, "Tim mạch", "Trưởng khoa Hóa", "Tiến sĩ",
+                        "Giáo sư",
                         "Đại học BK HCM", "2210000", Pemp2, "nmhung",
                         passwordEncoder.encode("hungdb"), Role.DOCTOR);
+                PersonalInformation Pemp3 = new PersonalInformation("Strange", "Steven", "123456",
+                        false, "Kinh",
+                        "Không",
+                        LocalDate.of(2004, 07, 04), "Nghệ An", "0123456789",
+                        "KTX Khu A", "Hungdb@hcmut.edu.vn", "Doctor", "2211337",
+                        "Nguyễn Cao Cường",
+                        "Friend", "Doctor", "0911336607", "0339242722", "Q9, TP.HCM",
+                        LocalDate.of(2020, 01, 01), LocalDate.of(2025, 01, 01));
+                Employee emp3 = new Employee(null, true, "Tim mạch", "Trưởng khoa Tim mạch", "Tiến sĩ",
+                        "Giáo sư",
+                        "Đại học BK HCM", "2211234", Pemp3, "doctor",
+                        passwordEncoder.encode("1234"), Role.DOCTOR);
+                logger.info("insert employee: " + employeeRepository.save(emp1));
                 logger.info("insert employee: " + employeeRepository.save(emp2));
+                logger.info("insert employee: " + employeeRepository.save(emp3));
 
                 // Patient
-                PersonalInformation patientInfo1 = new PersonalInformation("Văn A", "Nguyễn", null,
-                        true, null,
-                        null, null, null, null, null, null, null, null, null, null, null, null,
-                        null, null, null, null);
-                Patient patient1 = new Patient(null, patientInfo1, null);
+                PersonalInformation patientInfo1 = new PersonalInformation("Trường Vũ", "Mã", "2210001",
+                        false, "Ả Rập Mix ASIAN",
+                        "ko có Phật giáo", LocalDate.of(2004, 01, 20), "Sóc Trăng", "0982282345", "Q.Phú Nhuận", "mail.email@gmail.com", "sell thân", "Nguyễn Mạnh Hùng", "Bố", "Làm mình làm mẩy", "0987 00 ko có", "0987123457",
+                        "Nghệ An", "31005226", LocalDate.of(2004, 01, 20), LocalDate.of(2024, 01, 20));
+                Patient patient1 = new Patient(null, PatientStatus.ACTIVE, patientInfo1, null);
                 PersonalInformation patientInfo2 = new PersonalInformation("Kimmich", "Joshua", null,
                         false, null, null, null, null, null, null, null, null, null, null, null,
                         null, null, null, null, null, null);
-                Patient patient2 = new Patient(null, patientInfo2, null);
+                Patient patient2 = new Patient(null, PatientStatus.OK, patientInfo2, null);
                 PersonalInformation patientInfo3 = new PersonalInformation("Reus", "Marco", null,
                         false, null, null, null, null, null, null, null, null, null, null, null,
                         null, null, null, null, null, null);
-                Patient patient3 = new Patient(null, patientInfo3, null);
+                Patient patient3 = new Patient(null, PatientStatus.OK, patientInfo3, null);
                 PersonalInformation patientInfo4 = new PersonalInformation("Ozil", "Mesut", null,
                         false, null, null, null, null, null, null, null, null, null, null, null,
                         null, null, null, null, null, null);
-                Patient patient4 = new Patient(null, patientInfo4, null);
+                Patient patient4 = new Patient(null, PatientStatus.OK, patientInfo4, null);
                 logger.info("insert patient: " + patientRepository.save(patient1));
                 logger.info("insert patient: " + patientRepository.save(patient2));
                 logger.info("insert patient: " + patientRepository.save(patient3));
@@ -326,6 +345,16 @@ public class Database {
                 logger.info("insert treatment history: " + treatmentHistoryRepository.save(th8));
                 logger.info("insert treatment history: " + treatmentHistoryRepository.save(th9));
                 logger.info("insert treatment history: " + treatmentHistoryRepository.save(th10));
+
+                // Equipment
+                Equipment equip1 = new Equipment(null, "Kim tiêm", "101", "Lưu ý", true, EquipmentType.SMALL);
+                Equipment equip2 = new Equipment(null, "Kéo", "101", "Lưu ý", false, EquipmentType.SMALL);
+                Equipment equip3 = new Equipment(null, "Máy chụp X-quang", "101", "Lưu ý", true, EquipmentType.BIG);
+                Equipment equip4 = new Equipment(null, "Máy thở y tế", "101", "Lưu ý", false, EquipmentType.BIG);
+                logger.info("insert equipment: " + equipmentRepository.save(equip1));
+                logger.info("insert equipment: " + equipmentRepository.save(equip2));
+                logger.info("insert equipment: " + equipmentRepository.save(equip3));
+                logger.info("insert equipment: " + equipmentRepository.save(equip4));
             }
         };
     }

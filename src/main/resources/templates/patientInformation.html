@@ -5,8 +5,9 @@
 
     <head>
         <meta charset="UTF-8" />
-        <title>Profile</title>
-        <link rel="stylesheet" th:href="@{/css/patientInformation.css}" />
+        <title>Patient Profile</title>
+        <!-- <link rel="stylesheet" th:href="@{/css/patientInformation.css}" /> -->
+        <link rel="stylesheet" href="/css/patientInformation.css" />
         <link rel="stylesheet" href="/css/navBarTemplate.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
         <link rel="shortcut icon" type="image/png" href="/images/Logo.png"/>
@@ -19,10 +20,8 @@
                     <li><a href="/profile" class="user">
                             <i class="fas fa-user" aria-hidden="true"></i></i>
                             <span class="nav-item">
-                                <!-- <div class="user-name" th:text="${patient.information.name}"></div>
-                        <div class="user-role" th:text="${patient.role}"></div> -->
-                                <div class="user-name" th:text="${patient.information.firstName}"></div>
-                                <div class="user-role" th:text="${patient.role}"></div>
+                                <div class="user-name" th:text="${employee.information.firstName}"></div>
+                                <div class="user-role" th:text="${employee.role}"></div>
                             </span>
                         </a></li>
                     <li><a href="/home">
@@ -33,7 +32,7 @@
                             <i class="fas fa-info" aria-hidden="true"></i>
                             <span class="nav-item">Thông Tin Cá Nhân</span>
                         </a></li>
-                    <li><a href="/calendar">
+                    <li><a href="/profile/calendar">
                             <i class="fas fa-calendar" aria-hidden="true"></i>
                             <span class="nav-item">Lịch Cá Nhân</span>
                         </a></li>
@@ -46,7 +45,6 @@
                             <span class="nav-item">Cài Đặt</span>
                         </a></li>
 
-                    <!-- <li><a class="logout" th:href="@{/logout}"> -->
                     <li><a class="logout" th:href="@{/logout}">
                             <i class="fas fa-sign-out-alt"></i>
                             <span class="nav-item">Đăng xuất</span>
@@ -71,7 +69,7 @@
 
                             <div class="field">
                                 <label for="">Họ và tên</label>
-                                <div class="infor-text" th:text="${nameuser}"></div>
+                                <div class="infor-text" th:text="${namepatient}"></div>
                             </div>
 
                             <div class="field">
@@ -191,22 +189,22 @@
 
                             <div class="field">
                                 <label for="">Thời gian đăng ký</label>
-                                <div class="infor-text" th:text="${patient.information.registerTime}"></div>
+                                <div class="infor-text patient-information-registerTime"></div>
                             </div>
 
                             <div class="field">
                                 <label for="">Phòng khám</label>
-                                <div class="infor-text" th:text="${patient.information.scheduleRoom}"></div>
+                                <div class="infor-text patient-information-scheduleRoom"></div>
                             </div>
 
                             <div class="field">
                                 <label for="">Dịch vụ</label>
-                                <div class="infor-text" th:text="${patient.information.registerService}"></div>
+                                <div class="infor-text patient-information-registerService"></div>
                             </div>
 
                             <div class="field" style="margin-top: 10px; width: 100%;">
                                 <label for="">Ghi chú</label>
-                                <div class="infor-text" th:text="${patient.information.note}"></div>
+                                <div class="infor-text patient-information-note"></div>
                             </div>
 
                         </div>
@@ -218,13 +216,12 @@
                             
                             <div class="field">
                                 <label for="">Tiền sử bệnh án</label>
-                                <div class="infor-text" th:text="${patient.information.medicalHistory}"></div>
+                                <div class="infor-text" id="patient-information-medicalHistory"></div>
                             </div>
 
                             <div class="patient-his">
-                                <label for="">Lịch sử khám bệnh tại bệnh viện</label>
                                 <div class="link" onclick="location.href='/patientlist/patientinfor/treatmenthistory'">
-                                    <p>Xem tại đây</p>
+                                    <p>Xem lịch sử khám bệnh tại đây</p>
                                 </div>
                             </div>
 
