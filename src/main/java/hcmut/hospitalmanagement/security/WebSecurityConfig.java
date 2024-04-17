@@ -64,6 +64,7 @@ public class WebSecurityConfig {
                 .requestMatchers("/helloUser").hasAnyAuthority("ADMIN", "DOCTOR", "NURSE", "OTHER") 
                 .requestMatchers("/helloAdmin").hasAuthority("ADMIN") 
                 .requestMatchers("/add/**").hasAuthority("ADMIN")
+                .requestMatchers("/patientlist/patientinfor/**").hasAnyAuthority("ADMIN", "DOCTOR", "NURSE")
                 .anyRequest().authenticated() 
             )
             .formLogin( formLogin -> formLogin
