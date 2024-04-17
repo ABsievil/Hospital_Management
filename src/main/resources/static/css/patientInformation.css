@@ -18,10 +18,18 @@
 }
 
 .infor-card header {
-    display: block;
-    font-size: 20px;
-    font-weight: 600;
     color: #333;
+    display: flex;
+    justify-content: space-between;
+}
+
+.infor-card span {
+    text-decoration: underline;
+}
+
+.infor-card span:hover {
+    color: var(--card-button-hover-color);
+    cursor: pointer;
 }
 
 .infor-content {
@@ -80,12 +88,4 @@
 }
 #other-infor #patient-information-medicalHistory{
     height: 100px;
-}
-.patient-his .link{
-    font-size: 12px;
-    text-decoration: underline;
-}
-.patient-his .link:hover{
-    color: var(--card-button-hover-color);
-    cursor: pointer;
 }
