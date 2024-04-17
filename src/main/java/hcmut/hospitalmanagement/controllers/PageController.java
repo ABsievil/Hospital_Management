@@ -219,26 +219,31 @@ public class PageController {
         return "patientList";
     }
 
-    @RequestMapping("/patientlist/patientinfor/{patientID}")
-    public String patientInformation(Model model, @PathVariable Long patientID){
-        Patient patient = patientRepository.findById(patientID).orElse(null);
-        String namepatient = patient.getInformation().getLastName() + " " + patient.getInformation().getFirstName();
-        model.addAttribute("namepatient", namepatient);
-        model.addAttribute("patient", patient);
-        addEmployeeToModel(model);
-        return "patientInformation";
-    }
+    @Controller
+    @RequestMapping("/patientlist/patientinfor")
+    public class patientInfor{
 
-    @RequestMapping("/patientlist/patientinfor/treatmenthistory")
-    public String treatmentHistory(Model model){
-        addEmployeeToModel(model);
-        return "treatmentHistory";
-    }
-
-    @RequestMapping("/patientlist/patientinfor/treatmenthistory/prescription")
-    public String prescription(Model model){
-        addEmployeeToModel(model);
-        return "prescription";
+        @RequestMapping("/{patientID}")
+        public String patientInformation(Model model, @PathVariable Long patientID){
+            Patient patient = patientRepository.findById(patientID).orElse(null);
+            String namepatient = patient.getInformation().getLastName() + " " + patient.getInformation().getFirstName();
+            model.addAttribute("namepatient", namepatient);
+            model.addAttribute("patient", patient);
+            addEmployeeToModel(model);
+            return "patientInformation";
+        }
+    
+        @RequestMapping("/treatmenthistory")
+        public String treatmentHistory(Model model){
+            addEmployeeToModel(model);
+            return "treatmentHistory";
+        }
+    
+        @RequestMapping("/treatmenthistory/prescription")
+        public String prescription(Model model){
+            addEmployeeToModel(model);
+            return "prescription";
+        }
     }
 
     @RequestMapping("/help")
