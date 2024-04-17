@@ -100,7 +100,6 @@ public class PageController {
     }
 
     @Controller
-    @PreAuthorize("ADMIN")
     @RequestMapping("/add")
     public class addUser{
 
@@ -185,6 +184,18 @@ public class PageController {
     public String doctorList(Model model){
         addEmployeeToModel(model);
         return "doctorList";
+    }
+
+    @RequestMapping("/nurselist")
+    public String nurseList(Model model){
+        addEmployeeToModel(model);
+        return "nurseList";
+    }
+
+    @RequestMapping("/stafflist")
+    public String staffList(Model model){
+        addEmployeeToModel(model);
+        return "staffList";
     }
 
     @Controller
