@@ -61,8 +61,6 @@ public class WebSecurityConfig {
         http
             .authorizeHttpRequests((authorize) -> authorize
                 .requestMatchers("/", "/index", "/about").permitAll() 
-                .requestMatchers("/helloUser").hasAnyAuthority("ADMIN", "DOCTOR", "NURSE", "OTHER") 
-                .requestMatchers("/helloAdmin").hasAuthority("ADMIN") 
                 .requestMatchers("/add/**", "/report").hasAuthority("ADMIN")
                 .requestMatchers("/patientlist/patientinfor/**").hasAnyAuthority("ADMIN", "DOCTOR", "NURSE")
                 .anyRequest().authenticated() 

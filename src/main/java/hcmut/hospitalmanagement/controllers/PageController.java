@@ -257,28 +257,4 @@ public class PageController {
         addEmployeeToModel(model);
         return "setting";
     }
-
-    @RequestMapping("/hello")
-    public String hello(@RequestParam(name = "username", required = false, defaultValue = "") String username, 
-                        @RequestParam(name = "password", required = false, defaultValue = "") String password, Model model){
-        model.addAttribute("username", username);
-        model.addAttribute("password", password);
-        return "hello";
-    }
-
-    @RequestMapping("/helloUser")
-    public String helloUser(@RequestParam(name = "username", required = false, defaultValue = "") String username, 
-                        @RequestParam(name = "password", required = false, defaultValue = "") String password, Model model){
-        model.addAttribute("username", username);
-        model.addAttribute("password", password);
-        return "helloUser";
-    }
-
-    @RequestMapping("/helloAdmin")
-    public String helloAdmin(@RequestParam(name = "username", required = false, defaultValue = "") String username, 
-                        @RequestParam(name = "password", required = false, defaultValue = "") String password, Model model){
-        model.addAttribute("username", username);
-        model.addAttribute("password", password);
-        return "helloAdmin";
-    }
 }
