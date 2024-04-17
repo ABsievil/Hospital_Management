@@ -6,13 +6,12 @@
 }
 
 .total {
-    background: aquamarine;
     color: black;
     margin: 20px 20px 20px 0;
-    border: 1px solid;
     height: 40px;
     width: 170px;
     font-size: 30px;
+    font-weight: bold;
     text-align: center;
     border-radius: 20px;
 }
@@ -25,7 +24,8 @@
 .card-wrapper {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 4rem;
+    margin-left: 8px;
 }
 
 .main-title {
@@ -95,13 +95,13 @@
     color: green;
     padding: 0;
     font-size: 18px;
-    max-width: 10px;
+    width: 20px;
 }
 .bx-down-arrow-alt {
     color: red;
     padding: 0;
     font-size: 18px;
-    max-width: 10px;
+    width: 20px;
 }
 .bxs-star {
     padding: 0;
@@ -134,12 +134,11 @@
     background: rgb(254, 226, 254);
 }
 
-/* .table-wrapper {
+.table-wrapper {
     background: #fff;
-    margin-top: 1rem;
-    border-radius: 10px;
-    padding: 2rem;
-} */
+    font-size: 15px;
+    font-weight: bold;
+}
 
 .table-container {
     width: 100%;
