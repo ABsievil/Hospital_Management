@@ -1,0 +1,44 @@
+<span style="font-family: verdana, geneva, sans-serif;">
+    <!DOCTYPE html>
+    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+
+    <head>
+        <title>Nurse List</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" type="image/png" href="/images/Logo.png" />
+        <link rel="stylesheet" href="/css/doctorList.css" />
+        <link rel="stylesheet" href="/css/navBarTemplate.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    </head>
+
+    <body>
+        <div class="container">
+            <nav th:replace="navbar :: nav"></nav>
+
+            <section class="main">
+                <div id="scroll-to-top"></div>
+                <div class="main-top" onclick="location.href='#scroll-to-top'">
+                    <div class="logo-name">
+                        <img src="/images/Logo.png" class="logo">
+                        <span class="name">BỆNH VIỆN NGỌC CHÂU</span>
+                    </div>
+                </div>
+
+
+                <div class="staff-list">
+                    <header>Danh sách Y Tá</header>
+                    <div class="card-container" id="cardContainer">
+
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+        <!-- temporarily use doctorList.js, wait for further development of nurselist.js -->
+        <script src="/js/doctorList.js"></script>
+    </body>
+
+    </html>
+</span>
