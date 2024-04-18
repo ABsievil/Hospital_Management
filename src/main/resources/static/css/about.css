@@ -15,6 +15,15 @@ body {
     background-color: #d6caca;
 }
 
+.back {
+    margin-bottom: 30px;
+    transition: 0.2s;
+}
+
+.back:hover {
+    text-decoration: underline;
+}
+
 .slide-container {
     max-width: 1200px;
     width: 100%;
@@ -41,6 +50,10 @@ body {
     display: flex;
     flex-direction: column;   
     padding: 10px 14px;
+}
+
+.name p {
+    font-size: 14px;
 }
 
 .image-content {
@@ -97,7 +110,7 @@ body {
     color: rgb(57, 29, 216);
 }
 
-.role, .detail {
+.role, .detail, .email {
     font-size: 15px;
     margin-bottom: 24px;
 }
