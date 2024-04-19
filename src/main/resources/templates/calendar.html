@@ -19,7 +19,7 @@
     <body>
         <div class="container">
             <nav th:replace="navbar :: nav"></nav>
-
+            <p style="display: none;" id="employeeId" th:text="${employee.id}"></p>
             <section class="main">
                 <div id ="scroll-to-top"></div>
                 <div class="main-top">
@@ -93,11 +93,11 @@
                                 <form id="infoForm">
                                     <p class="title">Thông tin lịch trình</p>
                                     <label for="date">Ngày(*): </label>
-                                    <input type="text" placeholder="yyyy/mm/dd" id="date" name="date" style="border: 1px solid #888;" required><br><br>
+                                    <input type="text" id="date" name="date" style="border: 1px solid #888;" required><br><br>
                                     <label for="start">Giờ bắt đầu(*): </label>
-                                    <input type="start" placeholder="hh:mm:ss" id="start" name="start" style="border: 1px solid #888;" required><br><br>
+                                    <input type="start" id="start" name="start" style="border: 1px solid #888;" required><br><br>
                                     <label for="end">Giờ kết thúc(*): </label>
-                                    <input type="end" placeholder="hh:mm:ss" id="end" name="end" style="border: 1px solid #888;" required><br><br>
+                                    <input type="end" id="end" name="end" style="border: 1px solid #888;" required><br><br>
                                     <label for="name">Tên bệnh nhân (nếu có): </label>
                                     <input type="name" placeholder="Ví dụ : Nguyễn Văn A" id="name" name="name" style="border: 1px solid #888;"><br><br>
                                     <label for="content">Nội dung(*): </label>
