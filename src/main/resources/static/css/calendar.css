@@ -4,7 +4,7 @@
     display: grid;
     grid-template-columns: 50% 50%;
     margin: 20px 5px 0 5px;
-    padding: 0 20px 25% 20px;
+    padding: 0 20px 80% 20px;
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
@@ -148,12 +148,35 @@ button:hover {
     background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
-    border: 1px solid #888;
-    width: 40%; 
+    border: 2px solid #66d76a;
+    border-radius: 20px;
+    width: 50%;
+}
+
+.modal-content .title {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 20px;
 }
 
 .error {
     display: inline;
+    font-size: 13px;
+    color: red;
+}
+
+.submit {
+    font-size: 20px;
+    display: block;
+    margin: 0 auto;
+    background-color: #27e47f;
+    width: 100px;
+    border-radius: 10px;
+}
+
+.submit:hover {
+    background-color: #73e6a9;
+    text-decoration: underline;
 }
 
 .close {
