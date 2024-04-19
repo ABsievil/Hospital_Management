@@ -43,6 +43,9 @@ public class WebSecurityConfig {
     //demo in db
     @Autowired
     CustomUserDetailsService userService;
+
+    @Autowired
+    CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler;
     
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -70,7 +73,7 @@ public class WebSecurityConfig {
                 .loginProcessingUrl("/process-login")
                 .defaultSuccessUrl("/home")
                 .failureUrl("/login?error=true")
-                // .successHandler(authenticationSuccessHandler())
+                .successHandler(customAuthenticationSuccessHandler)
                 // .failureHandler(authenticationFailureHandler())
                 .permitAll()
             )
