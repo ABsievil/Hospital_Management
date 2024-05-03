@@ -2,6 +2,7 @@ package hcmut.hospitalmanagement.database;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -315,26 +316,28 @@ public class Database {
                 logger.info("insert medicine: " + medicineRepository.save(medicine6));
 
                 // TreatmentHistory
+                List<String> meds =  List.of("Paracetamol", "Eugica", "Sorbitol");
+                List<Integer> quantity = List.of(30, 30, 10);
                 TreatmentHistory th1 = new TreatmentHistory(null, 1L, "Văn A", "Nguyễn", 2L, "Mạnh Hùng", "Nguyễn",
-                        "cancer", LocalDate.of(2024, LocalDate.now().getMonth(), 14), LocalDate.of(2024, 4, 14), 100.00, null, Rate.VERYGOOD);
+                        "cancer", LocalDate.of(2024, LocalDate.now().getMonth(), 14), LocalDate.of(2024, 4, 14), 100.00, meds, quantity, Rate.VERYGOOD);
                 TreatmentHistory th2 = new TreatmentHistory(null, 1L, "Văn A", "Nguyễn", 2L, "Mạnh Hùng", "Nguyễn",
-                        "cancer", LocalDate.of(2024, LocalDate.now().getMonth(), 14), LocalDate.of(2024, 4, 14), 140.23, null, Rate.GOOD);
+                        "cancer", LocalDate.of(2024, LocalDate.now().getMonth(), 14), LocalDate.of(2024, 4, 14), 140.23, meds, quantity, Rate.GOOD);
                 TreatmentHistory th3 = new TreatmentHistory(null, 1L, "Văn A", "Nguyễn", 2L, "Mạnh Hùng", "Nguyễn",
-                        "cancer", LocalDate.of(2024, LocalDate.now().getMonth(), 14), LocalDate.of(2024, 4, 14), 170.69, null, Rate.GOOD);
+                        "cancer", LocalDate.of(2024, LocalDate.now().getMonth(), 14), LocalDate.of(2024, 4, 14), 170.69, meds, quantity, Rate.GOOD);
                 TreatmentHistory th4 = new TreatmentHistory(null, 2L, "Kimmich", "Joshua", 2L, "Mạnh Hùng", "Nguyễn",
-                        "cancer", LocalDate.of(2024, LocalDate.now().getMonth(), 14), LocalDate.of(2024, 4, 14), 170.69, null, Rate.VERYGOOD);
+                        "cancer", LocalDate.of(2024, LocalDate.now().getMonth(), 14), LocalDate.of(2024, 4, 14), 170.69, meds, quantity, Rate.VERYGOOD);
                 TreatmentHistory th5 = new TreatmentHistory(null, 2L, "Kimmich", "Joshua", 2L, "Mạnh Hùng", "Nguyễn",
-                        "cancer", LocalDate.of(2024, LocalDate.now().getMonth(), 14), LocalDate.of(2024, 4, 14), 200.15, null, Rate.NORMAL);
+                        "cancer", LocalDate.of(2024, LocalDate.now().getMonth(), 14), LocalDate.of(2024, 4, 14), 200.15, meds, quantity, Rate.NORMAL);
                 TreatmentHistory th6 = new TreatmentHistory(null, 3L, "Reus", "Marco", 2L, "Mạnh Hùng", "Nguyễn",
-                        "cancer", LocalDate.of(2024, LocalDate.now().getMonth(), 14), LocalDate.of(2024, 4, 14), 200.15, null, Rate.NORMAL);
+                        "cancer", LocalDate.of(2024, LocalDate.now().getMonth(), 14), LocalDate.of(2024, 4, 14), 200.15, meds, quantity, Rate.NORMAL);
                 TreatmentHistory th7 = new TreatmentHistory(null, 4L, "Ozil", "Mesut", 2L, "Mạnh Hùng", "Nguyễn",
-                        "cancer", LocalDate.of(2024, LocalDate.now().getMonth(), 14), LocalDate.of(2024, 4, 14), 200.15, null, Rate.VERYGOOD);
+                        "cancer", LocalDate.of(2024, LocalDate.now().getMonth(), 14), LocalDate.of(2024, 4, 14), 200.15, meds, quantity, Rate.VERYGOOD);
                 TreatmentHistory th8 = new TreatmentHistory(null, 2L, "Kimmich", "Joshua", 2L, "Mạnh Hùng", "Nguyễn",
-                        "cancer", LocalDate.of(2024, LocalDate.now().getMonth().minus(1), 14), LocalDate.of(2024, 4, 14), 10, null, Rate.VERYGOOD);
+                        "cancer", LocalDate.of(2024, LocalDate.now().getMonth().minus(1), 14), LocalDate.of(2024, 4, 14), 10, meds, quantity, Rate.VERYGOOD);
                 TreatmentHistory th9 = new TreatmentHistory(null, 4L, "Ozil", "Mesut", 2L, "Mạnh Hùng", "Nguyễn",
-                        "cancer", LocalDate.of(2024, LocalDate.now().getMonth().minus(1), 14), LocalDate.of(2024, 4, 14), 100, null, Rate.VERYBAD);
+                        "cancer", LocalDate.of(2024, LocalDate.now().getMonth().minus(1), 14), LocalDate.of(2024, 4, 14), 100, meds, quantity, Rate.VERYBAD);
                 TreatmentHistory th10 = new TreatmentHistory(null, 1L, "Văn A", "Nguyễn", 2L, "Mạnh Hùng", "Nguyễn",
-                        "cancer", LocalDate.of(2024, LocalDate.now().getMonth().minus(1), 14), LocalDate.of(2024, 4, 14), 100.00, null, Rate.VERYGOOD);
+                        "cancer", LocalDate.of(2024, LocalDate.now().getMonth().minus(1), 14), LocalDate.of(2024, 4, 14), 100.00, meds, quantity, Rate.VERYGOOD);
                 logger.info("insert treatment history: " + treatmentHistoryRepository.save(th1));
                 logger.info("insert treatment history: " + treatmentHistoryRepository.save(th2));
                 logger.info("insert treatment history: " + treatmentHistoryRepository.save(th3));

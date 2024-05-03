@@ -3,6 +3,8 @@ package hcmut.hospitalmanagement.models;
 import java.time.LocalDate;
 import java.util.Map;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -37,8 +39,8 @@ public class TreatmentHistory {
     private LocalDate dischargeDate; // ngày xuất viện
     private double cost; // chi phí
 
-    @Transient
-    private Map<String, Integer> medicationList; // đơn  thuốc
+    private List<String> medicationList;
+    private List<Integer> medicationQuantity;
     
     @Enumerated(EnumType.STRING)
     private Rate rate; // đánh giá của bệnh nhân
