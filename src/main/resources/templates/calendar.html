@@ -93,13 +93,17 @@
                                 <form id="infoForm">
                                     <p class="title">Thông tin lịch trình</p>
                                     <label for="date">Ngày(*): </label>
-                                    <input type="text" placeholder="yyyy/mm/dd" id="date" name="date" style="border: 1px solid #888;" required><br><br>
+                                    <input type="text" placeholder="yyyy-mm-dd" id="date" name="date" style="border: 1px solid #888;" required><br><br>
                                     <label for="start">Giờ bắt đầu(*): </label>
                                     <input type="start" placeholder="hh:mm:ss" id="start" name="start" style="border: 1px solid #888;" required><br><br>
                                     <label for="end">Giờ kết thúc(*): </label>
                                     <input type="end" placeholder="hh:mm:ss" id="end" name="end" style="border: 1px solid #888;" required><br><br>
-                                    <label for="name">Tên bệnh nhân (nếu có): </label>
-                                    <input type="name" placeholder="Ví dụ : Nguyễn Văn A" id="name" name="name" style="border: 1px solid #888;"><br><br>
+                                    <label for="name">Id bệnh nhân: </label>
+                                    <input type="name" placeholder="Ví dụ : 1" id="name" name="name" style="border: 1px solid #888;" required><br><br>
+                                    <label for="room">Phòng khám(*): </label>
+                                    <input type="room" placeholder="Ví dụ : 202" id="room" name="room" style="border: 1px solid #888;" required><br><br>
+                                    <label for="title">Tiêu đề(*): </label>
+                                    <input type="title" placeholder="Khám bệnh" id="title" name="title" style="border: 1px solid #888;" required><br><br>
                                     <label for="content">Nội dung(*): </label>
                                     <input type="content" placeholder="Đến tái khám" id="content" name="content" style="border: 1px solid #888;" required><br><br>
                                     <input type="submit" value="Xác nhận" class="submit">

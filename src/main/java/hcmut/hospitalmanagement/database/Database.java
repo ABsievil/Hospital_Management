@@ -126,86 +126,86 @@ public class Database {
                 // Schedule
                 EmployeeSchedule schedule1 = new EmployeeSchedule(null, "Khám bệnh",
                         "Anh Nguyễn Văn A đến tái khám",
-                        LocalDateTime.of(2024, 4, LocalDateTime.now().getDayOfMonth(), 0, 0, 0),
-                        LocalDateTime.of(2024, 4, LocalDateTime.now().getDayOfMonth(), 8, 0, 0),
+                        LocalDateTime.of(2024, LocalDateTime.now().getMonth(), LocalDateTime.now().getDayOfMonth(), 0, 0, 0),
+                        LocalDateTime.of(2024, LocalDateTime.now().getMonth(), LocalDateTime.now().getDayOfMonth(), 8, 0, 0),
                         emp1, 1L,
                         patient1.getInformation().getFirstName(),
                         patient1.getInformation().getLastName(), "201");
                 EmployeeSchedule schedule2 = new EmployeeSchedule(null, "Khám bệnh",
                         "Anh Nguyễn Văn A đến tái khám",
-                        LocalDateTime.of(2024, 4, LocalDateTime.now().getDayOfMonth(), 8, 0, 0),
-                        LocalDateTime.of(2024, 4, LocalDateTime.now().getDayOfMonth(), 9, 0, 0),
+                        LocalDateTime.of(2024, LocalDateTime.now().getMonth(), LocalDateTime.now().getDayOfMonth(), 8, 0, 0),
+                        LocalDateTime.of(2024, LocalDateTime.now().getMonth(), LocalDateTime.now().getDayOfMonth(), 9, 0, 0),
                         emp2, 1L,
                         patient1.getInformation().getFirstName(),
                         patient1.getInformation().getLastName(), "202");
                 EmployeeSchedule schedule3 = new EmployeeSchedule(null, "Khám bệnh",
                         "Anh Nguyễn Văn A đến tái khám",
-                        LocalDateTime.of(2024, 4, LocalDateTime.now().getDayOfMonth(), 12, 0,
+                        LocalDateTime.of(2024, LocalDateTime.now().getMonth(), LocalDateTime.now().getDayOfMonth(), 12, 0,
                                 0),
-                        LocalDateTime.of(2024, 4, LocalDateTime.now().getDayOfMonth(), 14, 0,
+                        LocalDateTime.of(2024, LocalDateTime.now().getMonth(), LocalDateTime.now().getDayOfMonth(), 14, 0,
                                 0),
                         emp1, 1L,
                         patient1.getInformation().getFirstName(),
                         patient1.getInformation().getLastName(), "203");
                 EmployeeSchedule schedule4 = new EmployeeSchedule(null, "Khám bệnh",
                         "Anh Nguyễn Văn A đến tái khám",
-                        LocalDateTime.of(2024, 4, LocalDateTime.now().getDayOfMonth(), 15, 0,
+                        LocalDateTime.of(2024, LocalDateTime.now().getMonth(), LocalDateTime.now().getDayOfMonth(), 15, 0,
                                 0),
-                        LocalDateTime.of(2024, 4, LocalDateTime.now().getDayOfMonth(), 16, 0,
+                        LocalDateTime.of(2024, LocalDateTime.now().getMonth(), LocalDateTime.now().getDayOfMonth(), 16, 0,
                                 0),
                         emp2, 1L,
                         patient1.getInformation().getFirstName(),
                         patient1.getInformation().getLastName(), "204");
                 EmployeeSchedule schedule5 = new EmployeeSchedule(null, "Khám bệnh",
                         "Anh Nguyễn Văn A đến tái khám",
-                        LocalDateTime.of(2024, 4, LocalDateTime.now().getDayOfMonth(), 17, 0,
+                        LocalDateTime.of(2024, LocalDateTime.now().getMonth(), LocalDateTime.now().getDayOfMonth(), 17, 0,
                                 0),
-                        LocalDateTime.of(2024, 4, LocalDateTime.now().getDayOfMonth(), 18, 0,
+                        LocalDateTime.of(2024, LocalDateTime.now().getMonth(), LocalDateTime.now().getDayOfMonth(), 18, 0,
                                 0),
                         emp1, 1L,
                         patient1.getInformation().getFirstName(),
                         patient1.getInformation().getLastName(), "205");
                 EmployeeSchedule schedule6 = new EmployeeSchedule(null, "Khám bệnh",
                         "Anh Nguyễn Văn A đến tái khám",
-                        LocalDateTime.of(2024, 4, LocalDateTime.now().getDayOfMonth(), 18, 0,
+                        LocalDateTime.of(2024, LocalDateTime.now().getMonth(), LocalDateTime.now().getDayOfMonth(), 18, 0,
                                 0),
-                        LocalDateTime.of(2024, 4, LocalDateTime.now().getDayOfMonth(), 19, 0,
+                        LocalDateTime.of(2024, LocalDateTime.now().getMonth(), LocalDateTime.now().getDayOfMonth(), 19, 0,
                                 0),
                         emp2, 1L,
                         patient1.getInformation().getFirstName(),
                         patient1.getInformation().getLastName(), "205");
                 EmployeeSchedule schedule7 = new EmployeeSchedule(null, "Khám bệnh",
                         "Anh Nguyễn Văn A đến tái khám",
-                        LocalDateTime.of(2024, 4, LocalDateTime.now().getDayOfMonth(), 19, 0,
+                        LocalDateTime.of(2024, LocalDateTime.now().getMonth(), LocalDateTime.now().getDayOfMonth(), 19, 0,
                                 0),
-                        LocalDateTime.of(2024, 4, LocalDateTime.now().getDayOfMonth(), 20, 0,
+                        LocalDateTime.of(2024, LocalDateTime.now().getMonth(), LocalDateTime.now().getDayOfMonth(), 20, 0,
                                 0),
                         emp1, 1L,
                         patient1.getInformation().getFirstName(),
                         patient1.getInformation().getLastName(), "205");
                 EmployeeSchedule schedule8 = new EmployeeSchedule(null, "Khám bệnh",
                         "Anh Nguyễn Văn A đến tái khám",
-                        LocalDateTime.of(2024, 4, LocalDateTime.now().getDayOfMonth(), 20, 0,
+                        LocalDateTime.of(2024, LocalDateTime.now().getMonth(), LocalDateTime.now().getDayOfMonth(), 20, 0,
                                 0),
-                        LocalDateTime.of(2024, 4, LocalDateTime.now().getDayOfMonth(), 21, 0,
+                        LocalDateTime.of(2024, LocalDateTime.now().getMonth(), LocalDateTime.now().getDayOfMonth(), 21, 0,
                                 0),
                         emp1, 1L,
                         patient1.getInformation().getFirstName(),
                         patient1.getInformation().getLastName(), "205");
                 EmployeeSchedule schedule9 = new EmployeeSchedule(null, "Khám bệnh",
                         "Anh Nguyễn Văn A đến tái khám",
-                        LocalDateTime.of(2024, 4, LocalDateTime.now().getDayOfMonth(), 21, 0,
+                        LocalDateTime.of(2024, LocalDateTime.now().getMonth(), LocalDateTime.now().getDayOfMonth(), 21, 0,
                                 0),
-                        LocalDateTime.of(2024, 4, LocalDateTime.now().getDayOfMonth(), 22, 0,
+                        LocalDateTime.of(2024, LocalDateTime.now().getMonth(), LocalDateTime.now().getDayOfMonth(), 22, 0,
                                 0),
                         emp1, 1L,
                         patient1.getInformation().getFirstName(),
                         patient1.getInformation().getLastName(), "205");
                 EmployeeSchedule schedule10 = new EmployeeSchedule(null, "Khám bệnh",
                         "Anh Nguyễn Văn A đến tái khám",
-                        LocalDateTime.of(2024, 4, LocalDateTime.now().getDayOfMonth(), 22, 0,
+                        LocalDateTime.of(2024, LocalDateTime.now().getMonth(), LocalDateTime.now().getDayOfMonth(), 22, 0,
                                 0),
-                        LocalDateTime.of(2024, 4, LocalDateTime.now().getDayOfMonth(), 23, 0,
+                        LocalDateTime.of(2024, LocalDateTime.now().getMonth(), LocalDateTime.now().getDayOfMonth(), 23, 0,
                                 0),
                         emp1, 1L,
                         patient1.getInformation().getFirstName(),
@@ -213,10 +213,10 @@ public class Database {
 
                 EmployeeSchedule schedule11 = new EmployeeSchedule(null, "Khám bệnh",
                         "Anh Nguyễn Văn A đến tái khám",
-                        LocalDateTime.of(2024, 4,
+                        LocalDateTime.of(2024, LocalDateTime.now().getMonth(),
                                 LocalDateTime.now().plusDays(1).getDayOfMonth(), 7, 0,
                                 0),
-                        LocalDateTime.of(2024, 4,
+                        LocalDateTime.of(2024, LocalDateTime.now().getMonth(),
                                 LocalDateTime.now().plusDays(1).getDayOfMonth(), 9, 0,
                                 0),
                         emp1, 1L,
@@ -224,10 +224,10 @@ public class Database {
                         patient1.getInformation().getLastName(), "205");
                 EmployeeSchedule schedule12 = new EmployeeSchedule(null, "Khám bệnh",
                         "Anh Nguyễn Văn A đến tái khám",
-                        LocalDateTime.of(2024, 4,
+                        LocalDateTime.of(2024, LocalDateTime.now().getMonth(),
                                 LocalDateTime.now().plusDays(2).getDayOfMonth(), 7, 0,
                                 0),
-                        LocalDateTime.of(2024, 4,
+                        LocalDateTime.of(2024, LocalDateTime.now().getMonth(),
                                 LocalDateTime.now().plusDays(2).getDayOfMonth(), 9, 0,
                                 0),
                         emp1, 1L,
@@ -235,10 +235,10 @@ public class Database {
                         patient1.getInformation().getLastName(), "205");
                 EmployeeSchedule schedule13 = new EmployeeSchedule(null, "Khám bệnh",
                         "Anh Nguyễn Văn A đến tái khám",
-                        LocalDateTime.of(2024, 4,
+                        LocalDateTime.of(2024, LocalDateTime.now().getMonth(),
                                 LocalDateTime.now().plusDays(3).getDayOfMonth(), 7, 0,
                                 0),
-                        LocalDateTime.of(2024, 4,
+                        LocalDateTime.of(2024, LocalDateTime.now().getMonth(),
                                 LocalDateTime.now().plusDays(3).getDayOfMonth(), 9, 0,
                                 0),
                         emp1, 1L,
@@ -246,10 +246,10 @@ public class Database {
                         patient1.getInformation().getLastName(), "205");
                 EmployeeSchedule schedule14 = new EmployeeSchedule(null, "Khám bệnh",
                         "Anh Nguyễn Văn A đến tái khám",
-                        LocalDateTime.of(2024, 4,
+                        LocalDateTime.of(2024, LocalDateTime.now().getMonth(),
                                 LocalDateTime.now().plusDays(4).getDayOfMonth(), 7, 0,
                                 0),
-                        LocalDateTime.of(2024, 4,
+                        LocalDateTime.of(2024, LocalDateTime.now().getMonth(),
                                 LocalDateTime.now().plusDays(4).getDayOfMonth(), 9, 0,
                                 0),
                         emp1, 1L,
@@ -257,10 +257,10 @@ public class Database {
                         patient1.getInformation().getLastName(), "205");
                 EmployeeSchedule schedule15 = new EmployeeSchedule(null, "Khám bệnh",
                         "Anh Nguyễn Văn A đến tái khám",
-                        LocalDateTime.of(2024, 4,
+                        LocalDateTime.of(2024, LocalDateTime.now().getMonth(),
                                 LocalDateTime.now().minusDays(1).getDayOfMonth(), 7, 0,
                                 0),
-                        LocalDateTime.of(2024, 4,
+                        LocalDateTime.of(2024, LocalDateTime.now().getMonth(),
                                 LocalDateTime.now().minusDays(1).getDayOfMonth(), 9, 0,
                                 0),
                         emp1, 1L,
@@ -268,10 +268,10 @@ public class Database {
                         patient1.getInformation().getLastName(), "205");
                 EmployeeSchedule schedule16 = new EmployeeSchedule(null, "Khám bệnh",
                         "Anh Nguyễn Văn A đến tái khám",
-                        LocalDateTime.of(2024, 4,
+                        LocalDateTime.of(2024, LocalDateTime.now().getMonth(),
                                 LocalDateTime.now().minusDays(2).getDayOfMonth(), 7, 0,
                                 0),
-                        LocalDateTime.of(2024, 4,
+                        LocalDateTime.of(2024, LocalDateTime.now().getMonth(),
                                 LocalDateTime.now().minusDays(2).getDayOfMonth(), 9, 0,
                                 0),
                         emp1, 1L,
@@ -316,25 +316,25 @@ public class Database {
 
                 // TreatmentHistory
                 TreatmentHistory th1 = new TreatmentHistory(null, 1L, "Văn A", "Nguyễn", 2L, "Mạnh Hùng", "Nguyễn",
-                        "cancer", LocalDate.of(2024, 4, 14), LocalDate.of(2024, 4, 14), 100.00, null, Rate.VERYGOOD);
+                        "cancer", LocalDate.of(2024, LocalDate.now().getMonth(), 14), LocalDate.of(2024, 4, 14), 100.00, null, Rate.VERYGOOD);
                 TreatmentHistory th2 = new TreatmentHistory(null, 1L, "Văn A", "Nguyễn", 2L, "Mạnh Hùng", "Nguyễn",
-                        "cancer", LocalDate.of(2024, 4, 14), LocalDate.of(2024, 4, 14), 140.23, null, Rate.GOOD);
+                        "cancer", LocalDate.of(2024, LocalDate.now().getMonth(), 14), LocalDate.of(2024, 4, 14), 140.23, null, Rate.GOOD);
                 TreatmentHistory th3 = new TreatmentHistory(null, 1L, "Văn A", "Nguyễn", 2L, "Mạnh Hùng", "Nguyễn",
-                        "cancer", LocalDate.of(2024, 4, 14), LocalDate.of(2024, 4, 14), 170.69, null, Rate.GOOD);
+                        "cancer", LocalDate.of(2024, LocalDate.now().getMonth(), 14), LocalDate.of(2024, 4, 14), 170.69, null, Rate.GOOD);
                 TreatmentHistory th4 = new TreatmentHistory(null, 2L, "Kimmich", "Joshua", 2L, "Mạnh Hùng", "Nguyễn",
-                        "cancer", LocalDate.of(2024, 4, 14), LocalDate.of(2024, 4, 14), 170.69, null, Rate.VERYGOOD);
+                        "cancer", LocalDate.of(2024, LocalDate.now().getMonth(), 14), LocalDate.of(2024, 4, 14), 170.69, null, Rate.VERYGOOD);
                 TreatmentHistory th5 = new TreatmentHistory(null, 2L, "Kimmich", "Joshua", 2L, "Mạnh Hùng", "Nguyễn",
-                        "cancer", LocalDate.of(2024, 4, 14), LocalDate.of(2024, 4, 14), 200.15, null, Rate.NORMAL);
+                        "cancer", LocalDate.of(2024, LocalDate.now().getMonth(), 14), LocalDate.of(2024, 4, 14), 200.15, null, Rate.NORMAL);
                 TreatmentHistory th6 = new TreatmentHistory(null, 3L, "Reus", "Marco", 2L, "Mạnh Hùng", "Nguyễn",
-                        "cancer", LocalDate.of(2024, 4, 14), LocalDate.of(2024, 4, 14), 200.15, null, Rate.NORMAL);
+                        "cancer", LocalDate.of(2024, LocalDate.now().getMonth(), 14), LocalDate.of(2024, 4, 14), 200.15, null, Rate.NORMAL);
                 TreatmentHistory th7 = new TreatmentHistory(null, 4L, "Ozil", "Mesut", 2L, "Mạnh Hùng", "Nguyễn",
-                        "cancer", LocalDate.of(2024, 4, 14), LocalDate.of(2024, 4, 14), 200.15, null, Rate.VERYGOOD);
+                        "cancer", LocalDate.of(2024, LocalDate.now().getMonth(), 14), LocalDate.of(2024, 4, 14), 200.15, null, Rate.VERYGOOD);
                 TreatmentHistory th8 = new TreatmentHistory(null, 2L, "Kimmich", "Joshua", 2L, "Mạnh Hùng", "Nguyễn",
-                        "cancer", LocalDate.of(2024, 3, 14), LocalDate.of(2024, 4, 14), 10, null, Rate.VERYGOOD);
+                        "cancer", LocalDate.of(2024, LocalDate.now().getMonth().minus(1), 14), LocalDate.of(2024, 4, 14), 10, null, Rate.VERYGOOD);
                 TreatmentHistory th9 = new TreatmentHistory(null, 4L, "Ozil", "Mesut", 2L, "Mạnh Hùng", "Nguyễn",
-                        "cancer", LocalDate.of(2024, 3, 14), LocalDate.of(2024, 4, 14), 100, null, Rate.VERYBAD);
+                        "cancer", LocalDate.of(2024, LocalDate.now().getMonth().minus(1), 14), LocalDate.of(2024, 4, 14), 100, null, Rate.VERYBAD);
                 TreatmentHistory th10 = new TreatmentHistory(null, 1L, "Văn A", "Nguyễn", 2L, "Mạnh Hùng", "Nguyễn",
-                        "cancer", LocalDate.of(2024, 3, 14), LocalDate.of(2024, 4, 14), 100.00, null, Rate.VERYGOOD);
+                        "cancer", LocalDate.of(2024, LocalDate.now().getMonth().minus(1), 14), LocalDate.of(2024, 4, 14), 100.00, null, Rate.VERYGOOD);
                 logger.info("insert treatment history: " + treatmentHistoryRepository.save(th1));
                 logger.info("insert treatment history: " + treatmentHistoryRepository.save(th2));
                 logger.info("insert treatment history: " + treatmentHistoryRepository.save(th3));

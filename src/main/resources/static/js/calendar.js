@@ -96,6 +96,7 @@ fetch(
 )
     .then((response) => response.json())
     .then((fetchedData) => {
+        console.log(fetchedData);
         const timeLineBox = document.getElementById('timeLineBox');
         if (fetchedData && fetchedData.data) {
             // console.log(fetchedData);
