@@ -3,11 +3,15 @@ package hcmut.hospitalmanagement.security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -17,6 +21,7 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 
 @Configuration
@@ -38,6 +43,27 @@ public class WebSecurityConfig {
     //          .build();
     //      return new InMemoryUserDetailsManager(user, admin);
     //  }
+
+    /* SEC */
+    public JwtAuthenticationFilter jwtAuthenticationFilter(){
+        return new JwtAuthenticationFilter();
+    }
+
+    @Bean
+    public DaoAuthenticationProvider authenticationProvider() {
+      DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+       
+      authProvider.setUserDetailsService(userService);
+      authProvider.setPasswordEncoder(passwordEncoder());
+   
+      return authProvider;
+    }
+
+    @Bean
+    //@Bean(BeanIds.AUTHENTICATION_MANAGER)
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration auth) throws Exception {
+        return auth.getAuthenticationManager();
+    }
 
 
     //demo in db
@@ -62,33 +88,38 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .authorizeHttpRequests((authorize) -> authorize
-                .requestMatchers("/", "/index", "/about").permitAll() 
-                .requestMatchers("/add/**", "/report").hasAuthority("ADMIN")
-                .requestMatchers("/patientlist/patientinfor/**").hasAnyAuthority("ADMIN", "DOCTOR", "NURSE")
-                .anyRequest().authenticated() 
-            )
-            .formLogin( formLogin -> formLogin
-                .loginPage("/login")           // you must custom file login.html, defaul is login page of spring
-                .loginProcessingUrl("/process-login")
-                .defaultSuccessUrl("/home")
-                .failureUrl("/login?error=true")
-                .successHandler(customAuthenticationSuccessHandler)
-                // .failureHandler(authenticationFailureHandler())
-                .permitAll()
-            )
-            .logout(logout -> logout
-                //.logoutUrl("/logout")
-                .logoutSuccessUrl("/index")
-                .invalidateHttpSession(true)
-                .deleteCookies("JSESSIONID")
-                .permitAll()
-            )
-            .rememberMe(remember -> remember
-                .key("4Bsi3vil")
-                .tokenValiditySeconds(10)) // 1 * 24 * 60 * 60 (s) = 24h  //current is not working
-            .exceptionHandling(exeption -> exeption.accessDeniedPage("/403"))
-            .csrf(csrf -> csrf.disable());   // what is csrf, should disable it ?
+            // .authorizeHttpRequests((authorize) -> authorize
+            //     .requestMatchers("/", "/index", "/about").permitAll() 
+            //     .requestMatchers("/add/**", "/report").hasAuthority("ADMIN")
+            //     .requestMatchers("/patientlist/patientinfor/**").hasAnyAuthority("ADMIN", "DOCTOR", "NURSE")
+            //     .anyRequest().authenticated() 
+            // )
+            // .formLogin( formLogin -> formLogin
+            //     .loginPage("/login")           // you must custom file login.html, defaul is login page of spring
+            //     .loginProcessingUrl("/process-login")
+            //     .defaultSuccessUrl("/home")
+            //     .failureUrl("/login?error=true")
+            //     .successHandler(customAuthenticationSuccessHandler)
+            //     // .failureHandler(authenticationFailureHandler())
+            //     .permitAll()
+            // )
+            // .logout(logout -> logout
+            //     //.logoutUrl("/logout")
+            //     .logoutSuccessUrl("/index")
+            //     .invalidateHttpSession(true)
+            //     .deleteCookies("JSESSIONID")
+            //     .permitAll()
+            // )
+            // .rememberMe(remember -> remember
+            //     .key("4Bsi3vil")
+            //     .tokenValiditySeconds(10)) // 1 * 24 * 60 * 60 (s) = 24h  //current is not working
+            // .exceptionHandling(exeption -> exeption.accessDeniedPage("/403"))
+            .csrf(csrf -> csrf.disable())   // what is csrf, should disable it ?
+            .sessionManagement((session) -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+            
+            http.authenticationProvider(authenticationProvider());
+            http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);    
+
         
         return http.build();
     }
