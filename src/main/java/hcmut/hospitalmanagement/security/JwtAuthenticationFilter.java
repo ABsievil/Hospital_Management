@@ -32,6 +32,18 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     @Autowired
     private AuthenticationBean authenticationBean;
 
+    // @Autowired
+    // private WhiteList whiteList;
+
+    // private String[] WHITE_LIST_URL = {
+    //     "/",
+    //     "/index",
+    //     "/about",
+    //     "/login",
+    //     "/403",
+    //     "/api/authenticate"
+    // };
+
     @Override
     protected void doFilterInternal(@NonNull HttpServletRequest request,
                                     @NonNull HttpServletResponse response, 
@@ -39,6 +51,14 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             throws ServletException, IOException {
 
         // nếu login lần đầu tiên, thì request gửi tới ko được chứa /api/authenticate
+        // duyệt qua các path có thể bỏ qua lớp jwt filter
+        // for (String url : WHITE_LIST_URL) {
+        //     if (request.getServletPath().contains(url)) {
+        //         filterChain.doFilter(request, response);
+        //         return;
+        //     }
+        // }
+
         if(request.getServletPath().contains("/api/authenticate")){ 
             filterChain.doFilter(request, response);
             return;

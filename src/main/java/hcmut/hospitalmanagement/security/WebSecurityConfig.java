@@ -83,7 +83,18 @@ public class WebSecurityConfig {
         // use method passwordEncoder
         auth.userDetailsService(userService).passwordEncoder(passwordEncoder());
     }
-     
+     // cho permit all hết để jwt filter lọc thoi
+    // private static final String[] WHITE_LIST_URL = {
+    //     "/",
+    //     "/index",
+    //     "/about",
+    //     "/login",
+    //     "/403",
+    //     "/api/authenticate",
+    //     "api/test"
+    // };
+
+
      //note : role in db current is: PATIENT and DOCTOR
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -106,8 +117,8 @@ public class WebSecurityConfig {
             // .logout(logout -> logout
             //     //.logoutUrl("/logout")
             //     .logoutSuccessUrl("/index")
-            //     .invalidateHttpSession(true)
-            //     .deleteCookies("JSESSIONID")
+            //      .invalidateHttpSession(true)
+            //      .deleteCookies("JSESSIONID")
             //     .permitAll()
             // )
             // .rememberMe(remember -> remember
