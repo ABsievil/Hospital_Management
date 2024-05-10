@@ -29,61 +29,70 @@
                 <div class="infor-card">
                     <header>
                         <h1>Thông Tin Cá Nhân</h1>
-                        <button type="button" class="editBtn">Thêm nhân viên</button>
+                        <button id="addBtn" type="button" class="editBtn" onclick="addEmployee()">Thêm nhân viên</button>
                     </header>
                     <div class="infor-content">
                         <div class="title">Thông tin chung</div>
                         <div class="field-wrapper">
 
                             <div class="field">
-                                <label for="">Họ và tên</label>
+                                <label for="name">Họ và tên</label>
                                 <div class="infor-text">
                                     <!-- <input type="text" class="input" readonly th:placeholder="${nameuser}" /> -->
-                                    <input type="text" class="input"/>
+                                    <input id="name" type="text" class="input"/>
                                 </div>
                             </div>
 
                             <div class="field">
-                                <label for="">Giới tính</label>
+                                <label for="gender">Giới tính</label>
                                 <div class="infor-text">
                                     <!-- <input type="text" class="input" readonly
                                         th:placeholder="${employee.information.gender ? 'Male' : 'Female'}" /> -->
-                                        <input type="text" class="input" />
+                                        <input id="gender" type="text" class="input" />
                                 </div>
                             </div>
 
                             <div class="field">
-                                <label for="">Ngày sinh</label>
+                                <label for="birth">Ngày sinh</label>
 
                                 <div class="infor-text">
                                     <!-- <input type="text" class="input" readonly
                                         th:placeholder="${#temporals.format(employee.information.dateOfBirth,'dd-MM-yyyy')}"> -->
-                                        <input type="text" class="input">
+                                        <input id="birth" type="text" class="input">
                                 </div>
                             </div>
+
                             <div class="field">
-                                <label for="">CCCD</label>
+                                <label for="occupation">Nghề nghiệp</label>
+                                <div class="infor-text">
+                                    <!-- <input type="text" class="input" readonly
+                                        th:placeholder="${employee.information.relativePhoneNumber1}"> -->
+                                        <input id="occupation" type="text" class="input">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label for="nationalId">CCCD</label>
                                 <div class="infor-text">
                                     <!-- <input type="text" class="input" readonly
                                         th:placeholder="${employee.information.nationalclass}"> -->
-                                        <input type="text" class="input">
+                                        <input id="nationalId" type="text" class="input">
                                 </div>
                             </div>
 
                             <div class="field">
-                                <label for="">Dân tộc</label>
+                                <label for="ethnic">Dân tộc</label>
                                 <div class="infor-text">
-                                    <input type="text" class="input" readonly
-                                        th:placeholder="${employee.information.ethnic}">
+                                    <input id="ethnic" type="text" class="input">
                                 </div>
                             </div>
 
                             <div class="field">
-                                <label for="">Tôn giáo</label>
+                                <label for="religion">Tôn giáo</label>
                                 <div class="infor-text">
                                     <!-- <input type="text" class="input" readonly
                                         th:placeholder="${employee.information.religion}"> -->
-                                        <input type="text" class="input">
+                                        <input id="religion" type="text" class="input">
                                 </div>
                             </div>
                         </div>
@@ -94,29 +103,29 @@
                         <div class="field-wrapper">
 
                             <div class="field">
-                                <label for="">Địa chỉ</label>
+                                <label for="address">Địa chỉ</label>
                                 <div class="infor-text">
                                     <!-- <input type="text" class="input" readonly
                                         th:placeholder="${employee.information.address}"> -->
-                                        <input type="text" class="input">
+                                        <input id="address" type="text" class="input">
                                 </div>
                             </div>
 
                             <div class="field">
-                                <label for="">Email</label>
+                                <label for="email">Email</label>
                                 <div class="infor-text">
                                     <!-- <input type="text" class="input" readonly
                                         th:placeholder="${employee.information.email}"> -->
-                                        <input type="text" class="input">
+                                        <input id="email" type="text" class="input">
                                 </div>
                             </div>
 
                             <div class="field">
-                                <label for="">Số điện thoại</label>
+                                <label for="phone">Số điện thoại</label>
                                 <div class="infor-text">
                                     <!-- <input type="text" class="input" readonly
                                         th:placeholder="${employee.information.phoneNumber}"> -->
-                                        <input type="text" class="input">
+                                        <input id="phone" type="text" class="input">
                                 </div>
                             </div>
 
@@ -126,53 +135,73 @@
                     <div class="infor-content">
                         <div class="title">Thông tin nhân sự</div>
                         <div class="field-wrapper">
-
                             <div class="field">
-                                <label for="">Mã nhân sự</label>
+                                <label for="username">Username</label>
                                 <div class="infor-text">
                                     <!-- <input type="text" class="input" readonly th:placeholder="${employee.personalCode}"> -->
-                                    <input type="text" class="input">
+                                    <input id="username" type="text" class="input">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="password">password</label>
+                                <div class="infor-text">
+                                    <!-- <input type="text" class="input" readonly th:placeholder="${employee.personalCode}"> -->
+                                    <input id="password" type="text" class="input">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="role">Role</label>
+                                <div class="infor-text">
+                                    <!-- <input type="text" class="input" readonly th:placeholder="${employee.personalCode}"> -->
+                                    <input id="role" type="text" class="input">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="personalCode">Mã nhân sự</label>
+                                <div class="infor-text">
+                                    <!-- <input type="text" class="input" readonly th:placeholder="${employee.personalCode}"> -->
+                                    <input id="personalCode" type="text" class="input">
                                 </div>
                             </div>
 
                             <div class="field">
-                                <label for="">Chuyên khoa</label>
+                                <label for="specialty">Chuyên khoa</label>
                                 <div class="infor-text">
                                     <!-- <input type="text" class="input" readonly th:placeholder="${employee.specialty}"> -->
-                                    <input type="text" class="input">
+                                    <input id="specialty" type="text" class="input">
                                 </div>
                             </div>
 
                             <div class="field">
-                                <label for="">Chức vụ</label>
+                                <label for="position">Chức vụ</label>
                                 <div class="infor-text">
                                     <!-- <input type="text" class="input" readonly th:placeholder="${employee.position}"> -->
-                                    <input type="text" class="input">
+                                    <input id="position" type="text" class="input">
                                 </div>
                             </div>
 
                             <div class="field">
-                                <label for="">Học hàm</label>
+                                <label for="academicRank">Học hàm</label>
                                 <div class="infor-text">
                                     <!-- <input type="text" class="input" readonly th:placeholder="${employee.academicRank}"> -->
-                                    <input type="text" class="input">
+                                    <input id="academicRank" type="text" class="input">
                                 </div>
                             </div>
 
                             <div class="field">
-                                <label for="">Học vị</label>
+                                <label for="degree">Học vị</label>
                                 <div class="infor-text">
                                     <!-- <input type="text" class="input" readonly th:placeholder="${employee.degree}"> -->
-                                    <input type="text" class="input">
+                                    <input id="degree" type="text" class="input">
                                 </div>
                             </div>
 
                             <div class="field">
-                                <label for="">Nơi đào tạo</label>
+                                <label for="trainingPlace">Nơi đào tạo</label>
                                 <div class="infor-text">
                                     <!-- <input type="text" class="input" readonly
                                         th:placeholder="${employee.trainingPlace}"> -->
-                                        <input type="text" class="input">
+                                        <input id="trainingPlace" type="text" class="input">
                                 </div>
                             </div>
 
@@ -184,29 +213,29 @@
                         <div class="field-wrapper">
 
                             <div class="field">
-                                <label for="">Mã bảo hiểm y tế</label>
+                                <label for="hiCode">Mã bảo hiểm y tế</label>
                                 <div class="infor-text">
                                     <!-- <input type="text" class="input" readonly
                                         th:placeholder="${employee.information.hiCode}"> -->
-                                        <input type="text" class="input">
+                                        <input id="hiCode" type="text" class="input">
                                 </div>
                             </div>
 
                             <div class="field">
-                                <label for="">Ngày bắt đầu</label>
+                                <label for="hiStart">Ngày bắt đầu</label>
                                 <div class="infor-text">
                                     <!-- <input type="text" class="input" readonly
                                         th:placeholder="${employee.information.hiStartDate}"> -->
-                                        <input type="text" class="input">
+                                        <input id="hiStart" type="text" class="input">
                                 </div>
                             </div>
 
                             <div class="field">
-                                <label for="">Ngày kết thúc</label>
+                                <label for="hiEnd">Ngày kết thúc</label>
                                 <div class="infor-text">
                                     <!-- <input type="text" class="input" readonly
                                         th:placeholder="${employee.information.hiEndDate}"> -->
-                                        <input type="text" class="input">
+                                        <input id="hiEnd" type="text" class="input">
                                 </div>
                             </div>
                         </div>
@@ -217,56 +246,56 @@
                         <div class="field-wrapper">
 
                             <div class="field">
-                                <label for="">Họ và tên</label>
+                                <label for="relativeName">Họ và tên</label>
                                 <div class="infor-text">
                                     <!-- <input type="text" class="input" readonly
                                         th:placeholder="${employee.information.relative}"> -->
-                                        <input type="text" class="input">
+                                        <input id="relativeName" type="text" class="input">
                                 </div>
                             </div>
 
                             <div class="field">
-                                <label for="">Quan hệ với người thân</label>
+                                <label for="relation">Quan hệ với người thân</label>
                                 <div class="infor-text">
                                     <!-- <input type="text" class="input" readonly
                                         th:placeholder="${employee.information.relationWithRelative}"> -->
-                                        <input type="text" class="input">
+                                        <input id="relation" type="text" class="input">
                                 </div>
                             </div>
 
                             <div class="field">
-                                <label for="">Số điện thoại</label>
+                                <label for="relativePhone">Số điện thoại</label>
                                 <div class="infor-text">
                                     <!-- <input type="text" class="input" readonly
                                         th:placeholder="${employee.information.relativePhoneNumber1}"> -->
-                                        <input type="text" class="input">
+                                        <input id="relativePhone" type="text" class="input">
                                 </div>
                             </div>
 
                             <div class="field">
-                                <label for="">Nơi ở</label>
+                                <label for="relativeAddress">Nơi ở</label>
                                 <div class="infor-text">
                                     <!-- <input type="text" class="input" readonly
                                         th:placeholder="${employee.information.relativeAddress}"> -->
-                                        <input type="text" class="input">
+                                        <input id="relativeAddress" type="text" class="input">
                                 </div>
                             </div>
 
                             <div class="field">
-                                <label for="">Nghề nghiệp</label>
+                                <label for="relativeOccupation">Nghề nghiệp</label>
                                 <div class="infor-text">
                                     <!-- <input type="text" class="input" readonly
                                         th:placeholder="${employee.information.relativeOccupation}"> -->
-                                        <input type="text" class="input">
+                                        <input id="relativeOccupation" type="text" class="input">
                                 </div>
                             </div>
 
                             <div class="field">
-                                <label for="">Số điện thoại khác của người thân</label>
+                                <label for="relativePhone2">Số điện thoại khác của người thân</label>
                                 <div class="infor-text">
                                     <!-- <input type="text" class="input" readonly
                                         th:placeholder="${employee.information.relativePhoneNumber2}"> -->
-                                        <input type="text" class="input">
+                                        <input id="relativePhone2" type="text" class="input">
                                 </div>
                             </div>
 
@@ -278,16 +307,7 @@
         </div>
 
     </body>
-    <script>
-        var btn = document.getElementById("editBtn");
-        btn.onclick = function () {
-            console.log("okfen!!");
-            let elements = document.getElementsByClassName("input");
-            for (let i = 0; i < elements.length; i++) {
-                elements[i].readOnly = false;
-            }
-        }
-    </script>
+    <script src="/js/addEmployee.js"></script>
 
     </html>
 </span>

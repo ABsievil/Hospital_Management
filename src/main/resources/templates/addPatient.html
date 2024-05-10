@@ -29,7 +29,7 @@
                 <div class="infor-card">
                     <header>
                         <h1>Thông Tin Cá Nhân</h1>
-                        <span onclick="location.href='/patientlist/patientinfor/treatmenthistory'">Thêm bệnh nhân</span>
+                        <span onclick="addPatient()">Thêm bệnh nhân</span>
                     </header>
                     <div class="infor-content">
                         <div class="title">Thông tin chung</div>
@@ -37,41 +37,53 @@
                             <!-- <div id="patientId" th:text="${patient.id}" style="display: none;"></div> -->
                             <div id="patientId" style="display: none;"></div>
                             <div class="field">
-                                <label for="">Họ và tên</label>
+                                <label for="name">Họ và tên</label>
                                 <!-- <div class="infor-text" th:text="${namepatient}"></div> -->
-                                <div class="infor-text"></div>
+                                <div class="infor-text">
+                                    <input id="name" type="text" class="input"/>
+                                </div>
                             </div>
 
                             <div class="field">
-                                <label for="">Giới tính</label>
-                                <!-- <div class="infor-text" th:if="${patient.information.gender}">Nam</div>
-                                <div class="infor-text" th:unless="${patient.information.gender}">Nữ</div> -->
-                                <div class="infor-text">Nam</div>
+                                <label for="gender">Giới tính</label>
+                                <div class="infor-text">
+                                    <input id="gender" type="text" class="input"/>
+                                </div>
                             </div>
 
                             <div class="field">
-                                <label for="">Ngày sinh</label>
-                                <!-- <div class="infor-text" 
-                                th:text="${#temporals.format(patient.information.dateOfBirth,'dd-MM-yyyy')}"></div> -->
-                                <div class="infor-text"></div>
+                                <label for="birth">Ngày sinh</label>
+                                <div class="infor-text">
+                                    <input id="birth" type="text" class="input"/>
+                                </div>
                             </div>
 
                             <div class="field">
-                                <label for="">CCCD</label>
-                                <!-- <div class="infor-text" th:text="${patient.information.nationalID}"></div> -->
-                                <div class="infor-text"></div>
+                                <label for="occupation">Nghề nghiệp</label>
+                                <div class="infor-text">
+                                    <input id="occupation" type="text" class="input"/>
+                                </div>
                             </div>
 
                             <div class="field">
-                                <label for="">Dân tộc</label>
-                                <!-- <div class="infor-text" th:text="${patient.information.ethnic}"></div> -->
-                                <div class="infor-text"></div>
+                                <label for="nationalID">CCCD</label>
+                                <div class="infor-text">
+                                    <input id="nationalID" type="text" class="input"/>
+                                </div>
                             </div>
 
                             <div class="field">
-                                <label for="">Tôn giáo</label>
-                                <!-- <div class="infor-text" th:text="${patient.information.religion}"></div> -->
-                                <div class="infor-text"></div>
+                                <label for="ethnic">Dân tộc</label>
+                                <div class="infor-text">
+                                    <input id="ethnic" type="text" class="input"/>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label for="religion">Tôn giáo</label>
+                                <div class="infor-text">
+                                    <input id="religion" type="text" class="input"/>
+                                </div>
                             </div>
 
 
@@ -83,21 +95,24 @@
                         <div class="field-wrapper">
 
                             <div class="field">
-                                <label for="">Địa chỉ</label>
-                                <!-- <div class="infor-text" th:text="${patient.information.address}"></div> -->
-                                <div class="infor-text"></div>
+                                <label for="address">Địa chỉ</label>
+                                <div class="infor-text">
+                                    <input id="address" type="text" class="input"/>
+                                </div>
                             </div>
 
                             <div class="field">
-                                <label for="">Email</label>
-                                <!-- <div class="infor-text" th:text="${patient.information.email}"></div> -->
-                                <div class="infor-text"></div>
+                                <label for="email">Email</label>
+                                <div class="infor-text">
+                                    <input id="email" type="text" class="input"/>
+                                </div>
                             </div>
 
                             <div class="field">
-                                <label for="">Số điện thoại</label>
-                                <!-- <div class="infor-text" th:text="${patient.information.phoneNumber}"></div> -->
-                                <div class="infor-text"></div>
+                                <label for="phone">Số điện thoại</label>
+                                <div class="infor-text">
+                                    <input id="phone" type="text" class="input"/>
+                                </div>
                             </div>
 
                         </div>
@@ -108,21 +123,24 @@
                         <div class="field-wrapper">
 
                             <div class="field">
-                                <label for="">Mã bảo hiểm y tế</label>
-                                <!-- <div class="infor-text" th:text="${patient.information.hiCode}"></div> -->
-                                <div class="infor-text"></div>
+                                <label for="hiCode">Mã bảo hiểm y tế</label>
+                                <div class="infor-text">
+                                    <input id="hiCode" type="text" class="input"/>
+                                </div>
                             </div>
 
                             <div class="field">
-                                <label for="">Ngày bắt đầu</label>
-                                <!-- <div class="infor-text" th:text="${patient.information.hiStartDate}"></div> -->
-                                <div class="infor-text"></div>
+                                <label for="hiStart">Ngày bắt đầu</label>
+                                <div class="infor-text">
+                                    <input id="hiStart" type="text" class="input"/>
+                                </div>
                             </div>
 
                             <div class="field">
-                                <label for="">Ngày kết thúc</label>
-                                <!-- <div class="infor-text" th:text="${patient.information.hiEndDate}"></div> -->
-                                <div class="infor-text"></div>
+                                <label for="hiEnd">Ngày kết thúc</label>
+                                <div class="infor-text">
+                                    <input id="hiEnd" type="text" class="input"/>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -132,70 +150,51 @@
                         <div class="field-wrapper">
 
                             <div class="field">
-                                <label for="">Họ và tên</label>
-                                <!-- <div class="infor-text" th:text="${patient.information.relative}"></div> -->
-                                <div class="infor-text"></div>
+                                <label for="relative">Họ và tên</label>
+                                <div class="infor-text">
+                                    <input id="relative" type="text" class="input"/>
+                                </div>
                             </div>
 
                             <div class="field">
-                                <label for="">Quan hệ với người thân</label>
-                                <!-- <div class="infor-text" th:text="${patient.information.relationWithRelative}"></div> -->
-                                <div class="infor-text"></div>
+                                <label for="relation">Quan hệ với người thân</label>
+                                <div class="infor-text">
+                                    <input id="relation" type="text" class="input"/>
+                                </div>
                             </div>
 
                             <div class="field">
-                                <label for="">Số điện thoại</label>
-                                <!-- <div class="infor-text" th:text="${patient.information.relativePhoneNumber1}"></div> -->
-                                <div class="infor-text"></div>
+                                <label for="relativePhone">Số điện thoại</label>
+                                <div class="infor-text">
+                                    <input id="relativePhone" type="text" class="input"/>
+                                </div>
                             </div>
 
                             <div class="field">
-                                <label for="">Nơi ở</label>
-                                <!-- <div class="infor-text" th:text="${patient.information.relativeAddress}"></div> -->
-                                <div class="infor-text"></div>
+                                <label for="relativeAddress">Nơi ở</label>
+                                <div class="infor-text">
+                                    <input id="relativeAddress" type="text" class="input"/>
+                                </div>
                             </div>
 
                             <div class="field">
-                                <label for="">Nghề nghiệp</label>
-                                <!-- <div class="infor-text" th:text="${patient.information.relativeOccupation}"></div> -->
-                                <div class="infor-text"></div>
+                                <label for="relativeOccupation">Nghề nghiệp</label>
+                                <div class="infor-text">
+                                    <input id="relativeOccupation" type="text" class="input"/>
+                                </div>
                             </div>
 
                             <div class="field">
-                                <label for="">Số điện thoại khác của người thân</label>
-                                <!-- <div class="infor-text" th:text="${patient.information.relativePhoneNumber2}"></div> -->
-                                <div class="infor-text"></div>
+                                <label for="relativePhone2">Số điện thoại khác của người thân</label>
+                                <div class="infor-text">
+                                    <input id="relativePhone2" type="text" class="input"/>
+                                </div>
                             </div>
 
                         </div>
                     </div>
 
-                    <div class="infor-content">
-                        <div class="title">Thông tin đăng ký</div>
-                        <div class="field-wrapper">
-
-                            <div class="field">
-                                <label for="">Thời gian đăng ký</label>
-                                <div class="infor-text patient-information-registerTime"></div>
-                            </div>
-
-                            <div class="field">
-                                <label for="">Phòng khám</label>
-                                <div class="infor-text patient-information-scheduleRoom"></div>
-                            </div>
-
-                            <div class="field">
-                                <label for="">Dịch vụ</label>
-                                <div class="infor-text patient-information-registerService"></div>
-                            </div>
-
-                            <div class="field" style="margin-top: 10px; width: 100%;">
-                                <label for="">Ghi chú</label>
-                                <div class="infor-text patient-information-note"></div>
-                            </div>
-
-                        </div>
-                    </div>
+                    
                     
                     <div class="infor-content" id="other-infor">
                         <div class="title">Thông tin khác</div>
@@ -212,7 +211,7 @@
             </section>
 
         </div>
-        <script src="/js/patientInformation.js"></script>
+        <script src="/js/addPatient.js"></script>
     </body>
 
     </html>
