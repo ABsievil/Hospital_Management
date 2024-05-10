@@ -1,1 +1,219 @@
-<h1>Welcome to add Patient page</h1>
+<span style="font-family: verdana, geneva, sans-serif;">
+
+    <!DOCTYPE html>
+    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>Patient Profile</title>
+        <!-- <link rel="stylesheet" th:href="@{/css/patientInformation.css}" /> -->
+        <link rel="stylesheet" href="/css/patientInformation.css" />
+        <link rel="stylesheet" href="/css/navBarTemplate.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+        <link rel="shortcut icon" type="image/png" href="/images/Logo.png"/>
+    </head>
+
+    <body>
+        <div class="container">
+            <nav th:replace="navbar :: nav"></nav>
+
+            <section class="main">
+                <div id="scroll-to-top"></div>
+                <div class="main-top" onclick="location.href='#scroll-to-top'">
+                    <div class="logo-name" >
+                        <img src="/images/Logo.png" class="logo"> 
+                        <span class="name">BỆNH VIỆN NGỌC CHÂU</span>
+                    </div>
+                </div>
+
+                <div class="infor-card">
+                    <header>
+                        <h1>Thông Tin Cá Nhân</h1>
+                        <span onclick="location.href='/patientlist/patientinfor/treatmenthistory'">Thêm bệnh nhân</span>
+                    </header>
+                    <div class="infor-content">
+                        <div class="title">Thông tin chung</div>
+                        <div class="field-wrapper">
+                            <!-- <div id="patientId" th:text="${patient.id}" style="display: none;"></div> -->
+                            <div id="patientId" style="display: none;"></div>
+                            <div class="field">
+                                <label for="">Họ và tên</label>
+                                <!-- <div class="infor-text" th:text="${namepatient}"></div> -->
+                                <div class="infor-text"></div>
+                            </div>
+
+                            <div class="field">
+                                <label for="">Giới tính</label>
+                                <!-- <div class="infor-text" th:if="${patient.information.gender}">Nam</div>
+                                <div class="infor-text" th:unless="${patient.information.gender}">Nữ</div> -->
+                                <div class="infor-text">Nam</div>
+                            </div>
+
+                            <div class="field">
+                                <label for="">Ngày sinh</label>
+                                <!-- <div class="infor-text" 
+                                th:text="${#temporals.format(patient.information.dateOfBirth,'dd-MM-yyyy')}"></div> -->
+                                <div class="infor-text"></div>
+                            </div>
+
+                            <div class="field">
+                                <label for="">CCCD</label>
+                                <!-- <div class="infor-text" th:text="${patient.information.nationalID}"></div> -->
+                                <div class="infor-text"></div>
+                            </div>
+
+                            <div class="field">
+                                <label for="">Dân tộc</label>
+                                <!-- <div class="infor-text" th:text="${patient.information.ethnic}"></div> -->
+                                <div class="infor-text"></div>
+                            </div>
+
+                            <div class="field">
+                                <label for="">Tôn giáo</label>
+                                <!-- <div class="infor-text" th:text="${patient.information.religion}"></div> -->
+                                <div class="infor-text"></div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <div class="infor-content">
+                        <div class="title">Thông tin liên hệ</div>
+                        <div class="field-wrapper">
+
+                            <div class="field">
+                                <label for="">Địa chỉ</label>
+                                <!-- <div class="infor-text" th:text="${patient.information.address}"></div> -->
+                                <div class="infor-text"></div>
+                            </div>
+
+                            <div class="field">
+                                <label for="">Email</label>
+                                <!-- <div class="infor-text" th:text="${patient.information.email}"></div> -->
+                                <div class="infor-text"></div>
+                            </div>
+
+                            <div class="field">
+                                <label for="">Số điện thoại</label>
+                                <!-- <div class="infor-text" th:text="${patient.information.phoneNumber}"></div> -->
+                                <div class="infor-text"></div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="infor-content">
+                        <div class="title">Thông tin bảo hiểm</div>
+                        <div class="field-wrapper">
+
+                            <div class="field">
+                                <label for="">Mã bảo hiểm y tế</label>
+                                <!-- <div class="infor-text" th:text="${patient.information.hiCode}"></div> -->
+                                <div class="infor-text"></div>
+                            </div>
+
+                            <div class="field">
+                                <label for="">Ngày bắt đầu</label>
+                                <!-- <div class="infor-text" th:text="${patient.information.hiStartDate}"></div> -->
+                                <div class="infor-text"></div>
+                            </div>
+
+                            <div class="field">
+                                <label for="">Ngày kết thúc</label>
+                                <!-- <div class="infor-text" th:text="${patient.information.hiEndDate}"></div> -->
+                                <div class="infor-text"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="infor-content">
+                        <div class="title">Thông tin người thân</div>
+                        <div class="field-wrapper">
+
+                            <div class="field">
+                                <label for="">Họ và tên</label>
+                                <!-- <div class="infor-text" th:text="${patient.information.relative}"></div> -->
+                                <div class="infor-text"></div>
+                            </div>
+
+                            <div class="field">
+                                <label for="">Quan hệ với người thân</label>
+                                <!-- <div class="infor-text" th:text="${patient.information.relationWithRelative}"></div> -->
+                                <div class="infor-text"></div>
+                            </div>
+
+                            <div class="field">
+                                <label for="">Số điện thoại</label>
+                                <!-- <div class="infor-text" th:text="${patient.information.relativePhoneNumber1}"></div> -->
+                                <div class="infor-text"></div>
+                            </div>
+
+                            <div class="field">
+                                <label for="">Nơi ở</label>
+                                <!-- <div class="infor-text" th:text="${patient.information.relativeAddress}"></div> -->
+                                <div class="infor-text"></div>
+                            </div>
+
+                            <div class="field">
+                                <label for="">Nghề nghiệp</label>
+                                <!-- <div class="infor-text" th:text="${patient.information.relativeOccupation}"></div> -->
+                                <div class="infor-text"></div>
+                            </div>
+
+                            <div class="field">
+                                <label for="">Số điện thoại khác của người thân</label>
+                                <!-- <div class="infor-text" th:text="${patient.information.relativePhoneNumber2}"></div> -->
+                                <div class="infor-text"></div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="infor-content">
+                        <div class="title">Thông tin đăng ký</div>
+                        <div class="field-wrapper">
+
+                            <div class="field">
+                                <label for="">Thời gian đăng ký</label>
+                                <div class="infor-text patient-information-registerTime"></div>
+                            </div>
+
+                            <div class="field">
+                                <label for="">Phòng khám</label>
+                                <div class="infor-text patient-information-scheduleRoom"></div>
+                            </div>
+
+                            <div class="field">
+                                <label for="">Dịch vụ</label>
+                                <div class="infor-text patient-information-registerService"></div>
+                            </div>
+
+                            <div class="field" style="margin-top: 10px; width: 100%;">
+                                <label for="">Ghi chú</label>
+                                <div class="infor-text patient-information-note"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                    <div class="infor-content" id="other-infor">
+                        <div class="title">Thông tin khác</div>
+                        <div class="field-wrapper">
+                            
+                            <div id="treatmentHistory" class="field">
+                                <button>Thêm tiền sử bệnh án</button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+        <script src="/js/patientInformation.js"></script>
+    </body>
+
+    </html>
+</span>
