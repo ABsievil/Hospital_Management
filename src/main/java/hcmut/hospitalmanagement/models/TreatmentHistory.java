@@ -40,8 +40,9 @@ public class TreatmentHistory {
     private double cost; // chi phí
 
     private List<String> medicationList;
+
     private List<Integer> medicationQuantity;
-    
+
     @Enumerated(EnumType.STRING)
     private Rate rate; // đánh giá của bệnh nhân
 }
