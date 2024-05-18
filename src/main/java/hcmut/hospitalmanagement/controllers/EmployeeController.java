@@ -80,7 +80,7 @@ public class EmployeeController {
     // Tìm nhân viên y tế còn lại (Không phải là Doctor, Nurse)
     @GetMapping("/getStaff")
     public ResponseEntity<ResponseObject> getStaff() {
-        return employeeService.getEmployeeByRole(List.of(Role.STAFF));
+        return employeeService.getEmployeeByRole(List.of(Role.OTHER));
     }
 
     // Thêm employee

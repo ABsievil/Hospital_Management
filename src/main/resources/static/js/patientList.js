@@ -15,7 +15,7 @@ fetch(`${baseUrl}/api/v1/Patient/getAllPatient`)
             fetchedData.data.forEach((patient) => {
                 const tr = document.createElement('tr');
                 const trContent = `
-                    <td>${stt++}</td>
+                    <td>${patient.id}</td>
                     <td style="display: none">${patient.id}</td>
                     <td>${
                         patient.information.lastName +

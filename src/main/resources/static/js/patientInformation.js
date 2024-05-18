@@ -43,7 +43,7 @@ fetch(
                         <th>Số lượng</th>
                     </tr>
                 `;
-                console.log(th.medicationList);
+                // console.log(th.medicationList);
                 const tbody = document.createElement('tbody');
                 for (let i = 0; i < th.medicationList.length; i++) {
                     const row = document.createElement('tr');
