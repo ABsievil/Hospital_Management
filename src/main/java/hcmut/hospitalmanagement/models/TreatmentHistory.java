@@ -1,7 +1,6 @@
 package hcmut.hospitalmanagement.models;
 
 import java.time.LocalDate;
-import java.util.Map;
 
 import java.util.List;
 
@@ -11,7 +10,6 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Transient;
 import lombok.*;
 
 @Data

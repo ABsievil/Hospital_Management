@@ -2,8 +2,8 @@ const baseUrl = `http://localhost:8080`;
 
 function addEmployee() {
     const information = {
-        firstName: document.getElementById('name').value,
-        lastName: '',
+        firstName: document.getElementById('firstName').value,
+        lastName: document.getElementById('lastName').value,
         gender: document.getElementById('gender').value == "Nam" ? true : false,
         occupation: document.getElementById('occupation').value,
         dateOfBirth: document.getElementById('birth').value,

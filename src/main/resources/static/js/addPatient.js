@@ -2,8 +2,8 @@ const baseUrl = `http://localhost:8080`;
 
 function addPatient() {
     const information = {
-        firstName: document.getElementById('name').value,
-        lastName: '',
+        firstName: document.getElementById('firstName').value,
+        lastName: document.getElementById('lasttName').value,
         gender: document.getElementById('gender').value == "Nam" ? true : false,
         occupation: document.getElementById('occupation').value,
         dateOfBirth: document.getElementById('birth').value,
