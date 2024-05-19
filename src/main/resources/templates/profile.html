@@ -16,41 +16,7 @@
 
         <body>
             <div class="container">
-                <nav class="option-bar">
-                    <ul>
-                        <li><a href="/profile" class="user">
-                                <i class="fas fa-user" aria-hidden="true"></i></i>
-                                <span class="nav-item">
-                                    <div class="user-name" th:text="${employee.information.firstName}"></div>
-                                    <div class="user-role" th:text="${employee.role}"></div>
-                                </span>
-                            </a></li>
-                        <li><a href="/home">
-                                <i class="fas fa-home" aria-hidden="true"></i>
-                                <span class="nav-item">Trang Chủ</span>
-                            </a></li>
-                        <li><a href="/profile">
-                                <i class="fas fa-info" aria-hidden="true"></i>
-                                <span class="nav-item">Thông Tin Cá Nhân</span>
-                            </a></li>
-                        <li><a href="/profile/calendar">
-                                <i class="fas fa-calendar" aria-hidden="true"></i>
-                                <span class="nav-item">Lịch Cá Nhân</span>
-                            </a></li>
-                        <li><a href="/help">
-                                <i class="fas fa-question" aria-hidden="true"></i>
-                                <span class="nav-item">Trợ Giúp</span>
-                            </a></li>
-                        <li><a href="/setting">
-                                <i class="fas fa-cog" aria-hidden="true"></i></i>
-                                <span class="nav-item">Cài Đặt</span>
-                            </a></li>
-                        <li><a class="logout" th:href="@{/logout}">
-                                <i class="fas fa-sign-out-alt"></i>
-                                <span class="nav-item">Đăng xuất</span>
-                            </a></li>
-                    </ul>
-                </nav>
+                <nav th:replace="navbar :: nav"></nav>
 
                 <section class="main">
                     <div id="scroll-to-top"></div>
@@ -64,7 +30,7 @@
                     <div class="infor-card">
                         <header>
                             <h1>Thông Tin Cá Nhân</h1>
-                            <span onclick="location.href='/profile/edit'">Chỉnh Sửa</span>
+                            <!--<span onclick="location.href='/profile/edit'">Chỉnh Sửa</span>-->
                         </header>
                         <div class="infor-content">
                             <div class="title">Thông tin chung</div>

@@ -37,5 +37,6 @@ public class Patient {
     private PersonalInformation information;
 
     String room;
-    
 }
+
+

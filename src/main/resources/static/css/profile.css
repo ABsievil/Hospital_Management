@@ -4,15 +4,13 @@
     --card-color: #fff;
     --card-button-color: #34AF6D;
     --card-button-hover-color: #4AD489;
-    --table-color: #4AD489;
-    --table-field-color: #34AF6D;
 }
 
 /* personal infor starts here */
 .infor-card {
     padding: 20px;
     margin: 20px 50px 0 50px;
-    background: #fff;
+    background: var(--card-color);
     border-radius: 10px;
     box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
 }
@@ -24,11 +22,11 @@
 }
 
 .infor-card span {
-    border-bottom: 2px solid black;
+    text-decoration: underline;
 }
 
 .infor-card span:hover {
-    background: #f2f2f2;
+    color: var(--card-button-hover-color);
     cursor: pointer;
 }
 

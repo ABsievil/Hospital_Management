@@ -25,5 +25,4 @@ public class Equipment {
     
     @Enumerated(EnumType.STRING)
     private EquipmentType type;
-    
 }

@@ -45,12 +45,4 @@ public class Employee {
 
     @Enumerated(EnumType.STRING)
     private Role role;
-
-    // Custom Constructor
-    public Employee(String username, String password, Role role) {
-        this.username = username;
-        this.password = password;
-        this.role = role;
-    }
-    
 }

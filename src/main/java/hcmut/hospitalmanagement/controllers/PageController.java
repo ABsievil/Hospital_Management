@@ -201,9 +201,13 @@ public class PageController {
     @Controller
     @RequestMapping("/user/infor")
     public class userInfor{
-        @RequestMapping(value = "", method = RequestMethod.GET)
-        public String renderPage(Model model){
+        @RequestMapping(value = "/{userID}", method = RequestMethod.GET)
+        public String renderPage(Model model, @PathVariable Long userID){
             addEmployeeToModel(model);
+            Employee emp = employeeRepository.findById(userID).orElse(null);
+            String nameuser = emp.getInformation().getLastName() + " " + emp.getInformation().getFirstName();
+            model.addAttribute("nameuser", nameuser);
+            model.addAttribute("emp", emp);
             return "employeeInfor";
         }
 

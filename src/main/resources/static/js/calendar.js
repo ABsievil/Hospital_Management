@@ -14,8 +14,9 @@ startOfDay.setUTCHours(0, 0, 0, 0);
 const endOfDay = new Date(todayInGMTPlus7.getTime());
 endOfDay.setUTCHours(23, 59, 59, 999);
 
+const check = startOfDay.getDay() == 0 ? 7 : startOfDay.getDay();
 const startOfWeek = new Date(
-    startOfDay.getTime() - 1000 * 60 * 60 * 24 * startOfDay.getDay()
+    startOfDay.getTime() - 1000 * 60 * 60 * 24 * check
 );
 
 const dates = [];
@@ -96,6 +97,7 @@ fetch(
 )
     .then((response) => response.json())
     .then((fetchedData) => {
+        // console.log(fetchedData);
         const timeLineBox = document.getElementById('timeLineBox');
         if (fetchedData && fetchedData.data) {
             // console.log(fetchedData);

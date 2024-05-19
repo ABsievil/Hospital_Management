@@ -18,43 +18,8 @@
 
     <body>
         <div class="container">
-            <nav class="option-bar invi">
-                <ul>
-                    <li><a href="/profile" class="user">
-                        <i class="fas fa-user" aria-hidden="true"></i></i>
-                        <span class="nav-item">
-                        <div class="user-name" th:text="${employee.information.firstName}"></div>
-                        <div class="user-role" th:text="${employee.role}"></div>
-                        <div style="display: none" id="employeeId" th:text="${employee.id}"></div>
-                         </span>
-                    </a></li>
-                    <li><a href="/home">
-                        <i class="fas fa-home" aria-hidden="true"></i>
-                        <span class="nav-item">Trang Chủ</span>
-                    </a></li>
-                    <li><a href="/profile">
-                        <i class="fas fa-info" aria-hidden="true"></i>
-                        <span class="nav-item">Thông Tin Cá Nhân</span>
-                    </a></li>
-                    <li><a href="/profile/calendar">
-                        <i class="fas fa-calendar" aria-hidden="true"></i>
-                        <span class="nav-item">Lịch Cá Nhân</span>
-                    </a></li>
-                    <li><a href="/help">
-                        <i class="fas fa-question" aria-hidden="true"></i>
-                        <span class="nav-item">Trợ Giúp</span>
-                    </a></li>
-                    <li><a href="/setting">
-                        <i class="fas fa-cog" aria-hidden="true"></i></i>
-                        <span class="nav-item">Cài Đặt</span>
-                    </a></li>
-
-                    <li><a class="logout" th:href="@{/logout}">
-                            <i class="fas fa-sign-out-alt"></i>
-                          <span class="nav-item">Đăng xuất</span>
-                    </a></li>
-                </ul>
-            </nav>
+            <nav th:replace="navbar :: nav"></nav>
+            <p style="display: none;" id="employeeId" th:text="${employee.id}"></p>
             <section class="main">
                 <div id ="scroll-to-top"></div>
                 <div class="main-top">
@@ -126,18 +91,23 @@
                             <div class="modal-content">
                                 <a href="#" class="close">&times;</a>
                                 <form id="infoForm">
+                                    <p class="title">Thông tin lịch trình</p>
                                     <label for="date">Ngày(*): </label>
-                                    <input type="text" id="date" name="date" style="border: 1px solid #888;" required><br><br>
+                                    <input type="text" placeholder="yyyy-mm-dd" id="date" name="date" style="border: 1px solid #888;" required><br><br>
                                     <label for="start">Giờ bắt đầu(*): </label>
-                                    <input type="start" id="start" name="start" style="border: 1px solid #888;" required><br><br>
+                                    <input type="start" placeholder="hh:mm:ss" id="start" name="start" style="border: 1px solid #888;" required><br><br>
                                     <label for="end">Giờ kết thúc(*): </label>
-                                    <input type="end" id="end" name="end" style="border: 1px solid #888;" required><br><br>
-                                    <label for="name">Tên bệnh nhân (nếu có): </label>
-                                    <input type="name" id="name" name="name" style="border: 1px solid #888;"><br><br>
+                                    <input type="end" placeholder="hh:mm:ss" id="end" name="end" style="border: 1px solid #888;" required><br><br>
+                                    <label for="name">Id bệnh nhân: </label>
+                                    <input type="name" placeholder="Ví dụ : 1" id="name" name="name" style="border: 1px solid #888;" required><br><br>
+                                    <label for="room">Phòng khám(*): </label>
+                                    <input type="room" placeholder="Ví dụ : 202" id="room" name="room" style="border: 1px solid #888;" required><br><br>
+                                    <label for="title">Tiêu đề(*): </label>
+                                    <input type="title" placeholder="Khám bệnh" id="title" name="title" style="border: 1px solid #888;" required><br><br>
                                     <label for="content">Nội dung(*): </label>
-                                    <input type="content" id="content" name="content" style="border: 1px solid #888;" required><br><br>
-                                    <input type="submit" value="Submit" style="background-color: rgb(209, 201, 201); height: 25px;">
-                                    <p class="error" id="postStatus">Mời bạn nhập lại. </p>
+                                    <input type="content" placeholder="Đến tái khám" id="content" name="content" style="border: 1px solid #888;" required><br><br>
+                                    <input type="submit" value="Xác nhận" class="submit">
+                                    <p class="error" id="postStatus"><br>Mời bạn nhập lại. </p>
                                     <p class="error" id="postMessage">Do thiếu nội dung (*).</p>
                                 </form>
                             </div>

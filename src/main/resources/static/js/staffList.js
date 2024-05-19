@@ -2,7 +2,7 @@ const baseUrl = `http://localhost:8080`;
 
 
 fetch(
-    `${baseUrl}/api/v1/Employee/getDoctor`
+    `${baseUrl}/api/v1/Employee/getStaff`
 )
     .then((response) => response.json())
     .then((fetchedData) => {

@@ -1,1 +1,226 @@
-<h1>Welcome to add Patient page</h1>
+<span style="font-family: verdana, geneva, sans-serif;">
+
+    <!DOCTYPE html>
+    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+
+    <head>
+        <meta charset="UTF-8" />
+        <title>Patient Profile</title>
+        <!-- <link rel="stylesheet" th:href="@{/css/patientInformation.css}" /> -->
+        <link rel="stylesheet" href="/css/patientInformation.css" />
+        <link rel="stylesheet" href="/css/navBarTemplate.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+        <link rel="shortcut icon" type="image/png" href="/images/Logo.png"/>
+    </head>
+
+    <body>
+        <div class="container">
+            <nav th:replace="navbar :: nav"></nav>
+
+            <section class="main">
+                <div id="scroll-to-top"></div>
+                <div class="main-top" onclick="location.href='#scroll-to-top'">
+                    <div class="logo-name" >
+                        <img src="/images/Logo.png" class="logo"> 
+                        <span class="name">BỆNH VIỆN NGỌC CHÂU</span>
+                    </div>
+                </div>
+
+                <div class="infor-card">
+                    <header>
+                        <h1>Thông Tin Cá Nhân</h1>
+                        <span onclick="addPatient()">Thêm bệnh nhân</span>
+                    </header>
+                    <div class="infor-content">
+                        <div class="title">Thông tin chung</div>
+                        <div class="field-wrapper">
+                            <!-- <div id="patientId" th:text="${patient.id}" style="display: none;"></div> -->
+                            <div id="patientId" style="display: none;"></div>
+                            <div class="field">
+                                <label for="firstName">Tên</label>
+                                <!-- <div class="infor-text" th:text="${namepatient}"></div> -->
+                                <div class="infor-text">
+                                    <input id="firstName" type="text" class="input"/>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label for="lastName">Họ và tên đệm</label>
+                                <!-- <div class="infor-text" th:text="${namepatient}"></div> -->
+                                <div class="infor-text">
+                                    <input id="lastName" type="text" class="input"/>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label for="gender">Giới tính</label>
+                                <div class="infor-text">
+                                    <input id="gender" type="text" class="input"/>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label for="birth">Ngày sinh</label>
+                                <div class="infor-text">
+                                    <input id="birth" type="text" class="input"/>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label for="occupation">Nghề nghiệp</label>
+                                <div class="infor-text">
+                                    <input id="occupation" type="text" class="input"/>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label for="nationalID">CCCD</label>
+                                <div class="infor-text">
+                                    <input id="nationalID" type="text" class="input"/>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label for="ethnic">Dân tộc</label>
+                                <div class="infor-text">
+                                    <input id="ethnic" type="text" class="input"/>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label for="religion">Tôn giáo</label>
+                                <div class="infor-text">
+                                    <input id="religion" type="text" class="input"/>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <div class="infor-content">
+                        <div class="title">Thông tin liên hệ</div>
+                        <div class="field-wrapper">
+
+                            <div class="field">
+                                <label for="address">Địa chỉ</label>
+                                <div class="infor-text">
+                                    <input id="address" type="text" class="input"/>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label for="email">Email</label>
+                                <div class="infor-text">
+                                    <input id="email" type="text" class="input"/>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label for="phone">Số điện thoại</label>
+                                <div class="infor-text">
+                                    <input id="phone" type="text" class="input"/>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="infor-content">
+                        <div class="title">Thông tin bảo hiểm</div>
+                        <div class="field-wrapper">
+
+                            <div class="field">
+                                <label for="hiCode">Mã bảo hiểm y tế</label>
+                                <div class="infor-text">
+                                    <input id="hiCode" type="text" class="input"/>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label for="hiStart">Ngày bắt đầu</label>
+                                <div class="infor-text">
+                                    <input id="hiStart" type="text" class="input"/>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label for="hiEnd">Ngày kết thúc</label>
+                                <div class="infor-text">
+                                    <input id="hiEnd" type="text" class="input"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="infor-content">
+                        <div class="title">Thông tin người thân</div>
+                        <div class="field-wrapper">
+
+                            <div class="field">
+                                <label for="relative">Họ và tên</label>
+                                <div class="infor-text">
+                                    <input id="relative" type="text" class="input"/>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label for="relation">Quan hệ với người thân</label>
+                                <div class="infor-text">
+                                    <input id="relation" type="text" class="input"/>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label for="relativePhone">Số điện thoại</label>
+                                <div class="infor-text">
+                                    <input id="relativePhone" type="text" class="input"/>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label for="relativeAddress">Nơi ở</label>
+                                <div class="infor-text">
+                                    <input id="relativeAddress" type="text" class="input"/>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label for="relativeOccupation">Nghề nghiệp</label>
+                                <div class="infor-text">
+                                    <input id="relativeOccupation" type="text" class="input"/>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label for="relativePhone2">Số điện thoại khác của người thân</label>
+                                <div class="infor-text">
+                                    <input id="relativePhone2" type="text" class="input"/>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    
+                    
+                    <div class="infor-content" id="other-infor">
+                        <div class="title">Thông tin khác</div>
+                        <div class="field-wrapper">
+                            
+                            <div id="treatmentHistory" class="field">
+                                <button>Thêm tiền sử bệnh án</button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+        <script src="/js/addPatient.js"></script>
+    </body>
+
+    </html>
+</span>
