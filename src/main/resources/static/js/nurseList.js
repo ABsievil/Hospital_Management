@@ -12,8 +12,8 @@ fetch(
                 const card = document.createElement('div');
                 card.classList.add('card');
                 const cardContent = `
-                <img src="/images/avatar.jpg" alt="avt" class="avatar" onclick="location.href='/user/infor'">
-                <span class="staff-infor" onclick="location.href='/user/infor'">
+                <img src="/images/avatar.jpg" alt="avt" class="avatar" onclick="location.href='/user/infor/${doctor.id}'">
+                <span class="staff-infor" onclick="location.href='/user/infor/${doctor.id}'">
                     <div class="staff-name">${doctor.information.lastName + " " + doctor.information.firstName}</div>
                     <div class="position">${doctor.position}</div>
                     <div class="education-infor">
