@@ -1,4 +1,4 @@
-const baseUrl = `http://localhost:8080`;
+const baseUrl = `https://ngoc-chau-hospital.azurewebsites.net`;
 
 // Send GET request to backend API
 const employeeID = document.getElementById('employeeID').textContent;
