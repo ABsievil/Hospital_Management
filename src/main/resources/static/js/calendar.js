@@ -1,4 +1,4 @@
-const baseUrl = `http://localhost:8080`;
+const baseUrl = `https://ngoc-chau-hospital.azurewebsites.net`;
 
 const employeeId = document.getElementById('employeeId').textContent;
 

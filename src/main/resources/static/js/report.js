@@ -1,4 +1,4 @@
-const baseUrl = `http://localhost:8080`;
+const baseUrl = `https://ngoc-chau-hospital.azurewebsites.net`;
 
 const today = new Date();
 const timeZoneOffset = 7 * 60 * 60 * 1000; // 7 hours offset for GMT+7

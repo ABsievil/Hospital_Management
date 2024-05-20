@@ -1,4 +1,4 @@
-const baseUrl = `http://localhost:8080`;
+const baseUrl = `https://ngoc-chau-hospital.azurewebsites.net`;
 
 function addEmployee() {
     const information = {

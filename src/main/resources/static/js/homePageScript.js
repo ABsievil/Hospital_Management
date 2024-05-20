@@ -1,5 +1,5 @@
 // Lấy lịch từ Database theo ngày
-const baseUrl = 'http://localhost:8080/api/v1/EmployeeSchedule';
+const baseUrl = 'https://ngoc-chau-hospital.azurewebsites.net';
 const today = new Date();
 const timeZoneOffset = 7 * 60 * 60 * 1000; // 7 hours offset for GMT+7
 const todayInGMTPlus7 = new Date(today.getTime() + timeZoneOffset);

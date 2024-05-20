@@ -1,4 +1,4 @@
-const baseUrl = `http://localhost:8080`;
+const baseUrl = `https://ngoc-chau-hospital.azurewebsites.net`;
 
 // function md5(string) {
 //     return CryptoJS.MD5(string).toString();
