@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import hcmut.hospitalmanagement.models.Employee;
 import hcmut.hospitalmanagement.models.EmployeeSchedule;
+import hcmut.hospitalmanagement.models.PwdDTO;
 import hcmut.hospitalmanagement.models.ResponseObject;
 import hcmut.hospitalmanagement.models.Role;
+import hcmut.hospitalmanagement.models.UsernameDTO;
 import hcmut.hospitalmanagement.services.EmployeeScheduleService;
 import hcmut.hospitalmanagement.services.EmployeeService;
 
@@ -130,5 +132,15 @@ public class EmployeeController {
     @DeleteMapping("/deleteSchedule/{employeeScheduleId}")
     public ResponseEntity<ResponseObject> deleteScheduleByScheduleId(@PathVariable Long employeeScheduleId) {
         return employeeScheduleService.deleteEmployeeScheduleById(employeeScheduleId);
+    }
+    
+    @PostMapping("/changeUsername/{employeeID}")
+    public ResponseEntity<ResponseObject> changeUsername(@PathVariable Long employeeID, @RequestBody UsernameDTO usernameDTO ) {
+        return employeeService.changeUsername(employeeID, usernameDTO);
+    }
+
+    @PostMapping("/changePwd/{employeeID}")
+    public ResponseEntity<ResponseObject> changePwd(@PathVariable Long employeeID, @RequestBody PwdDTO pwdDTO ) {
+        return employeeService.changePwd(employeeID, pwdDTO);
     }
 }
