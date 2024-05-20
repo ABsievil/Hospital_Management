@@ -9,8 +9,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import hcmut.hospitalmanagement.models.Employee;
+import hcmut.hospitalmanagement.models.PwdDTO;
 import hcmut.hospitalmanagement.models.ResponseObject;
 import hcmut.hospitalmanagement.models.Role;
+import hcmut.hospitalmanagement.models.UsernameDTO;
 import hcmut.hospitalmanagement.repositories.EmployeeRepository;
 
 @Service
@@ -139,5 +141,52 @@ public class EmployeeService {
         foundEmployee.setActive(false);
         return ResponseEntity.status(HttpStatus.OK)
         .body(new ResponseObject("OK", "Deactivate employee successfully", employeeRepository.save(foundEmployee)));
+    } 
+
+    public ResponseEntity<ResponseObject> changeUsername(Long id, UsernameDTO usernameDTO) {
+        Employee foundEmployee = employeeRepository.findById(id).orElse(null);
+        // Kiểm tra xem id có tồn tại không
+        if (foundEmployee == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+            .body(new ResponseObject("Failed", "Cannot find any employee with id: " + id, null));
+        }
+        
+        // nếu username bị sai
+        if(!usernameDTO.getOldUsername().equals(foundEmployee.getUsername())) {
+            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE)
+            .body(new ResponseObject("Failed", "old Username is wrong!", null));
+        }
+
+        // nếu pwd bị sai
+        if(!passwordEncoder.matches(usernameDTO.getPwd(), foundEmployee.getPassword())) {
+            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE)
+            .body(new ResponseObject("Failed", "Password is wrong!", null));
+        }
+
+        foundEmployee.setUsername(usernameDTO.getNewUsername());
+        employeeRepository.save(foundEmployee);
+        return ResponseEntity.status(HttpStatus.OK)
+        .body(new ResponseObject("OK", "Update username of employee successfully", null));
+    } 
+
+    public ResponseEntity<ResponseObject> changePwd(Long id, PwdDTO pwdDTO) {
+        Employee foundEmployee = employeeRepository.findById(id).orElse(null);
+        // Kiểm tra xem id có tồn tại không
+        if (foundEmployee == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+            .body(new ResponseObject("Failed", "Cannot find any employee with id: " + id, null));
+        }
+
+        // nếu old pwd bị sai
+        if(!passwordEncoder.matches(pwdDTO.getOldPassword(), foundEmployee.getPassword())) {
+            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE)
+            .body(new ResponseObject("Failed", "Old Password is wrong!", null));
+        }
+
+        String encryptNewPwd = passwordEncoder.encode(pwdDTO.getNewPassword());
+        foundEmployee.setPassword(encryptNewPwd);
+        employeeRepository.save(foundEmployee);
+        return ResponseEntity.status(HttpStatus.OK)
+        .body(new ResponseObject("OK", "Update password of employee successfully", null));
     } 
 }
