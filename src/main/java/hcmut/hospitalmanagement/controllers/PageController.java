@@ -269,7 +269,9 @@ public class PageController {
 
     @RequestMapping("/setting")
     public String setting(Model model){
-        addEmployeeToModel(model);
+        Employee emp = addEmployeeToModel(model);
+            String nameuser = emp.getInformation().getLastName() + " " + emp.getInformation().getFirstName();
+            model.addAttribute("nameuser", nameuser);
         return "setting";
     }
 }

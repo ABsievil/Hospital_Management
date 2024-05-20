@@ -1,12 +1,132 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"></html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/png" href="/images/Logo.png"/>
     <title>Setting</title>
+    <link rel="stylesheet" href="/css/employeeList.css" />
+    <link rel="stylesheet" href="/css/navBarTemplate.css" />
+    <link rel="stylesheet" href="/css/inforCard.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 </head>
+
 <body>
-    <h1>Welcome to setting</h1>
+    <div class="container">
+        <nav th:replace="navbar :: nav"></nav>
+
+        <section class="main">
+            <div class="table-wrapper">
+                <h1>thông tin cơ bản</h1>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Mã nhân sự</th>
+                            <th>Họ và tên</th>
+                            <th>CCCD</th>
+                            <th>Số điện thoại</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody id = "employeeBody">
+                        <tr>
+                            <th th:text="${employee.personalCode}"></th>
+                            <th th:text="${nameuser}"></th>
+                            <th th:text="${employee.information.nationalID}"></th>
+                            <th th:text="${employee.information.phoneNumber}"></th>
+                            <th th:text="${employee.information.email}"></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="infor-card">
+                <header>
+                    <h1>Thay đổi Username</h1>
+                    <!-- <span onclick="location.href='/profile/edit'">Chỉnh Sửa</span> -->
+                </header>
+                <form class="infor-content" id = "changeUsername">
+                    <!-- <div class="title">Thông tin chung</div> -->
+                    <div class="field-wrapper">
+                        
+                        <div class="field">
+                            <label for="">Username Cũ</label>
+                            <!-- <div class="infor-text"></div> -->
+                            <br>
+                            <input type="text" class ="infor-text oldUsername" id = "oldUsername" name ="oldUsername" required>
+
+                            
+                        </div>
+                        <div class="field">
+                            <label for="">Username mới</label>
+                            <!-- <div class="infor-text"></div> -->
+                            <br>
+                            <input type="text" class ="infor-text newUsername" id = "newUsername" name = "newUsername" required>
+
+                            
+                        </div>
+
+                        <div class="field">
+                            <label for="">Mật khẩu</label>
+                            <!-- <div class="infor-text"></div> -->
+                            <br>
+                            <input type="text" class ="infor-text pwd" id = "pwd" name = "pwd" required>
+
+                            
+                        </div>
+                    </div>
+                    <input type="submit" value="Xác nhận!" class="submit click">
+                    <p class="error" id="postStatus1" style="display: none;"><br>Mời bạn nhập lại. </p>
+                    <p class="error" id="postMessage1" style="display: none;">Do thiếu nội dung (*).</p>
+                    <p class="error" id="postSecond1" style="display: none;">Auto Back!</p>
+                </form>
+
+                <header>
+                    <h1>Thay đổi Mật khẩu</h1>
+                    <!-- <span onclick="location.href='/profile/edit'">Chỉnh Sửa</span> -->
+                </header>
+                <form class="infor-content" id = "changePwd">
+                    <!-- <div class="title">Thông tin chung</div> -->
+                    <div class="field-wrapper">
+                        
+                        <div class="field">
+                            <label for="">Mật khẩu cũ</label>
+                            <!-- <div class="infor-text"></div> -->
+                            <br>
+                            <input type="text" class ="infor-text oldPassword" id = "oldPassword" name ="oldPassword" required>
+
+                            
+                        </div>
+                        <div class="field">
+                            <label for="">Mật khẩu mới</label>
+                            <!-- <div class="infor-text"></div> -->
+                            <br>
+                            <input type="text" class ="infor-text newPassword" id = "newPassword" name = "newPassword" required>
+
+                            
+                        </div>
+
+                        <div class="field">
+                            <label for=""></label>
+                            <!-- <div class="infor-text"></div> -->
+                            <br>
+                            <input  style="display: none;" type="text" class ="infor-text newPassword" id = "newPassword2" name = "newPassword2">
+
+                            
+                        </div>
+                    </div>
+                    <input type="submit" value="Xác nhận!" class="submit click">
+                    <p class="error" id="postStatus2" style="display: none;"><br>Mời bạn nhập lại. </p>
+                    <p class="error" id="postMessage2" style="display: none;">Do thiếu nội dung (*).</p>
+                    <p class="error" id="postSecond2" style="display: none;">Auto Back!</p>
+                </form>
+            </div>
+            
+        </section>
+    </div>
+    <div id="employeeID" th:text="${employee.id}" style="display: none;"></div>
+    <script src="/js/employeeInfor.js"></script>
 </body>
+
 </html>

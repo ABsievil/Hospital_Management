@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700");
+
+:root {
+    --card-color: #fff;
+    --card-button-color: #34AF6D;
+    --card-button-hover-color: #4AD489;
+    --table-color: #4AD489;
+    --table-field-color: #34AF6D;
+}
+.data-manipulation {
+    display: flex;
+    justify-content: space-evenly;
+}
+.add {
+    justify-content: space-between;
+    background-color: #ffffff;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    margin-top: 25px;   
+    padding: 0px 15px 0px 20px;
+    border-radius: 30px;
+    border: 1.5px solid #78d98f;
+}
+.add:hover{
+    cursor: pointer;
+    background: #78d98f;
+    transition: all ease 0.3s;
+}
+.search-box{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+    padding: 0px 5px 0px 20px;
+    border-radius: 30px;
+    border-color: #78d98f;
+    border-width: 1.5px;    
+    border-style: solid;
+}
+
+.search-box i{
+    font-size: 1.3rem;
+    color: #3b3b3b;
+    margin: 0px 10px;
+}
+.search-box .search-input{
+    height: 40px;
+    border: none;
+    width: 100%;
+    padding: 0px 10px;
+    outline: none;
+}
+.search-box .search-btn{
+    width:220px;
+    height: 40px;
+    border-radius: 30px;
+    background-color: #4eb060;
+    border: none;
+    color: #ffffff;
+    outline: none;
+    cursor: pointer;
+    transition: all ease 0.3s;
+}
+.search-box .search-btn:hover{
+    background-color: #5ccf71;
+    transition: all ease 0.3s;
+}
+
+/* table */
+.main {
+    position: relative;
+    padding: 15px;
+    padding-top: 0;
+    width: 100%;
+    grid-area: s;
+    margin: 20px 10px 0 10px;
+    text-transform: capitalize;
+}
+.table-wrapper {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+
+.table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 15px;
+    min-width: 100%;
+    overflow: hidden;
+    border-radius: 5px 5px 0 0;
+}
+
+table thead tr {
+    color: #fff;
+    background: var(--table-field-color);
+    text-align: left;
+    font-weight: bold;
+}
+
+.table th,
+.table td {
+    padding: 12px 15px;
+    text-align: center;
+}
+
+.table tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+.table tbody tr:nth-of-type(odd) {
+    background: #f3f3f3;
+}
+
+.table tbody tr:hover {
+    color: var(--table-color);
+}
+
+.table tbody tr:last-of-type {
+    border-bottom: 2px solid var(--table-color);
+}
+
+.table button {
+    padding: 6px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid var(--table-color);
+}
+
+.table button:hover {
+    background: var(--table-color);
+    color: #fff;
+    transition: 0.5rem;
+}
+
+.click {
+    text-decoration: underline;
+    display: flex;
+    align-items: center;
+}
+
+.click:hover {
+    color: var(--card-button-hover-color);
+    cursor: pointer;
+}
+
+.infor-text {
+    padding-left: 10px;
+}
+
+.error {
+    display: inline;
+    font-size: 13px;
+    color: red;
+}
