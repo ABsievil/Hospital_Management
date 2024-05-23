@@ -8,15 +8,22 @@ branch dev : you and your collaborators can work on it
 
 instruction git and github: you can refer to git.txt
 
+# Website: 
+https://ngoc-chau-hospital.azurewebsites.net
+
 # Access account
 username: admin
+
 password: 1235
 
 username: doctor1
+
 password: 1234
 
 username: nurse1
+
 password: 1234
 
 username: staff1
+
 password: 1234
