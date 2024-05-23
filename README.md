@@ -8,10 +8,15 @@ branch dev : you and your collaborators can work on it
 
 instruction git and github: you can refer to git.txt
 
-# instruction file
+# Access account
+username: admin
+password: 1235
 
-#commit 1
-#commit 2
-#commit 3
-#commit 4
-#commit 5 
+username: doctor1
+password: 1234
+
+username: nurse1
+password: 1234
+
+username: staff1
+password: 1234
