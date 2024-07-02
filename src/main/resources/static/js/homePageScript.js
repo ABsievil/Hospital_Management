@@ -24,6 +24,15 @@ fetch(
         const scheduleBody = document.getElementById('scheduleBody');
         let stt = 1;
         if (fetchedData && fetchedData.data) {
+
+            if(fetchedData.data.length == 0) {
+                for(var employeeId = 10; employeeId < 15; employeeId++){
+                    createNewEmpSchedByEmployeeId(employeeId);
+                }
+    
+                window.location.href = '/home';
+            }
+
             fetchedData.data.forEach((schedule) => {
                 const row = document.createElement('tr');
                 // STT
@@ -58,16 +67,7 @@ fetch(
                 // Thêm hàng vào bảng
                 scheduleBody.appendChild(row);
             });
-        }
-        else if (fetchedData.data == null) {
-            // create new 5 schedule
-            for(var employeeId = 10; employeeId < 15; employeeId++){
-                createNewEmpSchedByEmployeeId(employeeId);
-            }
-
-            window.location.href = '/home';
-        }
-        else {
+        } else {
             console.error('Error: fetchedData is null or undefined');
         }
     })
